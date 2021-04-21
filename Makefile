@@ -14,7 +14,7 @@ help:
 
 github:
 	@make html
-	@cp -a _build/html/. ./gh-zbirka-zadataka
+	@cp -a _build/html/. ./docs
 
 .PHONY: help Makefile
 
