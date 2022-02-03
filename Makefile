@@ -14,7 +14,12 @@ help:
 
 github:
 	@make html
+	@mkdir -p ./docs
+	@touch ./docs/.nojekyll
 	@cp -a _build/html/. ./docs
+
+gh-clean:
+	rm -r ./docs
 
 .PHONY: help Makefile
 
