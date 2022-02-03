@@ -16,3 +16,4 @@ Primer rešenja
 --------------
 
 .. literalinclude:: resenje.c
+   :language: c

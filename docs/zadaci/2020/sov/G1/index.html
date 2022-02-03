@@ -97,185 +97,185 @@ formiranje jednostruko spregnute liste.</p>
 </div>
 <section id="primer-resenja">
 <h2>Primer rešenja<a class="headerlink" href="#primer-resenja" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
-<span class="c1">#include &lt;stdlib.h&gt;</span>
-<span class="c1">#include &lt;string.h&gt;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
-<span class="c1">#define MAX_NAZIV 20 + 1</span>
+<span class="cp">#define MAX_NAZIV 20 + 1</span>
 
-<span class="n">typedef</span> <span class="n">struct</span> <span class="n">igra_st</span>
-<span class="p">{</span>
-    <span class="n">char</span> <span class="n">naziv</span><span class="p">[</span><span class="n">MAX_NAZIV</span><span class="p">];</span>
-    <span class="n">unsigned</span> <span class="n">rang</span><span class="p">;</span>
-    <span class="n">char</span> <span class="n">windows</span><span class="p">;</span>
-    <span class="n">char</span> <span class="n">macos</span><span class="p">;</span>
-    <span class="n">char</span> <span class="n">lin</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">igra_st</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">naziv</span><span class="p">[</span><span class="n">MAX_NAZIV</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">rang</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">windows</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">macos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">lin</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">struct</span> <span class="n">igra_st</span> <span class="o">*</span><span class="nb">next</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">IGRA</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">igra_st</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">IGRA</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">init_list</span><span class="p">(</span><span class="n">IGRA</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">init_list</span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">**</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">add_to_list_sorted</span><span class="p">(</span><span class="n">IGRA</span> <span class="o">*</span><span class="n">new</span><span class="p">,</span> <span class="n">IGRA</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">head</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span><span class="p">;</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">rang</span> <span class="o">&gt;</span> <span class="n">new</span><span class="o">-&gt;</span><span class="n">rang</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">new</span><span class="o">-&gt;</span><span class="nb">next</span> <span class="o">=</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
-        <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span><span class="p">;</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">IGRA</span> <span class="o">*</span><span class="n">pom</span> <span class="o">=</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">add_to_list_sorted</span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">new</span><span class="p">,</span><span class="w"> </span><span class="n">IGRA</span><span class="w"> </span><span class="o">**</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">rang</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">rang</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">pom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">pom</span><span class="o">-&gt;</span><span class="nb">next</span> <span class="o">!=</span> <span class="n">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">pom</span><span class="o">-&gt;</span><span class="nb">next</span><span class="o">-&gt;</span><span class="n">rang</span> <span class="o">&lt;</span> <span class="n">new</span><span class="o">-&gt;</span><span class="n">rang</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">pom</span> <span class="o">=</span> <span class="n">pom</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">new</span><span class="o">-&gt;</span><span class="nb">next</span> <span class="o">=</span> <span class="n">pom</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>
-    <span class="n">pom</span><span class="o">-&gt;</span><span class="nb">next</span> <span class="o">=</span> <span class="n">new</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">pom</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pom</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">rang</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">rang</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">pom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pom</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pom</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pom</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">IGRA</span> <span class="o">*</span><span class="n">create_new_item</span><span class="p">(</span>
-    <span class="n">char</span> <span class="n">naziv</span><span class="p">[],</span>
-    <span class="n">unsigned</span> <span class="n">rang</span><span class="p">,</span>
-    <span class="n">char</span> <span class="n">windows</span><span class="p">,</span>
-    <span class="n">char</span> <span class="n">macos</span><span class="p">,</span>
-    <span class="n">char</span> <span class="n">lin</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">IGRA</span> <span class="o">*</span><span class="n">new</span> <span class="o">=</span> <span class="p">(</span><span class="n">IGRA</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">IGRA</span><span class="p">));</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">new</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Not enough RAM!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="mi">21</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="nf">create_new_item</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">naziv</span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">rang</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">windows</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">macos</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">lin</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">IGRA</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">new</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Not enough RAM!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">21</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">new</span><span class="o">-&gt;</span><span class="n">naziv</span><span class="p">,</span> <span class="n">naziv</span><span class="p">);</span>
-    <span class="n">new</span><span class="o">-&gt;</span><span class="n">rang</span> <span class="o">=</span> <span class="n">rang</span><span class="p">;</span>
-    <span class="n">new</span><span class="o">-&gt;</span><span class="n">windows</span> <span class="o">=</span> <span class="n">windows</span><span class="p">;</span>
-    <span class="n">new</span><span class="o">-&gt;</span><span class="n">macos</span> <span class="o">=</span> <span class="n">macos</span><span class="p">;</span>
-    <span class="n">new</span><span class="o">-&gt;</span><span class="n">lin</span> <span class="o">=</span> <span class="n">lin</span><span class="p">;</span>
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">new</span><span class="o">-&gt;</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="n">naziv</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">rang</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rang</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">windows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">windows</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">macos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">macos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">lin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lin</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">new</span><span class="o">-&gt;</span><span class="nb">next</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">new</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="n">new</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">new</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">read_list_from</span><span class="p">(</span><span class="n">FILE</span> <span class="o">*</span><span class="ow">in</span><span class="p">,</span> <span class="n">IGRA</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">char</span> <span class="n">naziv</span><span class="p">[</span><span class="n">MAX_NAZIV</span><span class="p">];</span>
-    <span class="n">unsigned</span> <span class="n">rang</span><span class="p">;</span>
-    <span class="n">char</span> <span class="n">windows</span><span class="p">;</span>
-    <span class="n">char</span> <span class="n">macos</span><span class="p">;</span>
-    <span class="n">char</span> <span class="n">lin</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">read_list_from</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">IGRA</span><span class="w"> </span><span class="o">**</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">naziv</span><span class="p">[</span><span class="n">MAX_NAZIV</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">rang</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">windows</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">macos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">lin</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span>
-        <span class="n">fscanf</span><span class="p">(</span>
-            <span class="ow">in</span><span class="p">,</span>
-            <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%u</span><span class="s2"> </span><span class="si">%c</span><span class="s2"> </span><span class="si">%c</span><span class="s2"> </span><span class="si">%c</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">naziv</span><span class="p">,</span>
-            <span class="o">&amp;</span><span class="n">rang</span><span class="p">,</span>
-            <span class="o">&amp;</span><span class="n">windows</span><span class="p">,</span>
-            <span class="o">&amp;</span><span class="n">macos</span><span class="p">,</span>
-            <span class="o">&amp;</span><span class="n">lin</span><span class="p">)</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">IGRA</span> <span class="o">*</span><span class="n">new</span> <span class="o">=</span> <span class="n">create_new_item</span><span class="p">(</span><span class="n">naziv</span><span class="p">,</span> <span class="n">rang</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">macos</span><span class="p">,</span> <span class="n">lin</span><span class="p">);</span>
-        <span class="n">add_to_list_sorted</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">head</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">fscanf</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">in</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;%s %u %c %c %c&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">naziv</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="n">rang</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="n">windows</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="n">macos</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="n">lin</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_new_item</span><span class="p">(</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="n">rang</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="p">,</span><span class="w"> </span><span class="n">macos</span><span class="p">,</span><span class="w"> </span><span class="n">lin</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_to_list_sorted</span><span class="p">(</span><span class="n">new</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">print_item</span><span class="p">(</span><span class="n">IGRA</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span>
-        <span class="s2">&quot;</span><span class="si">%u</span><span class="s2"> </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="n">x</span><span class="o">-&gt;</span><span class="n">rang</span><span class="p">,</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">naziv</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_item</span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;%u %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rang</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">naziv</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">print_list</span><span class="p">(</span><span class="n">IGRA</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">!=</span> <span class="n">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">print_item</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
-        <span class="n">print_list</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_list</span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">print_item</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">print_list</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">destroy_list</span><span class="p">(</span><span class="n">IGRA</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">head</span> <span class="o">!=</span> <span class="n">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">destroy_list</span><span class="p">(</span><span class="o">&amp;</span><span class="p">((</span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">));</span>
-        <span class="n">free</span><span class="p">(</span><span class="o">*</span><span class="n">head</span><span class="p">);</span>
-        <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">destroy_list</span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">**</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">destroy_list</span><span class="p">(</span><span class="o">&amp;</span><span class="p">((</span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="o">*</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">FILE</span> <span class="o">*</span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">error_code</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Can&#39;t open &#39;</span><span class="si">%s</span><span class="s2">&#39;!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">error_code</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">fp</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">error_code</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Can&#39;t open &#39;%s&#39;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">error_code</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">print_najbolja_IGRA</span><span class="p">(</span><span class="n">IGRA</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_najbolja_IGRA</span><span class="p">(</span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Najbolje rangirana igra je </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">naziv</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;i podrzana je na sledecim operativnim sistemima:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">windows</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Windows</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">macos</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;MacOS</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">lin</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Linux</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Najbolje rangirana igra je %s &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">naziv</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i podrzana je na sledecim operativnim sistemima:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">windows</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Windows</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">macos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;MacOS</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">lin</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Linux</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">arg_num</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">args</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">arg_num</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;USAGE: </span><span class="si">%s</span><span class="s2"> IN_FILENAME</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arg_num</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">args</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arg_num</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;USAGE: %s IN_FILENAME</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">char</span> <span class="o">*</span><span class="n">in_filename</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">in_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
 
-    <span class="n">FILE</span> <span class="o">*</span><span class="ow">in</span> <span class="o">=</span> <span class="n">safe_fopen</span><span class="p">(</span><span class="n">in_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">in_filename</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">IGRA</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
-    <span class="n">init_list</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">);</span>
+<span class="w">    </span><span class="n">IGRA</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">init_list</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">read_list_from</span><span class="p">(</span><span class="ow">in</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">);</span>
-    <span class="n">print_list</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+<span class="w">    </span><span class="n">read_list_from</span><span class="p">(</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">print_list</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">print_najbolja_IGRA</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print_najbolja_IGRA</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">destroy_list</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">);</span>
+<span class="w">    </span><span class="n">destroy_list</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">fclose</span><span class="p">(</span><span class="ow">in</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">in</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
