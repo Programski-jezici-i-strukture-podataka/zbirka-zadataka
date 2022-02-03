@@ -13,7 +13,7 @@ body {
 
 
 div.document {
-    width: 1100px;
+    width: 1500px;
     margin: 30px auto 0 auto;
 }
 
@@ -40,6 +40,8 @@ div.body {
     background-color: #fff;
     color: #3E4349;
     padding: 0 30px 0 30px;
+    min-width: 450px;
+    max-width: 1200px;
 }
 
 div.body > .section {
