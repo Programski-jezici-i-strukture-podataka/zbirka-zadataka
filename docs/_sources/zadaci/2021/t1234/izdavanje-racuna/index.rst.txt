@@ -1,11 +1,10 @@
 .. index::
-   Datoteke ; Tekstualne
    Statičke strukture ; Niz
    Smer ; RA/PSI
-   Školska godina ; 20/21.
+   Školska godina ; 21/22.
 
-Zadatak "Temperatura u zgradi"
-==============================
+Zadatak "Izdavanje računa"
+==========================
 
 .. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
 
