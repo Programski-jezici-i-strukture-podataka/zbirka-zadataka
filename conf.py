@@ -41,6 +41,8 @@ master_doc = 'index'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'venv-zbirka', 'README.rst']
 
+# Show author name and email provided in `codeauthor` and `sectionauthor` directives
+show_authors = True
 
 # -- Options for HTML output -------------------------------------------------
 
