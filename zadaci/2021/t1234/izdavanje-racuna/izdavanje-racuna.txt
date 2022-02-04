@@ -1,0 +1,12 @@
+Unesite ime i prezime kupca: Pera Peric
+Unesite broj kupljenih artikala: 3
+Sifra artikla 1: TR1054
+Cena artikla 1: 249.99
+Sifra artikla 2: QU4308
+Cena artikla 2: 57.99
+Sifra artikla 3: PG2058
+Cena artikla 3: 163.99
+Ostvaren popust na artikal, cena PG2058: 147.59
+
+Ukupno: 455.57
+Ukupno (sa PDV-om): 546.69
