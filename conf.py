@@ -14,11 +14,12 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import datetime
 
 # -- Project information -----------------------------------------------------
 
 project = 'Zbirka zadataka'
-copyright = '2021, Srđan Popov, Rade Radišić'
+copyright = '{}, Srđan Popov, Rade Radišić'.format(datetime.datetime.now().strftime("%Y"))
 author = 'Srđan Popov, Rade Radišić'
 
 
@@ -56,3 +57,4 @@ html_theme = 'alabaster'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+language = 'sr@latin'

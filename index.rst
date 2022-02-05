@@ -7,12 +7,11 @@ Zadaci su podeljeni u dve grupe, u zavisnosti od testa na kom su zadati.
 .. toctree::
    :maxdepth: 2
    :glob:
-   :caption: Sadržaj:
 
    zadaci/*
 
-Indices and tables
-==================
+Indeksi i tabele
+================
 
-* :ref:`genindex`
-* :ref:`search`
+* :ref:`Indeks <genindex>`
+* :ref:`Pretraga <search>`
