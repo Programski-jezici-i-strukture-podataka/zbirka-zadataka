@@ -57,8 +57,12 @@ html_theme = 'alabaster'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Website options language
 language = 'sr@latin'
 
+# Code highlight language
 highlight_language = 'c'
+
+# Code highlight theme
 pygments_style = 'tango'
 

@@ -1,19 +1,21 @@
 .. index::
-   Statičke strukture ; Niz
+   Datoteke ; Tekstualne
+   Dinamičke strukture ; Lista
    Smer ; RA/PSI
-   Školska godina ; 21/22.
+   Školska godina ; 20/21.
 
 
-Celzijusi, Farenhajti, Kelvini
-==============================
+Proizvodi u marketu
+===================
 
 .. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
 
 .. include:: zadatak.rst
 
+
 Primer rešenja
 --------------
 
-.. literalinclude:: resenje.c 
+.. literalinclude:: resenje.c
    :linenos:
 

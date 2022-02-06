@@ -32,40 +32,51 @@
 
           <div class="body" role="main">
             
-  <p>Temperatura u zgradi merena je na više različitih mesta ujutru, u podne i uveče.
-U ulaznom fajlu <code class="docutils literal notranslate"><span class="pre">merenja.txt</span></code> redom su navedeni deo zgrade i tri merenja sprovedena tokom jednog dana.
-Merenja su predstavljena na sledeći način:</p>
+  <p>Proizvodi su opisani na sledeći način:</p>
 <ul class="simple">
-<li><p>deo zgrade (jedna reč, maksimalno 20 karaktera)</p></li>
-<li><p>jutarnja temperatura (realna vrednost)</p></li>
-<li><p>podnevna temperatura (realna vrednost)</p></li>
-<li><p>večernja temperatura (realna vrednost)</p></li>
+<li><p>Naziv (jedna reč, maksimalno 20 karaktera)</p></li>
+<li><p>vrsta (jedna reč, maksimalno 15 karaktera)</p></li>
+<li><p>cena (realan broj)</p></li>
 </ul>
-<p>Učitati merenja iz ulazne datoteke i uraditi sledeće:</p>
+<p>Za proizvode iz ulazne datoteke uraditi sledeće:</p>
 <ol class="loweralpha simple">
-<li><p>Pronaći vrednost prosečne temperature za svaki deo zgrade. Ime dela zgrade i prosečnu temperaturu zaokruženu na jednu decimalu ispisati na standardni izlaz (ekran).</p></li>
-<li><p>Pronaći deo zgrade sa maksimalnom vrednošću prosečne temperature i ispisati je zaokruženu na jednu decimalu na standardni izlaz (ekran).</p></li>
+<li><p>Učitati proizvode u jednostruko spregnutu listu. Novi elementi dodaju se tako da lista bude sortirana po ceni u rastućem redosledu.</p></li>
+<li><p>Na osnovu argumenta komandne linije koji označava vrstu proizvoda, na standardni izlaz (ekran Terminala) ispisati sledeće informacije:</p></li>
 </ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>cena  (zaokruženo na dve decimale, ispisano sa <code class="docutils literal notranslate"><span class="pre">%6.2lf</span></code> format specifikatorom)</p></li>
+<li><p>naziv (ispisano sa <code class="docutils literal notranslate"><span class="pre">%-12s</span></code> format specifikatorom)</p></li>
+<li><p>vrsta (ispisano sa <code class="docutils literal notranslate"><span class="pre">%s</span></code> format specifikatorom)</p></li>
+</ul>
+</div></blockquote>
+<p>Ispisati da proizvodi ne postoje u slučaju da nijedan proizvod nije zadate vrste (pogledati primere ispisa programa).</p>
 <p>Primer ulazne datoteke:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ulaz       -1.3  7.8  3.2
-Hodnik      1.0  10.3 4.5
-Kotlarnica  40.3 35.3 38.7
-Prostorija  20.5 24.5 21.3
-Ostava      15.3 19.1 16.7
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Deterdzent  149.99 hemija
+Jaja         99.99 prehrambeni
+Dezodorans  299.97 kozmetika
+Secer        62.99 prehrambeni
+KremaZaRuke 129.97 kozmetika
+Brasno       49.97 prehrambeni
+Prasak      429.90 hemija
 </pre></div>
 </div>
-<p>Primer ispisa programa:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ulaz 3.2
-Hodnik 5.3
-Kotlarnica 38.1
-Prostorija 22.1
-Ostava 17.0
-
-Najveca prosecna temperatura u zgradi je 38.1 stepeni.
+<p>Primer ispisa programa za postojeću zadatu vrstu proizvoda:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 49.97 Brasno       prehrambeni
+ 62.99 Secer        prehrambeni
+ 99.99 Jaja         prehrambeni
 </pre></div>
 </div>
-<p>Primer poziva programa:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./temperatura merenja.txt
+<p>Primer poziva programa za postojeću zadatu vrstu proizvoda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./proizvodi proizvodi.txt prehrambeni
+</pre></div>
+</div>
+<p>Primer ispisa programa za nepostojeću zadatu vrstu proizvoda:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ne postoji nijedan proizvod vrste odeca!
+</pre></div>
+</div>
+<p>Primer poziva programa za nepostojeću zadatu vrstu proizvoda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./proizvodi proizvodi.txt odeca
 </pre></div>
 </div>
 
@@ -128,7 +139,7 @@ Najveca prosecna temperatura u zgradi je 38.1 stepeni.
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2020/t1234/temperatura-u-zgradi/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2020/sov/proizvodi-u-marketu/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

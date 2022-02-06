@@ -1,20 +1,21 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="sr@latin">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Zbirka zadataka  documentation</title>
+    <title>&lt;no title&gt; &#8212; документација Zbirka zadataka </title>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
     <script src="../../../../_static/underscore.js"></script>
     <script src="../../../../_static/doctools.js"></script>
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
    
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
   
@@ -32,22 +33,22 @@
           <div class="body" role="main">
             
   <p>Napisati program koji omogućuje izdavanje računa. Radnik unosi ime i prezime kupca (string od maksimalno 30 karaktera), kao i broj kupljenih artikala.
-Nakon toga, za svaki artikal potrebno je upisati šifru artikla (string od maksimalno 8 karaktera), kao i njegovu cenu. Ukoliko šifra artikla počinje sa karakterom ‘P’, to označava da je proizvod trenutno na popustu i da njegovu cenu treba umanjiti za 10%.
+Nakon toga, za svaki artikal potrebno je upisati šifru artikla (string od maksimalno 8 karaktera), kao i njegovu cenu. Ukoliko šifra artikla počinje sa karakterom 'P', to označava da je proizvod trenutno na popustu i da njegovu cenu treba umanjiti za 10%.
 Nakon unetih artikala ispisati ukupnu cenu koju kupac treba da plati sa obračunatim PDV-om, koji predstavlja dodatnih 20% na ukupnu cenu.
 Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati na ponovni unos korisnika ukoliko je uneo vrednost manju ili jednaku od nule u oba slučaja.</p>
 <p>Primer rada programa:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Unesite</span> <span class="n">ime</span> <span class="n">i</span> <span class="n">prezime</span> <span class="n">kupca</span><span class="p">:</span> <span class="n">Pera</span> <span class="n">Peric</span>
-<span class="n">Unesite</span> <span class="n">broj</span> <span class="n">kupljenih</span> <span class="n">artikala</span><span class="p">:</span> <span class="mi">3</span>
-<span class="n">Sifra</span> <span class="n">artikla</span> <span class="mi">1</span><span class="p">:</span> <span class="n">TR1054</span>
-<span class="n">Cena</span> <span class="n">artikla</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">249.99</span>
-<span class="n">Sifra</span> <span class="n">artikla</span> <span class="mi">2</span><span class="p">:</span> <span class="n">QU4308</span>
-<span class="n">Cena</span> <span class="n">artikla</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">57.99</span>
-<span class="n">Sifra</span> <span class="n">artikla</span> <span class="mi">3</span><span class="p">:</span> <span class="n">PG2058</span>
-<span class="n">Cena</span> <span class="n">artikla</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">163.99</span>
-<span class="n">Ostvaren</span> <span class="n">popust</span> <span class="n">na</span> <span class="n">artikal</span><span class="p">,</span> <span class="n">cena</span> <span class="n">PG2058</span><span class="p">:</span> <span class="mf">147.59</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Unesite</span><span class="w"> </span><span class="n">ime</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">prezime</span><span class="w"> </span><span class="n">kupca</span><span class="o">:</span><span class="w"> </span><span class="n">Pera</span><span class="w"> </span><span class="n">Peric</span><span class="w"></span>
+<span class="n">Unesite</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="n">kupljenih</span><span class="w"> </span><span class="n">artikala</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">Sifra</span><span class="w"> </span><span class="n">artikla</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="n">TR1054</span><span class="w"></span>
+<span class="n">Cena</span><span class="w"> </span><span class="n">artikla</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="mf">249.99</span><span class="w"></span>
+<span class="n">Sifra</span><span class="w"> </span><span class="n">artikla</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">QU4308</span><span class="w"></span>
+<span class="n">Cena</span><span class="w"> </span><span class="n">artikla</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="mf">57.99</span><span class="w"></span>
+<span class="n">Sifra</span><span class="w"> </span><span class="n">artikla</span><span class="w"> </span><span class="mi">3</span><span class="o">:</span><span class="w"> </span><span class="n">PG2058</span><span class="w"></span>
+<span class="n">Cena</span><span class="w"> </span><span class="n">artikla</span><span class="w"> </span><span class="mi">3</span><span class="o">:</span><span class="w"> </span><span class="mf">163.99</span><span class="w"></span>
+<span class="n">Ostvaren</span><span class="w"> </span><span class="n">popust</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">artikal</span><span class="p">,</span><span class="w"> </span><span class="n">cena</span><span class="w"> </span><span class="n">PG2058</span><span class="o">:</span><span class="w"> </span><span class="mf">147.59</span><span class="w"></span>
 
-<span class="n">Ukupno</span><span class="p">:</span> <span class="mf">455.57</span>
-<span class="n">Ukupno</span> <span class="p">(</span><span class="n">sa</span> <span class="n">PDV</span><span class="o">-</span><span class="n">om</span><span class="p">):</span> <span class="mf">546.69</span>
+<span class="nl">Ukupno</span><span class="p">:</span><span class="w"> </span><span class="mf">455.57</span><span class="w"></span>
+<span class="n">Ukupno</span><span class="w"> </span><span class="p">(</span><span class="n">sa</span><span class="w"> </span><span class="n">PDV</span><span class="o">-</span><span class="n">om</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="mf">546.69</span><span class="w"></span>
 </pre></div>
 </div>
 
@@ -67,8 +68,7 @@ Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati
 
 
 
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Sadržaj:</span></p>
+<h3>Navigacija</h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
@@ -82,11 +82,11 @@ Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3 id="searchlabel">Brza pretraga</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
+      <input type="submit" value="Traži" />
     </form>
     </div>
 </div>
@@ -104,7 +104,7 @@ Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2021, Srđan Popov, Rade Radišić.
+      &copy;2022, Srđan Popov, Rade Radišić.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>

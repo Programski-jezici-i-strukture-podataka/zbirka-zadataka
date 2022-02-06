@@ -3,8 +3,8 @@
    Smer ; RA/PSI
    Školska godina ; 21/22.
 
-Zadatak "Izdavanje računa"
-==========================
+Izdavanje računa
+================
 
 .. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
 
@@ -15,3 +15,5 @@ Primer rešenja
 --------------
 
 .. literalinclude:: resenje.c 
+   :linenos:
+
