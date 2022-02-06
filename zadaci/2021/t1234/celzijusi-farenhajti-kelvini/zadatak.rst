@@ -21,4 +21,5 @@ Formula za konverziju iz stepena Celzijusa u stepene Kelvina:
 Primer rada programa:
 
 .. literalinclude:: ispis-programa.txt
+   :language: none
 

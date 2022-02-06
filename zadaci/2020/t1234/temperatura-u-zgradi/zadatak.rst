@@ -16,10 +16,12 @@ b) Pronaći deo zgrade sa maksimalnom vrednošću prosečne temperature i ispisa
 Primer ulazne datoteke:
 
 .. literalinclude:: merenja.txt
+   :language: none
 
 Primer ispisa programa:
 
 .. literalinclude:: ispis.txt
+   :language: none
 
 Primer poziva programa:
 

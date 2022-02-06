@@ -58,3 +58,7 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 language = 'sr@latin'
+
+highlight_language = 'c'
+pygments_style = 'tango'
+
