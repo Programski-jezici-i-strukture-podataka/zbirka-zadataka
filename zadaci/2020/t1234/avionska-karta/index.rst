@@ -4,10 +4,10 @@
    Smer ; EE
    Školska godina ; 20/21.
 
-Prijava kvarova na električnoj mreži
-====================================
+Avionska karta
+==============
 
-.. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
+.. sectionauthor:: Rade Radišić <raderadisic@uns.ac.rs>
 
 .. include:: zadatak.rst
 

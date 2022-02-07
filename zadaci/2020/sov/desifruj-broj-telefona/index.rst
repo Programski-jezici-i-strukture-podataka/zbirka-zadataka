@@ -1,11 +1,12 @@
 .. index::
    Datoteke ; Tekstualne
-   Statičke strukture ; Niz
+   Dinamičke strukture ; Lista
    Smer ; EE
    Školska godina ; 20/21.
 
-Prijava kvarova na električnoj mreži
-====================================
+
+Dešifruj broj telefona
+======================
 
 .. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
 

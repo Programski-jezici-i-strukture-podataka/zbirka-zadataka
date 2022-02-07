@@ -8,7 +8,8 @@ Zadaci su podeljeni u dve grupe, u zavisnosti od testa na kom su zadati.
    :maxdepth: 2
    :glob:
 
-   zadaci/*
+   zadaci/t1234
+   zadaci/sov
 
 Indeksi i tabele
 ================

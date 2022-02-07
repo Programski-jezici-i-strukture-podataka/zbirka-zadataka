@@ -1,0 +1,9 @@
+ 1. Stefan  Dakic   95
+ 2. Bojana  Beric   92
+ 3. Marina  Medic   86
+ 4. Petar   Pavlov  85
+ 5. Goran   Jelic   73
+------------------------------
+ 6. Mika    Milacic 67
+ 7. Milana  Matic   55
+ 8. Aleksa  Katic   45

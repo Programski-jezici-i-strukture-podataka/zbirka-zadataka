@@ -1,0 +1,7 @@
+BurgerKing   hrana   1-877-BURGERS
+BestCars     prodaja 1-440-NO1CARS
+DominosPizza hrana   1-800-2APIZZA
+SleepWell    prodaja 1-336-79NIGHT
+KFC          hrana   1-762-CHICKFC
+Wallmart     prodaja 1-289-HITWALL
+McDonalds    hrana   1-865-DONALDS
