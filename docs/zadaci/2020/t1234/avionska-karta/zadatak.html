@@ -32,23 +32,54 @@
 
           <div class="body" role="main">
             
-  <p>Napisati program koji omogućuje izdavanje računa. Radnik unosi ime i prezime kupca (string od maksimalno 30 karaktera), kao i broj kupljenih artikala.
-Nakon toga, za svaki artikal potrebno je upisati šifru artikla (string od maksimalno 8 karaktera), kao i njegovu cenu. Ukoliko šifra artikla počinje sa karakterom 'P', to označava da je proizvod trenutno na popustu i da njegovu cenu treba umanjiti za 10%.
-Nakon unetih artikala ispisati ukupnu cenu koju kupac treba da plati sa obračunatim PDV-om, koji predstavlja dodatnih 20% na ukupnu cenu.
-Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati na ponovni unos korisnika ukoliko je uneo vrednost manju ili jednaku od nule u oba slučaja.</p>
-<p>Primer rada programa:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite ime i prezime kupca: Pera Peric
-Unesite broj kupljenih artikala: 3
-Sifra artikla 1: TR1054
-Cena artikla 1: 249.99
-Sifra artikla 2: QU4308
-Cena artikla 2: 57.99
-Sifra artikla 3: PG2058
-Cena artikla 3: 163.99
-Ostvaren popust na artikal, cena PG2058: 147.59
-
-Ukupno: 455.57
-Ukupno (sa PDV-om): 546.69
+  <p>U ulaznom fajlu <code class="docutils literal notranslate"><span class="pre">letovi.txt</span></code> redom su navedeni podaci o letovima.</p>
+<p>Let je predstavljen sledećim podacima:</p>
+<ul class="simple">
+<li><p>ID leta (jedna reč, maksimalno 10 karaktera)</p></li>
+<li><p>oznaka aerodroma mesta polaska (jedna reč, maksimalno 3 karaktera)</p></li>
+<li><p>oznaka aerodroma mesta dolaska (jedna reč, maksimalno 3 karaktera)</p></li>
+<li><p>dužina leta u km (prirodna vrednost)</p></li>
+<li><p>broj_presedanja (prirodna vrednost)</p></li>
+</ul>
+<p>Učitati letove iz ulazne datoteke u statički niz.</p>
+<p>Cena leta računa se na sledeći način:</p>
+<ul class="simple">
+<li><p>Svako presedanje smanjuje cenu leta za 5e</p></li>
+<li><p>Dužina leta manja od 5000km --&gt; 1km = 0,5e</p></li>
+<li><p>Dužina leta između 5000km i 10000km (&gt;= 5000km, &lt; 10000km)  --&gt; 1km = 0.75e</p></li>
+<li><p>Dužina leta veća ili jednaka 10000km --&gt; 1km = 1e</p></li>
+</ul>
+<p>U izlaznu datoteku ispisati ID, oznaku aerodroma mesta polaska i cenu svih letova ka x aerodromu (x je zadat kao argument komandne linije).
+Ukoliko ne postoji nijedan let ka zadatom aerodromu u izlaznu datoteku ispisati: &quot;Nema letova ka zadatom aerodromu!&quot;.</p>
+<p>Naziv izlazne datoteke formirati tako da bude <code class="docutils literal notranslate"><span class="pre">letovi_ka_&lt;x&gt;.txt</span></code>.</p>
+<p>Primer ulazne datoteke:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>11-B LAX JFK 3974 1
+118-AW NSW VIE 15975 3
+87-SH LAX JFK 3974 0
+03-PQ SAW JFK 11036 2
+JU-45 NRT VIE 9128 2
+LN-78-T AUH SAW 2987 1
+QAT-87 AUH VIE 4238 2
+QAT-257 AUH VIE 4238 1
+</pre></div>
+</div>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./let letovi.txt VIE
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">letovi_ka_VIE.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>118-AW NSW 15960.00
+JU-45 NRT 6836.00
+QAT-87 AUH 2109.00
+QAT-257 AUH 2114.00
+</pre></div>
+</div>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./let letovi.txt LAX
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">letovi_ka_LAX.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Nema letova ka zadatom aerodromu! 
 </pre></div>
 </div>
 
@@ -111,7 +142,7 @@ Ukupno (sa PDV-om): 546.69
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2021/t1234/izdavanje-racuna/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2020/t1234/avionska-karta/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

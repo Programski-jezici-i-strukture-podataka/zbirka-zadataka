@@ -6,4 +6,5 @@ Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati
 Primer rada programa:
 
 .. literalinclude:: izdavanje-racuna.txt
+   :language: none
 

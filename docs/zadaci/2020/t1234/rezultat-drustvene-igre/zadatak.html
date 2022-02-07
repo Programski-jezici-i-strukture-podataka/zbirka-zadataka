@@ -32,23 +32,41 @@
 
           <div class="body" role="main">
             
-  <p>Napisati program koji omogućuje izdavanje računa. Radnik unosi ime i prezime kupca (string od maksimalno 30 karaktera), kao i broj kupljenih artikala.
-Nakon toga, za svaki artikal potrebno je upisati šifru artikla (string od maksimalno 8 karaktera), kao i njegovu cenu. Ukoliko šifra artikla počinje sa karakterom 'P', to označava da je proizvod trenutno na popustu i da njegovu cenu treba umanjiti za 10%.
-Nakon unetih artikala ispisati ukupnu cenu koju kupac treba da plati sa obračunatim PDV-om, koji predstavlja dodatnih 20% na ukupnu cenu.
-Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati na ponovni unos korisnika ukoliko je uneo vrednost manju ili jednaku od nule u oba slučaja.</p>
+  <p>Napraviti program za vođenje evidencije bodova za društvene igre.
+Igrači su predstavljeni na sledeći način:</p>
+<ul class="simple">
+<li><p>ime (jedna reč, maksimalno 20 karaktera)</p></li>
+<li><p>bodovi (celobrojna vrednost)</p></li>
+</ul>
+<p>Na osnovu vrednosti argumenata komandne linije učitati pomoću tastature imena određenog broja igrača i postaviti im broj bodova na 0, zatim uraditi sledeće:</p>
+<ol class="loweralpha simple">
+<li><p>Za svaku partiju dodavati igračima osvojene bodove. Broj partija se unosi kao argument komandne linije.</p></li>
+<li><p>Ispisati rezultate igre u izlazni fajl pod imenom <code class="docutils literal notranslate"><span class="pre">bodovi.txt</span></code>.</p></li>
+</ol>
+<p>Primer poziva programa (<code class="docutils literal notranslate"><span class="pre">2</span></code> predstavlja broj igrača, a <code class="docutils literal notranslate"><span class="pre">3</span></code> broj odigranih partija):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./bodovi <span class="m">2</span> <span class="m">3</span>
+</pre></div>
+</div>
 <p>Primer rada programa:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite ime i prezime kupca: Pera Peric
-Unesite broj kupljenih artikala: 3
-Sifra artikla 1: TR1054
-Cena artikla 1: 249.99
-Sifra artikla 2: QU4308
-Cena artikla 2: 57.99
-Sifra artikla 3: PG2058
-Cena artikla 3: 163.99
-Ostvaren popust na artikal, cena PG2058: 147.59
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Igrac 1: Laza
+Igrac 2: Mika
 
-Ukupno: 455.57
-Ukupno (sa PDV-om): 546.69
+Partija 1
+Igrac Laza: 3
+Igrac Mika: 5
+
+Partija 2
+Igrac Laza: 7
+Igrac Mika: 4
+
+Partija 3
+Igrac Laza: 2
+Igrac Mika: 5
+</pre></div>
+</div>
+<p>Primer izlazne datoteke:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Laza 12
+Mika 14
 </pre></div>
 </div>
 
@@ -111,7 +129,7 @@ Ukupno (sa PDV-om): 546.69
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2021/t1234/izdavanje-racuna/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2020/t1234/rezultat-drustvene-igre/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

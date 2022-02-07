@@ -32,23 +32,42 @@
 
           <div class="body" role="main">
             
-  <p>Napisati program koji omogućuje izdavanje računa. Radnik unosi ime i prezime kupca (string od maksimalno 30 karaktera), kao i broj kupljenih artikala.
-Nakon toga, za svaki artikal potrebno je upisati šifru artikla (string od maksimalno 8 karaktera), kao i njegovu cenu. Ukoliko šifra artikla počinje sa karakterom 'P', to označava da je proizvod trenutno na popustu i da njegovu cenu treba umanjiti za 10%.
-Nakon unetih artikala ispisati ukupnu cenu koju kupac treba da plati sa obračunatim PDV-om, koji predstavlja dodatnih 20% na ukupnu cenu.
-Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati na ponovni unos korisnika ukoliko je uneo vrednost manju ili jednaku od nule u oba slučaja.</p>
-<p>Primer rada programa:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite ime i prezime kupca: Pera Peric
-Unesite broj kupljenih artikala: 3
-Sifra artikla 1: TR1054
-Cena artikla 1: 249.99
-Sifra artikla 2: QU4308
-Cena artikla 2: 57.99
-Sifra artikla 3: PG2058
-Cena artikla 3: 163.99
-Ostvaren popust na artikal, cena PG2058: 147.59
-
-Ukupno: 455.57
-Ukupno (sa PDV-om): 546.69
+  <p>Kandidati za upis na fakultet predstavljeni su u strukturi na sledeći način:</p>
+<ul class="simple">
+<li><p>ime kandidata(jedna reč, maksimalno 20 karaktera)</p></li>
+<li><p>prezime kandidata (jedna reč, maksimalno 30 karaktera)</p></li>
+<li><p>ostvareni broj bodova na prijemnom ispitu (neoznačen broj)</p></li>
+</ul>
+<p>Kandidati su radili prijemni ispit i ostvarili određen rezultat. Potrebno je &quot;podvući crtu&quot;, odnosno, odrediti broj kandidata koji su prošli prijemni ispit.
+Učitati kandidate iz ulazne datoteke u jednostruko spregnutu listu (novi elementi dodaju se tako da lista bude sortirana po ostvarenim bodovima u opadajućem redosledu), zatim uraditi sledeće:</p>
+<p>Na osnovu broja primljenih kandidata koji se zadaju kao argument komandne linije u izlaznu datoteku ispisati redni broj, ime, prezime i ostvareni broj bodova kandidata u formatu <code class="docutils literal notranslate"><span class="pre">%2u</span> <span class="pre">%-7s</span> <span class="pre">%-7s</span> <span class="pre">%2u</span></code>.
+Podvući crtu ispod poslednjeg primljenog kandidata, crta se sastoji od 30 crtica (karakter <code class="docutils literal notranslate"><span class="pre">-</span></code>).
+Naziv ulazne i izlazne datoteke su zadati redom, kao prvi i drugi argument komandne linije.</p>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">kandidati.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Mika   Milacic 67
+Milana Matic   55
+Petar  Pavlov  85
+Bojana Beric   92
+Aleksa Katic   45
+Goran  Jelic   73
+Stefan Dakic   95
+Marina Medic   86
+</pre></div>
+</div>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./lista_kandidata kandidati.txt preliminarna-lista.txt <span class="m">5</span>
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">preliminarna-lista.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 1. Stefan  Dakic   95
+ 2. Bojana  Beric   92
+ 3. Marina  Medic   86
+ 4. Petar   Pavlov  85
+ 5. Goran   Jelic   73
+------------------------------
+ 6. Mika    Milacic 67
+ 7. Milana  Matic   55
+ 8. Aleksa  Katic   45
 </pre></div>
 </div>
 
@@ -111,7 +130,7 @@ Ukupno (sa PDV-om): 546.69
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2021/t1234/izdavanje-racuna/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2020/sov/prijemni-ispit/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

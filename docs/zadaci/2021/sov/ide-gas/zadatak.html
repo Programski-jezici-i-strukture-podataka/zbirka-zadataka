@@ -14,6 +14,7 @@
     <script src="../../../../_static/underscore.js"></script>
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../../search.html" />
    
@@ -32,23 +33,43 @@
 
           <div class="body" role="main">
             
-  <p>Napisati program koji omogućuje izdavanje računa. Radnik unosi ime i prezime kupca (string od maksimalno 30 karaktera), kao i broj kupljenih artikala.
-Nakon toga, za svaki artikal potrebno je upisati šifru artikla (string od maksimalno 8 karaktera), kao i njegovu cenu. Ukoliko šifra artikla počinje sa karakterom 'P', to označava da je proizvod trenutno na popustu i da njegovu cenu treba umanjiti za 10%.
-Nakon unetih artikala ispisati ukupnu cenu koju kupac treba da plati sa obračunatim PDV-om, koji predstavlja dodatnih 20% na ukupnu cenu.
-Uraditi validaciju unosa za broj artikala, kao i za cenu. Program treba da vrati na ponovni unos korisnika ukoliko je uneo vrednost manju ili jednaku od nule u oba slučaja.</p>
-<p>Primer rada programa:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite ime i prezime kupca: Pera Peric
-Unesite broj kupljenih artikala: 3
-Sifra artikla 1: TR1054
-Cena artikla 1: 249.99
-Sifra artikla 2: QU4308
-Cena artikla 2: 57.99
-Sifra artikla 3: PG2058
-Cena artikla 3: 163.99
-Ostvaren popust na artikal, cena PG2058: 147.59
-
-Ukupno: 455.57
-Ukupno (sa PDV-om): 546.69
+  <p>Stambena jedinica je predstavljena preko strukture koja se sastoji od sledećih polja:</p>
+<ul class="simple">
+<li><p>Ime vlasnika stana (jedna reč, maksimalno 20 karaktera)</p></li>
+<li><p>Prezime vlasnika stana (jedna reč, maksimalno 30 karaktera)</p></li>
+<li><p>Kvadratura stana (neoznačena, celobrojna vrednost)</p></li>
+</ul>
+<p>Podaci o stambenim jedinicama u zgradi učitavaju se iz ulaznog fajla u jednostruko spregnutu listu, gde se čvorovi dodaju na kraj liste.
+S obzirom na to da zgrada nema kalorimetre za svaku stambenu jedinicu, naplata ukupno potrošenog gasa za mesec raspodeljuje se između stambenih jedinica na osnovu kvadrature stana po sledećoj formuli:</p>
+<div class="math notranslate nohighlight">
+\[Potrošnja_{stan}[din] = Kv_{stan}[m^2] \div Kv_{zgrada}[m^2] \cdot Potrošnja_{zgrada}[din]\]</div>
+<p>Ukupan račun za stambenu jedinicu je potrošnja stana, sa PDV-om od <code class="docutils literal notranslate"><span class="pre">10%</span></code>.</p>
+<p>Za zadati mesec, godinu i ukupnu potrošnju tokom meseca, potrebno je izračunati koliko je svaka stambena jedinica dužna da plati račun za gas.
+U izlaznu datoteku, potrebno je ispisati ime i prezime vlasnika stana, kao i cenu koju je vlasnik stambene jedinice dužan da plati u formatu <code class="docutils literal notranslate"><span class="pre">&quot;%-7s</span> <span class="pre">%-10s</span> <span class="pre">%.2lf&quot;</span></code>.
+Naziv ulazne datoteke, mesec, godina i ukupna potrošnja tokom meseca, izražena u dinarima, zadaju se kao argumenti komandne linije.
+Naziv izlazne datoteke formira se spajanjem argumenata komandne linije za mesec i godinu i dodavanjem ekstenzije <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.</p>
+<p>Primer ulaznog fajla <code class="docutils literal notranslate"><span class="pre">zgrada.txt</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Petra  Petrovic   45
+Mile   Milenkovic 56
+Gorana Goric      37
+Lazar  Lazetic    51
+Rajko  Radovic    32
+Milica Mitrovic   21
+Aleksa Aleksic    43
+</pre></div>
+</div>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./racun zgrada.txt decembar <span class="m">2021</span> <span class="m">12510</span>.54
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">decembar2021.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Petra   Petrovic   2172.88
+Mile    Milenkovic 2704.03
+Gorana  Goric      1786.59
+Lazar   Lazetic    2462.60
+Rajko   Radovic    1545.16
+Milica  Mitrovic   1014.01
+Aleksa  Aleksic    2076.31
 </pre></div>
 </div>
 
@@ -111,7 +132,7 @@ Ukupno (sa PDV-om): 546.69
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2021/t1234/izdavanje-racuna/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2021/sov/ide-gas/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
