@@ -14,10 +14,10 @@ Učitati letove iz ulazne datoteke u statički niz.
 
 Cena leta računa se na sledeći način:
 
-* Svako presedanje smanjuje cenu leta za 5e
-* Dužina leta manja od 5000km --> 1km = 0,5e
-* Dužina leta između 5000km i 10000km (>= 5000km, < 10000km)  --> 1km = 0.75e
-* Dužina leta veća ili jednaka 10000km --> 1km = 1e
+* Svako presedanje smanjuje cenu leta za 5€
+* Dužina leta manja od 5000km --> 1km = 0,5€
+* Dužina leta između 5000km i 10000km (>= 5000km, < 10000km)  --> 1km = 0.75€
+* Dužina leta veća ili jednaka 10000km --> 1km = 1€
 
 U izlaznu datoteku ispisati ID, oznaku aerodroma mesta polaska i cenu svih letova ka x aerodromu (x je zadat kao argument komandne linije).
 Ukoliko ne postoji nijedan let ka zadatom aerodromu u izlaznu datoteku ispisati: "Nema letova ka zadatom aerodromu!".
