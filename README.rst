@@ -1,4 +1,4 @@
-|Publish to Github Pages Badge|
+|Publish to Github Pages Badge| |pages-build-deployment-badge|
 
 Zbirka zadataka
 ===============
@@ -29,5 +29,8 @@ Sajt će biti u _build direktorijumu i može se videti preko veb pretraživača 
 
   _build/html/index.html
 
-.. |Publish to GitHub Pages Badge| image:: https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/publish.yml/badge.svg?branch=master&event=push
+.. |Publish to GitHub Pages Badge| image:: https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/publish.yml/badge.svg?branch=master
    https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/publish.yml
+
+.. |pages-build-deployment-badge| image:: https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages
+   https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/pages/pages-build-deployment
