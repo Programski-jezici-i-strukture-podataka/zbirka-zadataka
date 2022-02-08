@@ -1,4 +1,0 @@
-2020
-----
-
-.. literalinclude:: ./2020/t1234.rst

@@ -1,9 +1,0 @@
-======================================
-Celzijusi, farenhajti, kelvini - T1234
-======================================
-
-Pažljivo pročitati sekciju `Napomene`_. Vreme izrade testa je 75 minuta.
-
-Zadatak
--------
-
