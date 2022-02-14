@@ -7,7 +7,7 @@
 Avionska karta
 ==============
 
-.. sectionauthor:: Rade Radišić <raderadisic@uns.ac.rs>
+.. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
 
 .. include:: zadatak.rst
 

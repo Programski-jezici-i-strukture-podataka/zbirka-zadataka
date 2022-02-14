@@ -1072,7 +1072,7 @@ msgstr ""
 #: sphinx/builders/html/__init__.py:1317
 #, python-format
 msgid "%s %s documentation"
-msgstr ""
+msgstr "%s %s dokumentacija"
 
 #: sphinx/builders/latex/__init__.py:114
 #, python-format
@@ -2801,7 +2801,7 @@ msgstr ""
 
 #: sphinx/ext/viewcode.py:289
 msgid "[docs]"
-msgstr ""
+msgstr "[dokumentacija]"
 
 #: sphinx/ext/viewcode.py:303
 msgid "Module code"
@@ -3165,12 +3165,12 @@ msgstr ""
 #: sphinx/templates/latex/longtable.tex_t:23
 #: sphinx/templates/latex/sphinxmessages.sty_t:8
 msgid "continued from previous page"
-msgstr ""
+msgstr "nastavljeno sa prethodne strane"
 
 #: sphinx/templates/latex/longtable.tex_t:29
 #: sphinx/templates/latex/sphinxmessages.sty_t:9
 msgid "continues on next page"
-msgstr ""
+msgstr "nastavak na sledećoj strani"
 
 #: sphinx/templates/latex/sphinxmessages.sty_t:10
 msgid "Non-alphabetical"
