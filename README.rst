@@ -10,17 +10,18 @@ Dodavanje novih zadataka
 
 U toku je izrada mehanizma za dodavanje novih zadataka
 
-Izmene konfiguracije zbirke
----------------------------
+Izmene zbirke
+-------------
 
 Potrebno je:
 
 1. Instalirati Python, verziju 3.X
 2. Klonirati repozitorijum: ``git clone https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka.git``
 3. Unutar kloniranog repozitorijuma napraviti virtuelno okruženje: ``python -m venv-zbirka``
-4. Aktivirati virtuelno okruženje: ``source ./venv-zbirka/bin/activate``
+4. Aktivirati virtuelno okruženje: ``source ./venv-zbirka/bin/activate`` (Windows: ``.\venv-zbirka\Scripts\activate``)
 5. Instalirati neophodne zavisnosti: ``pip install -r requirements.txt``
 
+Nakon prvobitnog podešavanja, svaki sledeći put pre rada treba aktivirati virtuelno okruženje (korak 4.).
 Nakon odgovarajućih izmena, moguće je izgenerisati sajt u lokalu pomoću komande u Terminalu ili Command Prompt-u::
 
   make html (make.bat html za Windows)
