@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Iz zadate ulazne datoteke učitati podatke u jednostruko spregnutu
+listu, pri čemu se struktura <code class="docutils literal notranslate"><span class="pre">taksi_st</span></code> sastoji od sledećih polja:</p>
+<ul class="simple">
+<li><p>naziv_taksija (jedna reč, maksimalno 20 karaktera),</p></li>
+<li><p>vrsta_vozila (jedna reč, maksimalno 8 karaktera – dozvoljene vrednosti su <code class="docutils literal notranslate"><span class="pre">limuzina</span></code> i <code class="docutils literal notranslate"><span class="pre">karavan</span></code>),</p></li>
+<li><p>cena_po_km (realan broj) i</p></li>
+<li><p>zauzetost (jedna reč, maksimalno 8 karaktera).</p></li>
+</ul>
+<p>Struktura <code class="docutils literal notranslate"><span class="pre">taksi_st</span></code> dodatno sadrži i polje potrebno za formiranje jednostruko spregnute liste.</p>
+<p>Na osnovu zadatog parametra <code class="docutils literal notranslate"><span class="pre">novac</span></code> i <code class="docutils literal notranslate"><span class="pre">vrstaVozila</span></code> iz formirane liste upisati podatke
+u zadatu izlaznu datoteku, u sledećem rasporedu polja strukture <code class="docutils literal notranslate"><span class="pre">taksi_st</span></code>:</p>
+<ul class="simple">
+<li><p>vrsta_vozila,</p></li>
+<li><p>naziv_taksija,</p></li>
+<li><p>cena_po_km i</p></li>
+<li><p>zauzetost.</p></li>
+</ul>
+<p>Ako je <code class="docutils literal notranslate"><span class="pre">zauzetost</span></code> označena sa “+” neophodno je promeniti vrednost na <code class="docutils literal notranslate"><span class="pre">slobodan</span></code>,
+a ako je označena sa “-“ parametar <code class="docutils literal notranslate"><span class="pre">zauzetost</span></code> postaviti na vrednost <code class="docutils literal notranslate"><span class="pre">zauzet</span></code>.</p>
+<p>U istu izlaznu datoteku potrebno je ispisati još i sledeće informacije:
+1. koji taksi će preći potencijalno najveću kilometražu na osnovu prosleđenog argumenta komandne linije <code class="docutils literal notranslate"><span class="pre">novac</span></code>,
+2. koliko će ukupno zaraditi kompanija od zauzetih taksija (na osnovu prosleđenog argumenta komandne linije <code class="docutils literal notranslate"><span class="pre">novac</span></code>
+koji je na raspolaganju za vožnju) ukoliko od svakog pređenog kilometra uzima 10%,
+3. koliko ima taksija koji su slobodni i odgovaraju prosleđenom argumentu komandne linije <code class="docutils literal notranslate"><span class="pre">vrstaVozila</span></code>.</p>
+<p>Primer poziva programa:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">zad</span><span class="w"> </span><span class="n">taxi</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="mi">2500</span><span class="w"> </span><span class="n">limuzina</span><span class="w"> </span><span class="n">izvestaj</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+</pre></div>
+</div>
+<p>sa zadatim parametrom <code class="docutils literal notranslate"><span class="pre">novac</span> <span class="pre">=</span> <span class="pre">2500</span></code>, zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">taxi.txt</span></code> i sa zadatim
+parametrom <code class="docutils literal notranslate"><span class="pre">vrstaVozila</span> <span class="pre">=</span> <span class="pre">limuzina</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Halo karavan 15.5 -
+Maxi karavan 10.4 +
+Mega limuzina 13.3 +
+Crveni karavan 9.7 +
+Pink limuzina 3.9 -
+Grand limuzina 21.7 +
+Beli karavan 12.1 +
+Lux limuzina 30.0 +
+Cool limuzina 10.4 -
+</pre></div>
+</div>
+<p>i očekivanim izlazom u datoteci <code class="docutils literal notranslate"><span class="pre">izvestaj.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>karavan Halo 15.5 zauzet
+karavan Maxi 10.4 slobodan
+limuzina Mega 13.3 slobodan
+karavan Crveni 9.7 slobodan
+limuzina Pink 3.9 zauzet
+limuzina Grand 21.7 slobodan
+karavan Beli 12.1 slobodan
+limuzina Lux 30.0 slobodan
+limuzina Cool 10.4 zauzet
+
+Za 2500.0 din mozemo se najduze voziti 641.0 km Pink taksijem.
+Kompanija ce ukupno ostvariti profit od 750.0 dinara.
+Broj taksija koji su slobodni i tip vozila je limuzina: 3.
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2020/sov/taksi/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

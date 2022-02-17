@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Iz zadate ulazne datoteke učitati podatke u jednostruko spregnutu listu, gde
+struktura <code class="docutils literal notranslate"><span class="pre">kafa_st</span></code> sadrži sledeća polja:</p>
+<ul class="simple">
+<li><p>naziv kafića (jedna reč, do 20 karaktera)</p></li>
+<li><p>vrsta kafe (jedna reč, do 20 karaktera)</p></li>
+<li><p>cena kafe (pozitivan realan broj)</p></li>
+</ul>
+<p>Naravno, struktura <code class="docutils literal notranslate"><span class="pre">kafa_st</span></code> sadrži i polja potrebna za pravilno
+formiranje jednostruko spregnute liste.</p>
+<p>Na osnovu zadate vrste kafe <code class="docutils literal notranslate"><span class="pre">vrsta_kafe</span></code> iz formirane liste upisati podatke na
+standardni izlaz (terminal), u sledećem rasporedu polja strukture <code class="docutils literal notranslate"><span class="pre">kafa_st</span></code>:</p>
+<ul class="simple">
+<li><p>cena (zaokružena na 2 decimale, koristiti &quot;%6.2f&quot; format specifikator)</p></li>
+<li><p>naziv vrste kafe</p></li>
+<li><p>naziv kafića</p></li>
+</ul>
+<p>i potom u na standardni izlaz ispisati informaciju koja je prosečna cena zadate vrste kafe (zaokružena na 2 decimale, koristiti &quot;%6.2f&quot; format specifikator).</p>
+<p>Primer poziva programa:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">kafica</span><span class="w"> </span><span class="n">Espresso</span><span class="w"> </span><span class="n">kafa</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+</pre></div>
+</div>
+<p>sa <code class="docutils literal notranslate"><span class="pre">vrsta_kafe=Espresso</span></code> i zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">kafa.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Caffe_City  Espresso   105.00
+Caffe_City  Macchiato  135.00
+Caffe_City  Cappuccino 145.00
+Caffe_Solo  Espresso   140.00
+Caffe_Solo  Macchiato  150.00
+Caffe_Solo  Cappuccino 160.00
+Caffe_Style Espresso   173.00
+Caffe_Style Macchiato  195.00
+Caffe_Style Cappuccino 215.00
+</pre></div>
+</div>
+<p>i očekivanim izlazom</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">105.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_City</span><span class="w"></span>
+<span class="mf">135.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_City</span><span class="w"></span>
+<span class="mf">145.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_City</span><span class="w"></span>
+<span class="mf">140.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_Solo</span><span class="w"></span>
+<span class="mf">150.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_Solo</span><span class="w"></span>
+<span class="mf">160.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_Solo</span><span class="w"></span>
+<span class="mf">173.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_Style</span><span class="w"></span>
+<span class="mf">195.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_Style</span><span class="w"></span>
+<span class="mf">215.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_Style</span><span class="w"></span>
+
+<span class="n">Prosecna</span><span class="w"> </span><span class="n">cena</span><span class="w"> </span><span class="n">Espresso</span><span class="w"> </span><span class="n">kafe</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">139.33</span><span class="w"></span>
+</pre></div>
+</div>
+<p>sa <code class="docutils literal notranslate"><span class="pre">vrsta_kafe=Latte</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Latte</span><span class="w"> </span><span class="n">kafa</span><span class="w"> </span><span class="n">nije</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">ponudi</span><span class="o">!</span><span class="w"></span>
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2020/sov/pravo-je-vreme-za-kafu/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

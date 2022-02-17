@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>U ulaznoj datoteci <code class="docutils literal notranslate"><span class="pre">krediti.txt</span></code> nalaze se:</p>
+<ul class="simple">
+<li><p>ime potražioca kredita (jedna reč, do 15 karaktera)</p></li>
+<li><p>prezime potražioca kredita (jedna reč, do 15 karaktera)</p></li>
+<li><p>vrsta kredita (jedna reč, do 8 karaktera)</p></li>
+<li><p>odobren (jedna reč, do 2 karaktera)</p></li>
+<li><p>iznos kredita (pozitivan, celobrojan broj)</p></li>
+<li><p>učešće (pozitivan, celobrojan broj)</p></li>
+<li><p>kamata (godišnja kamata, pozitivan realan broj, izražen u procentima)</p></li>
+<li><p>broj godina (pozitivan ceo broj, broj godina na koje je kredit uzet)</p></li>
+</ul>
+<p>Ulazna datoteka krediti.txt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Dragan Dragic stambeni ne 3600000 500000 2.5 10
+Sava Tomic kes ne 7000000 20000 4 5
+Luka Lukic auto da 2606000 110000 5.99 5
+Tatjana Jovic auto da 1400000 0 7.5 7
+Teodor Matic kes ne 4500000 20000 5.99 11
+Nikola Nesic kes da 200000 0 8 3
+Milica Markovic stambeni ne 8000000 20000 2.5 4
+</pre></div>
+</div>
+<p>Kroz argumente komandne linije proslediti vrstu kredita i naziv ulazne datoteke (Pogledati stavku 1.).</p>
+<p>Pronaći sve odobrene kredite određene vrste (vrste koju prosledite kao argument) i izračunati zaradu banke od odobrenih kredita.
+Rezultate ispisati u izlazni fajl <code class="docutils literal notranslate"><span class="pre">&lt;vrsta</span> <span class="pre">kredita</span> <span class="pre">iz</span> <span class="pre">argumenata&gt;.txt</span></code> pri čemu ukupnu zaradu treba ispisati na dve decimale.
+Ukoliko za datu vrstu kredita ne postoje odobreni krediti u izlaznu datoteku ispisati “Nema odobrenih kredita.” (Pogledati stavku 3.)</p>
+<ol class="arabic">
+<li><p>Primer poziva:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span><span class="n">kes</span><span class="w"> </span><span class="n">krediti</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Primer računanja zarade banke za jednu stavku:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>(iznos kredita – učešće) / 100 *  kamata * broj godina
+</pre></div>
+</div>
+</li>
+<li><p>Očekivani izlaz za odgovarajuću vrstu kredita:</p></li>
+</ol>
+<ol class="loweralpha">
+<li><p>primer izlazne datoteke za unetu vrstu kredita stambeni, u datoteci <code class="docutils literal notranslate"><span class="pre">stambeni.txt</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Nema</span><span class="w"> </span><span class="n">odobrenih</span><span class="w"> </span><span class="n">kredita</span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>primer izlazne datoteke za unetu vrstu kredita kes, u datoteci <code class="docutils literal notranslate"><span class="pre">kes.txt</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Nikola</span><span class="w">    </span><span class="n">Nesic</span><span class="w">    </span><span class="n">kes</span><span class="w">    </span><span class="n">da</span><span class="w">    </span><span class="mi">200000</span><span class="w">    </span><span class="mi">0</span><span class="w">    </span><span class="mi">8</span><span class="w">    </span><span class="mi">3</span><span class="w"></span>
+
+<span class="n">Ukupna</span><span class="w"> </span><span class="n">zarada</span><span class="w"> </span><span class="n">banke</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="mf">48000.00</span><span class="w"> </span><span class="n">din</span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ol>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2020/t1234/obrada-zahteva-za-kredit-u-banci/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
