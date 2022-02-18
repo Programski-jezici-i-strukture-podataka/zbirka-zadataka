@@ -32,65 +32,53 @@
 
           <div class="body" role="main">
             
-  <p>Paketi su opisani na sledeći način:</p>
+  <p>Iz zadate ulazne datoteke učitati podatke u jednostruko spregnutu listu, gde
+struktura <code class="docutils literal notranslate"><span class="pre">knjiga_st</span></code> sadrži sledeća polja:</p>
 <ul class="simple">
-<li><p>sadržaj (jedna reč, maksimalno 30 karaktera)</p></li>
-<li><p>masa (realna vrednost, u kilogramima)</p></li>
-<li><p>lomljivo (jedna reč, &quot;DA&quot;, ili &quot;NE&quot;, maksimalno 2 karaktera)</p></li>
+<li><p>ime pisca (jedna reč, do 20 karaktera)</p></li>
+<li><p>prezime pisca (jedna reč, do 20 karaktera)</p></li>
+<li><p>naslov knjige (jedna reč, do 30 karaktera)</p></li>
+<li><p>zanr (jedna reč, do 20 karaktera)</p></li>
+<li><p>cena (pozitivan broj)</p></li>
 </ul>
-<p>Paketi se šalju putem kurirske službe, koja naplaćuje usluge slanja paketa u odnosu na njegovu masu.
-Učitati pakete u jednostruko spregnutu listu (dodati novi element na kraj liste) i uraditi sledeće:</p>
-<ol class="loweralpha simple">
-<li><p>Izračunati cenu dostave paketa na osnovu sledećeg cenovnika:</p></li>
-</ol>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 65%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Masa [kg]</p></th>
-<th class="head"><p>Cena</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0-5</p></td>
-<td><p>200</p></td>
-</tr>
-<tr class="row-odd"><td><p>5-10</p></td>
-<td><p>400</p></td>
-</tr>
-</tbody>
-</table>
-<p>Ukoliko paket ima više od 10kg, dodatna masa paketa se naplaćuje pomnožena sa vrednošću argumenta komandne linije, koji predstavlja cenu po kilogramu.</p>
-<ol class="loweralpha simple" start="2">
-<li><p>Na standardni izlaz (ekran Terminala) ispisati sledeće informacije:</p></li>
-</ol>
-<ul class="simple">
-<li><p>sadržaj (ispisano sa <code class="docutils literal notranslate"><span class="pre">%-10s</span></code> format specifikatorom)</p></li>
-<li><p>lomljivo (ispisano sa <code class="docutils literal notranslate"><span class="pre">%2s</span></code> format specifikatorom)</p></li>
-<li><p>cena (zaokruženo na dve decimale, ispisano sa <code class="docutils literal notranslate"><span class="pre">%6.2lf</span></code> format specifikatorom)</p></li>
+<p>Naravno, struktura <code class="docutils literal notranslate"><span class="pre">knjiga_st</span></code> sadrži i polja potrebna za pravilno
+formiranje jednostruko spregnute liste.</p>
+<p>Učitati knjige u jednostruko spregnutu listu i uraditi sledeće:</p>
+<ol class="arabic">
+<li><p>Sortirati knjige po ceni u rastućem redosledu pri dodavanju u listu</p></li>
+<li><p>Na standardni izlaz (ekran Terminala) ispisati sledeće informacije:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>prezime pisca</p></li>
+<li><p>ime pisca</p></li>
+<li><p>cena</p></li>
+<li><p>naslov knjige</p></li>
 </ul>
-<p>Primer ulazne datoteke:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Tanjiri  3.2 DA
-Igracka  2.1 NE
-Stolica 14.6 NE
-Laptop   5.4 DA
-Sto     23.7 NE
-Monitor  4.2 DA
+</div></blockquote>
+</li>
+<li><p>Pronaći sve knjige za žanr koji je prosleđen kao argument komandne linije, sabrati cene tih knjiga i ispisati na standardni izlaz (ekran Terminala)</p></li>
+</ol>
+<p>Primer poziva:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./knjige knjige.txt triler
 </pre></div>
 </div>
-<p>Primer ispisa programa:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Tanjiri    DA 200.00
-Igracka    NE 200.00
-Stolica    NE 425.30
-Laptop     DA 400.00
-Sto        NE 475.35
-Monitor    DA 200.00
+<p>sa zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">knjige.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Edgar-Alan Po Gavran poezija 1230
+Agata Kristi Satovi triler 1190
+Dz.K. Rouling Hari-Poter-1 fantastika 1500
+Edgar-Alan Po Sabrane-price 1480
+Agata Kristi Nemezis triler 1210
+Dz.K. Rouling Hari-Poter-3 fantastika 1550
 </pre></div>
 </div>
-<p>Primer poziva programa:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">paketi</span><span class="w"> </span><span class="n">paketi</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="mf">5.5</span><span class="w"></span>
+<p>i očekivanim izlazom na terminalu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kristi Agata 1190 Satovi
+Kristi Agata 1210 Nemezis
+Po Edgar-Alan 1230 Gavran
+Po Edgar-Alan 1500 Sabrane-price
+Rouling Dz.K. 1500 Hari-Poter-1
+Rouling Dz.K. 1550 Hari-Poter-3
+Knjige zanra triler kostaju ukupno 2400 din.
 </pre></div>
 </div>
 
@@ -153,7 +141,7 @@ Monitor    DA 200.00
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2020/sov/paketi/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2020/sov/zanrovi-knjiga/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

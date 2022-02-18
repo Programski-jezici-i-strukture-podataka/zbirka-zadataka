@@ -5,10 +5,10 @@
    Školska godina ; 20/21.
 
 
-Paketi
-======
+Žanrovi knjiga
+==============
 
-.. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
+.. sectionauthor:: Milena Počuča <milenapocuca@uns.ac.rs>
 
 .. include:: zadatak.rst
 
@@ -16,6 +16,6 @@ Paketi
 Primer rešenja
 --------------
 
-.. literalinclude:: resenje.c 
+.. literalinclude:: resenje.c
    :linenos:
 

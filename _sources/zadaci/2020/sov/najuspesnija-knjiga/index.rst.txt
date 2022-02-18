@@ -1,7 +1,8 @@
 .. index::
    Datoteke ; Tekstualne
    Dinamičke strukture ; Lista
-
+   Smer ; RA/PSI
+   Školska godina ; 20/21.
 
 Najuspešnija knjiga
 ===================
