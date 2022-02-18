@@ -2,7 +2,8 @@
    Algoritmi ; Numerika
    Datoteke ; Tekstualne
    Statičke strukture ; Niz
-
+   Smer ; EE
+   Školska godina ; 20/21.
 
 Knjige
 ======

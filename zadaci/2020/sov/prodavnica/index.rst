@@ -5,11 +5,10 @@
    Smer ; RA/PSI
    Školska godina ; 20/21.
 
+Prodavnica
+==========
 
-Pravo je vreme za kafu
-======================
-
-.. sectionauthor:: Sanja Špica <sanjaspica@uns.ac.rs>
+.. sectionauthor:: Aleksandar Vasiljević <alexva02@uns.ac.rs>
 
 .. include:: zadatak.rst
 

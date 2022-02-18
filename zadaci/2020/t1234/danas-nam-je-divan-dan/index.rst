@@ -1,13 +1,12 @@
 .. index::
+   Algoritmi ; Numerika
    Algoritmi ; Pretraga
-   Datoteke ; Tekstualne
-   Dinamičke strukture ; Lista
+   Statičke strukture ; Niz
    Smer ; RA/PSI
    Školska godina ; 20/21.
 
-
-Pravo je vreme za kafu
-======================
+Danas nam je divan dan!
+=======================
 
 .. sectionauthor:: Sanja Špica <sanjaspica@uns.ac.rs>
 

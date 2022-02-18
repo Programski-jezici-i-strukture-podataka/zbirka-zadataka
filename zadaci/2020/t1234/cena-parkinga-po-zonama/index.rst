@@ -1,14 +1,14 @@
 .. index::
+   Algoritmi ; Numerika
    Datoteke ; Tekstualne
    Statičke strukture ; Niz
-   Smer ; EE
-   Školska godina ; 20/21.
+   Statičke strukture ; String
 
 
-Iznajmljivanje sefova
-=====================
+Cena parkinga po zonama
+=======================
 
-.. sectionauthor:: Aleksandar Vasiljević <alexva02@uns.ac.rs>
+.. sectionauthor:: Olja Anđelovski <andjelovski.olja@uns.ac.rs>
 
 .. include:: zadatak.rst
 

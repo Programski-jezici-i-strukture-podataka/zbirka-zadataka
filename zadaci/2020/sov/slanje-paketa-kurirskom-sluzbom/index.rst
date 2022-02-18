@@ -1,15 +1,14 @@
 .. index::
-   Algoritmi ; Pretraga
    Datoteke ; Tekstualne
    Dinamičke strukture ; Lista
    Smer ; RA/PSI
    Školska godina ; 20/21.
 
 
-Pravo je vreme za kafu
-======================
+Slanje paketa kurirskom službom
+===============================
 
-.. sectionauthor:: Sanja Špica <sanjaspica@uns.ac.rs>
+.. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
 
 .. include:: zadatak.rst
 
@@ -17,6 +16,6 @@ Pravo je vreme za kafu
 Primer rešenja
 --------------
 
-.. literalinclude:: resenje.c
+.. literalinclude:: resenje.c 
    :linenos:
 

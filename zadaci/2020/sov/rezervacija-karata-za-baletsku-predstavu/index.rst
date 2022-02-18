@@ -6,10 +6,10 @@
    Školska godina ; 20/21.
 
 
-Pravo je vreme za kafu
-======================
+Rezervacija karata za baletsku predstavu
+========================================
 
-.. sectionauthor:: Sanja Špica <sanjaspica@uns.ac.rs>
+.. sectionauthor:: Olja Anđelovski <andjelovski.olja@uns.ac.rs>
 
 .. include:: zadatak.rst
 
@@ -19,4 +19,3 @@ Primer rešenja
 
 .. literalinclude:: resenje.c
    :linenos:
-

@@ -6,8 +6,8 @@
    Školska godina ; 20/21.
 
 
-Pravo je vreme za kafu
-======================
+Cvetići
+=======
 
 .. sectionauthor:: Sanja Špica <sanjaspica@uns.ac.rs>
 
@@ -19,4 +19,3 @@ Primer rešenja
 
 .. literalinclude:: resenje.c
    :linenos:
-

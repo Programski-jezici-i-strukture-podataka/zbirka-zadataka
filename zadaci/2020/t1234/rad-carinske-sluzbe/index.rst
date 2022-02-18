@@ -1,13 +1,17 @@
 .. index::
+   Algoritmi ; Numerika
+   Algoritmi ; Sortiranje
    Datoteke ; Tekstualne
-   Dinamičke strukture ; Lista
+   Statičke strukture ; Niz
+   Statičke strukture ; String
    Smer ; RA/PSI
    Školska godina ; 20/21.
 
-Najuspešnija knjiga
+
+Rad carinske službe
 ===================
 
-.. sectionauthor:: Milena Počuča <milenapocuca@uns.ac.rs>
+.. sectionauthor:: Aleksandar Vasiljević <alexva02@uns.ac.rs>
 
 .. include:: zadatak.rst
 

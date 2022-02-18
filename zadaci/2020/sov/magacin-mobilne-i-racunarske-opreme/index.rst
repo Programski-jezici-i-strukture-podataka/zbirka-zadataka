@@ -6,10 +6,10 @@
    Školska godina ; 20/21.
 
 
-Pravo je vreme za kafu
-======================
+Magacin mobilne i računarske opreme
+===================================
 
-.. sectionauthor:: Sanja Špica <sanjaspica@uns.ac.rs>
+.. sectionauthor:: Olja Anđelovski <andjelovski.olja@uns.ac.rs>
 
 .. include:: zadatak.rst
 
@@ -17,6 +17,6 @@ Pravo je vreme za kafu
 Primer rešenja
 --------------
 
-.. literalinclude:: resenje.c
+.. literalinclude:: zadatak.c
    :linenos:
 

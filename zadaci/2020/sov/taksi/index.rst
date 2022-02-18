@@ -2,7 +2,8 @@
    Algoritmi ; Pretraga
    Datoteke ; Tekstualne
    Dinamičke strukture ; Lista
-
+   Smer ; EE
+   Školska godina ; 20/21.
 
 Taksi
 =====
