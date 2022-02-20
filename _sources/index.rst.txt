@@ -14,6 +14,7 @@ Zadaci su podeljeni u više grupa, u zavisnosti od testa na kom su zadati.
    :maxdepth: 2
    :glob:
 
+   zadaci/t12
    zadaci/t1234
    zadaci/sov
 
