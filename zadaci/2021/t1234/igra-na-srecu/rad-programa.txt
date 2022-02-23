@@ -1,0 +1,35 @@
+Unesite maksimalan broj srecki: 3
+Unesite dobitnu kombinaciju:
+7
+88
+13
+3
+19
+
+Unesite 1. srecku:
+13
+2
+8
+9
+99
+
+1. srecka ima 1 pogodaka.
+
+Unesite 2. srecku:
+101
+55
+2
+1
+77
+
+2. srecka ima 0 pogodaka.
+
+Unesite 3. Srecku:
+88
+19
+5
+8
+7
+
+3. srecka ima 3 pogodaka.
+Srecka sa najvise pogodaka je 3.

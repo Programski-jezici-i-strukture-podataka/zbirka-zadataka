@@ -1,0 +1,2 @@
+Unesite zeljeni string (max duzine 21): propozicija
+Uneti znak koji zelite da izbacite: o

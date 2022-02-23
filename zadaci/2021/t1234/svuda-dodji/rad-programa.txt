@@ -1,0 +1,1 @@
+Unesite zeljeni string (max duzine 22): Svuda podji, kuci dodji

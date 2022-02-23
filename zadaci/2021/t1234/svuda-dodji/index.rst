@@ -1,0 +1,19 @@
+.. index::
+   Statičke strukture ; Niz
+   Smer ; RA/PSI
+   Školska godina ; 21/22.
+
+Svuda dođi
+==========
+
+.. sectionauthor:: Aleksandar Vasiljević <alexva02@uns.ac.rs>
+
+.. include:: zadatak.rst
+
+
+Primer rešenja
+--------------
+
+.. literalinclude:: resenje.c 
+   :linenos:
+

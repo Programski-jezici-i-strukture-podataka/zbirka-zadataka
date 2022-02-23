@@ -1,0 +1,20 @@
+Unesite broj artikala:5
+Unesite cenu svakog artikla:
+artikal[0]=125
+artikal[1]=148
+artikal[2]=245
+artikal[3]=325
+artikal[4]=189
+Unesite granicu za oporezivanje:200
+Unesite visinu poreza:25
+
+Cene posle poreza su: 
+artikal[0] = 125.00
+artikal[1] = 148.00
+artikal[2] = 306.25
+artikal[3] = 406.25
+artikal[4] = 189.00
+
+Ukupan racun pre poreza je 1032.
+
+Ukupan racun posle poreza je 1174.50.

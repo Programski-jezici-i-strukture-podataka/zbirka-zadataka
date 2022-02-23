@@ -1,0 +1,6 @@
+Unesite string za proveru:    Lorem ipsum dolor sit amet     .
+String pre izbacivanja razmaka:
+‘    Lorem ipsum dolor sit amet     ’
+String posle izbacivanja razmaka:
+‘Lorem ipsum dolor sit amet     .’
+Preskoceno je 4 razmaka.

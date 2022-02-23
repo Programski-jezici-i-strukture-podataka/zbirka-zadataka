@@ -1,0 +1,8 @@
+Unesite broj domacinstava za koji zelite da izracunate cenu struje: 5
+Unesite tarifu: visa
+
+Potrosnja 1. domacinstva: 350
+Potrosnja 2. domacinstva: 1185
+Potrosnja 3. domacinstva: 1700
+Potrosnja 4. domacinstva: 320
+Potrosnja 5. domacinstva: 995

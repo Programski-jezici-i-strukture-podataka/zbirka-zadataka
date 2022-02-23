@@ -1,0 +1,2 @@
+Karakter o je iz polaznog stringa izbacen 2 puta.
+String nakon modifikacija: rpzpcijia

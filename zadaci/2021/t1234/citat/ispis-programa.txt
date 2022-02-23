@@ -1,0 +1,11 @@
+A[0] = 4
+A[1] = 2
+A[2] = 5
+A[3] = 7
+A[4] = 5
+
+Maksimalan element niza A je 7, dok je njegov faktorijel 5040.
+
+Broj karaktera datog citata je 123.
+
+kO sE bORI sA cUDOVISTIMA, mORA pAZITI dA sAM nE pOSTANE cUDOVISTE. a kAD dUGO gLEDAS u pONOR, pONOR pOCNE dA gLEDA u tEBE.

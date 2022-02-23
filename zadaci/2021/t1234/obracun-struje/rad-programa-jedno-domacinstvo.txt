@@ -1,0 +1,10 @@
+Unesite broj domacistava za koji zelite da izracunate cenu struje: 1
+Unesite tarifu: niza
+
+Potrosnja 1. domacinstva: 600
+
+Cena struje 1. domacinstva je 1341.60 dinara.
+
+Broj domacinstava u zelenoj zoni je 0.
+Broj domacinstava u plavoj zoni je 1.
+Broj domacinstava u crenoj zoni je 0.

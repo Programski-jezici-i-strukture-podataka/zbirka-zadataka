@@ -1,0 +1,9 @@
+Cena struje 1. Domacinstva je 2085.07 dinara.
+Cena struje 2. Domacinstva je 10597.46 dinara.
+Cena struje 3. Domacinstva je 31599.60 dinara.
+Cena struje 4. Domacinstva je 1907.84 dinara.
+Cena struje 5. Domacinstva je 8898.29 dinara.
+
+Broj domacinstava u zelenoj zoni je 2.
+Broj domacinstava u plavoj zoni je 2.
+Broj domacinstava u crvenoj zoni je 1.

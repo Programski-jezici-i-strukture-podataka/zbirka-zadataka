@@ -1,0 +1,8 @@
+Unesite broj elemenata niza (max 10): 5
+Unesite A[0]: 6
+Unesite A[1]: 2
+Unesite A[2]: 8
+Unesite A[3]: 9
+Unesite A[4]: 3
+
+Unesi karakter: O
