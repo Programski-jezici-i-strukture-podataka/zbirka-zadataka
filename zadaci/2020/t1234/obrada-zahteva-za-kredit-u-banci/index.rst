@@ -19,3 +19,5 @@ Primer rešenja
 .. literalinclude:: zadatak.c
    :linenos:
 
+.. disqus::
+
