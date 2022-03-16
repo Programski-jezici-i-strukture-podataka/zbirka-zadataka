@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Dat je niz realnih brojeva od maksimalno 20 elemenata.
+Učitati <code class="docutils literal notranslate"><span class="pre">n</span></code> pozitivnih elemenata, gde svaka vrednost u nizu predstavlja otpornost jednog otpornika izraženu u omima.
+Otpornosti mogu biti isključivo pozitivne, realne vrednosti.
+Uneti putem standardnog ulaza napon <code class="docutils literal notranslate"><span class="pre">U</span></code>, koja predstavlja realnu vrednost.
+Otpornici su paralelno povezani i predstavljaju električno kolo.
+Za paralelno vezane otpornosti iz niza izračunati i ispisati:</p>
+<ol class="loweralpha simple">
+<li><p>Ukupnu jačinu struje u električnom kolu.</p></li>
+<li><p>Procentualni udeo struje koji protiče kroz prvi od potrošača u odnosu na ukupnu jačinu struje u električnom kolu.</p></li>
+<li><p>Formirati novi niz u odnosu na ulazni, gde su pojedinačni elementi snage otpornika.</p></li>
+</ol>
+<p>Ispise vrednosti zaokružiti na dve decimale.</p>
+<p>Za ulazni niz otpornosti <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">20,</span> <span class="pre">15,</span> <span class="pre">10,</span> <span class="pre">6,</span> <span class="pre">2.5]</span></code> i vrednost napona od <code class="docutils literal notranslate"><span class="pre">5</span></code> volti, očekivani ispis na standardnom izlazu je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj clanova niza: 6
+R[0] = 1
+R[1] = 20
+R[2] = 15
+R[3] = 10
+R[4] = 6 
+R[5] = 2.5
+Unesite jacinu napona u voltima: 5
+
+Ukupna struja: 8.92A
+Procentualni udeo struje: 56.07%
+[25.00W, 1.25W, 1.67W, 2.50W, 4.17W, 10.00W]
+
+</pre></div>
+</div>
+<p><strong>Korisne matematičke formule</strong></p>
+<p>Otpornost između paralelno vezanih otpornika:</p>
+<div class="math notranslate nohighlight">
+\[R_{uk} = \frac {1} {\frac {1} {R_1} + \frac {1} {R_2} + ... + \frac {1} {R_n}}\]</div>
+<p>Omov zakon:</p>
+<div class="math notranslate nohighlight">
+\[I = \frac {U} {R}\]</div>
+<p>Džulov zakon:</p>
+<div class="math notranslate nohighlight">
+\[P = \frac {U^2} {R}\]</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2016/t12/paralelno-vezani-otpornici/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
