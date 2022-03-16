@@ -1,0 +1,13 @@
+Unesite broj clanova niza: 6
+R[0] = 1
+R[1] = 20
+R[2] = 15
+R[3] = 10
+R[4] = 6
+R[5] = 2.5
+Unesite jacinu struje u amperima: 0.5
+
+Ukupan napon: 27.25V
+Procentualni udeo napona: 36.70%
+[0.25W, 5.00W, 3.75W, 2.50W, 1.50W, 0.62W]
+

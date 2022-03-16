@@ -1,0 +1,11 @@
+Unesite broj elemenata niza: 5
+a[0] = 1
+a[1] = 3.5
+a[2] = 2
+a[3] = 7
+a[4] = 0.5
+
+Prosecna duzina duzi: 2.80
+[1.00, 12.25, 4.00, 49.00, 0.25]
+Procenat zauzeca povrsine najveceg kvadrata: 35.71%  
+

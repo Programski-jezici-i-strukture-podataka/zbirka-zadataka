@@ -1,0 +1,13 @@
+Unesite broj visina: 5
+Unesite visine [m]:
+h[0] = 1
+h[1] = 3.4
+h[2] = 5
+h[3] = 2
+h[4] = 0
+Unesite masu tela [kg]: 10
+
+Ukupna energija: 490.50J
+Najmanja razlika u energijama: 98.10J
+[8.86m/s, 5.60m/s, 0.00m/s, 7.67m/s, 9.90m/s]
+

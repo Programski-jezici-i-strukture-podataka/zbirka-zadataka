@@ -1,0 +1,12 @@
+Unesite broj clanova niza: 6
+a[0] = 2.3
+a[1] = 4.3
+a[2] = 1
+a[3] = 5.7
+a[4] = 6.1
+a[5] = 3.9
+
+Prosecna duzina duzi: 3.88
+[12.17, 79.51, 1.00, 185.19, 226.98, 59.32]
+Zapremina najbliza srednjoj je: 59.32
+
