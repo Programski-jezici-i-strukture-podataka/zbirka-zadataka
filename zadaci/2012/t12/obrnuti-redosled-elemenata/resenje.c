@@ -18,7 +18,7 @@ int main()
         printf("A[%d]=", i);
         scanf("%d", &A[i]);
     }
-    for(i=0;i<=n/2;i++)
+    for(i=0;i<n/2;i++)
     {
         pom=A[i];
         A[i]=A[n-1-i];
