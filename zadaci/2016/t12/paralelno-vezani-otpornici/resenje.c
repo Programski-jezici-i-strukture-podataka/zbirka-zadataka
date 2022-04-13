@@ -16,7 +16,7 @@ int main() {
         do {
             printf("R[%d] = ", i);
             scanf("%lf", &R[i]);
-        } while(R <= 0);
+        } while(R[i] <= 0);
     }
 
     double U;
