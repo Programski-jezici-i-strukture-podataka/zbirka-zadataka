@@ -40,7 +40,7 @@ int main(int args_num, char **args) {
 
     // b)
     struct tim_st timovi_u_intervalu[MAX_SIZE];
-    int m;
+    int m = 0;
 
     char naziv[strlen("izmedju_proseka_i_") + 
                       strlen(args[3]) + 

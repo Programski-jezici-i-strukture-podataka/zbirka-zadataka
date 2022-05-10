@@ -12,8 +12,11 @@ a) Učitati ih u niz struktura koje odgovaraju gornjem opisu. Iskoristiti broj p
     * Nerešena utakmica nosi 1 bod
     * Poraz nosi 0 bodova
 
-b) U izlaznu datoteku ispisati sve timove koji se sa brojem bodova nalaze u intervalu između prosečnog broja bodova u ligi i vrednosti zadate kao argument komandne linije. Datoteku nazvati sa prefiksom "izmedju_proseka_i_", pa onda staviti broj bodova unet kao argument komandne linije i postfiks "_bodova.txt".
-c) Sortirati tabelu po broju bodova. U slučaju da dve ekipe imaju isti broj bodova, prednost ima ona ekipa koja ima veću gol razliku. Prve tri ekipe idu u "Ligu šampiona", sledeće dve u "Ligu Evrope", a poslednje tri su u "zoni ispadanja". Prilikom ispisa u izlaznu datoteku posebno podvući crtu ispod timova koji su plasirani za "Lige", odnosno iznad "zone ispadanja".
+b) U izlaznu datoteku ispisati sve timove koji se sa brojem bodova nalaze u intervalu između prosečnog broja bodova u ligi i vrednosti zadate kao argument komandne linije.
+   Datoteku nazvati sa prefiksom "izmedju_proseka_i\_", pa onda staviti broj bodova unet kao argument komandne linije i postfiks "_bodova.txt".
+c) Sortirati tabelu po broju bodova. U slučaju da dve ekipe imaju isti broj bodova, prednost ima ona ekipa koja ima veću gol razliku.
+   Prve tri ekipe idu u "Ligu šampiona", sledeće dve u "Ligu Evrope", a poslednje tri su u "zoni ispadanja".
+   Prilikom ispisa u izlaznu datoteku posebno podvući crtu ispod timova koji su plasirani za "Lige", odnosno iznad "zone ispadanja".
 
 
 Primer ulazne datoteke ``statistika.txt``:
