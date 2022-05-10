@@ -1,0 +1,7 @@
+Zadaci za T34
+-------------
+
+.. toctree::
+   :glob:
+
+   */t34/*/index
