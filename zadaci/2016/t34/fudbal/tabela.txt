@@ -1,0 +1,23 @@
+Juventus 19 33
+Roma 16 26
+Milan 4 26
+-------------------
+Lazio 12 25
+Atalanta 7 25
+-------------------
+Napoli 9 24
+Torino 13 22
+Fiorentina 7 20
+Inter 2 18
+Chievoverona -1 18
+Sampdoria -3 18
+Genoa 0 16
+Bologna -5 16
+Cagliari -10 16
+Udinese -4 15
+Sassuolo -9 13
+Empoli -11 10
+-------------------
+Pescara -14 7
+Palermo -16 6
+Crotone -16 5

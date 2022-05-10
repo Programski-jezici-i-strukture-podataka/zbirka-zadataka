@@ -1,0 +1,8 @@
+Atalanta 7 25
+Chievoverona -1 18
+Fiorentina 7 20
+Inter 2 18
+Lazio 12 25
+Napoli 9 24
+Sampdoria -3 18
+Torino 13 22
