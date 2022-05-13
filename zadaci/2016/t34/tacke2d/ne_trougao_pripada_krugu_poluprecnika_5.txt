@@ -1,0 +1,5 @@
+Krug poluprecnika 5.00 sa centrom u tacki (2.00, 2.00)
+
+(1.00, 1.00)
+(2.00, 2.00)
+(3.00, 3.00)
