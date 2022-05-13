@@ -4,160 +4,157 @@
 
 #define MAX_SIZE 30
 
-#define MAX_NAME 31
+#define MAX_NAZIV 31
 
-struct tim_st {
-    char naziv_tima[MAX_NAME];
+#define MAX_IME_DATOTEKE 36
+
+#define LIGA_SAMPIONA 3
+#define LIGA_EVROPE 5
+#define VELICINA_ZONE_ISPADANJA 3
+
+typedef struct fudbal_st {
+    char naziv_tima[MAX_NAZIV];
     int gol_razlika;
     unsigned broj_bodova;
-};
+} FUDBAL;
 
-FILE *safe_fopen(char *, char *, int);
-void ucitaj_iz_fajla(FILE *, struct tim_st *, int *);
-void ispis_u_fajl(FILE *, struct tim_st *, int, int, int);
+FILE *safe_fopen(char *naziv, char *rezim, int kod_greske);
+void ucitaj_statistiku(FILE *pulazna, FUDBAL *ekipe, int *pn);
+void ispisi_interval(FILE *pizlazna, FUDBAL *ekipe, int n, unsigned broj_bodova);
+void ispisi_tabelu(FILE *pizlazna, FUDBAL *ekipe, int n);
+unsigned suma_bodova(FUDBAL *ekipe, int n);
+double prosek_bodova(FUDBAL *ekipe, int n);
+void sortiraj_ekipe(FUDBAL *ekipe, int n);
+unsigned izracunaj_bodove(unsigned broj_pobeda, unsigned broj_neresenih);
 
-unsigned suma_bodova(struct tim_st *, int);
-double prosek_bodova(struct tim_st *, int);
-void u_intervalu(struct tim_st *, struct tim_st *, int, int *, unsigned);
-void sortiranje(struct tim_st *, int);
-unsigned racunanje_bodova(unsigned, unsigned, unsigned);
-
-int main(int args_num, char **args) {
-    struct tim_st tabela[MAX_SIZE];
+int main(int argc, char **argv) {
+    FUDBAL ekipe[MAX_SIZE];
     int n;
 
-    if(args_num != 4) {
-        puts("Primer poziva: ./a.out statistika.txt tabela.txt 25");
+    FILE *pulazna, *pizlazna_interval, *pizlazna_tabela;
+
+    if(argc != 4) {
+        printf("Primer poziva programa: %s statistika.txt tabela.txt 25\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    FILE *pin = safe_fopen(args[1], "r", EXIT_FAILURE);
+    // a
 
-    // a)
-    ucitaj_iz_fajla(pin, tabela, &n);
+    pulazna = safe_fopen(argv[1], "r", 2);
+    ucitaj_statistiku(pulazna, ekipe, &n);
+    fclose(pulazna);
 
-    fclose(pin);
+    // b
+    
+    char ime_datoteke[MAX_IME_DATOTEKE] = "izmedju_proseka_i_";
+    strcat(ime_datoteke, argv[3]);
+    strcat(ime_datoteke, "_bodova.txt");
+    unsigned broj_bodova = atoi(argv[3]);
+    pizlazna_interval = safe_fopen(ime_datoteke, "w", 3);
+    ispisi_interval(pizlazna_interval, ekipe, n, broj_bodova);
+    fclose(pizlazna_interval);
 
-    // b)
-    struct tim_st timovi_u_intervalu[MAX_SIZE];
-    int m = 0;
+    // c
 
-    char naziv[strlen("izmedju_proseka_i_") + 
-                      strlen(args[3]) + 
-                      strlen("_bodova.txt")];
-    strcpy(naziv, "izmedju_proseka_i_");
-    strcat(naziv, args[3]);
-    strcat(naziv, "_bodova.txt");
+    sortiraj_ekipe(ekipe, n);
+    pizlazna_tabela = safe_fopen(argv[2], "w", 4);
+    ispisi_tabelu(pizlazna_tabela, ekipe, n);
+    fclose(pizlazna_tabela);
 
-    FILE *pout = safe_fopen(naziv, "w", EXIT_FAILURE);
-
-    u_intervalu(timovi_u_intervalu, tabela, n, &m, atoi(args[3]));
-    ispis_u_fajl(pout, timovi_u_intervalu, 0, m, m);
-
-    fclose(pout);
-
-    // c)
-
-    pout = safe_fopen(args[2], "w", EXIT_FAILURE);
-
-    sortiranje(tabela, n);
-
-    ispis_u_fajl(pout, tabela, 0, 3, n);
-    fprintf(pout, "-------------------\n");
-    ispis_u_fajl(pout, tabela, 3, 5, n);
-    fprintf(pout, "-------------------\n");
-    ispis_u_fajl(pout, tabela, 5, n - 3, n);
-    fprintf(pout, "-------------------\n");
-    ispis_u_fajl(pout, tabela, n - 3, n, n);
-
-    fclose(pout);
-
-    return 0;
+    return EXIT_SUCCESS;
 }
 
-FILE *safe_fopen(char *pname, char *pmode, int error_code) {
-    FILE *pf = fopen(pname, pmode);
+FILE *safe_fopen(char *naziv, char *rezim, int kod_greske) {
+    FILE *fp = fopen(naziv, rezim);
 
-    if(pf == NULL) {
-        printf("Datoteka sa imenom %s nije uspesno otvorena.\n", pname);
-        exit(error_code);
+    if(fp == NULL) {
+        printf("Datoteku %s nije moguce otvoriti!\n", naziv);
+        exit(kod_greske);
     }
 
-    return pf;
+    return fp;
 }
 
-void ucitaj_iz_fajla(FILE *pin, struct tim_st *ptimovi, int *pn) {
+void ucitaj_statistiku(FILE *pulazna, FUDBAL *ekipe, int *pn) {
     int i = 0;
-    unsigned pobede, nereseno, porazi;
+    unsigned broj_pobeda, broj_neresenih, broj_poraza;
 
-    while(fscanf(pin, "%s %d %u %u %u", ptimovi[i].naziv_tima,
-                                        &ptimovi[i].gol_razlika,
-                                        &pobede,
-                                        &nereseno,
-                                        &porazi) != EOF) {
-        ptimovi[i].broj_bodova = racunanje_bodova(pobede, nereseno, porazi);
+    while(fscanf(pulazna, "%s %d %u %u %u", 
+                 ekipe[i].naziv_tima, 
+                 &ekipe[i].gol_razlika,
+                 &broj_pobeda,
+                 &broj_neresenih,
+                 &broj_poraza) != EOF) {
+        // broj_poraza se ne koristi u daljim proracunima (ne dobijaju se bodovi), 
+        // ali moramo ucitati iz datoteke kako bismo presli na ucitavanje novog reda
+        ekipe[i].broj_bodova = izracunaj_bodove(broj_pobeda, broj_neresenih);
         i++;
     }
 
     *pn = i;
 }
 
-void ispis_u_fajl(FILE *pout, struct tim_st *ptimovi, int od_tima, int do_tima, int n) {
+void ispisi_interval(FILE *pizlazna, FUDBAL *ekipe, int n, unsigned broj_bodova) {
     int i;
 
-    if(od_tima >= 0 && do_tima <= n) {
-        for(i = od_tima;i < do_tima;i++) {
-            fprintf(pout, "%s %d %u\n", ptimovi[i].naziv_tima,
-                                        ptimovi[i].gol_razlika,
-                                        ptimovi[i].broj_bodova);
+    double prosek = prosek_bodova(ekipe, n);
+
+    for(i = 0;i < n;i++) {
+        if(ekipe[i].broj_bodova >= prosek && ekipe[i].broj_bodova <= broj_bodova) {
+            fprintf(pizlazna, "%s %d %u\n", ekipe[i].naziv_tima, ekipe[i].gol_razlika, ekipe[i].broj_bodova);
         }
     }
 }
 
-unsigned suma_bodova(struct tim_st *ptimovi, int n) {
+void ispisi_tabelu(FILE *pizlazna, FUDBAL *ekipe, int n) {
     int i;
-    unsigned s = 0;
 
     for(i = 0;i < n;i++) {
-        s += ptimovi[i].broj_bodova;
-    }
-
-    return s;
-}
-
-double prosek_bodova(struct tim_st *ptimovi, int n) {
-    return (double)suma_bodova(ptimovi, n) / n;
-}
-
-void u_intervalu(struct tim_st *ptimovi_u_intervalu, struct tim_st *ptimovi, 
-                 int n, int *pm, unsigned gornja_granica) {
-    int i;
-    double donja_granica = prosek_bodova(ptimovi, n);
-
-    for(i = 0;i < n;i++) {
-        if(ptimovi[i].broj_bodova >= donja_granica && ptimovi[i].broj_bodova <= gornja_granica) {
-            ptimovi_u_intervalu[*pm] = ptimovi[i];
-            (*pm)++;
+        if(i == LIGA_SAMPIONA || i == LIGA_EVROPE || i == n - VELICINA_ZONE_ISPADANJA) {
+            fprintf(pizlazna, "-------------------\n");
         }
+        fprintf(pizlazna, "%s %d %u\n", ekipe[i].naziv_tima, ekipe[i].gol_razlika, ekipe[i].broj_bodova);
     }
 }
 
-void sortiranje(struct tim_st *ptimovi, int n) {
-    int i, j;
-    struct tim_st tmp;
+unsigned izracunaj_bodove(unsigned broj_pobeda, unsigned broj_neresenih) {
+    return 3 * broj_pobeda + broj_neresenih;
+}
+
+unsigned suma_bodova(FUDBAL *ekipe, int n) {
+    int i;    
+    unsigned suma = 0;
+
+    for(i = 0;i < n;i++) {
+        suma += ekipe[i].broj_bodova;
+    }
+
+    return suma;
+}
+
+double prosek_bodova(FUDBAL *ekipe, int n) {
+    return (double) suma_bodova(ekipe, n) / n;
+}
+
+void sortiraj_ekipe(FUDBAL *ekipe, int n) {
+    int i, j, max_idx;
+    FUDBAL tmp_ekipa;
 
     for(i = 0;i < n - 1;i++) {
+        max_idx = i;
         for(j = i + 1;j < n;j++) {
-            if(ptimovi[i].broj_bodova < ptimovi[j].broj_bodova || 
-              (ptimovi[i].broj_bodova == ptimovi[j].broj_bodova && ptimovi[i].gol_razlika < ptimovi[j].gol_razlika)) {
-                tmp = ptimovi[i];
-                ptimovi[i] = ptimovi[j];
-                ptimovi[j] = tmp;
+            if(ekipe[max_idx].broj_bodova < ekipe[j].broj_bodova ||
+               (ekipe[max_idx].broj_bodova == ekipe[j].broj_bodova && 
+                ekipe[max_idx].gol_razlika < ekipe[j].gol_razlika)) {
+                max_idx = j;
             }
+        }
+
+        if(i != max_idx) {
+            tmp_ekipa = ekipe[i];
+            ekipe[i] = ekipe[max_idx];
+            ekipe[max_idx] = tmp_ekipa;
         }
     }
 }
 
-unsigned racunanje_bodova(unsigned pobede, unsigned nereseno, unsigned porazi) {
-    return 3 * pobede + 1 * nereseno + 0 * porazi;
-}
