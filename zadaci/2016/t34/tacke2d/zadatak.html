@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <dl class="simple">
+<dt>Tačke u dvodimenzionalnom Dekartovom koordinatnom sistemu opisane su preko njihovih koordinata:</dt><dd><ul class="simple">
+<li><p>Vrednost na x-osi (realan broj dvostruke preciznosti)</p></li>
+<li><p>Vrednost na y-osi (realan broj dvostruke preciznosti)</p></li>
+</ul>
+</dd>
+<dt>Učitati tačke iz ulazne datoteke, potom uraditi sledeće:</dt><dd><ol class="loweralpha simple">
+<li><p>Pronaći koordinate težišne tačke za niz učitanih tačaka.
+Za pronalaženje koordinata težišne tačke potrebno je naći posebno aritmetičku sredinu x i y koordinata tačaka čija se težišna tačka nalazi (formula je na drugoj stranici dokumenta).</p></li>
+<li><p>Pronaći sve tačke koje pripadaju krugu sa centrom u težišnoj tački (rezultat prethodnog koraka) i poluprečnika koji se unosi kao argument komandne linije (može biti realna vrednost).
+Rezultat ovog i prethodnog koraka upisati u izlaznu datoteku čiji se naziv sastoji od stringa <code class="docutils literal notranslate"><span class="pre">pripada_krugu_poluprecnika_</span></code>, vrednost poluprečnika (argument komandne linije) i ekstenzijom <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.</p></li>
+<li><p>Pronaći ukupan broj jedinstvenih trouglova koji može da nastane od datog niza tačaka.
+Da bi neke tri tačke sačinjavale trougao, potrebno je da duži koje one međusobno grade zadovoljavaju nejednakost trougla (formula je na drugoj stranici dokumenta).
+Dobijeni broj trouglova upisati u izlaznu datoteku &quot;trouglovi.txt&quot;.</p></li>
+</ol>
+</dd>
+</dl>
+<img alt="../../../../_images/tacke2d_ilustracija.png" class="align-center" src="../../../../_images/tacke2d_ilustracija.png" />
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out tacke.txt <span class="m">5</span>
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">tacke.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1 1
+2 2
+3 1
+5 5
+6 1
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">trouglovi.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Broj trouglova: 8
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">pripada_krugu_poluprecnika_2.txt</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Krug poluprecnika 2.00 sa centrom u tacki (3.40, 2.00)
+
+(2.00, 2.00)
+(3.00, 1.00)
+</pre></div>
+</div>
+<p>Primer poziva programa gde tačke <em>ne sačinjavaju</em> trougao:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out ne_trougao.txt <span class="m">5</span>
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">ne_trougao.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1 1
+2 2
+3 3
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">trouglovi.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Broj trouglova: 0
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">pripada_krugu_poluprecnika_5.txt</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Krug poluprecnika 5.00 sa centrom u tacki (2.00, 2.00)
+
+(1.00, 1.00)
+(2.00, 2.00)
+(3.00, 3.00)
+</pre></div>
+</div>
+<p><strong>Korisne matematičke formule</strong></p>
+<p><em>Računanje težišne tačke</em></p>
+<p>Koordinate težišne tačke <span class="math notranslate nohighlight">\((x_{T}, y_{T})\)</span> za <span class="math notranslate nohighlight">\(n\)</span> tačaka računaju se na sledeći način:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}x_{T} = \frac{(x_{1} + x_{2} + ... + x_{n})}{n}\\y_{T} = \frac{(y_{1} + y_{2} + ... + y_{n})}{n}\end{aligned}\end{align} \]</div>
+<p><em>Nejednakost trougla</em></p>
+<p>Za svaki trougao sa stranicama <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> i <span class="math notranslate nohighlight">\(c\)</span> treba da važe sledeće nejednakosti:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}a + b &gt; c\\c + b &gt; a\\c + a &gt; b\end{aligned}\end{align} \]</div>
+<p><em>Rastojanje između dve tačke u dvodimenzionalnom koordinatnom sistemu</em></p>
+<p>Date su dve tačke sa koordinatama <span class="math notranslate nohighlight">\((x_{1}, y_{1})\)</span> i <span class="math notranslate nohighlight">\((x_{2}, y_{2})\)</span>. Njihovo rastojanje može se odrediti na sledeći način:</p>
+<div class="math notranslate nohighlight">
+\[d = \sqrt{(x_{1} - x_{2})^2 + (y_{1} - y_{2})^2}\]</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2016/t34/tacke2d/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
