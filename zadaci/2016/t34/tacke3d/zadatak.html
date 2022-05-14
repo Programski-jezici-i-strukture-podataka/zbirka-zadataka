@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Tačke u trodimenzionalnom Dekartovom koordinatnom sistemu opisane su preko njihovih koordinata:</p>
+<ul class="simple">
+<li><p>Vrednost na x-osi (realan broj dvostruke preciznosti)</p></li>
+<li><p>Vrednost na y-osi (realan broj dvostruke preciznosti)</p></li>
+<li><p>Vrednost na z-osi (realan broj dvostruke preciznosti)</p></li>
+<li><p>Rastojanje od koordinatnog početka (realan broj dvostruke preciznosti)</p></li>
+</ul>
+<p>Učitati tačke iz ulazne datoteke, potom uraditi sledeće:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Prilikom učitavanja izračunati rastojanje od koordinatnog početka (formula data pre sekcije &quot;Napomene&quot;).
+Nakon toga, zapisati koordinate u izlaznu datoteku čije ime se zadaje kao argument komandne linije u sledećem formatu: &quot;(x, y, z), d&quot;,
+gde su x, y i z redom koordinate tačke, a d rastojanje od koordinatnog početka.</p></li>
+<li><p>Pronaći najbližu i najdalju tačku tačku od koordinatnog početka.
+Izračunati njihovu međusobnu udaljenost, potom izračunati zapreminu kocke čija je stranica dužine udaljenosti između tih tačaka.</p></li>
+<li><p>Izračunati zapreminu kocke čija stranica se unosi u program kao argument komandne linije (može biti realna vrednost).
+Upisati zapreminu iz prethodnog koraka (pod b) i dobijenu zapreminu u izlaznu datoteku, kao zapreminu tela koje bi nastalo kada bi se od veće kocke odsekao deo veličine manje kocke.
+Izlazna datoteka treba da nosi ime koje počinje sa <code class="docutils literal notranslate"><span class="pre">&quot;sracunata&quot;/&quot;argument&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;_kocka_minus_&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;sracunata&quot;/&quot;argument&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;_kocka.txt&quot;</span></code>,
+gde će prva biti kocka sa većom, a druga kocka sa manjom zapreminom.</p></li>
+</ol>
+</div></blockquote>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out tacke.txt tacke_formatirano.txt <span class="m">5</span>
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">tacke.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1 1 1
+2 1 3
+4 1 7
+3 5 3
+7 7 7
+1 8 7
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">tacke_formatirano.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1.00, 1.00, 1.00), 1.73
+(2.00, 1.00, 3.00), 3.74
+(4.00, 1.00, 7.00), 8.12
+(3.00, 5.00, 3.00), 6.56
+(7.00, 7.00, 7.00), 12.12
+(1.00, 8.00, 7.00), 10.68
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">sracunata_kocka_minus_argument_kocka.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Zapremina sracunate kocke: 1122.37
+Zapremina argument kocke: 125.00
+Razlika u zapreminama: 997.37
+</pre></div>
+</div>
+<p><strong>Korisne matematičke formule</strong></p>
+<p><em>Rastojanje između dve tačke u dvodimenzionalnom koordinatnom sistemu</em></p>
+<p>Date su dve tačke sa koordinatama <span class="math notranslate nohighlight">\((x_{1}, y_{1})\)</span> i <span class="math notranslate nohighlight">\((x_{2}, y_{2})\)</span>. Njihovo rastojanje može se odrediti na sledeći način:</p>
+<div class="math notranslate nohighlight">
+\[d = \sqrt{(x_{1} - x_{2})^2 + (y_{1} - y_{2})^2}\]</div>
+<p><em>Zapremina kocke</em></p>
+<p>Zapremina kocke za kocku stranice <span class="math notranslate nohighlight">\(a\)</span> računa se na sledeći način:</p>
+<div class="math notranslate nohighlight">
+\[P = a^3\]</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2016/t34/tacke3d/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
