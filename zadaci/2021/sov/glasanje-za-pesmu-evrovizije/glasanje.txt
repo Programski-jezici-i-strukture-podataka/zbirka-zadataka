@@ -1,0 +1,10 @@
+Srbija    225  87
+Grcka      57 158
+Italija   110 158
+Svedska   180 258
+Britanija 183 283
+Spanija   228 231
+Portugal   36 171
+Ukrajina  439 192
+Norveska  146  36
+Moldavija 239  14
