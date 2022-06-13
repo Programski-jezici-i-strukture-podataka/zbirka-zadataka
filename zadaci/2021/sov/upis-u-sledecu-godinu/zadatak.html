@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Iz zadate ulazne datoteke učitati podatke u jednostruko spregnutu listu.</p>
+<p>Struktura student se sastoji od sledećih polja:</p>
+<ul class="simple">
+<li><p>broj indeksa studenta (jedna reč, do 10 karaktera)</p></li>
+<li><p>ime studenta (jedna reč, do 15 karaktera)</p></li>
+<li><p>prezime studenta (jedna reč, do 15 karaktera)</p></li>
+<li><p>ocena iz 1. predmeta (pozitivna, celobrojna vrednost)</p></li>
+<li><p>ocena iz 2. predmeta (pozitivna, celobrojna vrednost)</p></li>
+<li><p>ocena iz 3. predmeta (pozitivna, celobrojna vrednost)</p></li>
+<li><p>ocena iz 4. predmeta (pozitivna, celobrojna vrednost)</p></li>
+<li><p>ocena iz 5. predmeta (pozitivna, celobrojna vrednost)</p></li>
+</ul>
+<p>Takođe, struktura student sadrži i polja potrebna za pravilno formiranje jednostruko spregnute liste.</p>
+<p>Preko argumenata komandne linije uneti naziv ulazne datoteke i naziv izlazne datoteke.</p>
+<p>U izlaznu datoteku ispisati sve studente koji su stekli uslov za prelazak u sledeću godinu. Da bi prešao u sledeću godinu student mora da položi minimalno 4 od 5 predmeta. Predmet je položen ako je ocena veća od 5. Takođe, u izlaznu datoteku ispisati da li je student koji je prešao u sledeću godinu na budžetu ili samofinansiranju, da bi bio na budžetu, student mora da položi sve predmete.</p>
+<p>Obratiti pažnju na odgovarajuće rukovanje greškama pri radu sa datotekama (ne ispisivati ništa u datoteku niti standardni izlaz):</p>
+<ul class="simple">
+<li><p>Ako nije moguće otvoriti ulaznu datoteku: izaći iz programa sa <code class="docutils literal notranslate"><span class="pre">exit(1)</span></code></p></li>
+<li><p>Ako nije moguće otvoriti izlaznu datoteku: izaći iz programa sa <code class="docutils literal notranslate"><span class="pre">exit(2)</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out studenti.txt polozili.txt
+</pre></div>
+</div>
+<p>Zadati ulaz u datoteci <code class="docutils literal notranslate"><span class="pre">studenti.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RA163-2020 Ivan Ivanovic 7 8 9 5 8
+RA167-2020 Jovica Matic 5 6 9 5 6
+RA123-2020 Luka Lukovic 8 8 9 9 7
+RA99-2020 Olivera Milic 9 8 9 8 9
+RA105-2020 Milica Kovacevic 6 6 6 5 6
+RA190-2020 Teodora Vukovic 7 7 9 8 8
+RA110-2020 Kosta Glisic 6 8 7 5 7
+RA90-2020 Vuk Vulic 7 9 8 10 9
+</pre></div>
+</div>
+<p>Izgled izlazne datoteke <code class="docutils literal notranslate"><span class="pre">polozili.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RA163-2020 Ivan Ivanovic 7 8 9 5 8, samofinansiranje
+RA123-2020 Luka Lukovic 8 8 9 9 7, budzet
+RA99-2020 Olivera Milic 9 8 9 8 9, budzet
+RA105-2020 Milica Kovacevic 6 6 6 5 6, samofinansiranje
+RA190-2020 Teodora Vukovic 7 7 9 8 8, budzet
+RA110-2020 Kosta Glisic 6 8 7 5 7, samofinansiranje
+RA90-2020 Vuk Vulic 7 9 8 10 9, budzet
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2021/sov/upis-u-sledecu-godinu/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
