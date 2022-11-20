@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Napisati program u kom korisnik unosi <code class="docutils literal notranslate"><span class="pre">n</span></code> površina koju pokriva jedan crep u kvadratnim centimetrima za različite modele crepova u celobrojni niz od maksimalno 20 elemenata.
+Korisnik unosi i cenu crepa po komadu u poseban, realan niz, takođe od 20 elemenata. Crepu sa određenom površinom odgovara cena sa identičnim indeksom elementa u nizu cena.
+Pored toga, potrebno je i uneti i realnu vrednost u kvadratnim metrima površine koju je potrebno pokriti crepom.</p>
+<ol class="loweralpha simple">
+<li><p>Napraviti novi, rezultujući niz čiji elementi predstavljaju koliko je ukupno novca potrebno uložiti da bi se pokrila zadata površina. Ispisati dobijeni niz.</p></li>
+<li><p>Ispisati redni broj i ukupnu cenu crepa sa kojim je najisplativije uraditi posao i cenu materijala.</p></li>
+<li><p>Ispisati redni broj i količinu crepa sa kojim je neophodno najmanje komada da bi se pokrila zadata površina.</p></li>
+</ol>
+<p>Ispise realnih vrednosti zaokružiti na dve decimale.</p>
+<p>Za unete površine crepova <code class="docutils literal notranslate"><span class="pre">[150,</span> <span class="pre">170,</span> <span class="pre">134,</span> <span class="pre">205,</span> <span class="pre">230,</span> <span class="pre">195]</span></code>, njihove cene <code class="docutils literal notranslate"><span class="pre">[20,</span> <span class="pre">23,</span> <span class="pre">25,</span> <span class="pre">27,</span> <span class="pre">30,</span> <span class="pre">22]</span></code> i površinu 50m<sup>2</sup>, očekivani ispis na ekranu terminala je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ucitati broj modela crepova: 6
+1. model crepa
+povrsina [cm2]: 150
+cena [RSD]: 20
+
+2. model crepa
+povrsina [cm2]: 170
+cena [RSD]: 23
+
+3. model crepa
+povrsina [cm2]: 134
+cena [RSD]: 25
+
+4. model crepa
+povrsina [cm2]: 205
+cena [RSD]: 27
+
+5. model crepa
+povrsina [cm2]: 230
+cena [RSD]: 30
+
+6. model crepa
+povrsina [cm2]: 195
+cena [RSD]: 22
+
+Uneti povrsinu koju je potrebno pokriti [m2]: 50
+
+Ukupne cene u dinarima: [66666.67, 67647.06, 93283.58, 65853.66, 65217.39, 56410.26]
+Najpovoljniji je 6. crep, cija ukupna cena za pokrivanje 50.00 metara kvadratnih iznosi 56410.26 dinara.
+Najmanje potrebno za pokrivanje 50.00 metara kvadratnih ukoliko se koristi 5. crep: 2174 komada.
+</pre></div>
+</div>
+<p><strong>Korisne matematičke formule</strong></p>
+<p>Konverzija iz cm<sup>2</sup> u m<sup>2</sup>:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="center">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#center" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="math notranslate nohighlight">
+\[P_{m^2} = P_{cm^2}\cdot10^{-4}\]</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2022/t12/pokrivanje-krova/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
