@@ -3,7 +3,6 @@ Babel==2.9.1
 certifi==2021.10.8
 charset-normalizer==2.0.11
 cycler==0.11.0
-disqus==0.0.4
 docutils==0.17.1
 fonttools==4.29.1
 idna==3.3
@@ -28,7 +27,7 @@ six==1.16.0
 smartypants==2.0.1
 snowballstemmer==2.2.0
 Sphinx==4.4.0
-sphinx-disqus==1.2.0
+sphinx-comments==0.0.3
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-devhelp==1.0.2
 sphinxcontrib-htmlhelp==2.0.0

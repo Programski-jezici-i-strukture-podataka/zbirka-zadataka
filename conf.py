@@ -28,8 +28,17 @@ author = 'Srđan Popov, Rade Radišić'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx_disqus.disqus"]
-disqus_shortname = "pjisp-zbirka-zadataka"
+extensions = [
+    "sphinx_comments"
+]
+
+# utterances configuration (comments provider)
+comments_config = {
+   "utterances": {
+      "repo": "Programski-jezici-i-strukture-podataka/zbirka-zadataka",
+      "optional": "config",
+   }
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
