@@ -1,0 +1,2 @@
+Upisati ocene ucenika: 5,3,a,a,6,1
+Karakter 'a' u unosu nije validan!

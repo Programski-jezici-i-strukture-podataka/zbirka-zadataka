@@ -1,0 +1,3 @@
+Upisati ocene ucenika: 5,3,4,3,5,2,5
+Ocene ucenika: 5, 3, 4, 3, 5, 2, 5
+Prosek ucenika: 3.86 vrlo dobar
