@@ -91,33 +91,38 @@ Milica Markovic stambeni ne 8000000 20000 2.5 4
 <p>Pronaći sve odobrene kredite određene vrste (vrste koju prosledite kao argument) i izračunati zaradu banke od odobrenih kredita.
 Rezultate ispisati u izlazni fajl <code class="docutils literal notranslate"><span class="pre">&lt;vrsta</span> <span class="pre">kredita</span> <span class="pre">iz</span> <span class="pre">argumenata&gt;.txt</span></code> pri čemu ukupnu zaradu treba ispisati na dve decimale.
 Ukoliko za datu vrstu kredita ne postoje odobreni krediti u izlaznu datoteku ispisati “Nema odobrenih kredita.” (Pogledati stavku 3.)</p>
-<ol class="arabic">
-<li><p>Primer poziva:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span><span class="n">kes</span><span class="w"> </span><span class="n">krediti</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<ol class="arabic simple">
+<li><p>Primer poziva:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out kes krediti.txt
 </pre></div>
 </div>
-</li>
+</div></blockquote>
+<ol class="arabic" start="2">
 <li><p>Primer računanja zarade banke za jednu stavku:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>(iznos kredita – učešće) / 100 *  kamata * broj godina
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(iznos kredita – učešće) / 100 *  kamata * broj godina
 </pre></div>
 </div>
 </li>
 <li><p>Očekivani izlaz za odgovarajuću vrstu kredita:</p></li>
 </ol>
-<ol class="loweralpha">
-<li><p>primer izlazne datoteke za unetu vrstu kredita stambeni, u datoteci <code class="docutils literal notranslate"><span class="pre">stambeni.txt</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Nema</span><span class="w"> </span><span class="n">odobrenih</span><span class="w"> </span><span class="n">kredita</span><span class="p">.</span><span class="w"></span>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>primer izlazne datoteke za unetu vrstu kredita <code class="docutils literal notranslate"><span class="pre">stambeni</span></code>, u datoteci <code class="docutils literal notranslate"><span class="pre">stambeni.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Nema odobrenih kredita.
 </pre></div>
 </div>
 </li>
-<li><p>primer izlazne datoteke za unetu vrstu kredita kes, u datoteci <code class="docutils literal notranslate"><span class="pre">kes.txt</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Nikola</span><span class="w">    </span><span class="n">Nesic</span><span class="w">    </span><span class="n">kes</span><span class="w">    </span><span class="n">da</span><span class="w">    </span><span class="mi">200000</span><span class="w">    </span><span class="mi">0</span><span class="w">    </span><span class="mi">8</span><span class="w">    </span><span class="mi">3</span><span class="w"></span>
+<li><p>primer izlazne datoteke za unetu vrstu kredita <code class="docutils literal notranslate"><span class="pre">kes</span></code>, u datoteci <code class="docutils literal notranslate"><span class="pre">kes.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Nikola    Nesic    kes    da    200000    0    8    3
 
-<span class="n">Ukupna</span><span class="w"> </span><span class="n">zarada</span><span class="w"> </span><span class="n">banke</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="mf">48000.00</span><span class="w"> </span><span class="n">din</span><span class="p">.</span><span class="w"></span>
+Ukupna zarada banke je 48000.00 din.
 </pre></div>
 </div>
 </li>
 </ol>
+</div></blockquote>
 
 
           </div>
