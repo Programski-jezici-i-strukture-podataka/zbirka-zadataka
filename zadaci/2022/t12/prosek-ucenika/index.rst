@@ -17,3 +17,7 @@ Primer rešenja
 .. literalinclude:: resenje.c 
    :linenos:
 
+.. raw:: html
+
+    <div class="section" />
+

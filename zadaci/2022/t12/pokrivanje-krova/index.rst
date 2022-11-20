@@ -19,4 +19,5 @@ Primer rešenja
 
 .. raw:: html
 
-    <div class="section"></div>
+    <div class="section" />
+
