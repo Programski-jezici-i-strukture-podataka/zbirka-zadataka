@@ -20,5 +20,4 @@ Primer rešenja
 .. literalinclude:: resenje.c 
    :linenos:
 
-.. disqus::
 
