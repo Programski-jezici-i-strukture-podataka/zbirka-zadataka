@@ -20,9 +20,13 @@ Pronaći sve odobrene kredite određene vrste (vrste koju prosledite kao argumen
 Rezultate ispisati u izlazni fajl ``<vrsta kredita iz argumenata>.txt`` pri čemu ukupnu zaradu treba ispisati na dve decimale. 
 Ukoliko za datu vrstu kredita ne postoje odobreni krediti u izlaznu datoteku ispisati “Nema odobrenih kredita.” (Pogledati stavku 3.)
 
-1. Primer poziva::
+.. highlight:: none
 
-   ./a.out kes krediti.txt
+1. Primer poziva:
+
+  .. code-block:: bash
+
+     ./a.out kes krediti.txt
 
 2. Primer računanja zarade banke za jednu stavku::
 
@@ -30,12 +34,15 @@ Ukoliko za datu vrstu kredita ne postoje odobreni krediti u izlaznu datoteku isp
 
 3. Očekivani izlaz za odgovarajuću vrstu kredita:
 
-a) primer izlazne datoteke za unetu vrstu kredita stambeni, u datoteci ``stambeni.txt``::
+  a) primer izlazne datoteke za unetu vrstu kredita ``stambeni``, u datoteci ``stambeni.txt``::
 
-    Nema odobrenih kredita.
+      Nema odobrenih kredita.
     
-b) primer izlazne datoteke za unetu vrstu kredita kes, u datoteci ``kes.txt``::
+  b) primer izlazne datoteke za unetu vrstu kredita ``kes``, u datoteci ``kes.txt``::
 
-    Nikola    Nesic    kes    da    200000    0    8    3 
+      Nikola    Nesic    kes    da    200000    0    8    3 
 
-    Ukupna zarada banke je 48000.00 din.
+      Ukupna zarada banke je 48000.00 din.
+
+.. highlight:: c
+

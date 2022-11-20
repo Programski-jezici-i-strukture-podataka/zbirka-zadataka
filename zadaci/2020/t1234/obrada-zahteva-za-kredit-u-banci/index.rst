@@ -19,8 +19,6 @@ Primer rešenja
 .. literalinclude:: zadatak.c
    :linenos:
 
-.. disqus::
-
 .. raw:: html
 
     <div class="section" />
