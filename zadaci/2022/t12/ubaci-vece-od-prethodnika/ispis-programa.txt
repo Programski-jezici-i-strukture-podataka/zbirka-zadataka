@@ -1,0 +1,16 @@
+Unesite broj elemenata niza M (broj elemenata ne sme da prelazi 30): 7
+
+Unesite elemente niza:
+M[0]=1
+M[1]=2
+M[2]=6
+M[3]=3
+M[4]=6
+M[5]=23
+M[6]=45
+
+A=[2, 6, 6, 23, 45]
+B=[23, 45]
+
+Srednja vrednost niza M je: 12.286
+

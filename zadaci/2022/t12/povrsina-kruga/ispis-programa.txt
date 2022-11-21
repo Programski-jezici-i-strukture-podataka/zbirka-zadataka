@@ -1,0 +1,15 @@
+Unesite broj elemenata niza M (broj elemenata ne sme da prelazi 25): 5
+
+Unesite elemente niza M:
+M[0]=2.1
+M[1]=5.6
+M[2]=5.8
+M[3]=5.3
+M[4]=9.0
+Povrsina najveceg kruga iznosi 81.00, nalazi se na 4 indeksu.
+Unesite realan pozitivan broj a:5.7
+
+Broj vecih poluprecnika od 5.7 je 2.
+
+M=[2.10, 5.60, 5.80, 5.30, 9.00]
+K=[4.41, 31.36, 33.64, 28.09, 81.00]
