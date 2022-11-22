@@ -10,13 +10,7 @@ Učitati n elemenata u niz ``M``, koji predstavlja poluprečnike kružnica (vodi
 
 Na izlazu je neophodno ispisati nizove ``M`` i ``K``. Ispis članova niza zaokružiti na 2 decimale.
 
-Formula za računanje površine kruga:
-
-.. math::
-
-   P = r^{2}\cdot\pi
-   
-   (\pi posmatrati kao 3,14)
+Formula za računanje površine kruga: :math:`P = r^{2}\cdot\pi` (:math:`\pi` posmatrati kao 3,14)
 
 Primer rada programa:
 
