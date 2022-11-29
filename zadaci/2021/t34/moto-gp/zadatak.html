@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Iz zadate ulazne datoteke <code class="docutils literal notranslate"><span class="pre">motori.txt</span></code> učitati statički niz struktura, pri čemu se struktura <code class="docutils literal notranslate"><span class="pre">motor_st</span></code> sastoji od sledećih polja:</p>
+<ul class="simple">
+<li><p>marka (jedna reč, maksimalno 7 karaktera),</p></li>
+<li><p>snaga (realan broj, izražen u kW),</p></li>
+<li><p>vreme_po_krugu (realan broj),</p></li>
+<li><p>procenat_trosenja (ceo broj),</p></li>
+<li><p>tip_gume (jedna reč, maksimalno 5 karaktera) i</p></li>
+<li><p>broj_stajanja (ceo broj)</p></li>
+</ul>
+<p>Na osnovu parametra <code class="docutils literal notranslate"><span class="pre">br_kruga</span></code> koji se prihvata kao argument komandne linije, izračunati koliko
+minimalno puta svaki motor mora obaviti zamenu pneumatika (pretpostaviti da se oba pneumatika
+troše istovremeno).</p>
+<p>Na osnovu parametra <code class="docutils literal notranslate"><span class="pre">tip</span></code> koji se prihvata kao argument komandne linije, izračunati koliko je ukupno potrošeno pneumatika prosleđenog tipa u toku trke.
+Koristiti sledeće formule za konverziju:</p>
+<ul class="simple">
+<li><p>iz kW u KS: <span class="math notranslate nohighlight">\(nova\_snaga = snaga * 1.36\)</span></p></li>
+<li><p>potrosnju guma: <span class="math notranslate nohighlight">\(100\% / procenat\_trosenja\%\)</span></p></li>
+</ul>
+<p>U izlaznu datoteku <code class="docutils literal notranslate"><span class="pre">statistika.txt</span></code> ispisati sledeće informacije:</p>
+<ol class="arabic simple">
+<li><p>koliko je krugova svaki motor uspeo da napravi sa jednim setom pneumatika,</p></li>
+<li><p>koliko puta treba da promeni pneumatike da bi izvezao trku (da bi ispis bio formatiran kao što je traženo u tekstu zadatka neophodno je koristiti <code class="docutils literal notranslate"><span class="pre">&quot;%s\t%.1lfks\t\t%.2lfs\t\t\t%d\n&quot;</span></code> i <code class="docutils literal notranslate"><span class="pre">&quot;%s\t\t%.1lfks\t\t%.2lfs\t\t\t%d\n&quot;</span></code>)</p></li>
+<li><p>koliko je ukupno potrošeno pneumatika prosleđenog tipa u trci</p></li>
+</ol>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>Ako program ne može da otvori ulaznu ili izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out motori.txt statistika.txt <span class="m">25</span> Medium
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">motori.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ducati 100 62.2 12 Soft
+Honda 102 66.1 9 Medium
+Suzuki 100 61.3 5 Hard
+Aprilia 99 66.2 4 Hard
+Yamaha 98 60.5 6 Hard
+KTM 95 68.9 10 Soft
+BMW 99 71.2 8 Medium
+Triumph 105 63.1 7 Soft
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">statistika.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sa jednim setom guma motori mogu preci:
+Ducati moze preci 8 krugova.
+Honda moze preci 11 krugova.
+Suzuki moze preci 20 krugova.
+Aprilia moze preci 25 krugova.
+Yamaha moze preci 16 krugova.
+KTM moze preci 10 krugova.
+BMW moze preci 12 krugova.
+Triumph moze preci 14 krugova.
+
+Rezultati nakon trke su:
+
+Naziv	Snaga	Vreme_po_krugu	Broj_stajanja
+Ducati	136.0ks		62.20s			3
+Honda	138.7ks		66.10s			2
+Suzuki	136.0ks		61.30s			1
+Aprilia	134.6ks		66.20s			1
+Yamaha	133.3ks		60.50s			1
+KTM		129.2ks		68.90s			2
+BMW		134.6ks		71.20s			2
+Triumph	142.8ks		63.10s			1
+
+Ukupno je potroseno 8 guma tipa Medium.
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2021/t34/moto-gp/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
