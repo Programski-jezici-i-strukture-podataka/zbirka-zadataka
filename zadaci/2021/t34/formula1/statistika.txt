@@ -1,0 +1,9 @@
+Ukupna vremena timova su:
+Ferrari: 11640.2
+Red_Bull_Racing: 11821.7
+Mercedes: 11705.6
+McLaren: 12240.5
+Alpine: 11942.3
+
+Najbolji vozac je:
+Hamilton iz tima Mercedes sa ukupnim vremenom 5640.1 sekundi.

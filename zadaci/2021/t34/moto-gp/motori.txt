@@ -1,0 +1,8 @@
+Ducati 100 62.2 12 Soft
+Honda 102 66.1 9 Medium
+Suzuki 100 61.3 5 Hard
+Aprilia 99 66.2 4 Hard
+Yamaha 98 60.5 6 Hard
+KTM 95 68.9 10 Soft
+BMW 99 71.2 8 Medium
+Triumph 105 63.1 7 Soft
