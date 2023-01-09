@@ -1,0 +1,15 @@
+Lingua BG 10 17934.150 nemacki francuski
+Manhattan NS 4 19617.500 nemacki engleski
+Skill BG 6 19189.051 engleski nemacki
+Berlitz NI 9 17999.100 engleski francuski
+Academy NS 7 13320.000 engleski nemacki
+Berlitz NS 5 13490.000 engleski francuski
+Academy NI 8 12105.000 francuski engleski
+Lingua KG 2 9020.000 francuski nemacki
+Manhattan KG 12 7093.250 francuski nemacki
+Skill KG 3 8050.000 francuski engleski
+
+
+Skola jezika u kojoj se nemacki uci kao drugi strani jezik a cija je cena sa popustom najniza: Manhattan KG 7093.250
+
+Nema trazene skole!

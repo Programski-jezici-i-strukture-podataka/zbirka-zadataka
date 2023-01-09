@@ -1,0 +1,10 @@
+Academy NS engleski nemacki srednji 14800.0 7
+Lingua BG nemacki francuski napredni 21099.0 10
+Skill KG francuski engleski osnovni 8050.0 3
+Berlitz NI engleski francuski napredni 19999.0 9
+Lingua KG francuski nemacki osnovni 9020.0 2
+Manhattan NS nemacki engleski napredni 20650.0 4
+Academy NI francuski engleski srednji 13450.0 8
+Skill BG engleski nemacki napredni 20199.0 6
+Manhattan KG francuski nemacki osnovni 8345.0 12
+Berlitz NS engleski francuski srednji 14200.0 5
