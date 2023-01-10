@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Pijanističko takmičenje &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+    <link rel="next" title="Pošiljke" href="../posiljke/index.html" />
+    <link rel="prev" title="Ide gas" href="../ide-gas/index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="pijanisticko-takmicenje">
+<span id="index-0"></span><h1>Pijanističko takmičenje<a class="headerlink" href="#pijanisticko-takmicenje" title="Permalink to this headline">¶</a></h1>
+<p><em>Autor zadatka: Rade Radišić &lt;<a class="reference external" href="mailto:radisic&#46;rade&#37;&#52;&#48;uns&#46;ac&#46;rs">radisic<span>&#46;</span>rade<span>&#64;</span>uns<span>&#46;</span>ac<span>&#46;</span>rs</a>&gt;</em></p>
+<p>Pijanista takmičar predstavljen je preko strukture, pomoću sledećih polja:</p>
+<ul class="simple">
+<li><p>ime (string, do 20 karaktera)</p></li>
+<li><p>prezime (string, do 30 karaktera)</p></li>
+<li><p>broj osvojenih poena (neoznačena, celobrojna vrednost)</p></li>
+</ul>
+<p>Učitati takmičare iz ulazne datoteke u binarno stablo pretrage.
+Koristiti broj osvojenih poena kao ključno obeležje.
+U izlaznu datoteku ispisati ime i prezime takmičara, zajedno sa nagradom koju je osvojio sortirano, u opadajućem redosledu.
+Pravila za nagrađivanje su sledeća:</p>
+<ul class="simple">
+<li><p>Ukoliko takmičar ima od 91-100 osvojenih poena, osvojio je prvu nagradu</p></li>
+<li><p>Ukoliko takmičar ima od 81-90 osvojenih poena, osvojio je drugu nagradu</p></li>
+<li><p>Ukoliko takmičar ima 80 i niže poena, osvojio je pohvalu</p></li>
+</ul>
+<p>Kako više takmičara može osvojiti prvu i drugu nagradu, one se dodatno rangiraju u odnosu na osvojeni broj poena.
+Na primer, u slučaju da postoje dva takmičara, gde je jedan osvojio 99, a drugi 94 poena, prvi je osvojio prvu prvu, a drugi je osvojio prvu drugu nagradu.
+U slučaju da je takmičar osvojio prvu ili drugu nagradu, koristiti format ispisa <code class="docutils literal notranslate"><span class="pre">&quot;%-10s</span> <span class="pre">%-12s</span> <span class="pre">%d.</span> <span class="pre">%d.&quot;</span></code>, dok u slučaju osvojene pohvale, koristiti <code class="docutils literal notranslate"><span class="pre">&quot;%-10s</span> <span class="pre">%-12s</span> <span class="pre">pohvala&quot;</span></code>.
+Pogledati primer izlazne datoteke za detaljnije objašnjenje.</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broja argumenata, izaći iz programa sa kodom greške <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>U slučaju da nije moguće dinamički zauzeti memoriju, izaći iz programa sa kodom greške <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>U slučaju neuspešnog otvaranja ulazne datoteke, izaći iz programa sa kodom greške <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>U slučaju neuspešnog otvaranja izlazne datoteke, izaći iz programa sa kodom greške <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+</ul>
+<p>Primer ulaznog fajla <code class="docutils literal notranslate"><span class="pre">takmicari.txt</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Andja      Stankic     97
+Aleksandra Novak       89
+Ljubomir   Kovacevic   99
+Pedja      Maric       78
+Radmila    Loncar     100
+Miljana    Jerkovic    85
+Mileva     Pavlovic    93
+Miljana    Zivkovic    95
+Josif      Stojanovic  86
+Mihajlo    Dragovic    72
+</pre></div>
+</div>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./program takmicari.txt rezultati.txt
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">rezultati.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Radmila    Loncar       1. 1.
+Ljubomir   Kovacevic    1. 2.
+Andja      Stankic      1. 3.
+Miljana    Zivkovic     1. 4.
+Mileva     Pavlovic     1. 5.
+Aleksandra Novak        2. 1.
+Josif      Stojanovic   2. 2.
+Miljana    Jerkovic     2. 3.
+Pedja      Maric        pohvala
+Mihajlo    Dragovic     pohvala
+</pre></div>
+</div>
+<section id="primer-resenja">
+<h2>Primer rešenja<a class="headerlink" href="#primer-resenja" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="cp">#define MAX_IME 21</span>
+<span class="linenos">  6</span><span class="cp">#define MAX_PREZIME 31</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">takmicar_st</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">  9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ime</span><span class="p">[</span><span class="n">MAX_IME</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 10</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">prezime</span><span class="p">[</span><span class="n">MAX_PREZIME</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 11</span><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">broj_ostvarenih_poena</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 12</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">takmicar_st</span><span class="w"> </span><span class="o">*</span><span class="n">levi</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 13</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">takmicar_st</span><span class="w"> </span><span class="o">*</span><span class="n">desni</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 14</span><span class="p">}</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 17</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_takmicare</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 18</span><span class="kt">int</span><span class="w"> </span><span class="nf">ispisi_rezultate</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="kt">void</span><span class="w"> </span><span class="nf">inicijalizacija</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 21</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="nf">napravi_cvor</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 22</span><span class="kt">void</span><span class="w"> </span><span class="nf">dodaj_u_stablo</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="kt">void</span><span class="w"> </span><span class="nf">obrisi_stablo</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 26</span><span class="w">    </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="n">koren</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 29</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Primer poziva programa: %s takmicari.txt rezultati.txt</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos"> 30</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 31</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="w">    </span><span class="n">inicijalizacija</span><span class="p">(</span><span class="o">&amp;</span><span class="n">koren</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">ulazna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 36</span><span class="w">    </span><span class="n">ucitaj_takmicare</span><span class="p">(</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">koren</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 37</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">ulazna</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">izlazna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 40</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">redni_broj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="c1">// mesto nam je potrebno samo dok prolazimo kroz stablo, necemo uzimati povratnu vrednost u main funkciji</span>
+<span class="linenos"> 42</span><span class="w">    </span><span class="n">ispisi_rezultate</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">redni_broj</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">izlazna</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span><span class="w">    </span><span class="n">obrisi_stablo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">koren</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rezim</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kod_greske</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 51</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="n">rezim</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 52</span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Datoteka %s nije uspesno otvorena!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">naziv</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 55</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">kod_greske</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 59</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_takmicare</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="n">pkoren</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp_ime</span><span class="p">[</span><span class="n">MAX_IME</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp_prezime</span><span class="p">[</span><span class="n">MAX_PREZIME</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">tmp_broj_ostvarenih_poena</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s %s %u&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_ime</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_prezime</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tmp_broj_ostvarenih_poena</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">        </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">napravi_cvor</span><span class="p">(</span><span class="n">tmp_ime</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_prezime</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_broj_ostvarenih_poena</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w">        </span><span class="n">dodaj_u_stablo</span><span class="p">(</span><span class="n">pkoren</span><span class="p">,</span><span class="w"> </span><span class="n">novi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span><span class="kt">int</span><span class="w"> </span><span class="nf">ispisi_rezultate</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="n">koren</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">predni_broj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mesto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">koren</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 76</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mesto_levi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ispisi_rezultate</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">desni</span><span class="p">,</span><span class="w"> </span><span class="n">predni_broj</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 77</span><span class="w">        </span><span class="n">mesto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mesto_levi</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">mesto_levi</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mesto</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 78</span>
+<span class="linenos"> 79</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">91</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 80</span><span class="w">            </span><span class="n">mesto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 81</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">81</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">mesto</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 83</span><span class="w">                </span><span class="o">*</span><span class="n">predni_broj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 84</span><span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 85</span><span class="w">            </span><span class="n">mesto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 86</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 87</span><span class="w">            </span><span class="n">mesto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="c1">// pohvala</span>
+<span class="linenos"> 88</span><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">mesto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"></span>
+<span class="linenos"> 92</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">            </span><span class="p">(</span><span class="o">*</span><span class="n">predni_broj</span><span class="p">)</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">            </span><span class="n">fprintf</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%-10s %-12s %d. %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">ime</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">prezime</span><span class="p">,</span><span class="w"> </span><span class="n">mesto</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">predni_broj</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="o">:</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">            </span><span class="n">fprintf</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%-10s %-12s pohvala</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">ime</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">prezime</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 98</span><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 99</span><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mesto_desni</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ispisi_rezultate</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">koren</span><span class="o">-&gt;</span><span class="n">levi</span><span class="p">,</span><span class="w"> </span><span class="n">predni_broj</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">102</span><span class="w">        </span><span class="n">mesto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mesto_desni</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">mesto_desni</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mesto</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">103</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">104</span>
+<span class="linenos">105</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mesto</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">106</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="kt">void</span><span class="w"> </span><span class="nf">inicijalizacija</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="n">pkoren</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">109</span><span class="w">    </span><span class="o">*</span><span class="n">pkoren</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">110</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">111</span>
+<span class="linenos">112</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="nf">napravi_cvor</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ime</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prezime</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">broj_ostvarenih_poena</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">113</span><span class="w">    </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">114</span>
+<span class="linenos">115</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">novi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Greska prilikom zauzimanja memorije!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">117</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">118</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">ime</span><span class="p">,</span><span class="w"> </span><span class="n">ime</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">121</span><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">prezime</span><span class="p">,</span><span class="w"> </span><span class="n">prezime</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">122</span><span class="w">    </span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">broj_ostvarenih_poena</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">123</span><span class="w">    </span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">levi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">124</span><span class="w">    </span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">desni</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">125</span>
+<span class="linenos">126</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">127</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">128</span>
+<span class="linenos">129</span><span class="kt">void</span><span class="w"> </span><span class="nf">dodaj_u_stablo</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="n">pkoren</span><span class="p">,</span><span class="w"> </span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">130</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">131</span><span class="w">        </span><span class="o">*</span><span class="n">pkoren</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">132</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">133</span><span class="w">        </span><span class="k">if</span><span class="p">((</span><span class="o">*</span><span class="n">pkoren</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">broj_ostvarenih_poena</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">134</span><span class="w">            </span><span class="n">dodaj_u_stablo</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">levi</span><span class="p">,</span><span class="w"> </span><span class="n">novi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">135</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">136</span><span class="w">            </span><span class="n">dodaj_u_stablo</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">desni</span><span class="p">,</span><span class="w"> </span><span class="n">novi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">137</span><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">138</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">139</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="kt">void</span><span class="w"> </span><span class="nf">obrisi_stablo</span><span class="p">(</span><span class="n">TAKMICAR</span><span class="w"> </span><span class="o">**</span><span class="n">pkoren</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">142</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">143</span><span class="w">        </span><span class="n">obrisi_stablo</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">levi</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">144</span><span class="w">        </span><span class="n">obrisi_stablo</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">desni</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">145</span><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="o">*</span><span class="n">pkoren</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">146</span><span class="w">        </span><span class="o">*</span><span class="n">pkoren</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">147</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">148</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">149</span>
+</pre></div>
+</div>
+<div class="section" /></section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/cvetici/index.html">Cvetići</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/desifruj-broj-telefona/index.html">Dešifruj broj telefona</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/magacin-mobilne-i-racunarske-opreme/index.html">Magacin mobilne i računarske opreme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/najuspesnija-knjiga/index.html">Najuspešnija knjiga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/pravo-je-vreme-za-kafu/index.html">Pravo je vreme za kafu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/prijemni-ispit/index.html">Prijemni ispit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/prodavnica/index.html">Prodavnica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/proizvodi-u-marketu/index.html">Proizvodi u marketu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/rezervacija-karata-za-baletsku-predstavu/index.html">Rezervacija karata za baletsku predstavu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/slanje-paketa-kurirskom-sluzbom/index.html">Slanje paketa kurirskom službom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/taksi/index.html">Taksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/zanrovi-knjiga/index.html">Žanrovi knjiga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2020/sov/zivotinjsko-carstvo/index.html">Životinjsko carstvo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geoguessr/index.html">GeoGuessr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../glasanje-za-pesmu-evrovizije/index.html">Glasanje za pesmu Evrovizije</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ide-gas/index.html">Ide gas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pijanističko takmičenje</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../posiljke/index.html">Pošiljke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skola-jezika/index.html">Škola jezika</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../upis-u-sledecu-godinu/index.html">Upis u sledeću godinu</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../sov.html">Zadaci za SOV</a><ul>
+      <li>Previous: <a href="../ide-gas/index.html" title="претходна глава">Ide gas</a></li>
+      <li>Next: <a href="../posiljke/index.html" title="наредна глава">Pošiljke</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2021/sov/pijanisticko-takmicenje/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

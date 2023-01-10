@@ -1,0 +1,27 @@
+.. index::
+   Algoritmi ; Obilazak binarnog stabla
+   Datoteke ; Tekstualne
+   Dinamičke strukture ; Binarno stablo
+   Smer ; RA/PSI
+   Školska godina ; 21/22.
+
+
+Pijanističko takmičenje
+=======================
+
+.. sectionauthor:: Rade Radišić <radisic.rade@uns.ac.rs>
+
+.. include:: zadatak.rst
+
+
+Primer rešenja
+--------------
+
+.. literalinclude:: resenje.c
+   :linenos:
+
+
+.. raw:: html
+
+    <div class="section" />
+
