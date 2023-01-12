@@ -1,0 +1,30 @@
+Ucitati broj modela crepova: 6
+1. model crepa
+povrsina [cm2]: 150
+cena [RSD]: 20
+
+2. model crepa
+povrsina [cm2]: 170
+cena [RSD]: 23
+
+3. model crepa
+povrsina [cm2]: 134
+cena [RSD]: 25
+
+4. model crepa
+povrsina [cm2]: 205
+cena [RSD]: 27
+
+5. model crepa
+povrsina [cm2]: 230
+cena [RSD]: 30
+
+6. model crepa
+povrsina [cm2]: 195
+cena [RSD]: 22
+
+Uneti povrsinu koju je potrebno pokriti [m2]: 50
+
+Ukupne cene u dinarima: [66666.67, 67647.06, 93283.58, 65853.66, 65217.39, 56410.26]
+Najpovoljniji je 6. crep, cija ukupna cena za pokrivanje 50.00 metara kvadratnih iznosi 56410.26 dinara.
+Najmanje potrebno za pokrivanje 50.00 metara kvadratnih ukoliko se koristi 5. crep: 2174 komada.

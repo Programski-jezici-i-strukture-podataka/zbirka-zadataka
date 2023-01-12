@@ -1,0 +1,16 @@
+ Subotica 08.25 Lasta            971.50
+  Beograd 08.55 Lasta            801.50
+Zrenjanin 08.58 BanatTrans       471.50
+Zrenjanin 09.30 AsTours          461.50
+    Becej 09.50 BecejPrevoz      632.50
+  Beograd 10.00 Jugoprevoz       821.50
+Zrenjanin 10.30 StupVrsac        521.50
+ Subotica 10.35 NisEkspres      1211.50
+  Beograd 11.35 Severtrans       821.50
+Zrenjanin 11.50 BanatTrans       471.50
+    Becej 12.10 BecejPrevoz      632.50
+  Beograd 12.20 SaobracajZabalj  671.50
+ Subotica 12.25 SaobracajZabalj  971.50
+    Becej 13.15 BecejPrevoz      632.50
+    Becej 13.45 Lasta            572.50
+ Subotica 13.50 NisEkspres      1381.50
