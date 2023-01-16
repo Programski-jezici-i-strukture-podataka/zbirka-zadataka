@@ -1,0 +1,5 @@
+Izvestaj
+
+Broj validnih: 7
+Sa greskom: 2
+Procenat uspesnosti: 77.78%
