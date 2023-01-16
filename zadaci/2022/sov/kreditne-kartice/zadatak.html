@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Napisati program koji kontroliše validnost brojeva kreditnih kartica
+Iz ulazne datoteke učitati u jednostruko spregnutu listu sledeće podatke:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ime</span></code> (jedna reč, do 20 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prezime</span></code> (jedna reč, do 30 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">broj_kartice</span></code> (jedna reč, do 10 karaktera)</p></li>
+</ul>
+<p>Novi elementi liste dodaju se na njen kraj.</p>
+<p>Program prima ime ulazne datoteke kao argument komandne linije.
+Podatke iz ulazne datoteke, potrebno je ispisati u dve različite izlazne datoteke, u zavisnosti od toga da li su kartice validne ili ne.
+Imena datoteka su <code class="docutils literal notranslate"><span class="pre">validne-kartice.txt</span></code> i <code class="docutils literal notranslate"><span class="pre">nevalidne-kartice.txt</span></code>.
+Prilikom ispisa u izlaznu datoteku, koristiti format <code class="docutils literal notranslate"><span class="pre">&quot;%-8s</span> <span class="pre">%-11s</span> <span class="pre">%s\n&quot;</span></code>.</p>
+<p>Validnost kartice proverava se pomoću Lunovog (Luhn) algoritma na sledeći način:</p>
+<ul>
+<li><p>String se obrađuje od poslednjeg elementa ka prvom</p></li>
+<li><p>Svaki karakter se konvertuje u celobrojnu vrednost, a svaki drugi treba pomnožiti sa 2</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ukoliko broj koji je pomnožen sa 2 dvocifren, sabiraju se njegove pojedinačne cifre</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Sve dobijene brojeve treba sumirati, kartica je validna ukoliko je dobijena suma deljiva sa 10</p></li>
+</ul>
+<p>Na standardni izlaz ispisati izveštaj koji sadrži broj validnih, nevalidnih kartica, kao i procenat uspešnosti (odnos validnih u odnosu na ukupan broj kartica izražen u procentima).</p>
+<p>U slučaju sledećih grešaka prilikom rada programa, izaći sa odgovarajućim kodom greške:</p>
+<ul class="simple">
+<li><p>Nedovoljan ili suvišan broj argumenata, kod greške <code class="docutils literal notranslate"><span class="pre">1</span></code> (EXIT_FAILURE)</p></li>
+<li><p>Neuspešno dinamičko zauzeće memorije, kod greške <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>Neuspešno otvaranje ulazne datoteke, kod greške <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>Neuspešno otvaranje izlazne datoteke za validne kartice, kod greške <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>Neuspešno otvaranje izlazne datoteke za nevalidne kartice, kod greške <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+</ul>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">kartice.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Joakim   Davidovic   7413468278
+Tamara   Zoric       5016398943
+Darija   Stefanovic  5220974231
+Vedran   Crncevic    7787933709
+Djordje  Matijevic   9501431151
+Visnja   Gajic       8929550930
+Dusica   Kovac       2292961261
+Kristina Babic       2025850351
+Velimir  Stojanovic  2222179034
+</pre></div>
+</div>
+<p>Za primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out kartice.txt
+</pre></div>
+</div>
+<p>Očekivani ispis na standardnom izlazu je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Izvestaj
+
+Broj validnih: 7
+Sa greskom: 2
+Procenat uspesnosti: 77.78%
+</pre></div>
+</div>
+<p>Sadržaj izlazne datoteke <code class="docutils literal notranslate"><span class="pre">validne-kartice.txt</span></code> je sledeći:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Joakim   Davidovic   7413468278
+Darija   Stefanovic  5220974231
+Vedran   Crncevic    7787933709
+Visnja   Gajic       8929550930
+Dusica   Kovac       2292961261
+Kristina Babic       2025850351
+Velimir  Stojanovic  2222179034
+</pre></div>
+</div>
+<p>Sadržaj izlazne datoteke <code class="docutils literal notranslate"><span class="pre">nevalidne-kartice.txt</span></code> je sledeći:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Tamara   Zoric       5016398943
+Djordje  Matijevic   9501431151
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2022/sov/kreditne-kartice/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
