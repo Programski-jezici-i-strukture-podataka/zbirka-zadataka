@@ -1,11 +1,11 @@
 .. index::
    Statičke strukture ; Niz
-   Algoritmi ; Prebrojavanje, traženje minimuma/maksimuma
+   Algoritmi ; Prebrojavanje
    Smer ; PSI
    Školska godina ; 22/23.
 
-Ispisati na parnim pozicijama, zbir elemenata većih od indeksa, ostatak deljenja maksimalni sa minimalnim
-=========================================================================================================
+Manji od indeksa
+================
 
 .. sectionauthor:: Aleksandra Stamenković <stamenkovic@uns.ac.rs>
 

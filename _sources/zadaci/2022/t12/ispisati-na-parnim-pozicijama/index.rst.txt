@@ -1,11 +1,11 @@
 .. index::
    Statičke strukture ; Niz
-   Algoritmi ; Prebrojavanje
+   Algoritmi ; Prebrojavanje, traženje minimuma/maksimuma
    Smer ; PSI
    Školska godina ; 22/23.
 
-Manji od indeksa, prebroj parne/neparne i negativne u intervalu
-===============================================================
+Ispisati na parnim pozicijama
+=============================
 
 .. sectionauthor:: Aleksandra Stamenković <stamenkovic@uns.ac.rs>
 
