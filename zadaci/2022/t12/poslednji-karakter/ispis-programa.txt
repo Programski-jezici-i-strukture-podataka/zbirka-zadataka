@@ -1,0 +1,5 @@
+Unesite polazni string: Ovo je .primer nekog! stringa za prvi. kolokvijum koji nije tezak.
+Unesite karakter: i
+
+Udeo reci u polaznom stringu koji se zavrsavaju karakterom 'i' je 18.18%.
+String nakon modifikacije: OvO Je pRiMeR NeKoG StRiNgA Za pRvI KoLoKvIjUm kOjI NiJe tEzAk

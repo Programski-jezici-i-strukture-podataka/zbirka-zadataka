@@ -1,0 +1,5 @@
+Unesite polazni string: Ovo je primer stringa.
+Unesite podstring koji zelite da umetnete u polazni string: prvog
+Na koju poziciju zelite da umetnete uneti podstring (prirodan broj ne veci od 70)? 13
+
+String nakon modifikacije: .agnirts govrp remirp ej ovO

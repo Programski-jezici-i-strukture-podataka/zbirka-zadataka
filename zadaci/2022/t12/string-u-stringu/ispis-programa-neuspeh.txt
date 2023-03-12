@@ -1,0 +1,5 @@
+Unesite polazni string: Ovo je primer stringa.
+Unesite podstring koji zelite da umetnete u polazni string: prvog
+Na koju poziciju zelite da umetnete uneti podstring (prirodan broj ne veci od 70)? 60
+
+Nije moguce umetnuti string na 60. poziciju u polaznom stringu!
