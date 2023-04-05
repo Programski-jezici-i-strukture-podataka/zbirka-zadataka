@@ -1,0 +1,5 @@
+Uneti string: Primer konverzije stringa
+Izaberite notaciju (moguce vrednosti - i _): -
+
+String nakon konverzije: primer-konverzije-stringa
+Broj zamenjenih karaktera: 3

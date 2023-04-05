@@ -1,0 +1,4 @@
+Uneti string: Primer nevalidnog stringa!?
+Izaberite notaciju (moguce vrednosti - i _): _
+
+Greska prilikom konverzije stringa u zadatu notaciju!
