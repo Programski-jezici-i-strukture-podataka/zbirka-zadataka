@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Napisati program koji pronalazi najpogodniji za proslavu među zadatim restoranima.
+Podaci su zadati u ulaznoj datoteci u sledećem formatu:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">naziv</span></code> (jedna reč, do 20 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cena_po_osobi</span></code> (u dinarima, realan broj)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kapacitet</span></code> (celobrojna vrednost)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">broj_konobara</span></code> (celobrojna vrednost)</p></li>
+</ul>
+<p>Učitati restorane u statički niz, zatim na osnovu zadatog broja gostiju i kursa evra ispisati sve restorane sa cenom preračunatom u evre, osim onih čiji kapacitet premašuje zadati broj gostiju.
+U tom slučaju, umesto cene, ispisati <code class="docutils literal notranslate"><span class="pre">nedovoljno</span> <span class="pre">kapaciteta</span></code>.
+Broj gostiju i kurs evra zadaju se kao argumenti komandne linije. Kod restorana sa dovoljnim kapacitetom ispisati i odnos na koliko gostiju dolazi jedan konobar.
+U slučaju decimalnog rezultata, zaokružiti broj gostiju po konobaru na prvu sledeću celobrojnu vrednost nakon deljenja.</p>
+<p>Osim ispisivanja svih restorana, potrebno je pronaći i ispisati na standardni izlaz restoran sa najmanjim koeficijentom za restorane koji ispunjavaju zahtev za kapacitetom.
+Koeficijent se računa na sledeći način:</p>
+<div class="math notranslate nohighlight">
+\[koeficijent = cena\_po\_osobi \div \lceil \frac{broj\_gostiju}{broj\_konobara} \rceil\]</div>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>Ako program ne može da otvori ulazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out restorani.txt <span class="m">120</span> <span class="m">117</span>.5
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kafanica   1199.99  50  5
+MalaHala   2130.00 150 12
+Restoran   1341.99 100  7
+BastaMala  2099.99 162 15
+KodMacka   2439.99  72  8
+VelikaHala 1999.99 214 14
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">cene_za_120_ljudi.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kafanica nedovoljno kapaciteta
+MalaHala 2175.32e 1/10
+Restoran nedovoljno kapaciteta
+BastaMala 2144.67e 1/8
+KodMacka nedovoljno kapaciteta
+VelikaHala 2042.54e 1/9
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Najpogodniji restoran za slavlje: MalaHala 2175.32e 1/10
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2022/t34/dobro-dosli-gosti/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
