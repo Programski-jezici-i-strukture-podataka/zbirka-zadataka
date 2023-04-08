@@ -1,0 +1,6 @@
+Kafanica nedovoljno kapaciteta
+MalaHala 2175.32e 1/10
+Restoran nedovoljno kapaciteta
+BastaMala 2144.67e 1/8
+KodMacka nedovoljno kapaciteta
+VelikaHala 2042.54e 1/9
