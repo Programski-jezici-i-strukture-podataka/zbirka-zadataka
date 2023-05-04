@@ -125,12 +125,14 @@ POKUSAJ *pronadji_cvor(POKUSAJ *koren, char *korisnicko_ime) {
             nadjen = koren;
         } else {
             if(strcmp(koren->korisnicko_ime, korisnicko_ime) > 0) {
-                pronadji_cvor(koren->levi, korisnicko_ime);
+                nadjen = pronadji_cvor(koren->levi, korisnicko_ime);
             } else {
-                pronadji_cvor(koren->desni, korisnicko_ime);
+                nadjen = pronadji_cvor(koren->desni, korisnicko_ime);
             }
         }
     }
+
+    return nadjen;
 }
 
 void obrisi_stablo(POKUSAJ **pkoren) {
