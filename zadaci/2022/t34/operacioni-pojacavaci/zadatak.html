@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Operacioni pojačavači su elektronske komponente koje pojačavaju razliku 2 signala. Rezultat mora biti manji od napona napajanja ove komponente. Zbog nesavršenosti ove komponente u praksi se javlja napon ofseta, koji eliminišemo dodavanjem potenciometra. Pojačavači koji nemaju napon ofseta nazivaju se &quot;Auto-Zero&quot;.</p>
+<p>Napisati program koji pronalazi odgovarajuće pojačavače za unete naponske signale.
+Podaci o pojačavačima su zadati u ulaznoj datoteci u sledećem formatu:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">naziv</span></code> (jedna reč, do 10 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pojacanje</span></code> (celobrojna vrednost, u V/V)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">napajanje</span></code> (celobrojna vrednost, u V)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ofset</span></code> (celobrojna vrednost, u V)</p></li>
+</ul>
+<p>Učitati pojačavače u statički niz, zatim na osnovu jačine 2 ulazna signala u izlaznu datoteku ispisati imena operacionih pojačavača koji mogu da pojačaju razliku ulaznih signala, osim onih čiji je napon ofseta 0 (Auto-Zero pojačavače). Operacioni pojačavač može da pojača ulaznu vrednost ako važi da je napon napajanja veći od izlaznog signala, to jest:</p>
+<div class="math notranslate nohighlight">
+\[napajanje &gt; pojacanje * | ulaz1 - ulaz2 |\]</div>
+<p>Gde su <code class="docutils literal notranslate"><span class="pre">ulaz1</span></code> i <code class="docutils literal notranslate"><span class="pre">ulaz2</span></code> jačine signala učitanih kao argumenti komandne linije, realni brojevi uneti u <cite>milivoltima</cite>. Pored imena ispisati vrednost izlaznog signala (realan broj), kao i procenat okretanja potenciometra koji služi za eliminaciju napona ofseta, koji se računa iz izraza:</p>
+<div class="math notranslate nohighlight">
+\[(1 - \frac{napajanje - ofset}{2 * napajanje}) * 100\]</div>
+<p>Podvući crtu ispod poslednjeg pronađenog pojačavača (sastoji se od 25 srednjih crtica <code class="docutils literal notranslate"><span class="pre">-</span></code>), i ispod ispisati imena odgovarajućih pojačavača čiji je napon ofseta 0, jačinu izlaznog potencijala, i karaktere <code class="docutils literal notranslate"><span class="pre">AZ</span></code>.</p>
+<p>Osim ispisivanja operacionih pojačavača, potrebno je pronaći i ispisati na standardni izlaz ime i pojačanje pojačavača sa najvećim pojačanjem.</p>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>Ako program ne može da otvori ulazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out opamps.txt <span class="m">139</span>.7 <span class="m">117</span>.9
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">opamps.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LM741 200 22 6
+NE5532 100 15 4
+LM709 45 18 6
+LTC2063 562 6 0
+AI4309 100 10 0
+LM1458 15 18 6
+LM324 100 32 3
+AD8538 300 5 0
+AD8021 76 10 1
+TC913 316 16 0
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">operacioni_pojacavaci.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LM741 4.36 63.64%
+NE5532 2.18 63.33%
+LM709 0.98 66.67%
+LM1458 0.33 66.67%
+LM324 2.18 54.69%
+AD8021 1.66 55.00%
+-------------------------
+AI4309 2.18 AZ
+TC913 6.89 AZ
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Najvece pojacanje ima: LTC2063, i ono iznosi: 562
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1234.html">Zadaci za T1234</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2022/t34/operacioni-pojacavaci/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
