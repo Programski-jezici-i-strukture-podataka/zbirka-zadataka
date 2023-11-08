@@ -1,0 +1,4 @@
+Unesite string: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+String nakon kompresije: 42a
+Procenat kompresije: 92.86%
+

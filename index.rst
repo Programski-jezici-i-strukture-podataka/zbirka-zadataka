@@ -15,7 +15,6 @@ Zadaci su podeljeni u više grupa, u zavisnosti od testa na kom su zadati.
    :glob:
 
    zadaci/t12
-   zadaci/t1234
    zadaci/t34
    zadaci/sov
 

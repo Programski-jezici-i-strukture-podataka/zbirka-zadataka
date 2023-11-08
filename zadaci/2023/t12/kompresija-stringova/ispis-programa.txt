@@ -1,0 +1,3 @@
+Unesite string: Primeeeeer nekommmprrrressovanoggg striiiiinga
+String nakon kompresije: Prim5er neko3mp4re2sovano3g str5inga
+Procenat kompresije: 21.74%

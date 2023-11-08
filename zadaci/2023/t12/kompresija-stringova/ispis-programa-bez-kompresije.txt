@@ -1,0 +1,3 @@
+Unesite string: Primer stringa bez kompresije
+String nakon kompresije: Primer stringa bez kompresije
+Procenat kompresije: 0.00%
