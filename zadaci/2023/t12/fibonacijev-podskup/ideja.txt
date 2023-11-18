@@ -1,0 +1,3 @@
+Unosi se niz celobrojnih vrednosti
+Proverava se prvi element u nizu da li pripada Fibonacijevom nizu
+Proverava se ostatak niza da li je nastavak Fibonacijevog niza

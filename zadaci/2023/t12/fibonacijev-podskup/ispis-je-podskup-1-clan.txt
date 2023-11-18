@@ -1,0 +1,4 @@
+Unesite velicinu niza: 1
+niz[0]: 8
+
+Zadati niz je podskup Fibonacijevog niza: 8

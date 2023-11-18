@@ -1,0 +1,8 @@
+Unesite velicinu niza: 5
+niz[0]: 5
+niz[1]: 7
+niz[2]: 12
+niz[3]: 19
+niz[4]: 31
+
+Zadati niz nije podskup Fibonacijevog niza!

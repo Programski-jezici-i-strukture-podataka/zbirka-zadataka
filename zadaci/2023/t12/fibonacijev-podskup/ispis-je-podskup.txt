@@ -1,0 +1,8 @@
+Unesite velicinu niza: 5
+niz[0]: 1
+niz[1]: 1
+niz[2]: 2
+niz[3]: 3
+niz[4]: 5
+
+Zadati niz je podskup Fibonacijevog niza: 1, 1, 2, 3, 5
