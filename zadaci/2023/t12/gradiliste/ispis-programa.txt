@@ -1,0 +1,22 @@
+Unesite broj dana radova: 5
+Unesite potrosenu kolicinu maltera u kg za 1. dan: 2.5
+Unesite potrosenu kolicinu maltera u kg za 2. dan: 3.8
+Unesite potrosenu kolicinu maltera u kg za 3. dan: 4.7
+Unesite potrosenu kolicinu maltera u kg za 4. dan: 8.2
+Unesite potrosenu kolicinu maltera u kg za 5. dan: 9.1
+Unesite potrosenu kolicinu cigle u komadima za 1. dan: 30
+Unesite potrosenu kolicinu cigle u komadima za 2. dan: 24
+Unesite potrosenu kolicinu cigle u komadima za 3. dan: 32
+Unesite potrosenu kolicinu cigle u komadima za 4. dan: 56
+Unesite potrosenu kolicinu cigle u komadima za 5. dan: 32
+Unesite potrosenu kolicinu crepa u komadima za 1. dan: 87
+Unesite potrosenu kolicinu crepa u komadima za 2. dan: 43
+Unesite potrosenu kolicinu crepa u komadima za 3. dan: 67
+Unesite potrosenu kolicinu crepa u komadima za 4. dan: 32
+Unesite potrosenu kolicinu crepa u komadima za 5. dan: 56
+Uneti cenu maltera po kilogramu: 12.5
+Uneti cenu cigle po komadu: 31
+Uneti cenu crepa po komadu: 40
+Ukupno je potroseno 17147.75 novca za 5 dana gradnje.
+Prosecno je potroseno 34.80 cigli po danu.
+Najvise je potroseno 119.50 materijala 1. dana.
