@@ -4,7 +4,7 @@ pri čemu se struktura ``tim_st`` sastoji od sledećih polja:
 - država tima (jedna reč, do 20 karaktera)
 - vrsta spremane hrane (jedna reč, do 20 karaktera)
 - ocena od publike (realan broj)
-- ocena od žirija (prirodan broj)
+- ocena od žirija (realan broj)
 
 Pronaći sve timove koji su prošli u sledeći krug i ispisati ih na terminal. 
 Tim prolazi u sledeći krug takmičenja ukoliko je ukupna ocena 

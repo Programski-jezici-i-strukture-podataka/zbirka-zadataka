@@ -66,40 +66,36 @@ commentsRunWhenDOMLoaded(addUtterances);
 
           <div class="body" role="main">
             
-  <p>Iz zadate ulazne datoteke timovi.txt učitati statički niz struktura,
-pri čemu se struktura <code class="docutils literal notranslate"><span class="pre">tim_st</span></code> sastoji od sledećih polja:</p>
+  <p>Korisnik unosi sa tastature broj dana gradnje. Za svaki dan gradnje potroši se određena količina materijala - maltera, cigle i crepa. Potrebno je uneti posebno potrošenu količinu maltera, cigle i crepa za svaki dan rada. Nakon toga, uneti cenu maltera po kilogramu, cigle po komadu i crepa po komadu.</p>
+<p>Izračunati i ispisati na standardni izlaz:</p>
 <ul class="simple">
-<li><p>država tima (jedna reč, do 20 karaktera)</p></li>
-<li><p>vrsta spremane hrane (jedna reč, do 20 karaktera)</p></li>
-<li><p>ocena od publike (realan broj)</p></li>
-<li><p>ocena od žirija (realan broj)</p></li>
+<li><p>koliko je ukupno potrošeno novca za materijal</p></li>
+<li><p>koliko je prosečno potrošeno cigli po danu</p></li>
+<li><p>kog dana je potrošeno najviše materijala</p></li>
 </ul>
-<p>Pronaći sve timove koji su prošli u sledeći krug i ispisati ih na terminal.
-Tim prolazi u sledeći krug takmičenja ukoliko je ukupna ocena
-(od publike i žirija) veća od granice potrebne za prolazak.
-Granica potrebna za prolazak u sledeći krug takmičenja se prosleđuje kao
-poslednji argument komandne linije.
-Pronaći prosečnu ocenu timova koji su prosli u sledeći krug.</p>
-<p>Na standardni izlaz (terminal) ispisati i prosečnu ocenu timova koji su
-prošli u sledeći krug.</p>
-<p>Primer poziva:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./program timovi.txt <span class="m">13</span>.5
-</pre></div>
-</div>
-<p>sa zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">timovi.txt</span></code>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>USA meksicka 7.5 6.5
-CANADA tajlandska 6.2 4.3
-SPANIJA kineska 9.1 8.6
-SLOVENIJA indijska 5.3 6.8
-NORVESKA italijanska 8.7 9.5
-CESKA libanska 4.7 3.9
-</pre></div>
-</div>
-<p>i očekivanim izlazom na terminalu:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>USA meksicka 7.5 6.5
-SPANIJA kineska 9.1 8.6
-NORVESKA italijanska 8.7 9.5
-Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
+<p>Primer rada sa programom:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj dana radova: 5
+Unesite potrosenu kolicinu maltera u kg za 1. dan: 2.5
+Unesite potrosenu kolicinu maltera u kg za 2. dan: 3.8
+Unesite potrosenu kolicinu maltera u kg za 3. dan: 4.7
+Unesite potrosenu kolicinu maltera u kg za 4. dan: 8.2
+Unesite potrosenu kolicinu maltera u kg za 5. dan: 9.1
+Unesite potrosenu kolicinu cigle u komadima za 1. dan: 30
+Unesite potrosenu kolicinu cigle u komadima za 2. dan: 24
+Unesite potrosenu kolicinu cigle u komadima za 3. dan: 32
+Unesite potrosenu kolicinu cigle u komadima za 4. dan: 56
+Unesite potrosenu kolicinu cigle u komadima za 5. dan: 32
+Unesite potrosenu kolicinu crepa u komadima za 1. dan: 87
+Unesite potrosenu kolicinu crepa u komadima za 2. dan: 43
+Unesite potrosenu kolicinu crepa u komadima za 3. dan: 67
+Unesite potrosenu kolicinu crepa u komadima za 4. dan: 32
+Unesite potrosenu kolicinu crepa u komadima za 5. dan: 56
+Uneti cenu maltera po kilogramu: 12.5
+Uneti cenu cigle po komadu: 31
+Uneti cenu crepa po komadu: 40
+Ukupno je potroseno 17147.75 novca za 5 dana gradnje.
+Prosecno je potroseno 34.80 cigli po danu.
+Najvise je potroseno 119.50 materijala 1. dana.
 </pre></div>
 </div>
 
@@ -163,7 +159,7 @@ Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../../_sources/zadaci/2020/t34/kulinarsko-takmicenje/zadatak.rst.txt"
+      <a href="../../../../_sources/zadaci/2023/t12/gradiliste/zadatak.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
