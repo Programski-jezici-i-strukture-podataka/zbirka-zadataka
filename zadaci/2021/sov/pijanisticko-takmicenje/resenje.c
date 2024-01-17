@@ -37,9 +37,13 @@ int main(int argc, char **argv) {
     fclose(ulazna);
 
     FILE *izlazna = safe_fopen(argv[2], "w", 4);
-    int redni_broj = 0;
-    // mesto nam je potrebno samo dok prolazimo kroz stablo, necemo uzimati povratnu vrednost u main funkciji
-    ispisi_rezultate(izlazna, koren, &redni_broj);
+    int redni_broj = 0;     // Koristi nam da pratimo koje mesto u okviru nagrade je osvojio takmicar (prenosi se po referenci)
+    
+    // Mesto nam je potrebno samo dok prolazimo kroz stablo u rekurzivnim pozivima, necemo uzimati povratnu vrednost u main funkciji
+    // Kada imamo takvu situaciju, odnosno pozivamo funkciju ciju povratnu vrednost necemo koristiti, 
+    // u programskom jeziku C je dobra praksa je njen rezultat cast-ovati u void
+    (void) ispisi_rezultate(izlazna, koren, &redni_broj);
+    
     fclose(izlazna);
 
     obrisi_stablo(&koren);
@@ -74,17 +78,17 @@ int ispisi_rezultate(FILE *izlazna, TAKMICAR *koren, int *predni_broj) {
 
     if(koren != NULL) {
         int mesto_levi = ispisi_rezultate(izlazna, koren->desni, predni_broj);
-        mesto = mesto_levi != 0 ? mesto_levi : mesto;
+        mesto = mesto_levi;    // mesto je uvek 0, tako da je bitno samo sta mesto_levi ima u sebi (moze biti 0 ili neki veci broj)
 
         if(koren->broj_ostvarenih_poena >= 91 && koren->broj_ostvarenih_poena <= 100) {
             mesto = 1;
         } else if(koren->broj_ostvarenih_poena >= 81 && koren->broj_ostvarenih_poena <= 90) {
             if(mesto == 1) {
-                *predni_broj = 0;
+                *predni_broj = 0;   // reset rednog broja, jer smo izbrojali prve i prelazimo na druge nagrade
             }
             mesto = 2;
         } else {
-            mesto = 3;  // pohvala
+            mesto = 3;  // pohvala (vrednost rednog broja nebitna)
         }
 
         switch(mesto) {
@@ -99,7 +103,9 @@ int ispisi_rezultate(FILE *izlazna, TAKMICAR *koren, int *predni_broj) {
         }
 
         int mesto_desni = ispisi_rezultate(izlazna, koren->levi, predni_broj);
-        mesto = mesto_desni != 0 ? mesto_desni : mesto;
+        if(mesto_desni > mesto) {
+            mesto = mesto_desni;
+        }
     }
 
     return mesto;
