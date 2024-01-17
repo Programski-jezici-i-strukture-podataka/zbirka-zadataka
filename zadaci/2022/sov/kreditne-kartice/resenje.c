@@ -24,7 +24,7 @@ void obrisi_listu(KARTICA **);
 
 int provera_broja(char *);
 
-int main(char argc, char **argv) {
+int main(int argc, char **argv) {
     KARTICA *glava;
 
     if(argc != 2) {

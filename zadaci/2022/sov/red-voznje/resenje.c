@@ -27,7 +27,7 @@ void ispisi_polaske(FILE *, POLAZAK *);
 
 int validacija_vremena(char *);
 
-int main(char argc, char **argv) {
+int main(int argc, char **argv) {
     POLAZAK *koren;
 
     if(argc != 5) {
