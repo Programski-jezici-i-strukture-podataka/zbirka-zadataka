@@ -1,0 +1,7 @@
+Covek    subjekat
+Tamburu  objekat
+Svira    predikat
+Krava    subjekat
+Muze     predikat
+Mesecinu objekat
+Mleko    objekat
