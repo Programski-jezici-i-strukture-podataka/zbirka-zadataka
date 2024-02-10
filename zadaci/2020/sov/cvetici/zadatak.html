@@ -84,37 +84,37 @@ standardni izlaz (terminal), u sledećem rasporedu polja strukture <code class="
 </ul>
 <p>i potom na standardni izlaz (terminal) ispisati informaciju u kojoj cvećari je zadati cvet najpovoljniji i koja je njegova cena(zaokružena na 2 decimale).</p>
 <p>Primer poziva programa:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">cvece</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">cvecare</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">cvece</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">cvecare</span><span class="p">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <p>sa <code class="docutils literal notranslate"><span class="pre">vrsta_cveca=Orhideja</span></code> i zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">cvecare.txt</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Cvecara_Flowers</span><span class="w"> </span><span class="n">Ruza</span><span class="w">     </span><span class="mf">150.00</span><span class="w"></span>
-<span class="n">Cvecara_Flowers</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="mf">800.00</span><span class="w"></span>
-<span class="n">Cvecara_Flowers</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w">  </span><span class="mf">720.00</span><span class="w"></span>
-<span class="n">Cvecara_Sun</span><span class="w">     </span><span class="n">Ruza</span><span class="w">     </span><span class="mf">200.00</span><span class="w"></span>
-<span class="n">Cvecara_Sun</span><span class="w">     </span><span class="n">Orhideja</span><span class="w"> </span><span class="mf">890.00</span><span class="w"></span>
-<span class="n">Cvecara_Sun</span><span class="w">     </span><span class="n">Ljiljan</span><span class="w">  </span><span class="mf">740.00</span><span class="w"></span>
-<span class="n">Cvecara_Green</span><span class="w">   </span><span class="n">Ruza</span><span class="w">     </span><span class="mf">260.00</span><span class="w"></span>
-<span class="n">Cvecara_Green</span><span class="w">   </span><span class="n">Orhideja</span><span class="w"> </span><span class="mf">650.00</span><span class="w"></span>
-<span class="n">Cvecara_Green</span><span class="w">   </span><span class="n">Ljiljan</span><span class="w">  </span><span class="mf">720.00</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Cvecara_Flowers</span><span class="w"> </span><span class="n">Ruza</span><span class="w">     </span><span class="mf">150.00</span>
+<span class="n">Cvecara_Flowers</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="mf">800.00</span>
+<span class="n">Cvecara_Flowers</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w">  </span><span class="mf">720.00</span>
+<span class="n">Cvecara_Sun</span><span class="w">     </span><span class="n">Ruza</span><span class="w">     </span><span class="mf">200.00</span>
+<span class="n">Cvecara_Sun</span><span class="w">     </span><span class="n">Orhideja</span><span class="w"> </span><span class="mf">890.00</span>
+<span class="n">Cvecara_Sun</span><span class="w">     </span><span class="n">Ljiljan</span><span class="w">  </span><span class="mf">740.00</span>
+<span class="n">Cvecara_Green</span><span class="w">   </span><span class="n">Ruza</span><span class="w">     </span><span class="mf">260.00</span>
+<span class="n">Cvecara_Green</span><span class="w">   </span><span class="n">Orhideja</span><span class="w"> </span><span class="mf">650.00</span>
+<span class="n">Cvecara_Green</span><span class="w">   </span><span class="n">Ljiljan</span><span class="w">  </span><span class="mf">720.00</span>
 </pre></div>
 </div>
 <p>i očekivanim izlazom</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">150.00</span><span class="w"> </span><span class="n">Ruza</span><span class="w"> </span><span class="n">Cvecara_Flowers</span><span class="w"></span>
-<span class="mf">800.00</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">Cvecara_Flowers</span><span class="w"></span>
-<span class="mf">720.00</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w"> </span><span class="n">Cvecara_Flowers</span><span class="w"></span>
-<span class="mf">200.00</span><span class="w"> </span><span class="n">Ruza</span><span class="w"> </span><span class="n">Cvecara_Sun</span><span class="w"></span>
-<span class="mf">890.00</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">Cvecara_Sun</span><span class="w"></span>
-<span class="mf">740.00</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w"> </span><span class="n">Cvecara_Sun</span><span class="w"></span>
-<span class="mf">260.00</span><span class="w"> </span><span class="n">Ruza</span><span class="w"> </span><span class="n">Cvecara_Green</span><span class="w"></span>
-<span class="mf">650.00</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">Cvecara_Green</span><span class="w"></span>
-<span class="mf">720.00</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w"> </span><span class="n">Cvecara_Green</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">150.00</span><span class="w"> </span><span class="n">Ruza</span><span class="w"> </span><span class="n">Cvecara_Flowers</span>
+<span class="mf">800.00</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">Cvecara_Flowers</span>
+<span class="mf">720.00</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w"> </span><span class="n">Cvecara_Flowers</span>
+<span class="mf">200.00</span><span class="w"> </span><span class="n">Ruza</span><span class="w"> </span><span class="n">Cvecara_Sun</span>
+<span class="mf">890.00</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">Cvecara_Sun</span>
+<span class="mf">740.00</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w"> </span><span class="n">Cvecara_Sun</span>
+<span class="mf">260.00</span><span class="w"> </span><span class="n">Ruza</span><span class="w"> </span><span class="n">Cvecara_Green</span>
+<span class="mf">650.00</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">Cvecara_Green</span>
+<span class="mf">720.00</span><span class="w"> </span><span class="n">Ljiljan</span><span class="w"> </span><span class="n">Cvecara_Green</span>
 
-<span class="n">Cvecara</span><span class="w"> </span><span class="n">sa</span><span class="w"> </span><span class="n">najpovoljnijim</span><span class="w"> </span><span class="n">cvetom</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">Cvecara_Green</span><span class="p">,</span><span class="w"> </span><span class="n">njena</span><span class="w"> </span><span class="n">cena</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="mf">650.00</span><span class="w"></span>
+<span class="n">Cvecara</span><span class="w"> </span><span class="n">sa</span><span class="w"> </span><span class="n">najpovoljnijim</span><span class="w"> </span><span class="n">cvetom</span><span class="w"> </span><span class="n">Orhideja</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">Cvecara_Green</span><span class="p">,</span><span class="w"> </span><span class="n">njena</span><span class="w"> </span><span class="n">cena</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="mf">650.00</span>
 </pre></div>
 </div>
 <p>sa <code class="docutils literal notranslate"><span class="pre">vrsta_cveca=Kala</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="w"> </span><span class="n">trenutno</span><span class="w"> </span><span class="n">raspolozivim</span><span class="w"> </span><span class="n">cvecarama</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">postoji</span><span class="w"> </span><span class="n">cvet</span><span class="w"> </span><span class="n">Kala</span><span class="o">!</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="w"> </span><span class="n">trenutno</span><span class="w"> </span><span class="n">raspolozivim</span><span class="w"> </span><span class="n">cvecarama</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">postoji</span><span class="w"> </span><span class="n">cvet</span><span class="w"> </span><span class="n">Kala</span><span class="o">!</span>
 </pre></div>
 </div>
 

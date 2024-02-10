@@ -84,7 +84,7 @@ standardni izlaz (terminal), u sledećem rasporedu polja strukture <code class="
 </ul>
 <p>i potom u na standardni izlaz ispisati informaciju koja je prosečna cena zadate vrste kafe (zaokružena na 2 decimale, koristiti &quot;%6.2f&quot; format specifikator).</p>
 <p>Primer poziva programa:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">kafica</span><span class="w"> </span><span class="n">Espresso</span><span class="w"> </span><span class="n">kafa</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">kafica</span><span class="w"> </span><span class="n">Espresso</span><span class="w"> </span><span class="n">kafa</span><span class="p">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <p>sa <code class="docutils literal notranslate"><span class="pre">vrsta_kafe=Espresso</span></code> i zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">kafa.txt</span></code>:</p>
@@ -100,21 +100,21 @@ Caffe_Style Cappuccino 215.00
 </pre></div>
 </div>
 <p>i očekivanim izlazom</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">105.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_City</span><span class="w"></span>
-<span class="mf">135.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_City</span><span class="w"></span>
-<span class="mf">145.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_City</span><span class="w"></span>
-<span class="mf">140.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_Solo</span><span class="w"></span>
-<span class="mf">150.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_Solo</span><span class="w"></span>
-<span class="mf">160.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_Solo</span><span class="w"></span>
-<span class="mf">173.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_Style</span><span class="w"></span>
-<span class="mf">195.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_Style</span><span class="w"></span>
-<span class="mf">215.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_Style</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">105.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_City</span>
+<span class="mf">135.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_City</span>
+<span class="mf">145.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_City</span>
+<span class="mf">140.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_Solo</span>
+<span class="mf">150.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_Solo</span>
+<span class="mf">160.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_Solo</span>
+<span class="mf">173.00</span><span class="w"> </span><span class="n">Espresso</span><span class="w">   </span><span class="n">Caffe_Style</span>
+<span class="mf">195.00</span><span class="w"> </span><span class="n">Macchiato</span><span class="w">  </span><span class="n">Caffe_Style</span>
+<span class="mf">215.00</span><span class="w"> </span><span class="n">Cappuccino</span><span class="w"> </span><span class="n">Caffe_Style</span>
 
-<span class="n">Prosecna</span><span class="w"> </span><span class="n">cena</span><span class="w"> </span><span class="n">Espresso</span><span class="w"> </span><span class="n">kafe</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">139.33</span><span class="w"></span>
+<span class="n">Prosecna</span><span class="w"> </span><span class="n">cena</span><span class="w"> </span><span class="n">Espresso</span><span class="w"> </span><span class="n">kafe</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">139.33</span>
 </pre></div>
 </div>
 <p>sa <code class="docutils literal notranslate"><span class="pre">vrsta_kafe=Latte</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Latte</span><span class="w"> </span><span class="n">kafa</span><span class="w"> </span><span class="n">nije</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">ponudi</span><span class="o">!</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Latte</span><span class="w"> </span><span class="n">kafa</span><span class="w"> </span><span class="n">nije</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">ponudi</span><span class="o">!</span>
 </pre></div>
 </div>
 
