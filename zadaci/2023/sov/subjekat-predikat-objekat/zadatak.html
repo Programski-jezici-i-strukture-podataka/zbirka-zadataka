@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Napisati program koji od zadatih reči sastavlja rečenice.
+Podaci su zadati u ulaznoj datoteci u sledećem formatu:</p>
+<ul class="simple">
+<li><p><cite>rec</cite> (jedna reč, do 20 karaktera)</p></li>
+<li><p><cite>vrsta</cite> (jedna reč, do 8 karaktera)</p></li>
+</ul>
+<p>Učitati reči u jednostruko spregnutu listu, gde se novi čvorovi dodaju na kraj liste.</p>
+<p>Od zadatih reči, formirati sve moguće rečenice u obliku subjekat-predikat-objekat.
+Obratiti pažnju da predikat i objekat moraju biti ispisani malim slovom, kao i da na kraju rečenice treba da stoji tačka.
+Prebrojati sve subjekte, predikate i objekte i na standardni izlaz ispisati koliko je ukupno moguće formirati rečenica u formatu:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Od</span><span class="w"> </span><span class="o">&lt;</span><span class="n">broj</span><span class="o">-</span><span class="n">subjekata</span><span class="o">&gt;</span><span class="w"> </span><span class="n">subjekta</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">broj</span><span class="o">-</span><span class="n">predikata</span><span class="o">&gt;</span><span class="w"> </span><span class="n">predikata</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="n">broj</span><span class="o">-</span><span class="n">objekata</span><span class="o">&gt;</span><span class="w"> </span><span class="n">objekta</span><span class="w"> </span><span class="n">moguce</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">sastaviti</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ukupan</span><span class="o">-</span><span class="n">broj</span><span class="o">-</span><span class="n">recenica</span><span class="o">&gt;</span><span class="w"> </span><span class="n">recenica</span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Program se poziva sa imenom ulazne i izlazne datoteke kao vrednostima argumenata komandne linije.</p>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>U slučaju nemogućnosti dinamičkog zauzimanja memorije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out reci.txt recenice.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">reci.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Covek    subjekat
+Tamburu  objekat
+Svira    predikat
+Krava    subjekat
+Muze     predikat
+Mesecinu objekat
+Mleko    objekat
+</pre></div>
+</div>
+<p>Primer rada programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Od 2 subjekta, 2 predikata i 3 objekta moguce je sastaviti 12 recenica.
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">recenice.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Covek svira tamburu.
+Covek svira mesecinu.
+Covek svira mleko.
+Covek muze tamburu.
+Covek muze mesecinu.
+Covek muze mleko.
+Krava svira tamburu.
+Krava svira mesecinu.
+Krava svira mleko.
+Krava muze tamburu.
+Krava muze mesecinu.
+Krava muze mleko.
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2023/sov/subjekat-predikat-objekat/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
