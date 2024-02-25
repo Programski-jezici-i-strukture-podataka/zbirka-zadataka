@@ -15,7 +15,7 @@ Izmene zbirke
 
 Potrebno je:
 
-1. Instalirati Python, verziju 3.X
+1. Instalirati Python, verziju 3.10.12 (radi i na verzijama >=3.8.6)
 2. Klonirati repozitorijum: ``git clone https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka.git``
 3. Unutar kloniranog repozitorijuma napraviti virtuelno okruženje: ``python -m venv-zbirka``
 4. Aktivirati virtuelno okruženje: ``source ./venv-zbirka/bin/activate`` (Windows: ``.\venv-zbirka\Scripts\activate``)
@@ -29,6 +29,31 @@ Nakon odgovarajućih izmena, moguće je izgenerisati sajt u lokalu pomoću koman
 Sajt će biti u _build direktorijumu i može se videti preko veb pretraživača tako što se otvori fajl na putanji::
 
   _build/html/index.html
+
+Može se otvoriti preko browser-a iz komandne linije, na primer::
+
+  firefox _build/html/index.html &
+
+Prilikom dodavanja novih zadataka napraviti granu koja ima prefiks "zadaci"::
+
+  git checkout -b zadaci-<dodatni-opis>
+
+Dodati zadatke::
+
+  git add --all (paziti koji sve fajlovi ulaze u staging)
+  git commit -m <komit-poruka-o-zadacima-koji-se-dodaju>
+  git push origin <ime-grane>
+
+Nakon push-a bi trebalo da se pojavi link koji odmah nudi da napravi Pull Request.
+
+Praktikum
+---------
+
+Procedura je slična kao i za zadatke, jedino što je neophodno da grana ima prefiks "praktikum"::
+
+  git checkout -b praktikum-<ime-poglavlja>
+
+Ostali koraci su slični kao i kod dodavanja zadataka u zbirku.
 
 .. |Publish to GitHub Pages Badge| image:: https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/publish.yml/badge.svg?branch=master
    :target: https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka/actions/workflows/publish.yml
