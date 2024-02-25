@@ -164,6 +164,18 @@ gcc neće proizvesti nikakav ispis ukoliko je kod napisan kako treba!
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Zdravo, svete!
 </pre></div>
 </div>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ono što je potrebno da program ispiše prosleđuje se printf naredbi oivičeno apostrofima (&quot;).
+Unutar njega moguće je dati posebne instrukcije, gde je najčešće korišćen prelazak u novi red, \n.
+Kao što se vidi iz primera, neće se ispisati \n, već će se tad desiti prelazak u novi red.
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>main predstavlja funkciju koju svaki izvršni program mora da ima.
+Piše se uvek na isti način, int na početku, obične, pa vitičaste zagrade, sa return 0 naredbom.
+Sve navedeno ima svoje značenje, koje će biti navedeno u kasnijim poglavljima.
+</pre></div>
+</div>
 </section>
 <section id="standardni-ulaz-izlaz">
 <h2>Standardni ulaz/izlaz<a class="headerlink" href="#standardni-ulaz-izlaz" title="Permalink to this headline">¶</a></h2>
@@ -205,6 +217,54 @@ U njih se mogu upisivati vrednosti, može im se dodeliti rezultat nekog izraza i
 Da bi to mogla da ostvari, potrebno je navesti adresu promenljive u memoriji u koju upisujemo vrednost, a ona dobija tako što stavimo <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> ispred imena promenljive.</p>
 <p>Primećuje se <code class="docutils literal notranslate"><span class="pre">%d</span></code> i u <code class="docutils literal notranslate"><span class="pre">scanf</span></code> i u <code class="docutils literal notranslate"><span class="pre">printf</span></code>.
 Pošto nije poznato unapred koja će vrednost promenljive <code class="docutils literal notranslate"><span class="pre">broj</span></code> biti, ono služi kao umetak, koji govori da se na tom mestu očekuje celobrojna vrednost (&quot;d&quot; označava decimal, ostali tipovi imaju drugačiju vrednost).</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>printf i scanf su funkcije, koje su deo standardne biblioteke programskog jezika C.
+Da bi one bile dostupne u programu, potrebno je uključiti zaglavlje gde su one definisane, što je urađeno pomoću #include &lt;stdio.h&gt;.
+</pre></div>
+</div>
+</section>
+<section id="program-koji-sabira-dva-broja">
+<h2>Program koji sabira dva broja<a class="headerlink" href="#program-koji-sabira-dva-broja" title="Permalink to this headline">¶</a></h2>
+<p>Iskoristićemo do sad stečeno znanje da napišemo jednostavan program, čija je poenta da sabere dva broja.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">prvi_broj</span><span class="p">,</span><span class="w"> </span><span class="n">drugi_broj</span><span class="p">,</span><span class="w"> </span><span class="n">zbir</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite prvi broj: &quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">prvi_broj</span><span class="p">);</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite prvi broj: &quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">drugi_broj</span><span class="p">);</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">zbir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prvi_broj</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">drugi_broj</span><span class="p">;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zbir unetih brojeva je: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">zbir</span><span class="p">);</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">18</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Primer ispisa programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite prvi broj: 3
+Unesite prvi broj: 6
+Zbir unetih brojeva je: 9
+</pre></div>
+</div>
+<p>Za svaku vrednost koja se unosi sa tastature uvedene su po promenljiva (<code class="docutils literal notranslate"><span class="pre">prvi_broj</span></code> i <code class="docutils literal notranslate"><span class="pre">drugi_broj</span></code>) u kojoj će se skladištiti uneta vrednost.
+Pored njih, postoji i treća promenljiva, <code class="docutils literal notranslate"><span class="pre">zbir</span></code>, čija se vrednost ne dobija preko tastature, već kao zbir vrednosti koje se nalaze u <code class="docutils literal notranslate"><span class="pre">prvi_broj</span></code> i <code class="docutils literal notranslate"><span class="pre">drugi_broj</span></code>.
+Promenljiva <code class="docutils literal notranslate"><span class="pre">zbir</span></code> se, nakon dodele vrednosti, ispisuje na standardni izlaz pomoću funkcije <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Primetiti da se programi izvršavaju liniju po liniju iz main funkcije.
+Jako je bitno da se promenljive prvo deklarišu, pa tek onda koriste.
+Isto tako, ukoliko se vrednost promenljive koristi u nekom izrazu (ili za neki ispis), potrebno ju je prvo definisati.
+Ukoliko se to ne učini, ponašanje programa će biti nepredvidivo.
+
+Iz svih ovih razloga, prvo deklarišemo promenljive prvi_broj, drugi_broj i zbir.
+Zatim unosimo vrednosti sa tastature u prve dve i pre ispisa, postavljamo vrednost promenljive zbir.
+</pre></div>
+</div>
 </section>
 </section>
 
