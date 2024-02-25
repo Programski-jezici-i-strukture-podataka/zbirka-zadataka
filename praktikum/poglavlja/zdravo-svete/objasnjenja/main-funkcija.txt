@@ -1,0 +1,3 @@
+main predstavlja funkciju koju svaki izvršni program mora da ima.
+Piše se uvek na isti način, int na početku, obične, pa vitičaste zagrade, sa return 0 naredbom.
+Sve navedeno ima svoje značenje, koje će biti navedeno u kasnijim poglavljima.

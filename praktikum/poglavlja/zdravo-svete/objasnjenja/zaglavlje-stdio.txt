@@ -1,0 +1,2 @@
+printf i scanf su funkcije, koje su deo standardne biblioteke programskog jezika C.
+Da bi one bile dostupne u programu, potrebno je uključiti zaglavlje gde su one definisane, što je urađeno pomoću #include <stdio.h>.
