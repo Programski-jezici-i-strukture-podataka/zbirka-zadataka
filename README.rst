@@ -17,7 +17,7 @@ Potrebno je:
 
 1. Instalirati Python, verziju 3.10.12 (radi i na verzijama >=3.8.6)
 2. Klonirati repozitorijum: ``git clone https://github.com/Programski-jezici-i-strukture-podataka/zbirka-zadataka.git``
-3. Unutar kloniranog repozitorijuma napraviti virtuelno okruženje: ``python -m venv-zbirka``
+3. Unutar kloniranog repozitorijuma napraviti virtuelno okruženje: ``python -m venv ./venv-zbirka``
 4. Aktivirati virtuelno okruženje: ``source ./venv-zbirka/bin/activate`` (Windows: ``.\venv-zbirka\Scripts\activate``)
 5. Instalirati neophodne zavisnosti: ``pip install -r requirements.txt``
 
