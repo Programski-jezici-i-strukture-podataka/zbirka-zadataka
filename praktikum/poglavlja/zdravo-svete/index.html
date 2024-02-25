@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Zdravo, svete! &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="zdravo-svete">
+<h1>Zdravo, svete!<a class="headerlink" href="#zdravo-svete" title="Permalink to this headline">¶</a></h1>
+<p>Preduslovi za rad:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Nameštena platforma za rad (Ubuntu virtuelna mašina, sa instaliranim Visual Studio Code-om i gcc kompajlerom) - podrazumevani način rada u tekstu
+
+Alternativa 1: onlajn C kompajler
+Alternativa 2: Nameštanje sličnog okruženja na Windows platformi
+</pre></div>
+</div>
+<section id="namestanje-direktorijuma-za-rad">
+<h2>Nameštanje direktorijuma za rad<a class="headerlink" href="#namestanje-direktorijuma-za-rad" title="Permalink to this headline">¶</a></h2>
+<p>TODO: Kreiranje pjisp direktorijuma i ulazak sa VS Code-om</p>
+</section>
+<section id="prvi-program">
+<h2>Prvi program<a class="headerlink" href="#prvi-program" title="Permalink to this headline">¶</a></h2>
+<p>Da bismo mogli da objasnimo računaru šta želimo da on uradi, potrebno je napisati tekst poštujući određena pravila.
+U slučaju programskog jezika C, to znači da je potrebno napraviti novu datoteku sa ekstenzijom &quot;.c&quot;.
+Visual Studio Code (u daljem tekstu VS Code) može pomoći u tome, tako što se u Terminalu ukuca sledeće:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">code</span><span class="w"> </span><span class="n">zdravo</span><span class="p">.</span><span class="n">c</span>
+</pre></div>
+</div>
+<p>Unutar te datoteke, potrebno je upisati sledeće:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos">4</span><span class="p">{</span>
+<span class="linenos">5</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zdravo, svete!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">6</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">7</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Kod je potrebno sačuvati (pritiskom tastera Ctrl i S ili File -&gt; Save).
+Uveriti se da je sačuvano tako što neće biti bele loptice pored imena datoteke u njenom tabu.
+Ovo je samo pola posla, odnosno, ovakav tekst računar još uvek ne može da razume.
+Da bi mogao da shvati i da izvrši ono što od njega tražimo, potrebno je prevesti rešenje na njegov jezik.
+To se može uraditi na sledeći način:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="w"> </span><span class="n">zdravo</span><span class="p">.</span><span class="n">c</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">gcc</span></code> je program, koji će pokušati da ono što smo napisali na jeziku koji je ljudima razumljiv da prevede u jezik mašinskih komandi koje računar razume.
+Rezultat tog prevođenja je nova, izvršna datoteka, koju računar zna da pokrene. U našem slučaju, ona će imati ime <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Stvari koje mogu poći po zlu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ukoliko se datoteka a.out nije pojavila, pogledati da li je prethodna gcc komanda proizvela neki ispis.
+Ukoliko jeste, verovatno je došlo do &quot;sintaksne greške&quot;, odnosno kod nije napisan po pravilima koje traži programski jezik C.
+Ovo se rešava tako što se datoteka zdravo.c ispravi na osnovu sugestija koje je ispisao gcc.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">a.out</span></code> se pokreće iz Terminala, na sledeći način:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
+</pre></div>
+</div>
+<p>Rezultat koji bi trebalo nakon toga da se vidi je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Zdravo, svete!
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/praktikum/poglavlja/zdravo-svete/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

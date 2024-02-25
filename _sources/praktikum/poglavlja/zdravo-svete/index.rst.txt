@@ -1,0 +1,50 @@
+Zdravo, svete!
+==============
+
+Preduslovi za rad:
+
+.. literalinclude:: objasnjenja/preduslovi-za-rad.rst
+   :language: none
+
+Nameštanje direktorijuma za rad
+-------------------------------
+
+TODO: Kreiranje pjisp direktorijuma i ulazak sa VS Code-om
+
+Prvi program
+------------
+
+Da bismo mogli da objasnimo računaru šta želimo da on uradi, potrebno je napisati tekst poštujući određena pravila.
+U slučaju programskog jezika C, to znači da je potrebno napraviti novu datoteku sa ekstenzijom ".c".
+Visual Studio Code (u daljem tekstu VS Code) može pomoći u tome, tako što se u Terminalu ukuca sledeće::
+
+  code zdravo.c
+
+Unutar te datoteke, potrebno je upisati sledeće:
+
+.. literalinclude:: primeri/zdravo.c
+   :linenos:
+
+Kod je potrebno sačuvati (pritiskom tastera Ctrl i S ili File -> Save).
+Uveriti se da je sačuvano tako što neće biti bele loptice pored imena datoteke u njenom tabu.
+Ovo je samo pola posla, odnosno, ovakav tekst računar još uvek ne može da razume.
+Da bi mogao da shvati i da izvrši ono što od njega tražimo, potrebno je prevesti rešenje na njegov jezik.
+To se može uraditi na sledeći način::
+
+  gcc zdravo.c
+
+``gcc`` je program, koji će pokušati da ono što smo napisali na jeziku koji je ljudima razumljiv da prevede u jezik mašinskih komandi koje računar razume.
+Rezultat tog prevođenja je nova, izvršna datoteka, koju računar zna da pokrene. U našem slučaju, ona će imati ime ``a.out``.
+Stvari koje mogu poći po zlu:
+
+.. literalinclude:: objasnjenja/neuspesno-kompajliranje.rst
+   :language: none
+
+``a.out`` se pokreće iz Terminala, na sledeći način::
+
+  ./a.out
+
+Rezultat koji bi trebalo nakon toga da se vidi je:
+
+.. literalinclude:: primeri/zdravo-ispis.txt
+   :language: none
