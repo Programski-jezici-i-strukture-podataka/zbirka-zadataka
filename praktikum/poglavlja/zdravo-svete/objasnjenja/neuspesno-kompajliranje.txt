@@ -1,0 +1,5 @@
+Ukoliko se datoteka a.out nije pojavila, pogledati da li je prethodna gcc komanda proizvela neki ispis.
+Ukoliko jeste, verovatno je došlo do "sintaksne greške", odnosno kod nije napisan po pravilima koje traži programski jezik C.
+Ovo se rešava tako što se datoteka zdravo.c ispravi na osnovu sugestija koje je ispisao gcc.
+
+gcc neće proizvesti nikakav ispis ukoliko je kod napisan kako treba!

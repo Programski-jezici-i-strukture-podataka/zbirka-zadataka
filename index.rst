@@ -8,6 +8,14 @@ Zvanična zbirka rešenih zadataka iz predmeta "Programski jezici i strukture po
 * Primenjeno softversko inženjerstvo
 * Računarstvo i automatika
 
+Pre zadataka, pogledati:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   praktikum/index
+
 Zadaci su podeljeni u više grupa, u zavisnosti od testa na kom su zadati.
 
 .. toctree::
