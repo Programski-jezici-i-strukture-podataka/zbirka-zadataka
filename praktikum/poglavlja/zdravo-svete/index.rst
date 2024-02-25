@@ -91,6 +91,16 @@ Rezultat koji bi trebalo nakon toga da se vidi na ekranu terminala je:
 .. literalinclude:: primeri/zdravo-ispis.txt
    :language: none
 
+Napomena:
+
+.. literalinclude:: objasnjenja/printf-funkcija.txt
+   :language: none
+
+Napomena:
+
+.. literalinclude:: objasnjenja/main-funkcija.txt
+   :language: none
+
 Standardni ulaz/izlaz
 ---------------------
 
@@ -126,3 +136,30 @@ Da bi to mogla da ostvari, potrebno je navesti adresu promenljive u memoriji u k
 
 Primećuje se ``%d`` i u ``scanf`` i u ``printf``.
 Pošto nije poznato unapred koja će vrednost promenljive ``broj`` biti, ono služi kao umetak, koji govori da se na tom mestu očekuje celobrojna vrednost ("d" označava decimal, ostali tipovi imaju drugačiju vrednost).
+
+Napomena:
+
+.. literalinclude:: objasnjenja/zaglavlje-stdio.txt
+   :language: none
+
+Program koji sabira dva broja
+-----------------------------
+
+Iskoristićemo do sad stečeno znanje da napišemo jednostavan program, čija je poenta da sabere dva broja.
+
+.. literalinclude:: primeri/zbir-dva-broja.c
+   :linenos:
+
+Primer ispisa programa:
+
+.. literalinclude:: primeri/zbir-dva-broja-ispis.txt
+   :language: none
+
+Za svaku vrednost koja se unosi sa tastature uvedene su po promenljiva (``prvi_broj`` i ``drugi_broj``) u kojoj će se skladištiti uneta vrednost.
+Pored njih, postoji i treća promenljiva, ``zbir``, čija se vrednost ne dobija preko tastature, već kao zbir vrednosti koje se nalaze u ``prvi_broj`` i ``drugi_broj``.
+Promenljiva ``zbir`` se, nakon dodele vrednosti, ispisuje na standardni izlaz pomoću funkcije ``printf``.
+
+Napomena:
+
+.. literalinclude:: objasnjenja/redosled-izvrsavanja.txt
+   :language: none

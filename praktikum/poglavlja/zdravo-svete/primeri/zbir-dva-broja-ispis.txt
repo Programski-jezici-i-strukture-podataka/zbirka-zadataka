@@ -1,0 +1,3 @@
+Unesite prvi broj: 3
+Unesite prvi broj: 6
+Zbir unetih brojeva je: 9
