@@ -1,4 +1,0 @@
-Nameštena platforma za rad (Ubuntu virtuelna mašina, sa instaliranim Visual Studio Code-om i gcc kompajlerom) - podrazumevani način rada u tekstu
-
-Alternativa 1: onlajn C kompajler
-Alternativa 2: Nameštanje sličnog okruženja na Windows platformi

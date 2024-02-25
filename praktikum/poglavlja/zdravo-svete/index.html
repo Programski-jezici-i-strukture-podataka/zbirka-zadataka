@@ -50,6 +50,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../../_static/translations.js"></script>
     <link rel="index" title="Indeks" href="../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../search.html" />
+    <link rel="next" title="Zadaci za T12" href="../../../zadaci/t12.html" />
+    <link rel="prev" title="Praktikum" href="../../index.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -77,13 +79,52 @@ Alternativa 2: Nameštanje sličnog okruženja na Windows platformi
 </div>
 <section id="namestanje-direktorijuma-za-rad">
 <h2>Nameštanje direktorijuma za rad<a class="headerlink" href="#namestanje-direktorijuma-za-rad" title="Permalink to this headline">¶</a></h2>
-<p>TODO: Kreiranje pjisp direktorijuma i ulazak sa VS Code-om</p>
+<p>Pre pravljenja prvog programa, potrebno je napraviti mesto gde će se oni nalaziti.
+Otvoriti terminal, zatim napisati komandu:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span><span class="w"> </span><span class="n">pjisp</span>
+</pre></div>
+</div>
+<p>Zatim ukucati komandu:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+<p>Koja bi trebalo da pokaže u listi direktorijuma da se kreirao novi, sa imenom <code class="docutils literal notranslate"><span class="pre">pjisp</span></code>.</p>
+<p>Ući u direktorijum <code class="docutils literal notranslate"><span class="pre">pjisp</span></code> pomoću komande:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">pjisp</span>
+</pre></div>
+</div>
+<p>Na terminalu bi trebalo da se ukaže da se nalazi u direkorijumu sa imenom <code class="docutils literal notranslate"><span class="pre">pjisp</span></code>, nešto poput:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>student@ftn~/pjisp
+</pre></div>
+</div>
+<p>Visual Studio Code će biti korišćen tokom celog predmeta, stoga je dobro otvoriti ga na nivou <code class="docutils literal notranslate"><span class="pre">pjisp</span></code> direktorijuma:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">code</span><span class="w"> </span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Izabrati opciju &quot;Yes, I trust the authors&quot; prilikom otvaranja.
+Nakon toga, moguće je zatvoriti terminal.
+Visual Studio Code (u daljem tekstu VS Code) ima ugrađeni terminal, koji se može otvoriti pomoću gornjeg menija Terminal -&gt; New Terminal.</p>
+<p>Rezultat <code class="docutils literal notranslate"><span class="pre">ls</span></code> komande će biti prazan, odnosno, još uvek ne postoji nijedna datoteka ili direktorijum.
+Dodati direktorijum <code class="docutils literal notranslate"><span class="pre">v01</span></code> na sledeći način:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span><span class="w"> </span><span class="n">v01</span>
+</pre></div>
+</div>
+<p>Proveriti sa <code class="docutils literal notranslate"><span class="pre">ls</span></code> komandom da li se uspešno kreirao i potom ući u njega sa komandom:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">v01</span>
+</pre></div>
+</div>
+<p>Sada je moguće napraviti novu tekstualnu datoteku unutar direktorijuma <code class="docutils literal notranslate"><span class="pre">v01</span></code> pomoću komande:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">code</span><span class="w"> </span><span class="n">proba</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Otvoriće se novi tab sa imenom <code class="docutils literal notranslate"><span class="pre">proba.txt</span></code>. Upisati neki tekst u njega i sačuvati (pritiskom tastera Ctrl i S ili odabirom File -&gt; Save u gornjem meniju).</p>
+<p>Ako ste ispratili sve ovo, spremni ste da napišete svoj prvi program!</p>
 </section>
 <section id="prvi-program">
 <h2>Prvi program<a class="headerlink" href="#prvi-program" title="Permalink to this headline">¶</a></h2>
 <p>Da bismo mogli da objasnimo računaru šta želimo da on uradi, potrebno je napisati tekst poštujući određena pravila.
 U slučaju programskog jezika C, to znači da je potrebno napraviti novu datoteku sa ekstenzijom &quot;.c&quot;.
-Visual Studio Code (u daljem tekstu VS Code) može pomoći u tome, tako što se u Terminalu ukuca sledeće:</p>
+VS Code može pomoći u tome, tako što se u terminalu ukuca sledeće:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">code</span><span class="w"> </span><span class="n">zdravo</span><span class="p">.</span><span class="n">c</span>
 </pre></div>
 </div>
@@ -97,7 +138,7 @@ Visual Studio Code (u daljem tekstu VS Code) može pomoći u tome, tako što se 
 <span class="linenos">7</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Kod je potrebno sačuvati (pritiskom tastera Ctrl i S ili File -&gt; Save).
+<p>Kod je potrebno sačuvati.
 Uveriti se da je sačuvano tako što neće biti bele loptice pored imena datoteke u njenom tabu.
 Ovo je samo pola posla, odnosno, ovakav tekst računar još uvek ne može da razume.
 Da bi mogao da shvati i da izvrši ono što od njega tražimo, potrebno je prevesti rešenje na njegov jezik.
@@ -111,16 +152,59 @@ Stvari koje mogu poći po zlu:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ukoliko se datoteka a.out nije pojavila, pogledati da li je prethodna gcc komanda proizvela neki ispis.
 Ukoliko jeste, verovatno je došlo do &quot;sintaksne greške&quot;, odnosno kod nije napisan po pravilima koje traži programski jezik C.
 Ovo se rešava tako što se datoteka zdravo.c ispravi na osnovu sugestija koje je ispisao gcc.
+
+gcc neće proizvesti nikakav ispis ukoliko je kod napisan kako treba!
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">a.out</span></code> se pokreće iz Terminala, na sledeći način:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
 </pre></div>
 </div>
-<p>Rezultat koji bi trebalo nakon toga da se vidi je:</p>
+<p>Rezultat koji bi trebalo nakon toga da se vidi na ekranu terminala je:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Zdravo, svete!
 </pre></div>
 </div>
+</section>
+<section id="standardni-ulaz-izlaz">
+<h2>Standardni ulaz/izlaz<a class="headerlink" href="#standardni-ulaz-izlaz" title="Permalink to this headline">¶</a></h2>
+<p>U prethodnom primeru korišćena je funkcija <code class="docutils literal notranslate"><span class="pre">printf</span></code> kako bi se tekst pod navodnicima ispisao na ekranu terminala.
+To je podrazumevano ponašanje prilikom ispisa teksta, stoga se ekran terminala zove standardni izlaz.</p>
+<p>Postavlja se pitanje kakoje moguće uneti vrednosti na neki način u program.
+Podrazumevani način je putem tastature korisnika, odnosno, to predstavlja standardni ulaz.
+Funkcija koja se koristi u te svrhe naziva se <code class="docutils literal notranslate"><span class="pre">scanf</span></code> i koristi se na sledeći način:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj: &quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">broj</span><span class="p">);</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Uneti broj je: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">broj</span><span class="p">);</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Sačuvati datoteku i kompajlirati rešenje na isti način kao što je to navedeno iznad.</p>
+<p>Nakon uspešnog kompajliranja, pokrenuti dobijenu izvršnu datoteku <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Program će se zaustaviti nakon ispisa &quot;Unesite broj: &quot; i čekaće.
+Uneti celobrojnu vrednost i pritisnuti enter kako bi se završilo izvršavanje programa.</p>
+<p>Primer rada programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj: 42
+Uneti broj je: 42
+</pre></div>
+</div>
+<p>Ono što se može primetiti u primeru je da se <code class="docutils literal notranslate"><span class="pre">broj</span></code> koristi i kod <code class="docutils literal notranslate"><span class="pre">scanf</span></code> i kod <code class="docutils literal notranslate"><span class="pre">printf</span></code> naredbe.
+<code class="docutils literal notranslate"><span class="pre">broj</span></code> predstavlja promenljivu u programu. One se mogu tretirati kao &quot;kućice&quot; u memoriji određene veličine (izražene u bajtovima).
+Svaka promenljiva ima svoje jedinstveno ime (u primeru <code class="docutils literal notranslate"><span class="pre">broj</span></code>) i svoj tip (u primeru je <code class="docutils literal notranslate"><span class="pre">int</span></code>, skraćeno od &quot;integer&quot;, što je u prevodu celobrojni tip).
+Promenljive se koriste za skladištenje podataka u programu.
+U njih se mogu upisivati vrednosti, može im se dodeliti rezultat nekog izraza i po potrebi se mogu ispisati.</p>
+<p>Funkcija <code class="docutils literal notranslate"><span class="pre">scanf</span></code> upisuje vrednost koju smo uneli preko tastature u promenljivu broj.
+Da bi to mogla da ostvari, potrebno je navesti adresu promenljive u memoriji u koju upisujemo vrednost, a ona dobija tako što stavimo <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> ispred imena promenljive.</p>
+<p>Primećuje se <code class="docutils literal notranslate"><span class="pre">%d</span></code> i u <code class="docutils literal notranslate"><span class="pre">scanf</span></code> i u <code class="docutils literal notranslate"><span class="pre">printf</span></code>.
+Pošto nije poznato unapred koja će vrednost promenljive <code class="docutils literal notranslate"><span class="pre">broj</span></code> biti, ono služi kao umetak, koji govori da se na tom mestu očekuje celobrojna vrednost (&quot;d&quot; označava decimal, ostali tipovi imaju drugačiju vrednost).</p>
 </section>
 </section>
 
@@ -141,6 +225,9 @@ Ovo se rešava tako što se datoteka zdravo.c ispravi na osnovu sugestija koje j
 
 
 <h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Praktikum</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
@@ -151,6 +238,10 @@ Ovo se rešava tako što se datoteka zdravo.c ispravi na osnovu sugestija koje j
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Praktikum</a><ul>
+      <li>Previous: <a href="../../index.html" title="претходна глава">Praktikum</a></li>
+      <li>Next: <a href="../../../zadaci/t12.html" title="наредна глава">Zadaci za T12</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
