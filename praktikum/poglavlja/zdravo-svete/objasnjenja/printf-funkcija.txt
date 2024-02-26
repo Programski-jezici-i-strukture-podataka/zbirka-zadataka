@@ -1,3 +1,3 @@
-Ono što je potrebno da program ispiše prosleđuje se printf naredbi oivičeno apostrofima (").
+Ono što je potrebno da program ispiše prosleđuje se printf naredbi oivičeno navodnicima (").
 Unutar njega moguće je dati posebne instrukcije, gde je najčešće korišćen prelazak u novi red, \n.
 Kao što se vidi iz primera, neće se ispisati \n, već će se tad desiti prelazak u novi red.
