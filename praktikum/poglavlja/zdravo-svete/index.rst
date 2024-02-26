@@ -1,6 +1,8 @@
 Zdravo, svete!
 ==============
 
+Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1nFrWembXRh4UUjky4ZdFZfiMXDGbNXc49sjrsw1YxHo>`_.
+
 Preduslovi za rad:
 
 .. literalinclude:: objasnjenja/preduslovi-za-rad.txt
@@ -145,7 +147,7 @@ Napomena:
 Program koji sabira dva broja
 -----------------------------
 
-Iskoristićemo do sad stečeno znanje da napišemo jednostavan program, čija je poenta da sabere dva broja.
+Iskoristićemo do sad stečeno znanje da napišemo jednostavan program, čija je svrha da sabere dva broja.
 
 .. literalinclude:: primeri/zbir-dva-broja.c
    :linenos:
@@ -163,3 +165,6 @@ Napomena:
 
 .. literalinclude:: objasnjenja/redosled-izvrsavanja.txt
    :language: none
+
+Iz svih ovih razloga navedenih u napomeni iznad, prvo deklarišemo promenljive ``prvi_broj``, ``drugi_broj`` i ``zbir``.
+Zatim unosimo vrednosti sa tastature u prve dve promenljive i pre ispisa, postavljamo vrednost promenljive zbir.

@@ -2,6 +2,3 @@ Primetiti da se programi izvršavaju liniju po liniju iz main funkcije.
 Jako je bitno da se promenljive prvo deklarišu, pa tek onda koriste.
 Isto tako, ukoliko se vrednost promenljive koristi u nekom izrazu (ili za neki ispis), potrebno ju je prvo definisati.
 Ukoliko se to ne učini, ponašanje programa će biti nepredvidivo.
-
-Iz svih ovih razloga, prvo deklarišemo promenljive prvi_broj, drugi_broj i zbir.
-Zatim unosimo vrednosti sa tastature u prve dve i pre ispisa, postavljamo vrednost promenljive zbir.
