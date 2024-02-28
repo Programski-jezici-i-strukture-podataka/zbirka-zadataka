@@ -1,0 +1,7 @@
+Pogodjaj broj!
+1000
+Pokusaj ponovo, trazeni broj je veci od unetog!
+3000
+Pokusaj ponovo, trazeni broj je manji od unetog!
+2024
+Cestitam! Trazeni broj je bio 2024.
