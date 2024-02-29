@@ -1,4 +1,0 @@
-Uneti prirodan broj: 0
-Uneti prirodan broj: -1
-Uneti prirodan broj: 1
-Uspesno unet prirodan broj.
