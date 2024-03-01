@@ -1,13 +1,13 @@
-3. Naredbe ciklusa
-==================
+Naredbe ciklusa
+===============
 
 Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1sW1GD0e8NdElcHNIdib4uLf5x2g4WOjNSfAUqrssAeQ>`_.
 
 Ako je potrebno ponavljati jednu ili više naredbi koriste se ciklusi, tj. petlje.
 Broj ponavljanja može biti unapred poznat, ili određen nekim uslovom. 
 
-3.1 While ciklus
-----------------
+While ciklus
+-------------
 
 Osnovna forma ``while`` ciklusa je::
 
@@ -37,8 +37,8 @@ Ako je deljenik manji od delioca, petlja se preskače jer uslov nije ispunjen pr
 .. literalinclude:: primeri/while-ispis.txt
    :language: none
 
-3.2 For ciklus
---------------
+For ciklus
+----------
 
 Kada je unapred poznat broj iteracija (broj ponavljanja naredbi unutar bloka ciklusa), često je komotnije koristiti ``for`` ciklus,
 koji se zapisuje u obliku::
@@ -72,8 +72,8 @@ Početna vrednost promenljive je 2, i uvećava se za 2 sve dok je ispunjen uslov
 .. literalinclude:: primeri/for2-ispis.txt
    :language: none
 
-3.3 Do-while ciklus
--------------------
+Do-while ciklus
+---------------
 
 Često je potrebno izvršiti bar jednom naredbe u ``while`` ciklusu. Za to se koristi ``do while``, čija forma je::
 
@@ -111,8 +111,8 @@ postati netačan, te će program izaći iz ciklusa. Primer ispisa programa za un
 
 U programu je korišćen ``do while`` ciklus jer nije unapred poznato koliko puta će korisnik promašiti broj.
 
-3.4 Break i continue
---------------------
+Break i continue
+----------------
 
 Za kontrolu petlji postoje dve naredbe, break i continue.
 Break uzrokuje da program odmah izađe iz ciklusa, dok
