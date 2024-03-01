@@ -1,5 +1,5 @@
-Zdravo, svete!
-==============
+1. Zdravo, svete!
+=================
 
 Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1nFrWembXRh4UUjky4ZdFZfiMXDGbNXc49sjrsw1YxHo>`_.
 
