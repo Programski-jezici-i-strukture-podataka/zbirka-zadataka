@@ -7,7 +7,7 @@ int main()
     printf("Pogodi broj!\n");
     do 
     {
-        scanf("%d",&b);
+        scanf("%d", &b);
         if (a > b) 
         {
             printf("Pokusaj ponovo, trazeni broj je veci od unetog!\n");

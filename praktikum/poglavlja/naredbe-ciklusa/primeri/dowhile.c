@@ -1,11 +1,13 @@
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int n;
 
-    do {
+    do 
+    {
         printf("Uneti prirodan broj: ");
-        scanf("%d",&n);
+        scanf("%d", &n);
     } while(n <= 0);
 
     printf("Uspesno unet prirodan broj.\n");

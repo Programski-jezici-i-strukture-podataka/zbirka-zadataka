@@ -43,7 +43,8 @@ Ako je deljenik manji od delioca, petlja se preskače jer uslov nije ispunjen pr
 Kada je unapred poznat broj iteracija (broj ponavljanja naredbi unutar bloka ciklusa), često je komotnije koristiti ``for`` ciklus,
 koji se zapisuje u obliku::
 
-  for (inicijalizacija; uslov; korak) {
+  for (inicijalizacija; uslov; korak) 
+  {
     naredbe
   }
 
@@ -76,7 +77,8 @@ Početna vrednost promenljive je 2, i uvećava se za 2 sve dok je ispunjen uslov
 
 Često je potrebno izvršiti bar jednom naredbe u ``while`` ciklusu. Za to se koristi ``do while``, čija forma je::
 
-  do {
+  do 
+  {
     naredbe
   } while(izraz);
 
