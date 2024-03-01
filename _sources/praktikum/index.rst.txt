@@ -8,5 +8,6 @@ Cilj je da student što pre stekne samostalnost u izradi raznovrsnih zadataka.
 
 .. toctree::
    :glob:
+   :numbered:
 
    poglavlja/*/index/
