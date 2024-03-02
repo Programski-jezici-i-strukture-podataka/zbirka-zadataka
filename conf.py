@@ -29,7 +29,8 @@ author = 'Srđan Popov, Rade Radišić'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx_comments"
+    "sphinx_comments",
+    "sphinx_copybutton",
 ]
 
 # utterances configuration (comments provider)
