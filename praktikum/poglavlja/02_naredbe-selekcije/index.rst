@@ -1,7 +1,7 @@
 Naredbe selekcije
 ==================
 
-Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1wRkDvN8qkso6HSiHvfHjmjozk-AxyKE0m_oSYCabb-M>`_.
+Podeli svoje utiske o poglavlju na anketi `OVDE <https://docs.google.com/forms/d/1wRkDvN8qkso6HSiHvfHjmjozk-AxyKE0m_oSYCabb-M>`_.
 
 Preduslovi za rad::
 
