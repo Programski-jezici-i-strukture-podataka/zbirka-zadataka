@@ -2,9 +2,11 @@
 
 int main()
 {
-    int x=3, y=5;
+    int x = 3, y = 5, veci;
 
-    x>y ? printf("X je vece\n") : printf("Y je vece\n");
+    veci = x > y ? x : y;
+
+    printf("Veci je %d\n", veci);
 
     return 0;
 }

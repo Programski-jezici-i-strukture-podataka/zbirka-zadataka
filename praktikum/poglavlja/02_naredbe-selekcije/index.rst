@@ -1,7 +1,11 @@
 Naredbe selekcije
 ==================
 
-Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1xG079mQsxOuhHc3l9vYXJmZzJjIlZGUFj7P-mkNwcv0>`_.
+Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1wRkDvN8qkso6HSiHvfHjmjozk-AxyKE0m_oSYCabb-M>`_.
+
+Preduslovi za rad::
+
+  Poznavanje osnovne strukture C programa i funkcija za rad sa standardnim ulazom/izlazom.
 
 Naredbe selekcije omogućuju da kontrolišemo tok izvršavanja programa.
 Ukoliko želimo da se određeni deo koda ne izvršava uvek, već samo pod određenim uslovima, koristimo naredbe selekcije.
@@ -24,7 +28,7 @@ Osnovna forma ``if-else`` iskaza je::
 Ukoliko je izraz u zagradi tačan, izvršiće se ``naredba_1``. Ako je izraz netačan, izvršiće se ``naredba_2``.
 
 Dat je primer programa gde imamo promenljivu ``x`` čija je vrednost 5 i promenljivu ``y`` čija je vrednost 3.
-U if-u proveravamo da li je x veće od y. Ako jeste, ispisaćemo ``X je veće``, a ako nije ispisaćemo
+U if-u proveravamo da li je ``x`` veće od ``y``. Ako jeste, ispisaćemo ``X je veće``, a ako nije ispisaćemo
 ``Y je veće``:
 
 .. literalinclude:: primeri/if-else.c
@@ -47,9 +51,10 @@ Ispis ovog programa kada su x i y iste vrednosti je (u kodu smo prethodno promen
 
 Napomena::
 
-  Izraz if(x=2) će uvek biti tačan zato što u ovom slučaju promenljivoj x dodeljujemo vrednost 2 i to je uvek moguće i tačno.
-  Kada zelimo da poredimo bilo koje 2 vrednosti, potrebno je da koristimo == operator. izraz if(x==2) će biti tačan samo onda
+  Izraz if(x = 2) će uvek biti tačan zato što u ovom slučaju promenljivoj x dodeljujemo vrednost 2 i to je uvek moguće i tačno.
+  Kada zelimo da poredimo bilo koje 2 vrednosti, potrebno je da koristimo == operator. izraz if(x == 2) će biti tačan samo onda
   kada je vrednost promenljive x postavljena na 2 pre ove provere.
+  Ako želimo da proverimo da li je vrednost x različita od 2, koristićemo != operator.
 
 if-else-if iskaz
 ----------------
@@ -67,9 +72,10 @@ potrebno je da proširimo if-else iskaz. Proširena forma je ``if-else-if`` iska
   else
     naredba_n
 
-Ukoliko je izraz_1 tačan, izvršiće se naredba_1, ukoliko je izraz_2 tačan, izvršiće se naredba_2, ukoliko je izraz_3
-tačan, izvršiće se naredba_3. Isto važi i za sve ostale izraze ukoliko ih ima. Kod ovog iskaza možemo imati neograničen
-broj provera. Ukoliko nijedan izraz nije tačan, izvršiće se naredba_n koja je u else delu iskaza.
+Ukoliko je ``izraz_1`` tačan, izvršiće se ``naredba_1``, ukoliko je ``izraz_2`` tačan, izvršiće se ``naredba_2``, ukoliko je ``izraz_3``
+tačan, izvršiće se ``naredba_3`` itd. 
+Kod ovog iskaza možemo imati neograničen broj provera. 
+Ukoliko nijedan izraz nije tačan, izvršiće se naredba_n koja je u else delu iskaza.
 
 Dat je primer programa gde imamo promenljivu ``x`` čija je vrednost 6 i promenljivu ``y`` čija je vrednost 6.
 U if-u proveravamo da li je x veće od y. Ako jeste, ispisaćemo ``X je veće``. U else-if-u proveravamo
@@ -91,15 +97,19 @@ Napomena::
   else iskaza, ako je on prisutan.
 
 Ukoliko je potrebno izvršiti više naredbi u okviru bilo kog od ovih iskaza (if, else-if, else) potrebno je sve naredbe
-smestiti u vitičaste zagrade ``{}``. U suprotnom, kompajler će prijaviti grešku.
+smestiti u vitičaste zagrade ``{}``. U suprotnom, kompajler će prijaviti grešku ukoliko je dodatna naredba napisana nakon ``if`` naredbe.
+Ako je dodatna naredba napisana nakon ``else``, program će se uredno kompajlirati. 
+Zbog toga, preporuka je stavljati vitičaste zagrade i u slučaju jedne naredbe.
 
-``Else`` deo iskaza nije obavezan i može da se desi da postoji ``if``, kao i ``if else`` bez ``else`` iskaza, ali
+Deo iskaza ``else`` nije obavezan i može da se desi da postoji ``if``, kao i ``if else`` bez ``else`` iskaza, ali
 obrnuto ne važi.
 
-Dat je primer gde imamo promenljivu ``godine`` čija je vrednost 25 i promenljivu ``plata`` čija je vrednost 50 000.
-Proveravamo za ove godine i platu kreditnu sposobnost. Ukoliko je vrednost godina do 20 ili je plata do 70 000,
-moguće je podići kredit do 100 000. Ukoliko je vrednost godina do 50 ili je plata do 120 000, moguće je podići kredit do
-180 000. Ukoliko je vrednost godina preko 50, ne može se podići kredit zbog starosne granice.
+Dat je primer gde imamo promenljivu ``godine`` i promenljivu ``plata``, gde se od korisnika traži da unesu njihove vrednosti.
+Proveravamo za unete godine i platu kreditnu sposobnost:
+
+ * Ukoliko je vrednost godina do 20 ili je plata do 70 000, moguće je podići kredit do 100 000
+ * Ukoliko je vrednost godina do 50 ili je plata do 120 000, moguće je podići kredit do 180 000
+ * Ukoliko je vrednost godina preko 50, ne može se podići kredit zbog starosne granice
 
 .. literalinclude:: primeri/if-else-if-sa-vise-promenljivih.c
    :linenos:
@@ -114,6 +124,21 @@ kod ovog if iskaza mi imamo proveru 2 uslova gde nam je dovoljno da je samo jeda
 Drugi deo uslova kaže da plata mora biti manja manja od 70 000, što se uklapa sa zadatom vrednošću plate koja je 50 000, pa
 je zato ispis u ovom primeru ``Moguce je podici kredit do 100000``.
 
+Ispis ovog programa u slučaju kad je broj godina veći od 50:
+
+.. literalinclude:: primeri/if-else-if-sa-vise-promenljivih-vise-od-50-godina-ispis.txt
+   :language: none
+
+Pitanje::
+
+  Kako bismo ispravili ovaj program da onemogućimo korisniku da unese broj godina manji od 18?
+
+Napomena::
+
+  U prethodnom primeru korišćen je logički operator "ILI", koji se u programskom jeziku C predstavlja preko ||.
+  Njegovo ponašanje isto je kao i kod matematičkog operatora, odnosno, ukoliko je jedan od operanada tačan, 
+  izraz će biti logički tačan. Takođe, postoji i logički operator "I". On se navodi sa &&. Negacija se navodi kao !.
+
 Ternarni operator
 -----------------
 
@@ -124,8 +149,7 @@ Funkcioniše isto kao if-else iskaz, zapisan u jednoj liniji. Osnovna forma je::
 Ukoliko je izraz tačan, izvršiće se ``naredba_1``. Ako je izraz netačan, izvršiće se ``naredba_2``.
 
 Dat je primer programa gde imamo promenljivu ``x`` čija je vrednost 3 i promenljivu ``y`` čija je vrednost 5.
-U izrazu proveravamo da li je ``x`` veće od ``y``. Ako jeste, ispisaćemo ``X je veće``, a ako nije ispisaćemo
-``Y je veće``:
+U izrazu proveravamo da li je ``x`` veće od ``y``. Ispisaćemo veći od ta dva broja:
 
 .. literalinclude:: primeri/ternarni.c
    :linenos:
@@ -135,41 +159,45 @@ Ispis ovog programa je:
 .. literalinclude:: primeri/ternarni-ispis.txt
    :language: none
 
-Kako je vrednost promenljive ``x`` 3, a promenljive ``y`` 5, uslov x>y neće biti zadovoljen, pa će se zato ispisati
-``Y je vece``.
+Napomena::
 
-Switch-case iskaz
------------------
+  Ovaj primer je mogao biti urađen preko if-else iskaza. Ternarni operator pogodan je u situacijama kada postoji promenljiva 
+  koja treba da dobije vrednost na osnovu nekog uslova. Da je ovo bilo napisano preko if-else, rešenje bi imalo barem 3 linije
+  više. Ternarni izraz je u tim situacijama koncizniji.
 
-Switch-case iskaz proverava dati izraz i u zavisnosti od vrednosti izraza izvršava naredbe onog case bloka čija je vrednost
+Switch iskaz
+------------
+
+Switch iskaz proverava dati izraz i u zavisnosti od vrednosti izraza izvršava naredbe onog case bloka čija je vrednost
 jednaka vrednosti izraza. Ovaj iskaz je veoma sličan if-else-if iskazu i može se koristiti kao njegova zamena kada je potrebno
 porediti neku vrednost ili izraz sa više celobrojnih vrednosti. Osnovna forma je::
 
   switch(izraz)
   {
-    case vrednost_1:
-      naredbe_1
-    case vrednost_2:
-      naredbe_2
-    ...
-    default:
-      naredbe_n
+  case vrednost_1:
+    naredbe_1
+  case vrednost_2:
+    naredbe_2
+  ...
+  default:
+    naredbe_n
   }
-
-U zagradi se postavlja neki izraz čija se vrednost proverava u case-u. Ukoliko je vrednost izraza jednaka vrednost_1, izvršiće
-se naredbe_1, ukoliko je vrednost izraza jednaka vrednost_2, izvršiće se naredbe_2, itd. Ukoliko vrednost izraza nije jednaka
-nijednoj vrednosti, izvršiće se naredbe_n u okviru default sekcije.
 
 Napomena::
 
   Vrednost u ovom iskazu mora biti celobrojna (int ili char). Može postojati 1 ili više case iskaza. Vrednost svakog
-  case-a mora biti jedinstvena. default sekcija je opciona. Na kraju svakog case-a, treba staviti naredbu break.
-  Ova naredba služi da se izađe iz switch-case iskaza kada se izvrši neki case. Ukoliko se naredba break ne stavi,
-  kod će propasti i izvršavaće se naredbe u okrivu preostalih case iskaza iako nisu tačne.
+  case-a mora biti jedinstvena. default sekcija je opciona.
 
-Dat je primer programa gde imamo promenljivu ``dan`` čija je vrednost 3. U switch deo postavljamo promenljivu dan čiju ćemo vrednost proveravati.
+Napomena::
+
+  Na kraju svakog case-a, treba staviti naredbu break.
+  Ova naredba služi da se izađe iz switch-case iskaza kada se izvrši neki case. Ukoliko se naredba break ne stavi,
+  izvršavaće se naredbe u okviru preostalih case iskaza.
+
+Dat je primer programa gde imamo promenljivu ``dan`` čiju vrednost korisnik unosi preko tastature (standardnog ulaza).
+U switch deo postavljamo promenljivu dan čiju ćemo vrednost proveravati.
 Ukoliko je vrednost promenljive dan 1, ispisaće se ``Ponedeljak``, ukoliko je 2 ``Utorak``, itd. Ukoliko vrednost promenljive nije između 1 i
-7, neće se nijedan case izvršiti već će se default sekcija izvršiti.
+7, neće se biti izabran nijedan case, već će se izvršiti sekcija default.
 
   .. literalinclude:: primeri/switch-case.c
      :linenos:
