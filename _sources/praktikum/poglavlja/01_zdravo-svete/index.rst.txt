@@ -1,7 +1,7 @@
 1. Zdravo, svete!
 =================
 
-Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1nFrWembXRh4UUjky4ZdFZfiMXDGbNXc49sjrsw1YxHo>`_.
+Podeli svoje utiske o poglavlju na anketi `OVDE <https://docs.google.com/forms/d/1nFrWembXRh4UUjky4ZdFZfiMXDGbNXc49sjrsw1YxHo>`_.
 
 Preduslovi za rad:
 
