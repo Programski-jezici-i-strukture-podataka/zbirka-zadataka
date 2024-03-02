@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Naredbe selekcije &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../search.html" />
+    <link rel="next" title="3. Naredbe ciklusa" href="../03_naredbe-ciklusa/index.html" />
+    <link rel="prev" title="1. 1. Zdravo, svete!" href="../01_zdravo-svete/index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="naredbe-selekcije">
+<h1><span class="section-number">2. </span>Naredbe selekcije<a class="headerlink" href="#naredbe-selekcije" title="Permalink to this headline">¶</a></h1>
+<p>Podeli svoje utiske na anketi <a class="reference external" href="https://docs.google.com/forms/d/1wRkDvN8qkso6HSiHvfHjmjozk-AxyKE0m_oSYCabb-M">OVDE</a>.</p>
+<p>Preduslovi za rad:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Poznavanje</span><span class="w"> </span><span class="n">osnovne</span><span class="w"> </span><span class="n">strukture</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">programa</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">funkcija</span><span class="w"> </span><span class="n">za</span><span class="w"> </span><span class="n">rad</span><span class="w"> </span><span class="n">sa</span><span class="w"> </span><span class="n">standardnim</span><span class="w"> </span><span class="n">ulazom</span><span class="o">/</span><span class="n">izlazom</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Naredbe selekcije omogućuju da kontrolišemo tok izvršavanja programa.
+Ukoliko želimo da se određeni deo koda ne izvršava uvek, već samo pod određenim uslovima, koristimo naredbe selekcije.
+Deo koda koji je uslovljen naredbom selekcije će se izvršiti samo ukoliko je postavljeni uslov ispunjen.</p>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="w"> </span><span class="n">programskom</span><span class="w"> </span><span class="n">jeziku</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">kao</span><span class="w"> </span><span class="n">tačno</span><span class="w"> </span><span class="n">podrazumeva</span><span class="w"> </span><span class="n">sve</span><span class="w"> </span><span class="n">što</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">različito</span><span class="w"> </span><span class="n">od</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">dok</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">sve</span><span class="w"> </span><span class="n">sto</span><span class="w"> </span><span class="n">ima</span><span class="w"> </span><span class="n">vrednost</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">netačno</span><span class="p">.</span>
+</pre></div>
+</div>
+<section id="if-else-iskaz">
+<h2><span class="section-number">2.1. </span>if-else iskaz<a class="headerlink" href="#if-else-iskaz" title="Permalink to this headline">¶</a></h2>
+<p>Osnovna forma <code class="docutils literal notranslate"><span class="pre">if-else</span></code> iskaza je:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">izraz</span><span class="p">)</span>
+<span class="w">  </span><span class="n">naredba_1</span>
+<span class="k">else</span>
+<span class="w">  </span><span class="n">naredba_2</span>
+</pre></div>
+</div>
+<p>Ukoliko je izraz u zagradi tačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_1</span></code>. Ako je izraz netačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_2</span></code>.</p>
+<p>Dat je primer programa gde imamo promenljivu <code class="docutils literal notranslate"><span class="pre">x</span></code> čija je vrednost 5 i promenljivu <code class="docutils literal notranslate"><span class="pre">y</span></code> čija je vrednost 3.
+U if-u proveravamo da li je <code class="docutils literal notranslate"><span class="pre">x</span></code> veće od <code class="docutils literal notranslate"><span class="pre">y</span></code>. Ako jeste, ispisaćemo <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">je</span> <span class="pre">veće</span></code>, a ako nije ispisaćemo
+<code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">je</span> <span class="pre">veće</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;X je vece</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">10</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Y je vece</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis ovog programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>X je vece
+</pre></div>
+</div>
+<p>Pitanje:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Šta</span><span class="w"> </span><span class="n">će</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">desiti</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">slučaju</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">imaju</span><span class="w"> </span><span class="n">istu</span><span class="w"> </span><span class="n">vrednost</span><span class="o">?</span>
+</pre></div>
+</div>
+<p>Ispis ovog programa kada su x i y iste vrednosti je (u kodu smo prethodno promenili da su vrednosti i <code class="docutils literal notranslate"><span class="pre">x</span></code> i <code class="docutils literal notranslate"><span class="pre">y</span></code> 3):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Y je vece
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Izraz</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">će</span><span class="w"> </span><span class="n">uvek</span><span class="w"> </span><span class="n">biti</span><span class="w"> </span><span class="n">tačan</span><span class="w"> </span><span class="n">zato</span><span class="w"> </span><span class="n">što</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">ovom</span><span class="w"> </span><span class="n">slučaju</span><span class="w"> </span><span class="n">promenljivoj</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">dodeljujemo</span><span class="w"> </span><span class="n">vrednost</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">uvek</span><span class="w"> </span><span class="n">moguće</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">tačno</span><span class="p">.</span>
+<span class="n">Kada</span><span class="w"> </span><span class="n">zelimo</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">poredimo</span><span class="w"> </span><span class="n">bilo</span><span class="w"> </span><span class="n">koje</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">vrednosti</span><span class="p">,</span><span class="w"> </span><span class="n">potrebno</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">koristimo</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">operator</span><span class="p">.</span><span class="w"> </span><span class="n">izraz</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">će</span><span class="w"> </span><span class="n">biti</span><span class="w"> </span><span class="n">tačan</span><span class="w"> </span><span class="n">samo</span><span class="w"> </span><span class="n">onda</span>
+<span class="n">kada</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">vrednost</span><span class="w"> </span><span class="n">promenljive</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">postavljena</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="n">ove</span><span class="w"> </span><span class="n">provere</span><span class="p">.</span>
+<span class="n">Ako</span><span class="w"> </span><span class="n">želimo</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">proverimo</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">li</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">vrednost</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">različita</span><span class="w"> </span><span class="n">od</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">koristićemo</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">operator</span><span class="p">.</span>
+</pre></div>
+</div>
+</section>
+<section id="if-else-if-iskaz">
+<h2><span class="section-number">2.2. </span>if-else-if iskaz<a class="headerlink" href="#if-else-if-iskaz" title="Permalink to this headline">¶</a></h2>
+<p>U primeru iznad smo videli da nije pokriven slučaj kada <code class="docutils literal notranslate"><span class="pre">x</span></code> i <code class="docutils literal notranslate"><span class="pre">y</span></code> imaju istu vrednost. Da bismo pokrili i njega,
+potrebno je da proširimo if-else iskaz. Proširena forma je <code class="docutils literal notranslate"><span class="pre">if-else-if</span></code> iskaz:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">izraz_1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">naredba_1</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">izraz_2</span><span class="p">)</span>
+<span class="w">  </span><span class="n">naredba_2</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">izraz_3</span><span class="p">)</span>
+<span class="w">  </span><span class="n">naredba_3</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="k">else</span>
+<span class="w">  </span><span class="n">naredba_n</span>
+</pre></div>
+</div>
+<p>Ukoliko je <code class="docutils literal notranslate"><span class="pre">izraz_1</span></code> tačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_1</span></code>, ukoliko je <code class="docutils literal notranslate"><span class="pre">izraz_2</span></code> tačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_2</span></code>, ukoliko je <code class="docutils literal notranslate"><span class="pre">izraz_3</span></code>
+tačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_3</span></code> itd.
+Kod ovog iskaza možemo imati neograničen broj provera.
+Ukoliko nijedan izraz nije tačan, izvršiće se naredba_n koja je u else delu iskaza.</p>
+<p>Dat je primer programa gde imamo promenljivu <code class="docutils literal notranslate"><span class="pre">x</span></code> čija je vrednost 6 i promenljivu <code class="docutils literal notranslate"><span class="pre">y</span></code> čija je vrednost 6.
+U if-u proveravamo da li je x veće od y. Ako jeste, ispisaćemo <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">je</span> <span class="pre">veće</span></code>. U else-if-u proveravamo
+da li su jednaki. Ako jesu, ispisaćemo <code class="docutils literal notranslate"><span class="pre">Jednaki</span> <span class="pre">su</span></code>. Ukoliko x nije veće i nisu jednaki, znamo da je sigurno y veće.
+Else iskaz će biti ispis <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">je</span> <span class="pre">veće</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;X je vece</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">10</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Jednaki su</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">12</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Y je vece</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">15</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis ovog programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Jednaki su
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="w"> </span><span class="n">slučaju</span><span class="w"> </span><span class="k">if</span><span class="o">-</span><span class="k">else</span><span class="p">,</span><span class="w"> </span><span class="n">kao</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">if</span><span class="o">-</span><span class="k">else</span><span class="o">-</span><span class="k">if</span><span class="w"> </span><span class="n">iskaza</span><span class="p">,</span><span class="w"> </span><span class="n">uvek</span><span class="w"> </span><span class="n">će</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">izvršiti</span><span class="w"> </span><span class="n">samo</span><span class="w"> </span><span class="n">jedna</span><span class="w"> </span><span class="n">naredba</span><span class="p">.</span><span class="w"> </span><span class="n">Ukoliko</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">neki</span><span class="w"> </span><span class="n">izraz</span><span class="w"> </span><span class="n">tačan</span><span class="p">,</span>
+<span class="n">izvršiće</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">samo</span><span class="w"> </span><span class="n">naredba</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">okviru</span><span class="w"> </span><span class="n">tog</span><span class="w"> </span><span class="n">izraza</span><span class="p">.</span><span class="w"> </span><span class="n">Ukoliko</span><span class="w"> </span><span class="n">nijedan</span><span class="w"> </span><span class="n">izraz</span><span class="w"> </span><span class="n">nije</span><span class="w"> </span><span class="n">tačan</span><span class="p">,</span><span class="w"> </span><span class="n">izvršiće</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">naredba</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">okviru</span>
+<span class="k">else</span><span class="w"> </span><span class="n">iskaza</span><span class="p">,</span><span class="w"> </span><span class="n">ako</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">prisutan</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Ukoliko je potrebno izvršiti više naredbi u okviru bilo kog od ovih iskaza (if, else-if, else) potrebno je sve naredbe
+smestiti u vitičaste zagrade <code class="docutils literal notranslate"><span class="pre">{}</span></code>. U suprotnom, kompajler će prijaviti grešku ukoliko je dodatna naredba napisana nakon <code class="docutils literal notranslate"><span class="pre">if</span></code> naredbe.
+Ako je dodatna naredba napisana nakon <code class="docutils literal notranslate"><span class="pre">else</span></code>, program će se uredno kompajlirati.
+Zbog toga, preporuka je stavljati vitičaste zagrade i u slučaju jedne naredbe.</p>
+<p>Deo iskaza <code class="docutils literal notranslate"><span class="pre">else</span></code> nije obavezan i može da se desi da postoji <code class="docutils literal notranslate"><span class="pre">if</span></code>, kao i <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> bez <code class="docutils literal notranslate"><span class="pre">else</span></code> iskaza, ali
+obrnuto ne važi.</p>
+<p>Dat je primer gde imamo promenljivu <code class="docutils literal notranslate"><span class="pre">godine</span></code> i promenljivu <code class="docutils literal notranslate"><span class="pre">plata</span></code>, gde se od korisnika traži da unesu njihove vrednosti.
+Proveravamo za unete godine i platu kreditnu sposobnost:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ukoliko je vrednost godina do 20 ili je plata do 70 000, moguće je podići kredit do 100 000</p></li>
+<li><p>Ukoliko je vrednost godina do 50 ili je plata do 120 000, moguće je podići kredit do 180 000</p></li>
+<li><p>Ukoliko je vrednost godina preko 50, ne može se podići kredit zbog starosne granice</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">godine</span><span class="p">,</span><span class="w"> </span><span class="n">plata</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite godine: &quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">godine</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite platu: &quot;</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plata</span><span class="p">);</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">godine</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">plata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">70000</span><span class="p">)</span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Moguce je podici kredit do 100000</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">15</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">godine</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">plata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">120000</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Moguce je podici kredit do 180000</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">20</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">godine</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ne moze se podici kredit zbog starosne granice</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">26</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis ovog programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite godine: 25
+Unesite platu: 50000
+Moguce je podici kredit do 100000
+</pre></div>
+</div>
+<p>U ovom primeru će uslov prvog if iskaza biti zadovoljen. Godine su 25 i uslov za godine za prvi if nije zadovoljen, ali
+kod ovog if iskaza mi imamo proveru 2 uslova gde nam je dovoljno da je samo jedan uslov tačan kako bi ceo izraz bio tačan.
+Drugi deo uslova kaže da plata mora biti manja manja od 70 000, što se uklapa sa zadatom vrednošću plate koja je 50 000, pa
+je zato ispis u ovom primeru <code class="docutils literal notranslate"><span class="pre">Moguce</span> <span class="pre">je</span> <span class="pre">podici</span> <span class="pre">kredit</span> <span class="pre">do</span> <span class="pre">100000</span></code>.</p>
+<p>Ispis ovog programa u slučaju kad je broj godina veći od 50:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite godine: 55
+Unesite platu: 130000
+Ne moze se podici kredit zbog starosne granice
+</pre></div>
+</div>
+<p>Pitanje:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Kako</span><span class="w"> </span><span class="n">bismo</span><span class="w"> </span><span class="n">ispravili</span><span class="w"> </span><span class="n">ovaj</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">onemogućimo</span><span class="w"> </span><span class="n">korisniku</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">unese</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="n">godina</span><span class="w"> </span><span class="n">manji</span><span class="w"> </span><span class="n">od</span><span class="w"> </span><span class="mi">18</span><span class="o">?</span>
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="w"> </span><span class="n">prethodnom</span><span class="w"> </span><span class="n">primeru</span><span class="w"> </span><span class="n">korišćen</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">logički</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="s">&quot;ILI&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">koji</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">programskom</span><span class="w"> </span><span class="n">jeziku</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">predstavlja</span><span class="w"> </span><span class="n">preko</span><span class="w"> </span><span class="o">||</span><span class="p">.</span>
+<span class="n">Njegovo</span><span class="w"> </span><span class="n">ponašanje</span><span class="w"> </span><span class="n">isto</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">kao</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">kod</span><span class="w"> </span><span class="n">matematičkog</span><span class="w"> </span><span class="n">operatora</span><span class="p">,</span><span class="w"> </span><span class="n">odnosno</span><span class="p">,</span><span class="w"> </span><span class="n">ukoliko</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">jedan</span><span class="w"> </span><span class="n">od</span><span class="w"> </span><span class="n">operanada</span><span class="w"> </span><span class="n">tačan</span><span class="p">,</span>
+<span class="n">izraz</span><span class="w"> </span><span class="n">će</span><span class="w"> </span><span class="n">biti</span><span class="w"> </span><span class="n">logički</span><span class="w"> </span><span class="n">tačan</span><span class="p">.</span><span class="w"> </span><span class="n">Takođe</span><span class="p">,</span><span class="w"> </span><span class="n">postoji</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">logički</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="s">&quot;I&quot;</span><span class="p">.</span><span class="w"> </span><span class="n">On</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">navodi</span><span class="w"> </span><span class="n">sa</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">.</span><span class="w"> </span><span class="n">Negacija</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">navodi</span><span class="w"> </span><span class="n">kao</span><span class="w"> </span><span class="o">!</span><span class="p">.</span>
+</pre></div>
+</div>
+</section>
+<section id="ternarni-operator">
+<h2><span class="section-number">2.3. </span>Ternarni operator<a class="headerlink" href="#ternarni-operator" title="Permalink to this headline">¶</a></h2>
+<p>Funkcioniše isto kao if-else iskaz, zapisan u jednoj liniji. Osnovna forma je:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">izraz</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">naredba_1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">naredba_2</span>
+</pre></div>
+</div>
+<p>Ukoliko je izraz tačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_1</span></code>. Ako je izraz netačan, izvršiće se <code class="docutils literal notranslate"><span class="pre">naredba_2</span></code>.</p>
+<p>Dat je primer programa gde imamo promenljivu <code class="docutils literal notranslate"><span class="pre">x</span></code> čija je vrednost 3 i promenljivu <code class="docutils literal notranslate"><span class="pre">y</span></code> čija je vrednost 5.
+U izrazu proveravamo da li je <code class="docutils literal notranslate"><span class="pre">x</span></code> veće od <code class="docutils literal notranslate"><span class="pre">y</span></code>. Ispisaćemo veći od ta dva broja:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">veci</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">veci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Veci je %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">veci</span><span class="p">);</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">12</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis ovog programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Veci je 5
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Ovaj</span><span class="w"> </span><span class="n">primer</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">mogao</span><span class="w"> </span><span class="n">biti</span><span class="w"> </span><span class="n">urađen</span><span class="w"> </span><span class="n">preko</span><span class="w"> </span><span class="k">if</span><span class="o">-</span><span class="k">else</span><span class="w"> </span><span class="n">iskaza</span><span class="p">.</span><span class="w"> </span><span class="n">Ternarni</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="n">pogodan</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">situacijama</span><span class="w"> </span><span class="n">kada</span><span class="w"> </span><span class="n">postoji</span><span class="w"> </span><span class="n">promenljiva</span>
+<span class="n">koja</span><span class="w"> </span><span class="n">treba</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">dobije</span><span class="w"> </span><span class="n">vrednost</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">osnovu</span><span class="w"> </span><span class="n">nekog</span><span class="w"> </span><span class="n">uslova</span><span class="p">.</span><span class="w"> </span><span class="n">Da</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">ovo</span><span class="w"> </span><span class="n">bilo</span><span class="w"> </span><span class="n">napisano</span><span class="w"> </span><span class="n">preko</span><span class="w"> </span><span class="k">if</span><span class="o">-</span><span class="k">else</span><span class="p">,</span><span class="w"> </span><span class="n">rešenje</span><span class="w"> </span><span class="n">bi</span><span class="w"> </span><span class="n">imalo</span><span class="w"> </span><span class="n">barem</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">linije</span>
+<span class="n">više</span><span class="p">.</span><span class="w"> </span><span class="n">Ternarni</span><span class="w"> </span><span class="n">izraz</span><span class="w"> </span><span class="n">je</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">tim</span><span class="w"> </span><span class="n">situacijama</span><span class="w"> </span><span class="n">koncizniji</span><span class="p">.</span>
+</pre></div>
+</div>
+</section>
+<section id="switch-iskaz">
+<h2><span class="section-number">2.4. </span>Switch iskaz<a class="headerlink" href="#switch-iskaz" title="Permalink to this headline">¶</a></h2>
+<p>Switch iskaz proverava dati izraz i u zavisnosti od vrednosti izraza izvršava naredbe onog case bloka čija je vrednost
+jednaka vrednosti izraza. Ovaj iskaz je veoma sličan if-else-if iskazu i može se koristiti kao njegova zamena kada je potrebno
+porediti neku vrednost ili izraz sa više celobrojnih vrednosti. Osnovna forma je:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">izraz</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">case</span><span class="w"> </span><span class="no">vrednost_1</span><span class="p">:</span>
+<span class="w">  </span><span class="n">naredbe_1</span>
+<span class="k">case</span><span class="w"> </span><span class="no">vrednost_2</span><span class="p">:</span>
+<span class="w">  </span><span class="n">naredbe_2</span>
+<span class="p">...</span>
+<span class="k">default</span><span class="o">:</span>
+<span class="w">  </span><span class="n">naredbe_n</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Vrednost</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">ovom</span><span class="w"> </span><span class="n">iskazu</span><span class="w"> </span><span class="n">mora</span><span class="w"> </span><span class="n">biti</span><span class="w"> </span><span class="n">celobrojna</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ili</span><span class="w"> </span><span class="kt">char</span><span class="p">).</span><span class="w"> </span><span class="n">Može</span><span class="w"> </span><span class="n">postojati</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">ili</span><span class="w"> </span><span class="n">više</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="no">iskaza</span><span class="p">.</span><span class="w"> </span><span class="no">Vrednost</span><span class="w"> </span><span class="no">svakog</span>
+<span class="no">case</span><span class="o">-</span><span class="no">a</span><span class="w"> </span><span class="no">mora</span><span class="w"> </span><span class="no">biti</span><span class="w"> </span><span class="no">jedinstvena</span><span class="p">.</span><span class="w"> </span><span class="no">default</span><span class="w"> </span><span class="no">sekcija</span><span class="w"> </span><span class="no">je</span><span class="w"> </span><span class="no">opciona</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Na</span><span class="w"> </span><span class="n">kraju</span><span class="w"> </span><span class="n">svakog</span><span class="w"> </span><span class="k">case</span><span class="o">-</span><span class="no">a</span><span class="p">,</span><span class="w"> </span><span class="no">treba</span><span class="w"> </span><span class="no">staviti</span><span class="w"> </span><span class="no">naredbu</span><span class="w"> </span><span class="no">break</span><span class="p">.</span>
+<span class="no">Ova</span><span class="w"> </span><span class="no">naredba</span><span class="w"> </span><span class="no">služi</span><span class="w"> </span><span class="no">da</span><span class="w"> </span><span class="no">se</span><span class="w"> </span><span class="no">izađe</span><span class="w"> </span><span class="no">iz</span><span class="w"> </span><span class="no">switch</span><span class="o">-</span><span class="no">case</span><span class="w"> </span><span class="no">iskaza</span><span class="w"> </span><span class="no">kada</span><span class="w"> </span><span class="no">se</span><span class="w"> </span><span class="no">izvrši</span><span class="w"> </span><span class="no">neki</span><span class="w"> </span><span class="no">case</span><span class="p">.</span><span class="w"> </span><span class="no">Ukoliko</span><span class="w"> </span><span class="no">se</span><span class="w"> </span><span class="no">naredba</span><span class="w"> </span><span class="no">break</span><span class="w"> </span><span class="no">ne</span><span class="w"> </span><span class="no">stavi</span><span class="p">,</span>
+<span class="no">izvršavaće</span><span class="w"> </span><span class="no">se</span><span class="w"> </span><span class="no">naredbe</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="no">okviru</span><span class="w"> </span><span class="no">preostalih</span><span class="w"> </span><span class="no">case</span><span class="w"> </span><span class="no">iskaza</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Dat je primer programa gde imamo promenljivu <code class="docutils literal notranslate"><span class="pre">dan</span></code> čiju vrednost korisnik unosi preko tastature (standardnog ulaza).
+U switch deo postavljamo promenljivu dan čiju ćemo vrednost proveravati.
+Ukoliko je vrednost promenljive dan 1, ispisaće se <code class="docutils literal notranslate"><span class="pre">Ponedeljak</span></code>, ukoliko je 2 <code class="docutils literal notranslate"><span class="pre">Utorak</span></code>, itd. Ukoliko vrednost promenljive nije između 1 i
+7, neće se biti izabran nijedan case, već će se izvršiti sekcija default.</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">dan</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Uneti dan: &quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dan</span><span class="p">);</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">dan</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">11</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos">13</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ponedeljak</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Utorak</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">17</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sreda</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">20</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span>
+<span class="linenos">22</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Cetvrtak</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span>
+<span class="linenos">25</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Petak</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">6</span><span class="p">:</span>
+<span class="linenos">28</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Subota</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">29</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">7</span><span class="p">:</span>
+<span class="linenos">31</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nedelja</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">32</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Vrednost dana moze biti izmedju 1 i 7&quot;</span><span class="p">);</span>
+<span class="linenos">35</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">38</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis ovog programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Uneti dan: 3
+Sreda
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Praktikum</a><ul>
+      <li>Previous: <a href="../01_zdravo-svete/index.html" title="претходна глава"><span class="section-number">1. </span>1. Zdravo, svete!</a></li>
+      <li>Next: <a href="../03_naredbe-ciklusa/index.html" title="наредна глава"><span class="section-number">3. </span>Naredbe ciklusa</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/praktikum/poglavlja/02_naredbe-selekcije/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
