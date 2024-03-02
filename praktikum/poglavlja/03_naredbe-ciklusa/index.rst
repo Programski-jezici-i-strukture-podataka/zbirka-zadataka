@@ -1,7 +1,7 @@
 Naredbe ciklusa
 ===============
 
-Podeli svoje utiske na anketi `OVDE <https://docs.google.com/forms/d/1sW1GD0e8NdElcHNIdib4uLf5x2g4WOjNSfAUqrssAeQ>`_.
+Podeli svoje utiske o poglavlju na anketi `OVDE <https://docs.google.com/forms/d/1sW1GD0e8NdElcHNIdib4uLf5x2g4WOjNSfAUqrssAeQ>`_.
 
 Ako je potrebno ponavljati jednu ili više naredbi koriste se ciklusi, tj. petlje.
 Broj ponavljanja može biti unapred poznat, ili određen nekim uslovom. 
