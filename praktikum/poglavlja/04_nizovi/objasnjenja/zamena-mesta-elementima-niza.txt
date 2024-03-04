@@ -1,0 +1,6 @@
+Da bi dva elementa niza zamenili mesta, potrebno je uvesti treću, pomoćnu promenljivu.
+Analogija ovome je da, recimo, imate tečnost u dve čaše i želite da prebacite tečnost iz jedne u drugu.
+Ovo nije moguće bez korišćenja treće, prazne čaše, u koju ćete, recimo, usuti tečnost iz prve,
+zatim prebaciti tečnost iz druge u prvu, koja je pre toga bila prazna, a tečnost iz treće čaše presućete u drugu.
+
+Promenljiva tmp u primerima izigrava treću čašu.
