@@ -1,0 +1,7 @@
+Unesite broj elemenata niza: 5
+niz[0]: 3
+niz[1]: 6
+niz[2]: 4
+niz[3]: 7
+niz[4]: 2
+Srednja vrednost vrednosti iz niza je: 4.40

@@ -1,0 +1,6 @@
+U prethodnim primerima algoritama za sortiranje koristi se "petlja u petlji".
+Ovaj koncept naziva se "ugneždena petlja" i funkcioniše na način da će se za jednu iteraciju spoljne petlje 
+(u primerima po brojačkoj promenljivoj i), unutrašnja petlja izvršiti do n puta (u primerima po brojačkoj promenljivoj j).
+Primer korišćenja ugneždene petlje je, recimo, za traženje duplikata u nizovima.
+
+Ukratko rečeno, unutrašnja petlja će izvršiti sve svoje iteracije za jednu iteraciju spoljašnje.

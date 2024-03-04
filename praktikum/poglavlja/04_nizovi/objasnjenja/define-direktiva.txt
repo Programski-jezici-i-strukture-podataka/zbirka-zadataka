@@ -1,0 +1,4 @@
+MAX_SIZE je definisano putem #define pretprocesorske direktive.
+Ona će pre samog kompajliranja zameniti svuda gde se nalazi MAX_SIZE sa vrednošću koja joj je pridružena.
+Funkcionalnost je slična kao kad se kod tekst editora izabere opcija "Find and replace".
+Moguće je videti kod nakon pretprocesiranja pomoću sledeće komande: gcc -E kod.c
