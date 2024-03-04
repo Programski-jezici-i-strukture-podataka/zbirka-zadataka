@@ -1,0 +1,5 @@
+Svi zadaci koji u sebi koriste nizove se mogu uraditi preko pokazivača.
+Razlog leži u vezi između nizova i pokazivača, koja je prikazana kroz primere iznad.
+
+Treba imati na umu da ova veza važi samo u jednom smeru, odnosno, 
+putem pokazivača se mogu uraditi dodatne stvari koje se ne mogu preko nizova.

@@ -1,0 +1,2 @@
+Adresni operator u programskom jeziku C, &.
+Poznavanje rada sa nizovima.
