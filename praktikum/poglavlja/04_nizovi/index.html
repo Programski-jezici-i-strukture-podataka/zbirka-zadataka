@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Nizovi &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../search.html" />
+    <link rel="next" title="Zadaci za T12" href="../../../zadaci/t12.html" />
+    <link rel="prev" title="3. Naredbe ciklusa" href="../03_naredbe-ciklusa/index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="nizovi">
+<h1><span class="section-number">4. </span>Nizovi<a class="headerlink" href="#nizovi" title="Permalink to this headline">¶</a></h1>
+<p>Podeli svoje utiske o poglavlju na anketi <a class="reference external" href="https://docs.google.com/forms/d/1yTy8JHcbqWZH6xarUcUH697pDgfkHCB9w6FER3kbIwM">OVDE</a>.</p>
+<p>Preduslovi za rad:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Potrebno je osnovno znanje iz naredbi selekcije i ciklusa.
+</pre></div>
+</div>
+<p>Do sad je bio uveden koncept promenljive, koja ima jedinstveno ime, sadrži jednu vrednost i određene je veličine.
+Veličina i vrednost zavise od tipa promenljive.
+Nizovi predstavljaju više uzastopnih lokacija u memoriji, gde svaka poput promenljive ima svoju vrednost i sve su iste veličine.
+Ukoliko se upotrebi analogija gde promenljiva predstavlja jednu &quot;kućicu&quot; u memoriji, niz je čitava ulica tipskih kuća (sve liče jedna na drugu).
+To je zato što nizovi, kao i promenljive, imaju svoj tip i svi članovi niza su tog tipa.
+Članovi se nazivaju i elementima niza.</p>
+<p>Primer deklaracije niza:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Ova deklaracija napraviće niz od 10 celobrojnih elemenata.</p>
+<p>Njima nije moguće pristupiti odjednom, već pojedinačnim elementima:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">niz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Napomena:</p>
+<blockquote>
+<div><p>Indeksiranje nizova u programskom jeziku C kreće od 0!
+Za niz od 10 elemenata, validni indeksi su od 0 do 9!</p>
+</div></blockquote>
+<section id="osnovni-primeri-rada-sa-nizovima">
+<h2><span class="section-number">4.1. </span>Osnovni primeri rada sa nizovima<a class="headerlink" href="#osnovni-primeri-rada-sa-nizovima" title="Permalink to this headline">¶</a></h2>
+<p>Tokom rada sa nizovima moguće je raditi isključivo sa njegovim pojedinačnim elementima, ne sa celim nizom odjednom.
+Da bi se obradio svaki element niza, potrebno je koristiti <code class="docutils literal notranslate"><span class="pre">for</span></code> petlju.</p>
+<p>Pretpostavimo da imamo deklaraciju promenljive <code class="docutils literal notranslate"><span class="pre">i</span></code> i niza celobojnih vrednosti <code class="docutils literal notranslate"><span class="pre">niz</span></code> na sledeći način:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Primer upisa vrednosti u niz sa standardnog ulaza:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">2</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;niz[%d]: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos">4</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">5</span><span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Primer ispisa vrednosti iz niza na standardni izlaz:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">2</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">4</span><span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Na primerima se može videti da se promenljiva <code class="docutils literal notranslate"><span class="pre">i</span></code> koristi u <code class="docutils literal notranslate"><span class="pre">for</span></code> petlji, njena početna vrednost je <code class="docutils literal notranslate"><span class="pre">0</span></code>, a krajnja veličina niza minus 1.
+Za primer iznad to će biti vrednost <code class="docutils literal notranslate"><span class="pre">4</span></code>.
+U jednoj iteraciji for petlje, određeni element niza biće učitan, odnosno ispisan.</p>
+</section>
+<section id="koriscenje-odredenog-dela-niza">
+<h2><span class="section-number">4.2. </span>Korišćenje određenog dela niza<a class="headerlink" href="#koriscenje-odredenog-dela-niza" title="Permalink to this headline">¶</a></h2>
+<p>Kod deklaracije niza je njegova veličina navedena unapred, pre kompajliranja.
+Često se u praksi dešava situacija da postoje slučajevi korišćenja kad je potrebno popuniti samo deo niza.
+Sa druge strane, dimenzija niza mora podržati slučaj koji traži najviše iskorišćenih elemenata.</p>
+<p>Ovakva fleksibilnost postiže se uvođenjem nove promenljive <code class="docutils literal notranslate"><span class="pre">n</span></code>, koja će označavati broj upotrebljenih elemenata:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_SIZE 30</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">do</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj elemenata niza: &quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">    </span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;niz[%d]: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">23</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">25</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">28</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Na početku programa unosi se vrednost <code class="docutils literal notranslate"><span class="pre">n</span></code>.
+Obavezno je da bude u granicama od <code class="docutils literal notranslate"><span class="pre">1</span></code> do <code class="docutils literal notranslate"><span class="pre">MAX_SIZE</span></code>, kako bi broj korišćenih elemenata bio unutar granica niza.</p>
+<p>Primer rada programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj elemenata niza: 31
+Unesite broj elemenata niza: -5
+Unesite broj elemenata niza: 5
+niz[0]: 1
+niz[1]: 2
+niz[2]: 3
+niz[3]: 4
+niz[4]: 5
+1 2 3 4 5 
+</pre></div>
+</div>
+<p>Prve dve vrednosti koje su unete su izvan dimenzija niza, tako da će one biti odbijene.
+Od korisnika će se tražiti da unosi vrednosti sve dok ne zada neku koja se nalazi u granicama niza (ovo obezbeđuje <code class="docutils literal notranslate"><span class="pre">do-while</span></code> petlja u programu).</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MAX_SIZE je definisano putem #define pretprocesorske direktive.
+Ona će pre samog kompajliranja zameniti svuda gde se nalazi MAX_SIZE sa vrednošću koja joj je pridružena.
+Funkcionalnost je slična kao kad se kod tekst editora izabere opcija &quot;Find and replace&quot;.
+Moguće je videti kod nakon pretprocesiranja pomoću sledeće komande: gcc -E kod.c
+</pre></div>
+</div>
+<p>Primer koji traži srednju vrednost unetih elemenata niza:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_SIZE 30</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">do</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj elemenata niza: &quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">    </span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;niz[%d]: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">23</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">24</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">        </span><span class="n">suma</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w">    </span><span class="c1">// isto sto i &quot;suma = suma + niz[i];&quot;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Srednja vrednost vrednosti iz niza je: %.2lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">suma</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">31</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj elemenata niza: 5
+niz[0]: 3
+niz[1]: 6
+niz[2]: 4
+niz[3]: 7
+niz[4]: 2
+Srednja vrednost vrednosti iz niza je: 4.40
+</pre></div>
+</div>
+</section>
+<section id="sortiranje-nizova">
+<h2><span class="section-number">4.3. </span>Sortiranje nizova<a class="headerlink" href="#sortiranje-nizova" title="Permalink to this headline">¶</a></h2>
+<p>Sortiranje niza predstavlja uređenje njegovih elemenata tako da oni budu u rastućem ili opadajućem redosledu.
+Postoji mnoštvo algoritama za sortiranje niza. Ovde će biti prikazana dva, Bubble Sort i Selection Sort.
+Kod za učitavanje elemenata niza i njihov ispis je izostavljen radi akcenta na samim algoritmima.</p>
+<p>Bubble Sort algoritam:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nema_promena</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="n">nema_promena</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">// pretpostavimo da nece biti promena</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">10</span><span class="w">            </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">                </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="linenos">12</span><span class="w">                </span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<span class="linenos">13</span><span class="w">                </span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">                </span><span class="n">nema_promena</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// desila se promena, nema_promena postaje netacno</span>
+<span class="linenos">15</span><span class="w">            </span><span class="p">}</span>
+<span class="linenos">16</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">nema_promena</span><span class="p">)</span>
+<span class="linenos">19</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">20</span><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">22</span><span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Kod ovog algoritma najveći/najmanji element &quot;isplivava&quot; na kraj niza nakon jednog prolaska kroz ceo niz (<code class="docutils literal notranslate"><span class="pre">for</span></code> petlja po <code class="docutils literal notranslate"><span class="pre">j</span></code>).
+To se dešava tako što se susedni elementi porede i ako se ispostavi da je prvi veći/manji od drugog, izvršiće se njihova zamena.
+Čitav postupak ponavlja se <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code> puta i svaki put je <code class="docutils literal notranslate"><span class="pre">for</span></code> petlja po <code class="docutils literal notranslate"><span class="pre">j</span></code> sve kraća, zbog toga što se sa rastom <code class="docutils literal notranslate"><span class="pre">i</span></code> desilo &quot;isplivavanje&quot; elemenata na njihove pozicije.
+Bubble Sort je vrlo neefikasan algoritam za sortiranje niza i koristi se isključivo u svrhe učenja zbog svoje jednostavnosti.</p>
+<p>Selection Sort algoritam:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">indeks_najmanjeg</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="n">indeks_najmanjeg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">niz</span><span class="p">[</span><span class="n">indeks_najmanjeg</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="linenos">11</span><span class="w">            </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">                </span><span class="n">indeks_najmanjeg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">            </span><span class="p">}</span>
+<span class="linenos">14</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">indeks_najmanjeg</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">19</span><span class="w">            </span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">indeks_najmanjeg</span><span class="p">];</span>
+<span class="linenos">20</span><span class="w">            </span><span class="n">niz</span><span class="p">[</span><span class="n">indeks_najmanjeg</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">22</span><span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Za razliku od Bubble Sort algoritma, Selection Sort traži odgovarajući element desno od <code class="docutils literal notranslate"><span class="pre">i</span></code>-tog člana.
+Ukoliko nađe najveći/najmanji, pristupa se zameni <code class="docutils literal notranslate"><span class="pre">i</span></code>-tog i najvećeg/najmanjeg.
+Ako se, pak, ispostavi da ne postoji veći/manji od <code class="docutils literal notranslate"><span class="pre">i</span></code>-tog, zamena elemenata se neće dogoditi.</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>U prethodnim primerima algoritama za sortiranje koristi se &quot;petlja u petlji&quot;.
+Ovaj koncept naziva se &quot;ugneždena petlja&quot; i funkcioniše na način da će se za jednu iteraciju spoljne petlje 
+(u primerima po brojačkoj promenljivoj i), unutrašnja petlja izvršiti do n puta (u primerima po brojačkoj promenljivoj j).
+Primer korišćenja ugneždene petlje je, recimo, za traženje duplikata u nizovima.
+
+Ukratko rečeno, unutrašnja petlja će izvršiti sve svoje iteracije za jednu iteraciju spoljašnje.
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Da bi dva elementa niza zamenili mesta, potrebno je uvesti treću, pomoćnu promenljivu.
+Analogija ovome je da, recimo, imate tečnost u dve čaše i želite da prebacite tečnost iz jedne u drugu.
+Ovo nije moguće bez korišćenja treće, prazne čaše, u koju ćete, recimo, usuti tečnost iz prve,
+zatim prebaciti tečnost iz druge u prvu, koja je pre toga bila prazna, a tečnost iz treće čaše presućete u drugu.
+
+Promenljiva tmp u primerima izigrava treću čašu.
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Praktikum</a><ul>
+      <li>Previous: <a href="../03_naredbe-ciklusa/index.html" title="претходна глава"><span class="section-number">3. </span>Naredbe ciklusa</a></li>
+      <li>Next: <a href="../../../zadaci/t12.html" title="наредна глава">Zadaci za T12</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/praktikum/poglavlja/04_nizovi/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
