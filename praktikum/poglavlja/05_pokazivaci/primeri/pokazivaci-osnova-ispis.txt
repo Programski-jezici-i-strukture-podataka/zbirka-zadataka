@@ -1,0 +1,2 @@
+Vrednost broja posredstvom pokazivaca: 5
+Vrednost broja: 6
