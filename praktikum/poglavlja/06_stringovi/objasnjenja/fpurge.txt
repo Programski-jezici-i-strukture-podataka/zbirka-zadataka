@@ -1,0 +1,8 @@
+Kada se putem terminala unese više karaktera od jedne reči, scanf će učitati samo jednu reč 
+i ostale ostaviti neučitane, te će sledeći poziv funkcije za učitavanje iz terminala povući 
+te karaktere. Da bi se ovo izbeglo, koristi se funkcija __fpurge(stdin) da se obrišu 
+neučitani karakteri. Ova funkcija se nalazi u biblioteci <stdio_ext.h>
+
+Što se tiče fgets, ova funkcija učitava i "enter" koji se pritisne kada se unese string, 
+tj. poslednji karakter bude '\n'. Kako je ovaj karakter često nepoželjan, zamenjuje se 
+terminalnim karakterom '\0'.

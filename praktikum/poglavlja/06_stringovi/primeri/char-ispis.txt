@@ -1,0 +1,5 @@
+Uneti malo slovo: =
+Uneti malo slovo: 1
+Uneti malo slovo: c
+Veliko slovo je: C
+
