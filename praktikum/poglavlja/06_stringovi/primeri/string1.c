@@ -12,7 +12,7 @@ int main()
     scanf("%s", str1);
     __fpurge(stdin);
 
-    printf("Unesite druga string: ");
+    printf("Unesite drugi string: ");
     fgets(str2, MAX_STRING, stdin);
     int duzina_str2 = strlen(str2);
     if (str2[duzina_str2 - 1] == '\n') 
@@ -25,3 +25,4 @@ int main()
 
     return 0;
 }
+

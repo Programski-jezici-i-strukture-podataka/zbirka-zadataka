@@ -1,5 +1,5 @@
 Unesite prvi string: Prvi string
-Unesite druga string: Drugi string
+Unesite drugi string: Drugi string
 
 Prvi
 Drugi string

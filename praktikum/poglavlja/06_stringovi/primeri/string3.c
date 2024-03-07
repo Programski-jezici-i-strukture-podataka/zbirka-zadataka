@@ -16,19 +16,17 @@ int main()
         duzina_str1--;
     }
 
-    int i;
-    for (i = 0; i < duzina_str1; i++)
-    {
-        if (str1[i] >= 65 && str1[i] <= 90)
-        {
-            str1[i] += 32;
-            continue;
-        }
+    char *p1 = str1;
+    char *p2 = str1 + duzina_str1 - 1;
 
-        if (str1[i] >= 97 && str1[i] <= 122)
-        {
-            str1[i] -= 32;
-        }
+    while (p1 < p2)
+    {
+        char temp = *p1;
+        *p1 = *p2;
+        *p2 = temp;
+        
+        p1++;
+        p2--;
     }
 
     printf("%s\n", str1);

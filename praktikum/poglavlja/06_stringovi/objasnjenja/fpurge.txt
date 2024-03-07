@@ -4,5 +4,4 @@ te karaktere. Da bi se ovo izbeglo, koristi se funkcija __fpurge(stdin) da se ob
 neučitani karakteri. Ova funkcija se nalazi u biblioteci <stdio_ext.h>
 
 Što se tiče fgets, ova funkcija učitava i "enter" koji se pritisne kada se unese string, 
-tj. poslednji karakter bude '\n'. Kako je ovaj karakter često nepoželjan, zamenjuje se 
-terminalnim karakterom '\0'.
+tj. poslednji karakter bude '\n' (u slučaju da string nije popunjen do kraja). Kako je ovaj karakter često nepoželjan, zamenjuje se terminalnim karakterom '\0'.

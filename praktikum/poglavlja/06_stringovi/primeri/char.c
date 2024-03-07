@@ -15,3 +15,4 @@ int main()
     printf("Veliko slovo je: %c\n", slovo - 32);
     return 0;
 }
+
