@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Stringovi &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../search.html" />
+    <link rel="next" title="Zadaci za T12" href="../../../zadaci/t12.html" />
+    <link rel="prev" title="5. Pokazivači" href="../05_pokazivaci/index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="stringovi">
+<h1><span class="section-number">6. </span>Stringovi<a class="headerlink" href="#stringovi" title="Permalink to this headline">¶</a></h1>
+<p>Podeli svoje utiske o poglavlju na anketi <a class="reference external" href="https://docs.google.com/forms/d/1iXfxZLclQg9YCmT7JQCDbGx4YLamGUxeZa86ilU1iE8">OVDE</a>.</p>
+<p>Preduslovi za rad:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Poznavanje naredbi ciklusa
+Poznavanje nizova
+Poznavanje pokazivača
+</pre></div>
+</div>
+<section id="char-tip">
+<h2><span class="section-number">6.1. </span>Char tip<a class="headerlink" href="#char-tip" title="Permalink to this headline">¶</a></h2>
+<p>Pored celih i realnih brojeva, moguće je napraviti promenljive koje sadrže karaktere - slova, cifre, simbole... Tip promenljive se označava sa <code class="docutils literal notranslate"><span class="pre">char</span></code>, opseg ovog tipa je od -128 do 127, odnosno od 0 do 255 ako je tip <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>. Format specifikator za karaktere je: <code class="docutils literal notranslate"><span class="pre">%c</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Napomena:
+
+Svakoj vrednosti char promenljive dodeljuje celobrojna vrednost kojom se predstavlja. 
+Moguće je videti te vrednosti u terminalu koristeći naredbu:
+  
+  man ascii
+  	
+Druga i šesta kolona predstavljaju brojčanu vrednost u decimalnom sistemu, 
+a četvrta i poslednja kolona odgovarajući karakter. Unosom q se izlazi iz tabele.
+</pre></div>
+</div>
+<p>Karakteri se označavaju koristeći jednostruke navodnike, kao npr:</p>
+<blockquote>
+<div><p>'a', 'A', '?', 'n', '7'</p>
+</div></blockquote>
+<p>Moguće je rukovati karakterima direktno, ili preko odgovarajuće celobrojne vrednosti. Primer koji uneto malo slovo pretvara u veliko:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio_ext.h&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 5</span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">slovo</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="k">do</span><span class="w"> </span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Uneti malo slovo: &quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">      </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">slovo</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">      </span><span class="n">__fpurge</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">slovo</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">slovo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">    </span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Veliko slovo je: %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">slovo</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">17</span><span class="p">}</span>
+<span class="linenos">18</span>
+</pre></div>
+</div>
+<p>U programu se koristi <code class="docutils literal notranslate"><span class="pre">do-while</span></code> petlja da bi se osigurao unos malog slova. Mala slova se nalaze jedna do drugih između <code class="docutils literal notranslate"><span class="pre">97</span></code> i <code class="docutils literal notranslate"><span class="pre">122</span></code> u ASCII tabeli, te je moguće proveriti da li je uneti karakter manji od <code class="docutils literal notranslate"><span class="pre">'a'</span></code>, odnosno veći od <code class="docutils literal notranslate"><span class="pre">'z'</span></code>. Isto bi bilo proveriti da li je uneti karakter van opsega <code class="docutils literal notranslate"><span class="pre">97-122</span></code>. O funkciji <code class="docutils literal notranslate"><span class="pre">__fpurge</span></code> više kasnije. Malo slovo je moguće pretvoriti u veliko oduzimanjem <code class="docutils literal notranslate"><span class="pre">32</span></code> od vrednosti karaktera. Kao primer, malo <code class="docutils literal notranslate"><span class="pre">'c'</span></code> odgovara vrednosti <code class="docutils literal notranslate"><span class="pre">99</span></code>, a veliko <code class="docutils literal notranslate"><span class="pre">'C'</span></code> vrednosti <code class="docutils literal notranslate"><span class="pre">67</span></code>. Ispis ovog programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Uneti malo slovo: =
+Uneti malo slovo: 1
+Uneti malo slovo: c
+Veliko slovo je: C
+
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">6.2. </span>Stringovi<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Često radimo sa nizovima karaktera, koji se nazivaju <code class="docutils literal notranslate"><span class="pre">stringovi</span></code>. Za razliku od ostalih tipova nizova, stringovi imaju <code class="docutils literal notranslate"><span class="pre">terminalni</span> <span class="pre">karakter</span></code> koji se označava <code class="docutils literal notranslate"><span class="pre">'\0'</span></code>. Za ovaj karakter je žrtvovana jedna memorijska lokacija, te se za dužinu niza karaktera uzima najčešće broj za 1 viši od najvećeg dozvoljenog broja karaktera. Time se izbegava korišćenje propratne celobrojne promenljive <code class="docutils literal notranslate"><span class="pre">n</span></code> koju smo koristili pre za rad sa nizovima.</p>
+<p>Stringovi se mogu navesti format specifikatorom <code class="docutils literal notranslate"><span class="pre">%s</span></code>, te <code class="docutils literal notranslate"><span class="pre">scanf</span></code> može direktno da učita ceo string (za razliku od npr. nizova celih brojeva, gde se učitavanje vrši u petlji). Funkcija <code class="docutils literal notranslate"><span class="pre">scanf</span></code> učitava samo jednu reč (sve do praznog karaktera između dve reči, novog reda...). Za razliku od ostalih tipova, kod stringova (pošto su stringovi nizovi te navođenjem imena dobija se adresa) ne treba navesti <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> pre imena stringa.</p>
+<p>Pored <code class="docutils literal notranslate"><span class="pre">scanf</span></code>, ceo red moguće je učitati funkcijom <code class="docutils literal notranslate"><span class="pre">fgets</span></code> koja prima 3 argumenta: ime stringa u koji se učitava, najveću moguću dužinu tog stringa i (za potrebe ove lekcije) <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, što predstavlja mesto sa kog se podaci učitavaju (unos sa terminala).</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kada se putem terminala unese više karaktera od jedne reči, scanf će učitati samo jednu reč 
+i ostale ostaviti neučitane, te će sledeći poziv funkcije za učitavanje iz terminala povući 
+te karaktere. Da bi se ovo izbeglo, koristi se funkcija __fpurge(stdin) da se obrišu 
+neučitani karakteri. Ova funkcija se nalazi u biblioteci &lt;stdio_ext.h&gt;
+
+Što se tiče fgets, ova funkcija učitava i &quot;enter&quot; koji se pritisne kada se unese string, 
+tj. poslednji karakter bude &#39;\n&#39; (u slučaju da string nije popunjen do kraja). Kako je ovaj karakter često nepoželjan, zamenjuje se terminalnim karakterom &#39;\0&#39;.
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio_ext.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="cp">#define MAX_STRING 51</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 8</span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="n">MAX_STRING</span><span class="p">],</span><span class="w"> </span><span class="n">str2</span><span class="p">[</span><span class="n">MAX_STRING</span><span class="p">];</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite prvi string: &quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">__fpurge</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite drugi string: &quot;</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">str2</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_STRING</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+<span class="linenos">17</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">duzina_str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">str2</span><span class="p">[</span><span class="n">duzina_str2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">19</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">20</span><span class="w">        </span><span class="n">str2</span><span class="p">[</span><span class="n">duzina_str2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">27</span><span class="p">}</span>
+<span class="linenos">28</span>
+</pre></div>
+</div>
+<p>Najveća dužina stringa mora da bude za 1 veća od željene, zbog terminalnog karaktera. U prvi string će biti učitana samo prva reč, dok će u drugi biti učitan ceo red uključujući i novi red dodat kada se string prosleđuje. Ovaj karakter (znamo da je na kraju stringa, tj. element indeksa za 1 manjeg od dužine) menjamo terminalnim karakterom.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite prvi string: Prvi string
+Unesite drugi string: Drugi string
+
+Prvi
+Drugi string
+</pre></div>
+</div>
+<p>Uglavnom se koriste već implementirane funkcije za rad sa stringovima, najčešće su:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">strlen</span></code> - računa dužinu stringa, do terminalnog karaktera</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strcpy</span></code> - kopira drugi string u prvi</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strcat</span></code> - nalepi drugi string na kraj prvog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strcmp</span></code> - poredi dva stringa</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strstr</span></code> - nalazi drugi string u prvom</p></li>
+</ul>
+<p>Pošto su stringovi ujedno i nizovi, ne radi <code class="docutils literal notranslate"><span class="pre">str1</span> <span class="pre">=</span> <span class="pre">str2</span></code> niti poređenje sa <code class="docutils literal notranslate"><span class="pre">str1</span> <span class="pre">==</span> <span class="pre">str2</span></code>, zato postoje <code class="docutils literal notranslate"><span class="pre">strcpy</span></code> i <code class="docutils literal notranslate"><span class="pre">strcmp</span></code>. Ove funkcije se sve nalaze u biblioteci <code class="docutils literal notranslate"><span class="pre">string.h</span></code>, detaljnije o njima se može saznati <code class="docutils literal notranslate"><span class="pre">man</span></code> komandom u terminalu i imenom željene funkcije, npr:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">man</span><span class="w"> </span><span class="n">strcpy</span>
+</pre></div>
+</div>
+<p>Program koji menja velika slova u stringu u mala i obrnuto:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_STRING 31</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="n">MAX_STRING</span><span class="p">];</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite string: &quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_STRING</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">14</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">        </span><span class="n">str1</span><span class="p">[</span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">duzina_str1</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">duzina_str1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">)</span>
+<span class="linenos">23</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">            </span><span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<span class="linenos">25</span><span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="linenos">26</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">)</span>
+<span class="linenos">29</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">30</span><span class="w">            </span><span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<span class="linenos">31</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">32</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">37</span><span class="p">}</span>
+<span class="linenos">38</span>
+</pre></div>
+</div>
+<p>Veliko slovo se menja u malo dodavanjem 32, obrnuto oduzimanjem 32. U petlji se koristi continue da bi se kada je slovo promenjeno iz velikog u malo, ne bi ponovo uvećalo nego se samo jednom promenilo.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite string: Pozdrav iz Praktikuma!
+pOZDRAV IZ pRAKTIKUMA!
+</pre></div>
+</div>
+<p>Stringovi, kao i nizovi, imaju vezu sa pokazivačima. Primer ispod obrće string koristeći pokazivače:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_STRING 31</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="n">MAX_STRING</span><span class="p">];</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite string: &quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_STRING</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">14</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">        </span><span class="n">str1</span><span class="p">[</span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">duzina_str1</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str1</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">duzina_str1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span>
+<span class="linenos">23</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="p">;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p2</span><span class="p">;</span>
+<span class="linenos">26</span><span class="w">        </span><span class="o">*</span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="linenos">27</span><span class="w">        </span>
+<span class="linenos">28</span><span class="w">        </span><span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos">29</span><span class="w">        </span><span class="n">p2</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos">30</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">35</span><span class="p">}</span>
+<span class="linenos">36</span>
+</pre></div>
+</div>
+<p>Pokazivači se postavljaju na početak i kraj stringa, njihove vrednosti se zamenjuju i pokazivači se pomeraju ka sredini stringa unutar petlje. Primer ispisa programa je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite string: Primer stringa za obrtanje
+ejnatrbo az agnirts remirP
+
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Praktikum</a><ul>
+      <li>Previous: <a href="../05_pokazivaci/index.html" title="претходна глава"><span class="section-number">5. </span>Pokazivači</a></li>
+      <li>Next: <a href="../../../zadaci/t12.html" title="наредна глава">Zadaci za T12</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/praktikum/poglavlja/06_stringovi/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
