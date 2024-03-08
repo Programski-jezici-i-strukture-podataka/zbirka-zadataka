@@ -2,7 +2,7 @@
 #include <stdio_ext.h>
 #include <string.h>
 
-#define MAX_STRING 50+1
+#define MAX_STRING 51
 
 int main()
 {

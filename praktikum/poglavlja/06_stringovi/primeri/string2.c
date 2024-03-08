@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_STRING 30+1
+#define MAX_STRING 31
 
 int main()
 {
@@ -19,13 +19,13 @@ int main()
     int i;
     for (i = 0; i < duzina_str1; i++)
     {
-        if (str1[i] >= 65 && str1[i] <= 90)
+        if (str1[i] >= 'A' && str1[i] <= 'Z')
         {
             str1[i] += 32;
             continue;
         }
 
-        if (str1[i] >= 97 && str1[i] <= 122)
+        if (str1[i] >= 'a' && str1[i] <= 'z')
         {
             str1[i] -= 32;
         }

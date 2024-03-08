@@ -11,21 +11,21 @@ Preduslovi za rad:
 Char tip
 --------
 
-Pored celih i realnih brojeva, moguće je napraviti promenljive koje sadrže karaktere - slova, cifre, simbole... Tip promenljive se označava sa ``char``, opseg ovog tipa je od 0 do 255, odnosno od -128 do 127 ako je tip ``signed``. Format specifikator za karaktere je: ``%c``
+Pored celih i realnih brojeva, moguće je napraviti promenljive koje sadrže karaktere - slova, cifre, simbole... Tip promenljive se označava sa ``char``, opseg ovog tipa je od -128 do 127, odnosno od 0 do 255 ako je tip ``unsigned``. Format specifikator za karaktere je: ``%c``
 
 .. literalinclude:: objasnjenja/ascii.txt
    :language: none
 
 Karakteri se označavaju koristeći jednostruke navodnike, kao npr:
 
-  'a', 'A', '?', '/n', '7'
+  'a', 'A', '?', '\n', '7'
 	
 Moguće je rukovati karakterima direktno, ili preko odgovarajuće celobrojne vrednosti. Primer koji uneto malo slovo pretvara u veliko:
 
 .. literalinclude:: primeri/char.c
    :linenos:
    
-U programu se koristi do-while petlja da bi se osigurao unos malog slova. Mala slova se nalaze jedna do drugih između 97 i 122 u ASCII tabeli, te je moguće proveriti da li je uneti karakter manji od 'a', odnosno veći od 'z'. Isto bi bilo proveriti da li je uneti karakter van opsega 97-122. O funkciji __fpurge više kasnije. Malo slovo je moguće pretvoriti u veliko oduzimanjem 32 od vrednosti karaktera. Kao primer, malo 'c' odgovara vrednosti 99, a veliko 'C' vrednosti 67. Ispis ovog programa je:
+U programu se koristi ``do-while`` petlja da bi se osigurao unos malog slova. Mala slova se nalaze jedna do drugih između ``97`` i ``122`` u ASCII tabeli, te je moguće proveriti da li je uneti karakter manji od ``'a'``, odnosno veći od ``'z'``. Isto bi bilo proveriti da li je uneti karakter van opsega ``97-122``. O funkciji ``__fpurge`` više kasnije. Malo slovo je moguće pretvoriti u veliko oduzimanjem ``32`` od vrednosti karaktera. Kao primer, malo ``'c'`` odgovara vrednosti ``99``, a veliko ``'C'`` vrednosti ``67``. Ispis ovog programa je:
 
 .. literalinclude:: primeri/char-ispis.txt
    :language: none
@@ -33,7 +33,7 @@ U programu se koristi do-while petlja da bi se osigurao unos malog slova. Mala s
 Stringovi
 ---------
    
-Često radimo sa nizovima karaktera, koji se nazivaju ``stringovi``. Imaju posebne osobine, glavna od kojih je postojanje terminalnog karaktera ``'\0'``, koji označava kraj stringa. Zbog ovog karaktera, najčešće se za zadatu dužinu stringova uzima niz za 1 duži od najvećeg dozvoljenog broja karaktera.
+Često radimo sa nizovima karaktera, koji se nazivaju ``stringovi``. Za razliku od ostalih tipova nizova, stringovi imaju ``terminalni karakter`` koji se označava ``'\0'``. Za ovaj karakter je žrtvovana jedna memorijska lokacija, te se za dužinu niza karaktera uzima najčešće broj za 1 viši od najvećeg dozvoljenog broja karaktera. Time se izbegava korišćenje propratne celobrojne promenljive ``n`` koju smo koristili pre za rad sa nizovima.
 
 Stringovi se mogu navesti format specifikatorom ``%s``, te ``scanf`` može direktno da učita ceo string (za razliku od npr. nizova celih brojeva, gde se učitavanje vrši u petlji). Funkcija ``scanf`` učitava samo jednu reč (sve do praznog karaktera između dve reči, novog reda...). Za razliku od ostalih tipova, kod stringova (pošto su stringovi nizovi te navođenjem imena dobija se adresa) ne treba navesti ``&`` pre imena stringa.
 
@@ -58,6 +58,7 @@ Uglavnom se koriste već implementirane funkcije za rad sa stringovima, najčeš
 - ``strcpy`` - kopira drugi string u prvi
 - ``strcat`` - nalepi drugi string na kraj prvog
 - ``strcmp`` - poredi dva stringa
+- ``strstr`` - nalazi drugi string u prvom
 	
 Pošto su stringovi ujedno i nizovi, ne radi ``str1 = str2`` niti poređenje sa ``str1 == str2``, zato postoje ``strcpy`` i ``strcmp``. Ove funkcije se sve nalaze u biblioteci ``string.h``, detaljnije o njima se može saznati ``man`` komandom u terminalu i imenom željene funkcije, npr::
 

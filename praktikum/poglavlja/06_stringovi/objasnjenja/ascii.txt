@@ -3,7 +3,7 @@ Napomena:
 Svakoj vrednosti char promenljive dodeljuje celobrojna vrednost kojom se predstavlja. 
 Moguće je videti te vrednosti u terminalu koristeći naredbu:
   
-  	man ascii
+  man ascii
   	
 Druga i šesta kolona predstavljaju brojčanu vrednost u decimalnom sistemu, 
 a četvrta i poslednja kolona odgovarajući karakter. Unosom q se izlazi iz tabele.

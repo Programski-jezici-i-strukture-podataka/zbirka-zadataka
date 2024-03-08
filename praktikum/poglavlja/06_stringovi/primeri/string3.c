@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_STRING 30+1
+#define MAX_STRING 31
 
 int main()
 {
