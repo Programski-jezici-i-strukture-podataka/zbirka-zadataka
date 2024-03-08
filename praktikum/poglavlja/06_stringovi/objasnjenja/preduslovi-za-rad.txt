@@ -1,0 +1,3 @@
+Poznavanje naredbi ciklusa
+Poznavanje nizova
+Poznavanje pokazivača
