@@ -1,0 +1,7 @@
+6
+Kafanica   1199.99  50  5
+MalaHala   2130.00 150 12
+Restoran   1341.99 100  7
+BastaMala  2099.99 162 15
+KodMacka   2439.99  72  8
+VelikaHala 1999.99 214 14
