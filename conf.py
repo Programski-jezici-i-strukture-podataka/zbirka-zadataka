@@ -31,6 +31,7 @@ author = 'Srđan Popov, Rade Radišić'
 extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
+    "sphinx_tabs.tabs",
 ]
 
 # utterances configuration (comments provider)
