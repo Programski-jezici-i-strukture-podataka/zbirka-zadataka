@@ -43,7 +43,15 @@ if {$force_conservative} {
 
 
 set timeout -1
-spawn ./a.out restorani.txt 120 117.5
-expect "MalaHala 2175.32e 1/10"
 match_max 100000
+send -- "5\r"
+send -- "1\r"
+send -- "4\r"
+send -- "5\r"
+send -- "-8\r"
+send -- "10\r"
+expect -exact "1 5 10"
+expect -exact "4 -8 10"
+expect -exact "4 5 10"
+expect -exact "1 4 -8"
 expect eof
