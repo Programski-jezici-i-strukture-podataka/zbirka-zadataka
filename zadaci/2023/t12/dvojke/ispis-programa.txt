@@ -1,0 +1,10 @@
+Unesite velicinu niza: 5
+1. element niza je: 1
+2. element niza je: 4
+3. element niza je: 5
+4. element niza je: -8
+5. element niza je: 10
+Elementi sa parnim brojem indeksa su: 1 5 10 
+Elementi cija apsolutna vrednost je paran broj su: 4 -8 10 
+Elementi ciji indeksi su stepen dvojke: 4 5 10 
+Elementi cija apsolutna vrednost je stepen dvojke: 1 4 -8
