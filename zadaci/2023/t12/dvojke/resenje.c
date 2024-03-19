@@ -51,15 +51,13 @@ int main() {
         temp = fabs(niz[i]);
         while(temp > 2)
         {
-            if (temp % 2 == 0)
-            {
-                temp = temp / 2;
-            }
-            else 
+            if (temp % 2 != 0)
             {
                 stepen = 0;
                 break;
             }
+            
+            temp /= 2;
         }
         if (stepen && (niz[i] != 0))
         {
