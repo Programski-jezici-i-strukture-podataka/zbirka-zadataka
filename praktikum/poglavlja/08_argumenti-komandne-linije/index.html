@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8. Argumenti komandne linije &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../search.html" />
+    <link rel="next" title="Zadaci za T12" href="../../../zadaci/t12.html" />
+    <link rel="prev" title="7. Funkcije" href="../07_funkcije/index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="argumenti-komandne-linije">
+<h1><span class="section-number">8. </span>Argumenti komandne linije<a class="headerlink" href="#argumenti-komandne-linije" title="Permalink to this headline">¶</a></h1>
+<p>Podeli svoje utiske o poglavlju na anketi <a class="reference external" href="https://docs.google.com/forms/d/1hmqQGSA6yqIBEBoK_4nKHm3qV2cvQsszgNvieOi9APU">OVDE</a>.</p>
+<p>Preduslovi za rad:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Poznavanje stringova
+Poznavanje funkcija
+</pre></div>
+</div>
+<p>Predstavljaju vrednosti koje se prosleđuju programu prilikom poziva.
+Primeri ovakvih poziva su uveliko poznati iz prakse, jer skoro svaka komanda u terminalu prima argumente komandne linije.
+Na primer:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span><span class="w"> </span><span class="n">direktorijum</span>
+<span class="n">gcc</span><span class="w"> </span><span class="n">program</span><span class="p">.</span><span class="n">c</span>
+</pre></div>
+</div>
+<p>U primeru <code class="docutils literal notranslate"><span class="pre">direktorijum</span></code> i <code class="docutils literal notranslate"><span class="pre">program.c</span></code> predstavljaju vrednosti koje program prima spolja.
+Način kako se prihvataju ove vrednosti u programskom jeziku C je tako što se main funkcija proširi sa dodatnim parametrima, koji se često tradicionalno nazivaju <code class="docutils literal notranslate"><span class="pre">argc</span></code> i <code class="docutils literal notranslate"><span class="pre">argv</span></code>.
+<code class="docutils literal notranslate"><span class="pre">argc</span></code> predstavlja broj, a <code class="docutils literal notranslate"><span class="pre">argv</span></code> konkretne vrednosti argumenata.</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Prvi argument je uvek ime programa!
+</pre></div>
+</div>
+<section id="primer-programa">
+<h2><span class="section-number">8.1. </span>Primer programa<a class="headerlink" href="#primer-programa" title="Permalink to this headline">¶</a></h2>
+<p>Dat je primer programa koji kao vrednosti argumenata komandne linije prihvata ime i visinu osobe:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Primer poziva: %s Vladimir 187.3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">10</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">11</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">visina</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Osoba %s je &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">visina</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">180</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;visa&quot;</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">20</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">21</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;niza&quot;</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; od 180cm.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">29</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Primer poziva programa kada ima previše argumenata:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./a.out previse argumenata komandne linije
+</pre></div>
+</div>
+<p>Ispis programa kada ima previše argumenata:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Primer poziva: ./a.out Vladimir 187.3
+</pre></div>
+</div>
+<p>Primer regularnog poziva programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./a.out Milica 172
+</pre></div>
+</div>
+<p>Ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Osoba Milica je niza od 180cm.
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>argv predstavlja niz stringova, zbog toga se piše sa dve zvezdice.
+Alternativni zapis je *argv[], na osnovu priče o prenosu nizova iz funkcija.
+</pre></div>
+</div>
+<p>Jedna od vrednosti argumenata komandne linije predstavlja string, koji označava visinu osobe.
+Pošto nije moguće raditi aritmetičke, logičke ili relacione izraze sa stringovima, potrebno je izvršiti konverziju u realni tip, u ovom slučaju.
+To se vrši pomoću funkcije <code class="docutils literal notranslate"><span class="pre">atof</span></code>. Ukoliko je potrebno konvertovati string u celobrojnu vrednost, koristi se funkcija <code class="docutils literal notranslate"><span class="pre">atoi</span></code>.
+Obe se nalaze u biblioteci <code class="docutils literal notranslate"><span class="pre">stdlib.h</span></code>.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Praktikum</a><ul>
+      <li>Previous: <a href="../07_funkcije/index.html" title="претходна глава"><span class="section-number">7. </span>Funkcije</a></li>
+      <li>Next: <a href="../../../zadaci/t12.html" title="наредна глава">Zadaci za T12</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/praktikum/poglavlja/08_argumenti-komandne-linije/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
