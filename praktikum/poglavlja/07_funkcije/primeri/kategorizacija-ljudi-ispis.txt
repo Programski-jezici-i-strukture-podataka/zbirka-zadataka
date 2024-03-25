@@ -1,0 +1,11 @@
+Unesite ime: Mitar
+Unesite godine: 81
+Osoba Mitar pripada starosnoj kategoriji: Penzioner
+Unesite ime: Djordje
+Unesite godine: 15
+Osoba Djordje pripada starosnoj kategoriji: Dete
+Unesite ime: Dimitrije
+Unesite godine: 23
+Osoba Dimitrije pripada starosnoj kategoriji: Odrasla osoba
+Unesite ime: 
+Unesite godine: -1

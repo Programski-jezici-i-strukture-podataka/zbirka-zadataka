@@ -1,0 +1,3 @@
+Faktorijel od 0: 1
+Nije moguce dobiti faktorijel od negativnog broja!
+Faktorijel od 5: 120

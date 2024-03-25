@@ -1,0 +1,4 @@
+Ovaj primer sadrži kombinaciju svega što je spominjano u ovom poglavlju, stoga je preporučeno da se pogleda na kraju.
+Ukoliko je potrebno dodati još neku funkciju, poput računanja srednje vrednosti ili traženja najvećeg elementa,
+to se može učiniti na sličan način kao i sa funkcijama koje su prikazane u primeru.
+Imati na umu da jednom napisana funkcija se može pozvati iz bilo koje druge funkcije.

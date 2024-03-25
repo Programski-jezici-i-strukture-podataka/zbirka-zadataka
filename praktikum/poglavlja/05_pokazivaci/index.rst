@@ -1,7 +1,7 @@
 Pokazivači
 ==========
 
-Podeli svoje utiske o poglavlju na anketi `OVDE <TODO: dodaj link ka anketi>`_.
+Podeli svoje utiske o poglavlju na anketi `OVDE <https://docs.google.com/forms/d/1U-O8RiGa3sg3cqZlHZJB5vL0i1qZ5mDMcY-DnrmRsXA>`_.
 
 Preduslovi za rad:
 

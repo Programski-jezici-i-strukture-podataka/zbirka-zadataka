@@ -1,0 +1,2 @@
+Moguća su dva zapisa parametra koji označava niz: int *a ili int a[].
+Oba imaju potpuno isto značenje, a to je prenos adrese početka niza u funkciju.
