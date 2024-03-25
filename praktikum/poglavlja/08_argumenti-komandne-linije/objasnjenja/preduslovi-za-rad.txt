@@ -1,0 +1,2 @@
+Poznavanje stringova
+Poznavanje funkcija
