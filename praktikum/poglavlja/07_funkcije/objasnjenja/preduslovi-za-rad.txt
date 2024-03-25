@@ -1,0 +1,3 @@
+Poznavanje rada sa promenljivama i nizovima
+Poznavanje pokazivača
+
