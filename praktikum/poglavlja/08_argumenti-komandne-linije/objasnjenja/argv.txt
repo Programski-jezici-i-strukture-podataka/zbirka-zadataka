@@ -1,0 +1,2 @@
+argv predstavlja niz stringova, zbog toga se piše sa dve zvezdice.
+Alternativni zapis je *argv[], na osnovu priče o prenosu nizova iz funkcija.
