@@ -1,0 +1,4 @@
+Poznavanje tipova podataka
+Poznavanje nizova
+Poznavanje stringova
+Poznavanje funkcija

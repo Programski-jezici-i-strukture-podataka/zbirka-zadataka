@@ -1,0 +1,15 @@
+Unesite marku: Ford
+Unesite model: Fiesta
+Unesite kubikazu: 1599
+Unesite godiste: 2023
+Unesite cenu: 20345.92
+
+Unesite marku: Citroen
+Unesite model: C3
+Unesite kubikazu: 1650
+Unesite godiste: 2022
+Unesite cenu: 19827.38
+
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
+
+Model autmobila C3 marke Citroen sa kubikazom 1650 proizveden 2022. godine je cene 19827.38
