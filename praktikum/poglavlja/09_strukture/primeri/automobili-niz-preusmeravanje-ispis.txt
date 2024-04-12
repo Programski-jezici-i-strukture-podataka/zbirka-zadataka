@@ -1,0 +1,9 @@
+Unesite broj automobila: 
+Unesite marku: Unesite model: Unesite kubikazu: Unesite godiste: Unesite cenu: 
+Unesite marku: Unesite model: Unesite kubikazu: Unesite godiste: Unesite cenu: 
+Unesite marku: Unesite model: Unesite kubikazu: Unesite godiste: Unesite cenu: 
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
+
+Model autmobila C3 marke Citroen sa kubikazom 1650 proizveden 2022. godine je cene 19827.38
+
+Model autmobila Clio marke Renault sa kubikazom 1499 proizveden 2021. godine je cene 15672.38
