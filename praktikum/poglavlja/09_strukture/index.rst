@@ -1,7 +1,7 @@
 Strukture
 =========
 
-Podeli svoje utiske o poglavlju na anketi `OVDE <https://docs.google.com/forms/d/1hmqQGSA6yqIBEBoK_4nKHm3qV2cvQsszgNvieOi9APU>`_.
+Podeli svoje utiske o poglavlju na anketi `OVDE <https://docs.google.com/forms/d/e/1FAIpQLSdiCrnYwQky6bUDPfGdXaSxn_9NfoK7xMvD2gL9adsb-MhR6w/viewform?vc=0&c=0&w=1&flr=0>`_.
 
 Preduslovi za rad:
 
@@ -9,8 +9,10 @@ Preduslovi za rad:
    :language: none
 
 Predstavljaju složene tipove podataka koji se prave kombinovanjem više primitivnih tipova i/ili ranije formiranih složenih tipova.
-Struktura je skup istih ili različitih tipova podataka koji se čuvaju pod istim imenom. Koriste se kada imamo vrednosti
-različitih tipova podataka koje su međusobno povezane. Definiše se upotrebom reči ``struct`` koju prate vitičaste zagrade i ;
+Koriste se kada imamo vrednosti različitih tipova podataka koje su međusobno povezane. Na primer, student je opisan imenom,
+prezimenom, prosekom, i brojem indeksa. Navedena obeležja predstavlja podatke o studentu koji su međusobno povezani i mogu se
+predstaviti strukturom student. Knjiga je opisana nazivom, izdavačem i brojem stranica, pa se tako ona može predstaviti strukturom
+knjiga koja sadrži sva navedena obeležja. Struktura se definiše se upotrebom reči ``struct`` koju prate vitičaste zagrade i ;
 Osnovna forma strukture je::
 
   struct ime_strukture
@@ -44,8 +46,8 @@ Primer strukture::
 U primeru je data struktura automobil sa poljima marka i model koju su ``char`` tipa, dužine 50 karaktera, kubikaža i godište koji
 su ``int`` tipa i cena koja je ``float`` tip podatka. Tip ove strukture je ``struct automobil``.
 
-Primer unosa automobila
------------------------
+Primer unosa podataka u strukturu
+---------------------------------
 
 Dat je primer programa u kome se unose podaci o automobilima koji se nakon toga ispišu na terminal:
 
@@ -78,8 +80,8 @@ Osnovna forma ovakve strukture je::
 
 gde je novokreirani tip podatka ``NOVO_IME`` umesto ``struct ime_strukture``.
 
-Primer unosa automobila kroz funkciju
--------------------------------------
+Primer unosa podataka strukture kroz funkciju
+---------------------------------------------
 
 .. tabs::
 
@@ -128,9 +130,9 @@ Ispis programa:
 Učitavanje podataka u program
 -----------------------------
 
-Podatke smo do sada učitavali u program kroz standardi ulaz (terminal). Podaci se mogu programu proslediti i kroz drugi izvor,
+Podatke smo do sada učitavali u program kroz standardni ulaz (terminal). Podaci se mogu programu proslediti i kroz drugi izvor,
 na primer datoteku. Jedan od načina učitavanja podataka iz datoteke u program jeste preusmeravanjem sadržaja datoteke u program.
-Kada se sadržaj datoteke preusmeri u program, onda program taj sadržaj tretira kao da je učitan kroz standardi ulaz (terminal).
+Kada se sadržaj datoteke preusmeri u program, onda program taj sadržaj tretira kao da je učitan kroz standardni ulaz (terminal).
 Sadržaj datoteke se programu preusmerava korišćenjem operatora "preusmeravanja unosa" ``<`` u terminalu. Tada primer poziva programa
 izgleda drugačije::
 
