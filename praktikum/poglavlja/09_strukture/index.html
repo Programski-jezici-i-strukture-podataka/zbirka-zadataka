@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Strukture &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/tabs.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../search.html" />
+    <link rel="next" title="Zadaci za T12" href="../../../zadaci/t12.html" />
+    <link rel="prev" title="8. Argumenti komandne linije" href="../08_argumenti-komandne-linije/index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="strukture">
+<h1><span class="section-number">9. </span>Strukture<a class="headerlink" href="#strukture" title="Permalink to this headline">¶</a></h1>
+<p>Podeli svoje utiske o poglavlju na anketi <a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrnYwQky6bUDPfGdXaSxn_9NfoK7xMvD2gL9adsb-MhR6w/viewform?vc=0&amp;c=0&amp;w=1&amp;flr=0">OVDE</a>.</p>
+<p>Preduslovi za rad:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Poznavanje tipova podataka
+Poznavanje nizova
+Poznavanje stringova
+Poznavanje funkcija
+</pre></div>
+</div>
+<p>Predstavljaju složene tipove podataka koji se prave kombinovanjem više primitivnih tipova i/ili ranije formiranih složenih tipova.
+Koriste se kada imamo vrednosti različitih tipova podataka koje su međusobno povezane. Na primer, student je opisan imenom,
+prezimenom, prosekom, i brojem indeksa. Navedena obeležja predstavlja podatke o studentu koji su međusobno povezani i mogu se
+predstaviti strukturom student. Knjiga je opisana nazivom, izdavačem i brojem stranica, pa se tako ona može predstaviti strukturom
+knjiga koja sadrži sva navedena obeležja. Struktura se definiše se upotrebom reči <code class="docutils literal notranslate"><span class="pre">struct</span></code> koju prate vitičaste zagrade i ;
+Osnovna forma strukture je:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">ime_strukture</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">tip</span><span class="w"> </span><span class="n">promenljiva_1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tip</span><span class="w"> </span><span class="n">promenljiva_2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>gde je <code class="docutils literal notranslate"><span class="pre">tip</span></code> bilo koji od osnovnih ili složenih tipova podataka, dok je novokreirani tip podatka <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ime_strukture</span></code>.</p>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Struktura se definiše iznad main funkcije, na početku programa, posle include i define sekcija. Kada se struktura definiše, 
+ne zauzima se nikakva memorija za nju. Da bi program zauzeo memoriju strukture potrebnog tipa, neophodno je deklarisati 
+promenljivu koja je tog tipa i raditi sa tom promenljivom.
+</pre></div>
+</div>
+<p>Primer strukture:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MAX_MARKA 51</span>
+<span class="cp">#define MAX_MODEL 51</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">marka</span><span class="p">[</span><span class="n">MAX_MARKA</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">model</span><span class="p">[</span><span class="n">MAX_MODEL</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">kubikaza</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">godiste</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">cena</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>U primeru je data struktura automobil sa poljima marka i model koju su <code class="docutils literal notranslate"><span class="pre">char</span></code> tipa, dužine 50 karaktera, kubikaža i godište koji
+su <code class="docutils literal notranslate"><span class="pre">int</span></code> tipa i cena koja je <code class="docutils literal notranslate"><span class="pre">float</span></code> tip podatka. Tip ove strukture je <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">automobil</span></code>.</p>
+<section id="primer-unosa-podataka-u-strukturu">
+<h2><span class="section-number">9.1. </span>Primer unosa podataka u strukturu<a class="headerlink" href="#primer-unosa-podataka-u-strukturu" title="Permalink to this headline">¶</a></h2>
+<p>Dat je primer programa u kome se unose podaci o automobilima koji se nakon toga ispišu na terminal:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_MARKA 51</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_MODEL 51</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span>
+<span class="linenos"> 7</span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">marka</span><span class="p">[</span><span class="n">MAX_MARKA</span><span class="p">];</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">model</span><span class="p">[</span><span class="n">MAX_MODEL</span><span class="p">];</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">kubikaza</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">godiste</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cena</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">};</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos">16</span><span class="p">{</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite marku: &quot;</span><span class="p">);</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">marka</span><span class="p">);</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite model: &quot;</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">model</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite kubikazu: &quot;</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">.</span><span class="n">kubikaza</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite godiste: &quot;</span><span class="p">);</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">.</span><span class="n">godiste</span><span class="p">);</span>
+<span class="linenos">28</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite cenu: &quot;</span><span class="p">);</span>
+<span class="linenos">29</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">.</span><span class="n">cena</span><span class="p">);</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Model autmobila %s marke %s sa kubikazom %d proizveden %d. godine je cene %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">marka</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">kubikaza</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">godiste</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">cena</span><span class="p">);</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">34</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>U primeru iznad je deklarisana promenljiva tipa <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">automobil</span></code> koja se zove <code class="docutils literal notranslate"><span class="pre">a</span></code>. Da bi se unele vrednosti svih polja ove strukture, neophodno
+je svaku vrednost smestiti u odgovarajuće polje. Za pristup poljima strukture koristi se <code class="docutils literal notranslate"><span class="pre">.</span></code>, pa se tako za pristup polju <code class="docutils literal notranslate"><span class="pre">kubikaza</span></code> strukture <code class="docutils literal notranslate"><span class="pre">a</span></code>
+tipa <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">automobil</span></code> mora navesti <code class="docutils literal notranslate"><span class="pre">a.kubikaza</span></code> ukoliko je potrebna vrednost promenljive, dok se za korišćenje adrese mora navesti <code class="docutils literal notranslate"><span class="pre">&amp;a.kubikaza</span></code>. Isto
+se odnosi i na ostala polja strukture, s tim da se sa stringom radi bez korišćenja <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operatora za pristup adresi.</p>
+<p>Ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite marku: Ford
+Unesite model: Fiesta
+Unesite kubikazu: 1599
+Unesite godiste: 2023
+Unesite cenu: 20345.92
+
+Unesite marku: Citroen
+Unesite model: C3
+Unesite kubikazu: 1650
+Unesite godiste: 2022
+Unesite cenu: 19827.38
+
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
+
+Model autmobila C3 marke Citroen sa kubikazom 1650 proizveden 2022. godine je cene 19827.38
+</pre></div>
+</div>
+</section>
+<section id="typedef">
+<h2><span class="section-number">9.2. </span>Typedef<a class="headerlink" href="#typedef" title="Permalink to this headline">¶</a></h2>
+<p>Ključna reč <code class="docutils literal notranslate"><span class="pre">typedef</span></code> se koristi za preimenovanje tipa (pravljenje aliasa) za određeni tip podatka. U slučaju strukture, zgodna nam je za korišćenje
+kako bi pojednostavili sintaksu.
+Osnovna forma ovakve strukture je:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ime_strukture</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">tip</span><span class="w"> </span><span class="n">promenljiva_1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tip</span><span class="w"> </span><span class="n">promenljiva_2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span><span class="w"> </span><span class="n">NOVO_IME</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>gde je novokreirani tip podatka <code class="docutils literal notranslate"><span class="pre">NOVO_IME</span></code> umesto <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ime_strukture</span></code>.</p>
+</section>
+<section id="primer-unosa-podataka-strukture-kroz-funkciju">
+<h2><span class="section-number">9.3. </span>Primer unosa podataka strukture kroz funkciju<a class="headerlink" href="#primer-unosa-podataka-strukture-kroz-funkciju" title="Permalink to this headline">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Bez typedef</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Korišćenjem typedef</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_MARKA 51</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_MODEL 51</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span>
+<span class="linenos"> 7</span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">marka</span><span class="p">[</span><span class="n">MAX_MARKA</span><span class="p">];</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">model</span><span class="p">[</span><span class="n">MAX_MODEL</span><span class="p">];</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">kubikaza</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">godiste</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cena</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">};</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="kt">void</span><span class="w"> </span><span class="nf">unos_automobila</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos">16</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispis_automobila</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="p">);</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos">19</span><span class="p">{</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="w"> </span><span class="n">a1</span><span class="p">;</span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="w"> </span><span class="n">a2</span><span class="p">;</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">unos_automobila</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a1</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">unos_automobila</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a2</span><span class="p">);</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">ispis_automobila</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+<span class="linenos">28</span><span class="w">    </span><span class="n">ispis_automobila</span><span class="p">(</span><span class="n">a2</span><span class="p">);</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">31</span><span class="p">}</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="kt">void</span><span class="w"> </span><span class="nf">unos_automobila</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos">35</span><span class="p">{</span>
+<span class="linenos">36</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite marku: &quot;</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="o">-&gt;</span><span class="n">marka</span><span class="p">);</span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite model: &quot;</span><span class="p">);</span>
+<span class="linenos">39</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">).</span><span class="n">model</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite kubikazu: &quot;</span><span class="p">);</span>
+<span class="linenos">41</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">kubikaza</span><span class="p">));</span>
+<span class="linenos">42</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite godiste: &quot;</span><span class="p">);</span>
+<span class="linenos">43</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">((</span><span class="o">*</span><span class="n">a</span><span class="p">).</span><span class="n">godiste</span><span class="p">));</span>
+<span class="linenos">44</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite cenu: &quot;</span><span class="p">);</span>
+<span class="linenos">45</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">cena</span><span class="p">));</span>
+<span class="linenos">46</span><span class="p">}</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispis_automobila</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+<span class="linenos">49</span><span class="p">{</span>
+<span class="linenos">50</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Model autmobila %s marke %s sa kubikazom %d proizveden %d. godine je cene %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">marka</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">kubikaza</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">godiste</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">cena</span><span class="p">);</span>
+<span class="linenos">51</span><span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_MARKA 51</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_MODEL 51</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span>
+<span class="linenos"> 7</span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">marka</span><span class="p">[</span><span class="n">MAX_MARKA</span><span class="p">];</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">model</span><span class="p">[</span><span class="n">MAX_MODEL</span><span class="p">];</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">kubikaza</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">godiste</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cena</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">}</span><span class="w"> </span><span class="n">AUTO</span><span class="p">;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="kt">void</span><span class="w"> </span><span class="nf">unos_automobila</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos">16</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispis_automobila</span><span class="p">(</span><span class="n">AUTO</span><span class="p">);</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos">19</span><span class="p">{</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">AUTO</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="p">;</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">unos_automobila</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a1</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">unos_automobila</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a2</span><span class="p">);</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="w">    </span><span class="n">ispis_automobila</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">ispis_automobila</span><span class="p">(</span><span class="n">a2</span><span class="p">);</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">30</span><span class="p">}</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="kt">void</span><span class="w"> </span><span class="nf">unos_automobila</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos">34</span><span class="p">{</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite marku: &quot;</span><span class="p">);</span>
+<span class="linenos">36</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="o">-&gt;</span><span class="n">marka</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite model: &quot;</span><span class="p">);</span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">).</span><span class="n">model</span><span class="p">);</span>
+<span class="linenos">39</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite kubikazu: &quot;</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">kubikaza</span><span class="p">));</span>
+<span class="linenos">41</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite godiste: &quot;</span><span class="p">);</span>
+<span class="linenos">42</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">((</span><span class="o">*</span><span class="n">a</span><span class="p">).</span><span class="n">godiste</span><span class="p">));</span>
+<span class="linenos">43</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite cenu: &quot;</span><span class="p">);</span>
+<span class="linenos">44</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">cena</span><span class="p">));</span>
+<span class="linenos">45</span><span class="p">}</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispis_automobila</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">48</span><span class="p">{</span>
+<span class="linenos">49</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Model autmobila %s marke %s sa kubikazom %d proizveden %d. godine je cene %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">marka</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">kubikaza</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">godiste</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">cena</span><span class="p">);</span>
+<span class="linenos">50</span><span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+<p>U oba primeru iznad deklarisane su 2 promenljive. U primeru bez <code class="docutils literal notranslate"><span class="pre">typedef</span></code>, promenljive su tipa <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">automobil</span></code> i zovu se
+<code class="docutils literal notranslate"><span class="pre">a1</span></code> i <code class="docutils literal notranslate"><span class="pre">a2</span></code>, dok su u primeru sa <code class="docutils literal notranslate"><span class="pre">typedef</span></code> promenljive takođe tipa <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">automobil</span></code>, ali se umesto ovog tipa može koristiti alias
+<code class="docutils literal notranslate"><span class="pre">AUTO</span></code>. Prvo se poziva funkcija <code class="docutils literal notranslate"><span class="pre">unos_automobila</span></code> za <code class="docutils literal notranslate"><span class="pre">a1</span></code> kroz koju se unose vrednosti
+svih polja, pa se isto ponavlja i za <code class="docutils literal notranslate"><span class="pre">a2</span></code>. Nakon toga se poziva funkcija <code class="docutils literal notranslate"><span class="pre">ispis_automobila</span></code> za <code class="docutils literal notranslate"><span class="pre">a1</span></code>, pa za <code class="docutils literal notranslate"><span class="pre">a2</span></code>. Funkciji
+<code class="docutils literal notranslate"><span class="pre">unos_automobila</span></code> se struktura prosleđuje po pokazivaču, pa je pristup poljima strukture drugačiji nego u prvom primeru.
+Pristup strukturi prosleđenoj po pokazivaču je moguć na 2 načina:</p>
+<ol class="arabic simple">
+<li><p>korišćenjem kombinacije <code class="docutils literal notranslate"><span class="pre">*</span></code> i <code class="docutils literal notranslate"><span class="pre">.</span></code> operatora</p></li>
+<li><p>korišćenjem <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> operatora</p></li>
+</ol>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Oba načina rade istu stvar, prvo je neophodno dereferencirati celu strukturu, pa tek onda pristupiti traženom polju.
+Iako je kombinacija dereferenciranja i tačke moguća, uvek se koristi operator -&gt; zbog konciznosti programa.
+</pre></div>
+</div>
+<p>Obe varijante primera daju isti ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite marku: Ford
+Unesite model: Fiesta
+Unesite kubikazu: 1599
+Unesite godiste: 2023
+Unesite cenu: 20345.92
+
+Unesite marku: Citroen
+Unesite model: C3
+Unesite kubikazu: 1650
+Unesite godiste: 2022
+Unesite cenu: 19827.38
+
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
+
+Model autmobila C3 marke Citroen sa kubikazom 1650 proizveden 2022. godine je cene 19827.38
+</pre></div>
+</div>
+</section>
+<section id="primer-rada-sa-nizovima-struktura">
+<h2><span class="section-number">9.4. </span>Primer rada sa nizovima struktura<a class="headerlink" href="#primer-rada-sa-nizovima-struktura" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_SIZE 20</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_MARKA 51</span>
+<span class="linenos"> 5</span><span class="cp">#define MAX_MODEL 51</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">automobil</span>
+<span class="linenos"> 8</span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">marka</span><span class="p">[</span><span class="n">MAX_MARKA</span><span class="p">];</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">model</span><span class="p">[</span><span class="n">MAX_MODEL</span><span class="p">];</span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">kubikaza</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">godiste</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cena</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">}</span><span class="w"> </span><span class="n">AUTO</span><span class="p">;</span>
+<span class="linenos">15</span><span class="kt">void</span><span class="w"> </span><span class="nf">unos</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos">16</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispis</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos">19</span><span class="p">{</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">AUTO</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos">22</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">unos</span><span class="p">(</span><span class="n">niz</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">ispis</span><span class="p">(</span><span class="n">niz</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">28</span><span class="p">}</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="kt">void</span><span class="w"> </span><span class="nf">unos</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="o">*</span><span class="n">automobili</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos">31</span><span class="p">{</span><span class="w">    </span>
+<span class="linenos">32</span><span class="w">        </span><span class="k">do</span><span class="w"> </span>
+<span class="linenos">33</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">34</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj automobila: &quot;</span><span class="p">);</span>
+<span class="linenos">35</span><span class="w">                </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">36</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">);</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">39</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">40</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Unesite marku: &quot;</span><span class="p">);</span>
+<span class="linenos">41</span><span class="w">                </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">marka</span><span class="p">);</span>
+<span class="linenos">42</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite model: &quot;</span><span class="p">);</span>
+<span class="linenos">43</span><span class="w">                </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">model</span><span class="p">);</span>
+<span class="linenos">44</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite kubikazu: &quot;</span><span class="p">);</span>
+<span class="linenos">45</span><span class="w">                </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">kubikaza</span><span class="p">);</span>
+<span class="linenos">46</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite godiste: &quot;</span><span class="p">);</span>
+<span class="linenos">47</span><span class="w">                </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">godiste</span><span class="p">);</span>
+<span class="linenos">48</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite cenu: &quot;</span><span class="p">);</span>
+<span class="linenos">49</span><span class="w">                </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cena</span><span class="p">);</span>
+<span class="linenos">50</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">51</span><span class="p">}</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispis</span><span class="p">(</span><span class="n">AUTO</span><span class="w"> </span><span class="o">*</span><span class="n">automobili</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">55</span><span class="p">{</span>
+<span class="linenos">56</span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">57</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">58</span><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Model autmobila %s marke %s sa kubikazom %d proizveden %d. godine je cene %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">marka</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">kubikaza</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">godiste</span><span class="p">,</span><span class="w"> </span><span class="n">automobili</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cena</span><span class="p">);</span>
+<span class="linenos">59</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">60</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>U primeru iznad je definisana struktura <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">automobil</span></code> kojoj je dodeljen alias <code class="docutils literal notranslate"><span class="pre">AUTO</span></code> koji se u daljem radu programa koristi.
+Prvo se poziva funkcija <code class="docutils literal notranslate"><span class="pre">unos</span></code> kroz koju se unosi broj automobila, a zatim i vrednosti svih polja za svaki automobil. Kada se unesu
+svi automobili, poziva se funkcija <code class="docutils literal notranslate"><span class="pre">ispis</span></code> koja ispisuje podatke o svakom pojedinačnom automobilu.</p>
+<p>Ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj automobila: 3
+
+Unesite marku: Ford
+Unesite model: Fiesta
+Unesite kubikazu: 1599
+Unesite godiste: 2023
+Unesite cenu: 20345.92
+
+Unesite marku: Citroen
+Unesite model: C3
+Unesite kubikazu: 1650
+Unesite godiste: 2022
+Unesite cenu: 19827.38
+
+Unesite marku: Renault
+Unesite model: Clio
+Unesite kubikazu: 1499
+Unesite godiste: 2021
+Unesite cenu: 15672.38
+
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
+
+Model autmobila C3 marke Citroen sa kubikazom 1650 proizveden 2022. godine je cene 19827.38
+
+Model autmobila Clio marke Renault sa kubikazom 1499 proizveden 2021. godine je cene 15672.38
+</pre></div>
+</div>
+</section>
+<section id="ucitavanje-podataka-u-program">
+<h2><span class="section-number">9.5. </span>Učitavanje podataka u program<a class="headerlink" href="#ucitavanje-podataka-u-program" title="Permalink to this headline">¶</a></h2>
+<p>Podatke smo do sada učitavali u program kroz standardni ulaz (terminal). Podaci se mogu programu proslediti i kroz drugi izvor,
+na primer datoteku. Jedan od načina učitavanja podataka iz datoteke u program jeste preusmeravanjem sadržaja datoteke u program.
+Kada se sadržaj datoteke preusmeri u program, onda program taj sadržaj tretira kao da je učitan kroz standardni ulaz (terminal).
+Sadržaj datoteke se programu preusmerava korišćenjem operatora &quot;preusmeravanja unosa&quot; <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> u terminalu. Tada primer poziva programa
+izgleda drugačije:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ime_datoteke</span>
+</pre></div>
+</div>
+<p>gde je <code class="docutils literal notranslate"><span class="pre">ime_datoteke</span></code> naziv prethodno kreirane datoteke sa podacima koji će se programu proslediti.</p>
+</section>
+<section id="primer-rada-niza-sa-preusmeravanjem-unosa">
+<h2><span class="section-number">9.6. </span>Primer rada niza sa preusmeravanjem unosa<a class="headerlink" href="#primer-rada-niza-sa-preusmeravanjem-unosa" title="Permalink to this headline">¶</a></h2>
+<p>Kod je isti kao primer rada sa nizovima struktura iznad, dok su podaci zapisani u ulaznoj datoteci <code class="docutils literal notranslate"><span class="pre">podaci.txt</span></code>, čiji je sadržaj:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3
+Ford
+Fiesta
+1599
+2023
+20345.92
+Citroen
+C3
+1650
+2022
+19827.38
+Renault
+Clio
+1499
+2021
+15672.38
+</pre></div>
+</div>
+<p>Program se poziva sada tako što mu se preusmeri datoteka <code class="docutils literal notranslate"><span class="pre">podaci.txt</span></code> umesto da ih ručno kucamo na terminalu:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">podaci</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj automobila: 
+Unesite marku: Unesite model: Unesite kubikazu: Unesite godiste: Unesite cenu: 
+Unesite marku: Unesite model: Unesite kubikazu: Unesite godiste: Unesite cenu: 
+Unesite marku: Unesite model: Unesite kubikazu: Unesite godiste: Unesite cenu: 
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
+
+Model autmobila C3 marke Citroen sa kubikazom 1650 proizveden 2022. godine je cene 19827.38
+
+Model autmobila Clio marke Renault sa kubikazom 1499 proizveden 2021. godine je cene 15672.38
+</pre></div>
+</div>
+<p>Napomena:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Uneti podaci se ne vide i to je u redu, pošto ih program preuzima. Podaci su uspešno preusmereni u program što se vidi po ispisu detalja svakog automobila.
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zadaci/sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Praktikum</a><ul>
+      <li>Previous: <a href="../08_argumenti-komandne-linije/index.html" title="претходна глава"><span class="section-number">8. </span>Argumenti komandne linije</a></li>
+      <li>Next: <a href="../../../zadaci/t12.html" title="наредна глава">Zadaci za T12</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/praktikum/poglavlja/09_strukture/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
