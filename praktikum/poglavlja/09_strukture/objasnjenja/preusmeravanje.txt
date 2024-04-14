@@ -1,0 +1,1 @@
+Uneti podaci se ne vide i to je u redu, pošto ih program preuzima. Podaci su uspešno preusmereni u program što se vidi po ispisu detalja svakog automobila.

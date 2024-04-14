@@ -1,0 +1,3 @@
+Struktura se definiše iznad main funkcije, na početku programa, posle include i define sekcija. Kada se struktura definiše, 
+ne zauzima se nikakva memorija za nju. Da bi program zauzeo memoriju strukture potrebnog tipa, neophodno je deklarisati 
+promenljivu koja je tog tipa i raditi sa tom promenljivom.

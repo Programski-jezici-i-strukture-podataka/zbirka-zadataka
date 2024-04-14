@@ -1,0 +1,2 @@
+Oba načina rade istu stvar, prvo je neophodno dereferencirati celu strukturu, pa tek onda pristupiti traženom polju.
+Iako je kombinacija dereferenciranja i tačke moguća, uvek se koristi operator -> zbog konciznosti programa.

@@ -1,0 +1,7 @@
+Unesite marku: Ford
+Unesite model: Fiesta
+Unesite kubikazu: 1599
+Unesite godiste: 2023
+Unesite cenu: 20345.92
+
+Model autmobila Fiesta marke Ford sa kubikazom 1599 proizveden 2023. godine je cene 20345.92
