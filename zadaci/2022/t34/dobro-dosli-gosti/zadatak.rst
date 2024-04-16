@@ -28,22 +28,44 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 
 Primer poziva programa:
 
-.. code-block:: bash
+.. tabs::
 
-  ./a.out restorani.txt 120 117.5
+  .. group-tab:: Datoteke
+    .. code-block:: bash
 
-Primer ulazne datoteke ``restorani.txt``:
+       ./a.out restorani.txt 120 117.5
+  .. group-tab:: Standardni ulaz/izlaz
+    .. code-block:: bash
 
-.. literalinclude:: restorani.txt
-   :language: none
+       ./a.out 120 117.5 < restorani-stdinout.txt
 
-Primer izlazne datoteke ``cene_za_120_ljudi.txt``:
+.. tabs::
 
-.. literalinclude:: cene_za_120_ljudi.txt
-   :language: none
+  .. group-tab:: Datoteke
 
-Ispis programa na standardnom izlazu:
+    Primer ulazne datoteke ``restorani.txt``:
 
-.. literalinclude:: ispis-programa.txt
-   :language: none
+    .. literalinclude:: restorani.txt
+       :language: none
 
+    Primer izlazne datoteke ``cene_za_120_ljudi.txt``:
+
+    .. literalinclude:: cene_za_120_ljudi.txt
+       :language: none
+
+    Ispis programa na standardnom izlazu:
+
+    .. literalinclude:: ispis-programa.txt
+       :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+
+    Primer ulazne datoteke ``restorani-stdinout.txt``:
+
+    .. literalinclude:: restorani-stdinout.txt
+       :language: none
+
+    Ispis programa na standardnom izlazu:
+
+    .. literalinclude:: ispis-programa-stdinout.txt
+       :language: none

@@ -1,0 +1,6 @@
+Uneti brojeve od 1 do 15 ili -1 za izlazak:
+Linija: 1 1804
+Linija: 4 1810
+Linija: 8 1803
+Linija: Ne postoji zadata linija!
+Linija:

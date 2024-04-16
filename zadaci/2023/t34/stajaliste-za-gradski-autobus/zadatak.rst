@@ -25,21 +25,44 @@ Napomene
 
 Primer poziva programa:
 
-.. code-block:: bash
+.. tabs::
 
-  ./a.out linije.txt trazene-linije.txt 1800
+  .. group-tab:: Datoteke
+    .. code-block:: bash
 
-Primer ulazne datoteke ``linije.txt``:
+      ./a.out linije.txt trazene-linije.txt 1800
+  .. group-tab:: Standardni ulaz/izlaz
+    .. code-block:: bash
 
-.. literalinclude:: linije.txt
-   :language: none
+      ./a.out 1800 < linije-stdinout.txt
 
-Primer rada programa:
+.. tabs::
 
-.. literalinclude:: ispis-programa.txt
-   :language: none
+  .. group-tab:: Datoteke
 
-Primer izlazne datoteke ``trazene-linije.txt``:
+    Primer ulazne datoteke ``linije.txt``:
 
-.. literalinclude:: trazene-linije.txt
-   :language: none
+    .. literalinclude:: linije.txt
+       :language: none
+
+    Primer rada programa:
+
+    .. literalinclude:: ispis-programa.txt
+       :language: none
+
+    Primer izlazne datoteke ``trazene-linije.txt``:
+
+    .. literalinclude:: trazene-linije.txt
+       :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+    
+    Primer ulazne datoteke ``linije-stdinout.txt``
+    
+    .. literalinclude:: linije-stdinout.txt
+      :language: none
+   
+    Primer rada programa:
+
+    .. literalinclude:: ispis-programa-stdinout.txt
+       :language: none
