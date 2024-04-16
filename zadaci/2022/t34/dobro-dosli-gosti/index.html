@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
@@ -100,10 +101,16 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
 </ul>
 <p>Primer poziva programa:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>restorani.txt<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="m">117</span>.5
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>restorani.txt<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="m">117</span>.5
 </pre></div>
 </div>
-<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani.txt</span></code>:</p>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="m">117</span>.5<span class="w"> </span>&lt;<span class="w"> </span>restorani-stdinout.txt
+</pre></div>
+</div>
+</div></div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-1-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani.txt</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kafanica   1199.99  50  5
 MalaHala   2130.00 150 12
 Restoran   1341.99 100  7
@@ -125,9 +132,32 @@ VelikaHala 2042.54e 1/9
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Najpogodniji restoran za slavlje: MalaHala 2175.32e 1/10
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
+Kafanica   1199.99  50  5
+MalaHala   2130.00 150 12
+Restoran   1341.99 100  7
+BastaMala  2099.99 162 15
+KodMacka   2439.99  72  8
+VelikaHala 1999.99 214 14
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Cene za 120 ljudi:
+Kafanica nedovoljno kapaciteta
+MalaHala 2175.32e 1/10
+Restoran nedovoljno kapaciteta
+BastaMala 2144.67e 1/8
+KodMacka nedovoljno kapaciteta
+VelikaHala 2042.54e 1/9
+Najpogodniji restoran za slavlje: MalaHala 2175.32e 1/10
+</pre></div>
+</div>
+</div></div>
 <section id="primer-resenja">
 <h2>Primer rešenja<a class="headerlink" href="#primer-resenja" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-2-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-2-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-2-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
 <span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 <span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
@@ -259,6 +289,126 @@ VelikaHala 2042.54e 1/9
 <span class="linenos">130</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-2-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
+<span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span><span class="cp">#define MAX_NAZIV 21</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="cp">#define MAX_RESTORANA 20</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span><span class="cp">#define MAX_IME_DATOTEKE 23</span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">restoran_st</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 13</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">naziv</span><span class="p">[</span><span class="n">MAX_NAZIV</span><span class="p">];</span>
+<span class="linenos"> 14</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">cena_po_osobi</span><span class="p">;</span>
+<span class="linenos"> 15</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">kapacitet</span><span class="p">;</span>
+<span class="linenos"> 16</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_konobara</span><span class="p">;</span>
+<span class="linenos"> 17</span><span class="p">}</span><span class="w"> </span><span class="n">RESTORAN</span><span class="p">;</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_restorane</span><span class="p">(</span><span class="n">RESTORAN</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos"> 20</span><span class="kt">double</span><span class="w"> </span><span class="nf">ukupna_cena_u_evrima</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<span class="linenos"> 21</span><span class="kt">int</span><span class="w"> </span><span class="nf">broj_gostiju_po_konobaru</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="linenos"> 22</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_restorane</span><span class="p">(</span><span class="n">RESTORAN</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<span class="linenos"> 23</span><span class="n">RESTORAN</span><span class="w"> </span><span class="nf">pronadji_optimalni_restoran</span><span class="p">(</span><span class="n">RESTORAN</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 26</span><span class="w">    </span><span class="n">RESTORAN</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">MAX_RESTORANA</span><span class="p">];</span>
+<span class="linenos"> 27</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 30</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Primer poziva programa: %s 120 117.5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="linenos"> 31</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 32</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span><span class="w">    </span><span class="n">ucitaj_restorane</span><span class="p">(</span><span class="n">restorani</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="linenos"> 37</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">kurs_evra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="w">    </span><span class="n">ispisi_restorane</span><span class="p">(</span><span class="n">restorani</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="n">kurs_evra</span><span class="p">);</span>
+<span class="linenos"> 40</span><span class="w">    </span><span class="n">RESTORAN</span><span class="w"> </span><span class="n">optimalni_restoran</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pronadji_optimalni_restoran</span><span class="p">(</span><span class="n">restorani</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">);</span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Najpogodniji restoran za slavlje: %s %.2lfe 1/%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="linenos"> 42</span><span class="w">           </span><span class="n">optimalni_restoran</span><span class="p">.</span><span class="n">naziv</span><span class="p">,</span>
+<span class="linenos"> 43</span><span class="w">           </span><span class="n">ukupna_cena_u_evrima</span><span class="p">(</span><span class="n">optimalni_restoran</span><span class="p">.</span><span class="n">cena_po_osobi</span><span class="p">,</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="n">kurs_evra</span><span class="p">),</span>
+<span class="linenos"> 44</span><span class="w">           </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">ceil</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">broj_gostiju</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">optimalni_restoran</span><span class="p">.</span><span class="n">broj_konobara</span><span class="p">));</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 47</span><span class="p">}</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_restorane</span><span class="p">(</span><span class="n">RESTORAN</span><span class="w"> </span><span class="o">*</span><span class="n">restorani</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 50</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="k">do</span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 54</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pn</span><span class="p">);</span>
+<span class="linenos"> 55</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pn</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_RESTORANA</span><span class="p">);</span>
+<span class="linenos"> 56</span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 58</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 59</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s %lf %d %d&quot;</span><span class="p">,</span>
+<span class="linenos"> 60</span><span class="w">            </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv</span><span class="p">,</span>
+<span class="linenos"> 61</span><span class="w">            </span><span class="o">&amp;</span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cena_po_osobi</span><span class="p">,</span>
+<span class="linenos"> 62</span><span class="w">            </span><span class="o">&amp;</span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">kapacitet</span><span class="p">,</span>
+<span class="linenos"> 63</span><span class="w">            </span><span class="o">&amp;</span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">broj_konobara</span><span class="p">);</span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 65</span><span class="p">}</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span><span class="kt">double</span><span class="w"> </span><span class="nf">ukupna_cena_u_evrima</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">cena_po_osobi</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_ljudi</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">kurs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 68</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cena_po_osobi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">broj_ljudi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">kurs</span><span class="p">;</span>
+<span class="linenos"> 69</span><span class="p">}</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span><span class="kt">int</span><span class="w"> </span><span class="nf">broj_gostiju_po_konobaru</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_konobara</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 72</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">ceil</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">broj_gostiju</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">broj_konobara</span><span class="p">);</span>
+<span class="linenos"> 73</span><span class="p">}</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_restorane</span><span class="p">(</span><span class="n">RESTORAN</span><span class="w"> </span><span class="o">*</span><span class="n">restorani</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">kurs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Cene za %d ljudi: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">);</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 81</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">kapacitet</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 82</span><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %.2lfe 1/%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="linenos"> 83</span><span class="w">                </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv</span><span class="p">,</span>
+<span class="linenos"> 84</span><span class="w">                </span><span class="n">ukupna_cena_u_evrima</span><span class="p">(</span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cena_po_osobi</span><span class="p">,</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="n">kurs</span><span class="p">),</span>
+<span class="linenos"> 85</span><span class="w">                </span><span class="n">broj_gostiju_po_konobaru</span><span class="p">(</span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">broj_konobara</span><span class="p">));</span>
+<span class="linenos"> 86</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 87</span><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s nedovoljno kapaciteta</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv</span><span class="p">);</span>
+<span class="linenos"> 88</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos"> 89</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 90</span><span class="p">}</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="n">RESTORAN</span><span class="w"> </span><span class="nf">pronadji_optimalni_restoran</span><span class="p">(</span><span class="n">RESTORAN</span><span class="w"> </span><span class="o">*</span><span class="n">restorani</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_gostiju</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 93</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 94</span><span class="w">    </span><span class="n">RESTORAN</span><span class="w"> </span><span class="n">optimalni_restoran</span><span class="p">;</span>
+<span class="linenos"> 95</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">min_koeficijent</span><span class="p">,</span><span class="w"> </span><span class="n">koeficijent_restorana</span><span class="p">;</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 98</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">broj_gostiju</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">kapacitet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 99</span><span class="w">            </span><span class="n">optimalni_restoran</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">100</span><span class="w">            </span><span class="n">min_koeficijent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cena_po_osobi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">broj_gostiju_po_konobaru</span><span class="p">(</span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">broj_konobara</span><span class="p">);</span>
+<span class="linenos">101</span><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">102</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">103</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">104</span>
+<span class="linenos">105</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">106</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">broj_gostiju</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">kapacitet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">107</span><span class="w">            </span><span class="n">koeficijent_restorana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cena_po_osobi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">broj_gostiju_po_konobaru</span><span class="p">(</span><span class="n">broj_gostiju</span><span class="p">,</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">broj_konobara</span><span class="p">);</span>
+<span class="linenos">108</span><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">koeficijent_restorana</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min_koeficijent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">109</span><span class="w">                </span><span class="n">optimalni_restoran</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restorani</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">110</span><span class="w">                </span><span class="n">min_koeficijent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">koeficijent_restorana</span><span class="p">;</span>
+<span class="linenos">111</span><span class="w">            </span><span class="p">}</span>
+<span class="linenos">112</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">113</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">114</span>
+<span class="linenos">115</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">optimalni_restoran</span><span class="p">;</span>
+<span class="linenos">116</span><span class="p">}</span>
+<span class="linenos">117</span>
+</pre></div>
+</div>
+</div></div>
 <div class="section" /></section>
 </section>
 

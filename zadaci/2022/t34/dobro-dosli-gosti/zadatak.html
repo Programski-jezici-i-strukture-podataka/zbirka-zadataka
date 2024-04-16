@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
@@ -95,10 +96,16 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
 </ul>
 <p>Primer poziva programa:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>restorani.txt<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="m">117</span>.5
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>restorani.txt<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="m">117</span>.5
 </pre></div>
 </div>
-<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani.txt</span></code>:</p>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="m">117</span>.5<span class="w"> </span>&lt;<span class="w"> </span>restorani-stdinout.txt
+</pre></div>
+</div>
+</div></div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-1-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani.txt</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kafanica   1199.99  50  5
 MalaHala   2130.00 150 12
 Restoran   1341.99 100  7
@@ -120,6 +127,28 @@ VelikaHala 2042.54e 1/9
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Najpogodniji restoran za slavlje: MalaHala 2175.32e 1/10
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">restorani-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
+Kafanica   1199.99  50  5
+MalaHala   2130.00 150 12
+Restoran   1341.99 100  7
+BastaMala  2099.99 162 15
+KodMacka   2439.99  72  8
+VelikaHala 1999.99 214 14
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Cene za 120 ljudi:
+Kafanica nedovoljno kapaciteta
+MalaHala 2175.32e 1/10
+Restoran nedovoljno kapaciteta
+BastaMala 2144.67e 1/8
+KodMacka nedovoljno kapaciteta
+VelikaHala 2042.54e 1/9
+Najpogodniji restoran za slavlje: MalaHala 2175.32e 1/10
+</pre></div>
+</div>
+</div></div>
 
 
           </div>

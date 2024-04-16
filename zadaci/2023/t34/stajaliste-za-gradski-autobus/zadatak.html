@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../../search.html" />
@@ -95,10 +96,16 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>Sprovesti odgovarajuću validaciju korisničkog unosa (dozvoljene vrednosti su od 1 do 15 i -1)</p></li>
 </ul>
 <p>Primer poziva programa:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>linije.txt<span class="w"> </span>trazene-linije.txt<span class="w"> </span><span class="m">1800</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>linije.txt<span class="w"> </span>trazene-linije.txt<span class="w"> </span><span class="m">1800</span>
 </pre></div>
 </div>
-<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">linije.txt</span></code>:</p>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">1800</span><span class="w"> </span>&lt;<span class="w"> </span>linije-stdinout.txt
+</pre></div>
+</div>
+</div></div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-1-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">linije.txt</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>KLISA-CENTAR-LIMAN_I 1 1804
 LIMAN_IV-CENTAR-Z._STANICA 4 1810
 PODBARA-CENTAR-ADICE 6 1802
@@ -124,6 +131,32 @@ Linija: -1
 8 1803
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">linije-stdinout.txt</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
+KLISA-CENTAR-LIMAN_I 1 1804
+LIMAN_IV-CENTAR-Z._STANICA 4 1810
+PODBARA-CENTAR-ADICE 6 1802
+NOVO_NASELJE-CENTAR-LIMAN_I 8 1803
+PETROVARADIN-CENTAR-DETELINARA 3 1801
+KLISA-CENTAR-LIMAN_I 1 1747
+LIMAN_IV-CENTAR-Z._STANICA 4 1732
+1
+4
+8
+-45
+-1
+</pre></div>
+</div>
+<p>Primer rada programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Uneti brojeve od 1 do 15 ili -1 za izlazak:
+Linija: 1 1804
+Linija: 4 1810
+Linija: 8 1803
+Linija: Ne postoji zadata linija!
+Linija:
+</pre></div>
+</div>
+</div></div>
 </section>
 
 
