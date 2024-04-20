@@ -20,7 +20,7 @@ Primer rešenja
        :linenos:
   .. group-tab:: Standardni ulaz/izlaz
     .. literalinclude:: resenje-stdinout.c 
-      :linenos:
+       :linenos:
 
 .. raw:: html
 
