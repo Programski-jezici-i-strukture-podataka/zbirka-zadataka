@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
@@ -96,10 +97,16 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
 </ul>
 <p>Primer poziva programa:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>opamps.txt<span class="w"> </span><span class="m">139</span>.7<span class="w"> </span><span class="m">117</span>.9
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>opamps.txt<span class="w"> </span><span class="m">139</span>.7<span class="w"> </span><span class="m">117</span>.9
 </pre></div>
 </div>
-<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">opamps.txt</span></code>:</p>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">139</span>.7<span class="w"> </span><span class="m">117</span>.9<span class="w"> </span>&lt;<span class="w"> </span>opamps-stdinout.txt
+</pre></div>
+</div>
+</div></div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-1-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">opamps.txt</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LM741 200 22 6
 NE5532 100 15 4
 LM709 45 18 6
@@ -128,6 +135,36 @@ TC913 6.89 AZ
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Najvece pojacanje ima: LTC2063, i ono iznosi: 562
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">opamps-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+LM741 200 22 6
+NE5532 100 15 4
+LM709 45 18 6
+LTC2063 562 6 0
+AI4309 100 10 0
+LM1458 15 18 6
+LM324 100 32 3
+AD8538 300 5 0
+AD8021 76 10 1
+TC913 316 16 0
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj operacionih pojacavaca: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: 
+LM741 4.36 63.64%
+NE5532 2.18 63.33%
+LM709 0.98 66.67%
+LM1458 0.33 66.67%
+LM324 2.18 54.69%
+AD8021 1.66 55.00%
+-------------------------
+AI4309 2.18 AZ
+TC913 6.89 AZ
+
+Najvece pojacanje ima: LTC2063, i ono iznosi: 562
+</pre></div>
+</div>
+</div></div>
 
 
           </div>
