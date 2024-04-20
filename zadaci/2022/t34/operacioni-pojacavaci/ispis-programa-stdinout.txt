@@ -1,0 +1,12 @@
+Unesite broj operacionih pojacavaca: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: Operacioni pojacavac: 
+LM741 4.36 63.64%
+NE5532 2.18 63.33%
+LM709 0.98 66.67%
+LM1458 0.33 66.67%
+LM324 2.18 54.69%
+AD8021 1.66 55.00%
+-------------------------
+AI4309 2.18 AZ
+TC913 6.89 AZ
+
+Najvece pojacanje ima: LTC2063, i ono iznosi: 562

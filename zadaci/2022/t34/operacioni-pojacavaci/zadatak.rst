@@ -38,22 +38,45 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 
 Primer poziva programa:
 
-.. code-block:: bash
+.. tabs::
 
-  ./a.out opamps.txt 139.7 117.9
+  .. group-tab:: Datoteke
+    .. code-block:: bash
 
-Primer ulazne datoteke ``opamps.txt``:
+      ./a.out opamps.txt 139.7 117.9
+  .. group-tab:: Standardni ulaz/izlaz
+    .. code-block:: bash
 
-.. literalinclude:: opamps.txt
-   :language: none
+       ./a.out 139.7 117.9 < opamps-stdinout.txt
 
-Primer izlazne datoteke ``operacioni_pojacavaci.txt``:
+.. tabs::
 
-.. literalinclude:: operacioni_pojacavaci.txt
-   :language: none
+  .. group-tab:: Datoteke
 
-Ispis programa na standardnom izlazu:
+    Primer ulazne datoteke ``opamps.txt``:
 
-.. literalinclude:: ispis-programa.txt
-   :language: none
+    .. literalinclude:: opamps.txt
+      :language: none
+
+    Primer izlazne datoteke ``operacioni_pojacavaci.txt``:
+
+    .. literalinclude:: operacioni_pojacavaci.txt
+      :language: none
+
+    Ispis programa na standardnom izlazu:
+
+    .. literalinclude:: ispis-programa.txt
+      :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+
+    Primer ulazne datoteke ``opamps-stdinout.txt``:
+
+    .. literalinclude:: opamps-stdinout.txt
+       :language: none
+
+    Ispis programa na standardnom izlazu:
+
+    .. literalinclude:: ispis-programa-stdinout.txt
+       :language: none
 
