@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../../search.html" />
@@ -88,11 +89,12 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
 <li><p>Ako formacija nije napisana u traženom formatu (cifra, crta, cifra, crta, cifra), izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 <li><p>Ako je broj igrača na određenoj poziciji veći od 5, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
-<li><p>Ako program ne može da otvori ulazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
-<li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+<li><p>Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
 </ul>
 <p>Primer poziva programa:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>fudbaleri.txt<span class="w"> </span>postava.txt<span class="w"> </span><span class="m">4</span>-3-3
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>fudbaleri.txt<span class="w"> </span>postava.txt<span class="w"> </span><span class="m">4</span>-3-3
 </pre></div>
 </div>
 <p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">fudbaleri.txt</span></code>:</p>
@@ -126,6 +128,44 @@ Filip Djuricic 21 napad
 11 Jovic L.
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">4</span>-3-3<span class="w"> </span>&lt;<span class="w"> </span>fudbaleri-stdinout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">fudbaleri-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>15
+Nikola Milenkovic 4 odbrana
+Stefan Mitrovic 13 odbrana
+Strahinja Pavlovic 2 odbrana
+Milos Veljkovic 5 odbrana
+Strahinja Erakovic 3 odbrana
+Sergej Milinkovic-Savic 20 sredina
+Filip Kostic 17 sredina
+Nemanja Gudelj 8 sredina
+Andrija Zivkovic 14 sredina
+Marko Grujic 26 sredina
+Aleksandar Mitrovic 9 napad
+Dusan Vlahovic 18 napad
+Luka Jovic 11 napad
+Nemanja Radonjic 7 napad
+Filip Djuricic 21 napad
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj fudbalera: 1. fudbaler: 2. fudbaler: 3. fudbaler: 4. fudbaler: 5. fudbaler: 6. fudbaler: 7. fudbaler: 8. fudbaler: 9. fudbaler: 10. fudbaler: 11. fudbaler: 12. fudbaler: 13. fudbaler: 14. fudbaler: 15. fudbaler: 
+
+ 4 Milenkovic N.
+13 Mitrovic S.
+ 2 Pavlovic S.
+ 5 Veljkovic M.
+20 Milinkovic-Savic S.
+17 Kostic F.
+ 8 Gudelj N.
+ 9 Mitrovic A.
+18 Vlahovic D.
+11 Jovic L.
+</pre></div>
+</div>
+</div></div>
 
 
           </div>

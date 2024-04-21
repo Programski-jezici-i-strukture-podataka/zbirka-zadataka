@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../../search.html" />
@@ -97,7 +98,8 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>Ako program ne može da otvori ulazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 <li><p>Ako program ne može da otvori izlazni fajl, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
 </ul>
-<p>Primer poziva programa:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer poziva programa:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./pekara<span class="w"> </span>sirovine.txt<span class="w"> </span>cene.txt<span class="w"> </span><span class="m">120</span>
 </pre></div>
 </div>
@@ -115,6 +117,28 @@ so      10  41.99  38.99
     so  2.40   100.78
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./pekara<span class="w"> </span><span class="m">120</span><span class="w"> </span>&lt;<span class="w"> </span>sirovine-stdinout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">sirovine-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>4
+brasno 100  69.99  66.99
+sir     60 527.99 473.99
+ulje    30 205.00 192.00
+so      10  41.99  38.99
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj sirovina: 1. sirovina: 2. sirovina: 3. sirovina: 4. sirovina: 
+
+brasno 72.00  5039.28
+   sir 48.00 25343.52
+  ulje 12.00  2460.00
+    so  2.40   100.78
+</pre></div>
+</div>
+</div></div>
 
 
           </div>

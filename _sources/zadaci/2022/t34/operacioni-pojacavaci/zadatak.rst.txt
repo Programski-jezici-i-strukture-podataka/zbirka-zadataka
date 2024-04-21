@@ -32,8 +32,8 @@ U slučaju uspešnog izvršavanja programa, izaći sa status kodom ``0`` (``EXIT
 Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:
 
 * U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom ``1`` (``EXIT_FAILURE``)
-* Ako program ne može da otvori ulazni fajl, izaći sa status kodom ``2``
-* Ako program ne može da otvori izlazni fajl, izaći sa status kodom ``3``
+* Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom ``2``
+* Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom ``3``
 
 
 Primer poziva programa:
