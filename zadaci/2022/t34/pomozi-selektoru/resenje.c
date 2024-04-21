@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     int n;
 
     if(argc != 4) {
-        printf("Primer poziva programa: %s restorani.txt 120 117.5\n", argv[0]);
+        printf("Primer poziva programa: %s fudbaleri.txt postava.txt 4-3-3\n", argv[0]);
         exit(1);
     }
 

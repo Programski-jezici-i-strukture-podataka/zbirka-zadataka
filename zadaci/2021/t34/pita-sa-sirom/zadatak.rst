@@ -26,19 +26,40 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 * Ako program ne može da otvori ulazni fajl, izaći sa status kodom ``2``
 * Ako program ne može da otvori izlazni fajl, izaći sa status kodom ``3``
 
-Primer poziva programa:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Datoteke
 
-  ./pekara sirovine.txt cene.txt 120
+      Primer poziva programa:
 
-Primer ulazne datoteke ``sirovine.txt``:
+      .. code-block:: bash
 
-.. literalinclude:: sirovine.txt
-   :language: none
+         ./pekara sirovine.txt cene.txt 120
 
-Primer izlazne datoteke ``cene.txt``:
+      Primer ulazne datoteke ``sirovine.txt``:
 
-.. literalinclude:: cene.txt
-   :language: none
+      .. literalinclude:: sirovine.txt
+         :language: none
 
+      Primer izlazne datoteke ``cene.txt``:
+
+      .. literalinclude:: cene.txt
+         :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+
+      Primer poziva programa:
+
+      .. code-block:: bash
+
+         ./pekara 120 < sirovine-stdinout.txt
+
+      Primer ulazne datoteke ``sirovine-stdinout.txt``:
+
+      .. literalinclude:: sirovine-stdinout.txt
+         :language: none
+
+      Ispis programa na standardnom izlazu:
+
+      .. literalinclude:: ispis-programa-stdinout.txt
+         :language: none

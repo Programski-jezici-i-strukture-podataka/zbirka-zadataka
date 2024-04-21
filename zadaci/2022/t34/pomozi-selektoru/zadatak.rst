@@ -17,22 +17,41 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 * U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom ``1`` (``EXIT_FAILURE``)
 * Ako formacija nije napisana u traženom formatu (cifra, crta, cifra, crta, cifra), izaći sa status kodom ``2``
 * Ako je broj igrača na određenoj poziciji veći od 5, izaći sa status kodom ``3`` 
-* Ako program ne može da otvori ulazni fajl, izaći sa status kodom ``4``
-* Ako program ne može da otvori izlazni fajl, izaći sa status kodom ``5``
+* Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom ``4``
+* Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom ``5``
 
 Primer poziva programa:
 
-.. code-block:: bash
+.. tabs::
 
-  ./a.out fudbaleri.txt postava.txt 4-3-3
+  .. group-tab:: Datoteke
 
-Primer ulazne datoteke ``fudbaleri.txt``:
+      .. code-block:: bash
 
-.. literalinclude:: fudbaleri.txt
-   :language: none
+         ./a.out fudbaleri.txt postava.txt 4-3-3
 
-Primer izlazne datoteke ``postava.txt``:
+      Primer ulazne datoteke ``fudbaleri.txt``:
 
-.. literalinclude:: postava.txt
-   :language: none
+      .. literalinclude:: fudbaleri.txt
+         :language: none
+
+      Primer izlazne datoteke ``postava.txt``:
+
+      .. literalinclude:: postava.txt
+         :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+      .. code-block:: bash
+
+         ./a.out 4-3-3 < fudbaleri-stdinout.txt
+
+      Primer ulazne datoteke ``fudbaleri-stdinout.txt``:
+
+      .. literalinclude:: fudbaleri-stdinout.txt
+         :language: none
+
+      Ispis programa na standardnom izlazu:
+
+      .. literalinclude:: ispis-programa-stdinout.txt
+         :language: none
 
