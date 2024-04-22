@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
@@ -101,7 +102,8 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
 <li><p>Ako program ne može da otvori ulaznu ili izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 </ul>
-<p>Primer poziva programa:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer poziva programa:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>motori.txt<span class="w"> </span>statistika.txt<span class="w"> </span><span class="m">25</span><span class="w"> </span>Medium
 </pre></div>
 </div>
@@ -142,6 +144,50 @@ Triumph	142.8ks		63.10s			1
 Ukupno je potroseno 8 guma tipa Medium.
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">25</span><span class="w"> </span>Medium<span class="w"> </span>&lt;<span class="w">  </span>motori-stdout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">motori-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>8
+Ducati 100 62.2 12 Soft
+Honda 102 66.1 9 Medium
+Suzuki 100 61.3 5 Hard
+Aprilia 99 66.2 4 Hard
+Yamaha 98 60.5 6 Hard
+KTM 95 68.9 10 Soft
+BMW 99 71.2 8 Medium
+Triumph 105 63.1 7 Soft
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj motora: 1. motor: 2. motor: 3. motor: 4. motor: 5. motor: 6. motor: 7. motor: 8. motor: 
+
+Sa jednim setom guma motori mogu preci:
+Ducati moze preci 8 krugova.
+Honda moze preci 11 krugova.
+Suzuki moze preci 20 krugova.
+Aprilia moze preci 25 krugova.
+Yamaha moze preci 16 krugova.
+KTM moze preci 10 krugova.
+BMW moze preci 12 krugova.
+Triumph moze preci 14 krugova.
+
+Rezultati nakon trke su:
+
+Naziv   Snaga   Vreme_po_krugu  Broj_stajanja
+Ducati  136.0ks         62.20s                  3
+Honda   138.7ks         66.10s                  2
+Suzuki  136.0ks         61.30s                  1
+Aprilia 134.6ks         66.20s                  1
+Yamaha  133.3ks         60.50s                  1
+KTM             129.2ks         68.90s                  2
+BMW             134.6ks         71.20s                  2
+Triumph 142.8ks         63.10s                  1
+
+Ukupno je potroseno 8 guma tipa Medium.
+</pre></div>
+</div>
+</div></div>
 
 
           </div>

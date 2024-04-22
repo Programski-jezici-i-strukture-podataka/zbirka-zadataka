@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
@@ -93,7 +94,8 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
 <li><p>Ako program ne može da otvori ulaznu ili izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 </ul>
-<p>Primer poziva programa:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer poziva programa:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">60</span><span class="w"> </span>statistika.txt<span class="w"> </span>timovi.txt
 </pre></div>
 </div>
@@ -122,6 +124,38 @@ Najbolji vozac je:
 Hamilton iz tima Mercedes sa ukupnim vremenom 5640.1 sekundi.
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">60</span><span class="w"> </span>&lt;<span class="w">  </span>timovi-stdout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">timovi-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+Ferrari Lecler 95 0.0
+Red_Bull_Racing Verstappen 99 1.5
+Red_Bull_Racing Perez 98 0.2
+Mercedes Russell 101 5.5
+Ferrari Sainz 99 0.2
+Mercedes Hamilton 94 0.1
+McLaren Norris 105 0.0
+Alpine Ocon 97 0.0
+McLaren Ricciardo 99 0.5
+Alpine Alonso 102 2.3
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj timova: 1. tim: 2. tim: 3. tim: 4. tim: 5. tim: 6. tim: 7. tim: 8. tim: 9. tim: 10. tim: 
+
+Ukupna vremena timova su:
+Ferrari: 11640.2
+Red_Bull_Racing: 11821.7
+Mercedes: 11705.6
+McLaren: 12240.5
+Alpine: 11942.3
+
+Najbolji vozac je:
+Hamilton iz tima Mercedes sa ukupnim vremenom 5640.1 sekundi.
+</pre></div>
+</div>
+</div></div>
 
 
           </div>

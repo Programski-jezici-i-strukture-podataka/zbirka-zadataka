@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
@@ -98,7 +99,8 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
 <li><p>Ako program ne može da otvori ulaznu ili izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
 </ul>
-<p>Primer poziva programa:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer poziva programa:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">60</span><span class="w"> </span>statistika.txt<span class="w"> </span>timovi.txt
 </pre></div>
 </div>
@@ -127,9 +129,42 @@ Najbolji vozac je:
 Hamilton iz tima Mercedes sa ukupnim vremenom 5640.1 sekundi.
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">60</span><span class="w"> </span>&lt;<span class="w">  </span>timovi-stdout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">timovi-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+Ferrari Lecler 95 0.0
+Red_Bull_Racing Verstappen 99 1.5
+Red_Bull_Racing Perez 98 0.2
+Mercedes Russell 101 5.5
+Ferrari Sainz 99 0.2
+Mercedes Hamilton 94 0.1
+McLaren Norris 105 0.0
+Alpine Ocon 97 0.0
+McLaren Ricciardo 99 0.5
+Alpine Alonso 102 2.3
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj timova: 1. tim: 2. tim: 3. tim: 4. tim: 5. tim: 6. tim: 7. tim: 8. tim: 9. tim: 10. tim: 
+
+Ukupna vremena timova su:
+Ferrari: 11640.2
+Red_Bull_Racing: 11821.7
+Mercedes: 11705.6
+McLaren: 12240.5
+Alpine: 11942.3
+
+Najbolji vozac je:
+Hamilton iz tima Mercedes sa ukupnim vremenom 5640.1 sekundi.
+</pre></div>
+</div>
+</div></div>
 <section id="primer-resenja">
 <h2>Primer rešenja<a class="headerlink" href="#primer-resenja" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-1-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="linenos">  2</span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span>
 <span class="linenos">  3</span><span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span>
 <span class="linenos">  4</span>
@@ -246,6 +281,117 @@ Hamilton iz tima Mercedes sa ukupnim vremenom 5640.1 sekundi.
 <span class="linenos">115</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos">  2</span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="linenos">  3</span><span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="cp">#define MAX_NAZIV_TIMA 15+1</span>
+<span class="linenos">  6</span><span class="cp">#define MAX_NAZIV_VOZACA 10+1</span>
+<span class="linenos">  7</span><span class="cp">#define MAX_NIZ 11</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">formula_st</span>
+<span class="linenos"> 10</span><span class="p">{</span>
+<span class="linenos"> 11</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">naziv_tima</span><span class="p">[</span><span class="n">MAX_NAZIV_TIMA</span><span class="p">];</span>
+<span class="linenos"> 12</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">naziv_vozaca</span><span class="p">[</span><span class="n">MAX_NAZIV_VOZACA</span><span class="p">];</span>
+<span class="linenos"> 13</span><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">vreme_po_krugu</span><span class="p">;</span>
+<span class="linenos"> 14</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">penali</span><span class="p">;</span>
+<span class="linenos"> 15</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">ukupno_vreme</span><span class="p">;</span>
+<span class="linenos"> 16</span><span class="p">}</span><span class="w"> </span><span class="n">Formula</span><span class="p">;</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitavanje</span><span class="p">(</span><span class="n">Formula</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">br_krugova</span><span class="p">)</span>
+<span class="linenos"> 19</span><span class="p">{</span>
+<span class="linenos"> 20</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span><span class="w">    </span><span class="k">do</span>
+<span class="linenos"> 23</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 24</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj timova: &quot;</span><span class="p">);</span>
+<span class="linenos"> 25</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="linenos"> 26</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_NIZ</span><span class="p">);</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 29</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 30</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d. tim: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 31</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s %s %u %lf&quot;</span><span class="p">,</span>
+<span class="linenos"> 32</span><span class="w">            </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_tima</span><span class="p">,</span>
+<span class="linenos"> 33</span><span class="w">            </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_vozaca</span><span class="p">,</span>
+<span class="linenos"> 34</span><span class="w">            </span><span class="o">&amp;</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">vreme_po_krugu</span><span class="p">,</span>
+<span class="linenos"> 35</span><span class="w">            </span><span class="o">&amp;</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">penali</span><span class="p">);</span>
+<span class="linenos"> 36</span><span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">vreme_po_krugu</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">br_krugova</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">penali</span><span class="p">;</span>
+<span class="linenos"> 37</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 38</span><span class="p">}</span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span><span class="kt">void</span><span class="w"> </span><span class="nf">ukupna_vremena_timova</span><span class="p">(</span><span class="n">Formula</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos"> 41</span><span class="p">{</span>
+<span class="linenos"> 42</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">sumaF</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">sumaR</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">sumaMerc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">sumaMcLaren</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">sumaA</span><span class="o">=</span><span class="mf">0.0</span><span class="p">;</span>
+<span class="linenos"> 44</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ukupna vremena timova su:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 45</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 46</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 47</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_tima</span><span class="p">,</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 48</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 49</span><span class="w">            </span><span class="n">sumaF</span><span class="o">+=</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="p">;</span>
+<span class="linenos"> 50</span><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_tima</span><span class="p">,</span><span class="s">&quot;Red_Bull_Racing&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 51</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 52</span><span class="w">            </span><span class="n">sumaR</span><span class="o">+=</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="p">;</span>
+<span class="linenos"> 53</span><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_tima</span><span class="p">,</span><span class="s">&quot;Mercedes&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 54</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 55</span><span class="w">            </span><span class="n">sumaMerc</span><span class="o">+=</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="p">;</span>
+<span class="linenos"> 56</span><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_tima</span><span class="p">,</span><span class="s">&quot;McLaren&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 57</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 58</span><span class="w">            </span><span class="n">sumaMcLaren</span><span class="o">+=</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="p">;</span>
+<span class="linenos"> 59</span><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">naziv_tima</span><span class="p">,</span><span class="s">&quot;Alpine&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 60</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 61</span><span class="w">            </span><span class="n">sumaA</span><span class="o">+=</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="p">;</span>
+<span class="linenos"> 62</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 64</span><span class="w">    </span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ferrari: %.1lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">sumaF</span><span class="p">);</span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Red_Bull_Racing: %.1lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">sumaR</span><span class="p">);</span>
+<span class="linenos"> 67</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mercedes: %.1lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">sumaMerc</span><span class="p">);</span>
+<span class="linenos"> 68</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;McLaren: %.1lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">sumaMcLaren</span><span class="p">);</span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Alpine: %.1lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">sumaA</span><span class="p">);</span>
+<span class="linenos"> 70</span><span class="w">            </span>
+<span class="linenos"> 71</span><span class="p">}</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span><span class="kt">void</span><span class="w"> </span><span class="nf">najbolji_vozac</span><span class="p">(</span><span class="n">Formula</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="linenos"> 74</span><span class="p">{</span>
+<span class="linenos"> 75</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">index</span><span class="p">;</span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="n">Formula</span><span class="w"> </span><span class="n">min</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="linenos"> 77</span><span class="w">    </span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Najbolji vozac je:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 80</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 81</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">min</span><span class="p">.</span><span class="n">ukupno_vreme</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ukupno_vreme</span><span class="p">)</span>
+<span class="linenos"> 82</span><span class="w">            </span><span class="n">min</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos"> 83</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 84</span><span class="w">    </span>
+<span class="linenos"> 85</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s iz tima %s sa ukupnim vremenom %.1lf sekundi.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">min</span><span class="p">.</span><span class="n">naziv_vozaca</span><span class="p">,</span><span class="n">min</span><span class="p">.</span><span class="n">naziv_tima</span><span class="p">,</span><span class="n">min</span><span class="p">.</span><span class="n">ukupno_vreme</span><span class="p">);</span>
+<span class="linenos"> 86</span><span class="w">    </span>
+<span class="linenos"> 87</span><span class="p">}</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span><span class="c1">//primer poziva ./a.out 60 &lt; timovi-stdinout.txt</span>
+<span class="linenos"> 90</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">brojArgum</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argumenti</span><span class="p">)</span>
+<span class="linenos"> 91</span><span class="p">{</span>
+<span class="linenos"> 92</span><span class="w">    </span><span class="n">Formula</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">MAX_NIZ</span><span class="p">];</span>
+<span class="linenos"> 93</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="linenos"> 94</span><span class="w">    </span>
+<span class="linenos"> 95</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">brojArgum</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 96</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pogresan broj unetih argumenata!&quot;</span><span class="p">);</span>
+<span class="linenos"> 98</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 99</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="w">    </span><span class="n">ucitavanje</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="n">atoi</span><span class="p">(</span><span class="n">argumenti</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+<span class="linenos">102</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">103</span><span class="w">    </span><span class="n">ukupna_vremena_timova</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">104</span><span class="w">    </span><span class="n">najbolji_vozac</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">105</span><span class="w">    </span>
+<span class="linenos">106</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">107</span><span class="p">}</span>
+<span class="linenos">108</span>
+</pre></div>
+</div>
+</div></div>
 <div class="section" /></section>
 </section>
 

@@ -29,19 +29,37 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 * U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom ``1`` (``EXIT_FAILURE``)
 * Ako program ne može da otvori ulaznu ili izlaznu datoteku, izaći sa status kodom ``2``
 
-Primer poziva programa:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Datoteke
 
-  ./a.out motori.txt statistika.txt 25 Medium
+      Primer poziva programa:
 
-Primer ulazne datoteke ``motori.txt``:
+      .. code-block:: bash
 
-.. literalinclude:: motori.txt
-   :language: none
+         ./a.out motori.txt statistika.txt 25 Medium
 
-Primer izlazne datoteke ``statistika.txt``:
+      Primer ulazne datoteke ``motori.txt``:
 
-.. literalinclude:: statistika.txt
-   :language: none
+      .. literalinclude:: motori.txt
+         :language: none
+
+      Primer izlazne datoteke ``statistika.txt``:
+
+      .. literalinclude:: statistika.txt
+         :language: none
+  .. group-tab:: Standardni ulaz/izlaz
+      .. code-block:: bash
+
+         ./a.out 25 Medium <  motori-stdout.txt
+
+      Primer ulazne datoteke ``motori-stdinout.txt``:
+
+      .. literalinclude:: motori-stdinout.txt
+         :language: none
+
+      Ispis programa na standardnom izlazu:
+
+      .. literalinclude:: ispis-programa-stdinout.txt
+         :language: none
 
