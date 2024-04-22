@@ -24,19 +24,37 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 * U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom ``1`` (``EXIT_FAILURE``)
 * Ako program ne može da otvori ulaznu ili izlaznu datoteku, izaći sa status kodom ``2``
 
-Primer poziva programa:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Datoteke
 
-  ./a.out 60 statistika.txt timovi.txt
+    Primer poziva programa:
 
-sa zadatim ulazom u datoteci ``timovi.txt``:
+    .. code-block:: bash
 
-.. literalinclude:: timovi.txt
-   :language: none
+      ./a.out 60 statistika.txt timovi.txt
 
-Očekivani izlaz u izlaznoj datoteci ``statistika.txt`` je sledeći:
+    sa zadatim ulazom u datoteci ``timovi.txt``:
 
-.. literalinclude:: statistika.txt
-   :language: none
+    .. literalinclude:: timovi.txt
+      :language: none
+
+    Očekivani izlaz u izlaznoj datoteci ``statistika.txt`` je sledeći:
+
+    .. literalinclude:: statistika.txt
+      :language: none
+  .. group-tab:: Standardni ulaz/izlaz
+      .. code-block:: bash
+
+         ./a.out 60 <  timovi-stdout.txt
+
+      Primer ulazne datoteke ``timovi-stdinout.txt``:
+
+      .. literalinclude:: timovi-stdinout.txt
+         :language: none
+
+      Ispis programa na standardnom izlazu:
+
+      .. literalinclude:: ispis-programa-stdinout.txt
+         :language: none
 

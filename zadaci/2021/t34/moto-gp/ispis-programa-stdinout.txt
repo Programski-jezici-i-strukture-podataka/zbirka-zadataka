@@ -1,0 +1,25 @@
+Unesite broj motora: 1. motor: 2. motor: 3. motor: 4. motor: 5. motor: 6. motor: 7. motor: 8. motor: 
+
+Sa jednim setom guma motori mogu preci:
+Ducati moze preci 8 krugova.
+Honda moze preci 11 krugova.
+Suzuki moze preci 20 krugova.
+Aprilia moze preci 25 krugova.
+Yamaha moze preci 16 krugova.
+KTM moze preci 10 krugova.
+BMW moze preci 12 krugova.
+Triumph moze preci 14 krugova.
+
+Rezultati nakon trke su:
+
+Naziv   Snaga   Vreme_po_krugu  Broj_stajanja
+Ducati  136.0ks         62.20s                  3
+Honda   138.7ks         66.10s                  2
+Suzuki  136.0ks         61.30s                  1
+Aprilia 134.6ks         66.20s                  1
+Yamaha  133.3ks         60.50s                  1
+KTM             129.2ks         68.90s                  2
+BMW             134.6ks         71.20s                  2
+Triumph 142.8ks         63.10s                  1
+
+Ukupno je potroseno 8 guma tipa Medium.
