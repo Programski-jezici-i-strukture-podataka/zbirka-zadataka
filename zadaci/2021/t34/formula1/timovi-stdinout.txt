@@ -1,0 +1,11 @@
+10
+Ferrari Lecler 95 0.0
+Red_Bull_Racing Verstappen 99 1.5
+Red_Bull_Racing Perez 98 0.2
+Mercedes Russell 101 5.5
+Ferrari Sainz 99 0.2
+Mercedes Hamilton 94 0.1
+McLaren Norris 105 0.0
+Alpine Ocon 97 0.0
+McLaren Ricciardo 99 0.5
+Alpine Alonso 102 2.3

@@ -13,8 +13,14 @@ Formula 1
 Primer rešenja
 --------------
 
-.. literalinclude:: resenje.c 
-   :linenos:
+.. tabs::
+
+  .. group-tab:: Datoteke
+    .. literalinclude:: resenje.c 
+       :linenos:
+  .. group-tab:: Standardni ulaz/izlaz
+    .. literalinclude:: resenje-stdinout.c 
+      :linenos:
 
 .. raw:: html
 
