@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../../search.html" />
@@ -86,7 +87,8 @@ poslednji argument komandne linije.
 Pronaći prosečnu ocenu timova koji su prosli u sledeći krug.</p>
 <p>Na standardni izlaz (terminal) ispisati i prosečnu ocenu timova koji su
 prošli u sledeći krug.</p>
-<p>Primer poziva:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer poziva:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./program<span class="w"> </span>timovi.txt<span class="w"> </span><span class="m">13</span>.5
 </pre></div>
 </div>
@@ -106,6 +108,29 @@ NORVESKA italijanska 8.7 9.5
 Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">13</span>.5<span class="w"> </span>&lt;<span class="w"> </span>timovi-stdout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">timovi-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
+USA meksicka 7.5 6.5
+CANADA tajlandska 6.2 4.3
+SPANIJA kineska 9.1 8.6
+SLOVENIJA indijska 5.3 6.8
+NORVESKA italijanska 8.7 9.5
+CESKA libanska 4.7 3.9
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj timova: 1. tim: 2. tim: 3. tim: 4. tim: 5. tim: 6. tim: 
+
+USA meksicka 7.50 6.50
+SPANIJA kineska 9.10 8.60
+NORVESKA italijanska 8.70 9.50
+Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
+</pre></div>
+</div>
+</div></div>
 
 
           </div>

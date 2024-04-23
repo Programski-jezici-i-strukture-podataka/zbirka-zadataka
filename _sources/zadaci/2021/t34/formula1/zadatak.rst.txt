@@ -46,7 +46,7 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
   .. group-tab:: Standardni ulaz/izlaz
       .. code-block:: bash
 
-         ./a.out 60 <  timovi-stdout.txt
+         ./a.out 60 < timovi-stdout.txt
 
       Primer ulazne datoteke ``timovi-stdinout.txt``:
 

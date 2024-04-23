@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <link rel="index" title="Indeks" href="../../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../../search.html" />
@@ -91,7 +92,8 @@ poslednji argument komandne linije.
 Pronaći prosečnu ocenu timova koji su prosli u sledeći krug.</p>
 <p>Na standardni izlaz (terminal) ispisati i prosečnu ocenu timova koji su
 prošli u sledeći krug.</p>
-<p>Primer poziva:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><p>Primer poziva:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./program<span class="w"> </span>timovi.txt<span class="w"> </span><span class="m">13</span>.5
 </pre></div>
 </div>
@@ -111,9 +113,33 @@ NORVESKA italijanska 8.7 9.5
 Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">13</span>.5<span class="w"> </span>&lt;<span class="w"> </span>timovi-stdout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">timovi-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
+USA meksicka 7.5 6.5
+CANADA tajlandska 6.2 4.3
+SPANIJA kineska 9.1 8.6
+SLOVENIJA indijska 5.3 6.8
+NORVESKA italijanska 8.7 9.5
+CESKA libanska 4.7 3.9
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj timova: 1. tim: 2. tim: 3. tim: 4. tim: 5. tim: 6. tim: 
+
+USA meksicka 7.50 6.50
+SPANIJA kineska 9.10 8.60
+NORVESKA italijanska 8.70 9.50
+Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
+</pre></div>
+</div>
+</div></div>
 <section id="primer-resenja">
 <h2>Primer rešenja<a class="headerlink" href="#primer-resenja" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-1-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-1-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 <span class="linenos"> 3</span><span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span>
 <span class="linenos"> 4</span>
@@ -184,6 +210,111 @@ Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
 <span class="linenos">69</span><span class="p">}</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="cp">#define MAX_DRZAVA 21</span>
+<span class="linenos">  5</span><span class="cp">#define MAX_VRSTA_HRANE 21</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="cp">#define MAX_SIZE 30</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tim_st</span>
+<span class="linenos"> 10</span><span class="p">{</span>
+<span class="linenos"> 11</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">drzava</span><span class="p">[</span><span class="n">MAX_DRZAVA</span><span class="p">];</span>
+<span class="linenos"> 12</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">vrsta_hrane</span><span class="p">[</span><span class="n">MAX_VRSTA_HRANE</span><span class="p">];</span>
+<span class="linenos"> 13</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">ocena_publike</span><span class="p">;</span>
+<span class="linenos"> 14</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">ocena_zirija</span><span class="p">;</span>
+<span class="linenos"> 15</span><span class="p">}</span><span class="w"> </span><span class="n">TIM</span><span class="p">;</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_timove</span><span class="p">(</span><span class="n">TIM</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="p">);</span>
+<span class="linenos"> 18</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_izabrane</span><span class="p">(</span><span class="n">TIM</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="p">);</span>
+<span class="linenos"> 19</span><span class="kt">double</span><span class="w"> </span><span class="nf">prosek_izabranih_timova</span><span class="p">(</span><span class="n">TIM</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="p">);</span>
+<span class="linenos"> 20</span><span class="kt">int</span><span class="w"> </span><span class="nf">tim_je_prosao</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">ocena_publike</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">ocena_zirija</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="p">);</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="linenos"> 23</span><span class="p">{</span>
+<span class="linenos"> 24</span><span class="w">    </span><span class="n">TIM</span><span class="w"> </span><span class="n">timovi</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos"> 25</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 28</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 29</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Primer poziva: %s 13.5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="linenos"> 30</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<span class="linenos"> 31</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="w">    </span><span class="n">ucitaj_timove</span><span class="p">(</span><span class="n">timovi</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos"> 34</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 35</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="linenos"> 36</span><span class="w">    </span><span class="n">ispisi_izabrane</span><span class="p">(</span><span class="n">timovi</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">prag</span><span class="p">);</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos"> 39</span><span class="w">        </span><span class="n">prosek_izabranih_timova</span><span class="p">(</span><span class="n">timovi</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">prag</span><span class="p">));</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="linenos"> 42</span><span class="p">}</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_timove</span><span class="p">(</span><span class="n">TIM</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="p">)</span>
+<span class="linenos"> 45</span><span class="p">{</span>
+<span class="linenos"> 46</span><span class="w">    </span><span class="k">do</span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 48</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj timova: &quot;</span><span class="p">);</span>
+<span class="linenos"> 49</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pn</span><span class="p">);</span>
+<span class="linenos"> 50</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pn</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">);</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pn</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 55</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 56</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d. tim: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 57</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s %s %lf %lf&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos"> 58</span><span class="w">            </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">drzava</span><span class="p">,</span>
+<span class="linenos"> 59</span><span class="w">            </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">vrsta_hrane</span><span class="p">,</span>
+<span class="linenos"> 60</span><span class="w">            </span><span class="o">&amp;</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_publike</span><span class="p">,</span>
+<span class="linenos"> 61</span><span class="w">            </span><span class="o">&amp;</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_zirija</span><span class="p">);</span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 63</span><span class="p">}</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_izabrane</span><span class="p">(</span><span class="n">TIM</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="p">)</span>
+<span class="linenos"> 66</span><span class="p">{</span>
+<span class="linenos"> 67</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 70</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 71</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tim_je_prosao</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_publike</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_zirija</span><span class="p">,</span><span class="w"> </span><span class="n">prag</span><span class="p">))</span>
+<span class="linenos"> 72</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 73</span><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %s %.2lf %.2lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="linenos"> 74</span><span class="w">                </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">drzava</span><span class="p">,</span>
+<span class="linenos"> 75</span><span class="w">                </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">vrsta_hrane</span><span class="p">,</span>
+<span class="linenos"> 76</span><span class="w">                </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_publike</span><span class="p">,</span>
+<span class="linenos"> 77</span><span class="w">                </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_zirija</span><span class="p">);</span>
+<span class="linenos"> 78</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 80</span><span class="p">}</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span><span class="kt">double</span><span class="w"> </span><span class="nf">prosek_izabranih_timova</span><span class="p">(</span><span class="n">TIM</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="p">)</span>
+<span class="linenos"> 83</span><span class="p">{</span>
+<span class="linenos"> 84</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">brojac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 85</span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos"> 88</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 89</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tim_je_prosao</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_publike</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_zirija</span><span class="p">,</span><span class="w"> </span><span class="n">prag</span><span class="p">))</span>
+<span class="linenos"> 90</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 91</span><span class="w">            </span><span class="n">suma</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_publike</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ocena_zirija</span><span class="p">;</span>
+<span class="linenos"> 92</span><span class="w">            </span><span class="n">brojac</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos"> 93</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos"> 94</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">suma</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">brojac</span><span class="p">;</span>
+<span class="linenos"> 97</span><span class="p">}</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span><span class="kt">int</span><span class="w"> </span><span class="nf">tim_je_prosao</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">ocena_publike</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">ocena_zirija</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prag</span><span class="p">)</span>
+<span class="linenos">100</span><span class="p">{</span>
+<span class="linenos">101</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ocena_publike</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ocena_zirija</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">prag</span><span class="p">;</span>
+<span class="linenos">102</span><span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
 <div class="section" /></section>
 </section>
 
