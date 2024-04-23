@@ -1,0 +1,6 @@
+Unesite broj timova: 1. tim: 2. tim: 3. tim: 4. tim: 5. tim: 6. tim: 
+
+USA meksicka 7.50 6.50
+SPANIJA kineska 9.10 8.60
+NORVESKA italijanska 8.70 9.50
+Prosecna ocena timova koji su prosli u sledeci krug takmicenja je: 16.63
