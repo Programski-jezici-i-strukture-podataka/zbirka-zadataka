@@ -16,19 +16,38 @@ Pronaći prosečnu ocenu timova koji su prosli u sledeći krug.
 Na standardni izlaz (terminal) ispisati i prosečnu ocenu timova koji su 
 prošli u sledeći krug.
 
-Primer poziva:
+.. tabs::
 
-.. code:: bash
+  .. group-tab:: Datoteke
 
-   ./program timovi.txt 13.5
+      Primer poziva:
 
-sa zadatim ulazom u datoteci ``timovi.txt``:
+      .. code:: bash
 
-.. literalinclude:: timovi.txt
-   :language: none
+         ./program timovi.txt 13.5
+
+      sa zadatim ulazom u datoteci ``timovi.txt``:
+
+      .. literalinclude:: timovi.txt
+         :language: none
 
 
-i očekivanim izlazom na terminalu:
+      i očekivanim izlazom na terminalu:
 
-.. literalinclude:: izlaz.txt
-   :language: none
+      .. literalinclude:: izlaz.txt
+         :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+      .. code-block:: bash
+
+         ./a.out 13.5 < timovi-stdout.txt
+
+      Primer ulazne datoteke ``timovi-stdinout.txt``:
+
+      .. literalinclude:: timovi-stdinout.txt
+         :language: none
+
+      Ispis programa na standardnom izlazu:
+
+      .. literalinclude:: ispis-programa-stdinout.txt
+         :language: none
