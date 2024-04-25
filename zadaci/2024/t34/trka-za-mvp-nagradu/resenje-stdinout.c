@@ -17,58 +17,30 @@ typedef struct igrac_st {
     double efikasnost;
 } IGRAC;
 
+void ucitaj_igrace(IGRAC *, int *);
 void ispisi_igrace(IGRAC *, int, double);
 void sracunaj_efikasnosti(IGRAC *, int);
 void sortiraj_igrace(IGRAC *, int);
 void obradi_imena(IGRAC *, int, int);
 double sracunaj_prosek(IGRAC *, int);
 
-
-FILE* otvori(char *ime, char *mode){
-  FILE* fp = fopen(ime, mode);
-  
-  if(fp==NULL) {
-    printf("Doslo je do greske prilikom otvaranja datoteke %s",
-    ime);
-    exit(EXIT_FAILURE);
-  }
-  return fp;
-
-}
-
-int ucitaj(FILE* in, IGRAC* igraci) {
-  int i = 0;
-  
-  while(fscanf(in, "%s %d %d %d %d",
-            igraci[i].ime,
-            &igraci[i].poena,
-            &igraci[i].skokova,
-            &igraci[i].asistencija,
-            &igraci[i].utakmica)!=EOF) {
-    i++;
-  }
-  return i;
-
-}
-
 int main(int argc, char **argv) {
     IGRAC igraci[MAX_IGRACA];
     int n;
 
-    if(argc != 3) {
-        printf("Primer poziva programa: %s igraci_input_data.txt 50\n", argv[0]);
+    if(argc != 2) {
+        printf("Primer poziva programa: %s 50\n", argv[0]);
         exit(1);
     }
-    FILE *in = otvori(argv[1], "r");
-    n = ucitaj(in, igraci);
+
+    ucitaj_igrace(igraci, &n);
     sracunaj_efikasnosti(igraci, n);
     double prosek_efikasnosti = sracunaj_prosek(igraci, n);
-    int min_broj_utakmica = atoi(argv[2]);
+    int min_broj_utakmica = atoi(argv[1]);
     sortiraj_igrace(igraci,n);
     obradi_imena(igraci,n, min_broj_utakmica);
     ispisi_igrace(igraci, n, prosek_efikasnosti);
     printf("\nProsecna efikasnost igraca je: %.2lf\n", prosek_efikasnosti);
-    fclose(in);
     return 0;
 }
 
@@ -131,6 +103,25 @@ double sracunaj_prosek(IGRAC *igraci, int n) {
     }
     
     return suma/n;
+}
+
+void ucitaj_igrace(IGRAC *igraci, int *pn) {
+    int i;
+
+    do
+    {
+        scanf("%d", pn);
+    } while (*pn <= 0 || *pn > MAX_IGRACA);
+
+    for (i = 0;i < *pn;i++)
+    {
+        scanf("%s %d %d %d %d",
+            igraci[i].ime,
+            &igraci[i].poena,
+            &igraci[i].skokova,
+            &igraci[i].asistencija,
+            &igraci[i].utakmica);
+    }
 }
 
 void ispisi_igrace(IGRAC *igraci, int n, double prosek) {

@@ -33,26 +33,42 @@ Ispis igrača formatirati na sledeći način:
 A na sam kraj ispisati koja je prosečna efikasnost svih igrača.
 
 U slučaju nedovoljnog ili suvišnog broja argumenata komandne linije, izaći iz programa sa status kodom ``1`` (``EXIT_FAILURE``).
+ 
+.. tabs::
 
-Primer poziva programa:
+  .. group-tab:: Datoteke
 
-.. code-block:: bash
+      Primer poziva:
 
-  ./a.out 72 < igraci_input_data.txt
+      .. code:: bash
 
+         ./a.out igraci_input_data.txt 72
 
+      Primer ulazne datoteke ``igraci_input_data.txt``:
 
-Primer ulazne datoteke ``igraci_input_data.txt``:
-
-
-.. literalinclude:: igraci.txt
-   :language: none
-   
-
-Ispis programa na standardnom izlazu:
+      .. literalinclude:: igraci.txt
+         :language: none
 
 
-.. literalinclude:: ispis-programa.txt
-   :language: none
-   
+      i očekivanim izlazom na terminalu:
 
+      .. literalinclude:: ispis-programa.txt
+         :language: none
+
+  .. group-tab:: Standardni ulaz/izlaz
+  
+      Primer poziva:
+      
+      .. code-block:: bash
+
+         ./a.out 72 < igraci_input_data.txt
+
+      Primer ulazne datoteke ``igraci_input_data.txt``:
+
+      .. literalinclude:: igraci-stdinout.txt
+         :language: none
+
+      i očekivanim izlazom na terminalu:
+
+      .. literalinclude:: ispis-programa.txt
+         :language: none
