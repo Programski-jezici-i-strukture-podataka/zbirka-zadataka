@@ -1,8 +1,0 @@
-FILE *safe_fopen(char *ime, char *rezim, int kod_greske) {
-	FILE *pf = fopen(ime, rezim);
-	if(pf == NULL) {
-		printf("Datoteku %s nije moguce otvoriti.\n", ime);
-		exit(kod_greske);
-	}
-	return pf;
-}
