@@ -42,17 +42,21 @@ U slučaju nedovoljnog ili suvišnog broja argumenata komandne linije, izaći iz
 
       .. code:: bash
 
-         ./a.out igraci_input_data.txt 72
+         ./a.out igraci_input_data.txt igraci_output_data.txt 72
 
       Primer ulazne datoteke ``igraci_input_data.txt``:
 
       .. literalinclude:: igraci.txt
          :language: none
 
+      Primer izlazne datoteke ``igraci_output_data.txt``:
+
+      .. literalinclude:: igraci_output_file.txt
+         :language: none
 
       i očekivanim izlazom na terminalu:
 
-      .. literalinclude:: ispis-programa.txt
+      .. literalinclude:: ispis-programa_efikasnost.txt
          :language: none
 
   .. group-tab:: Standardni ulaz/izlaz

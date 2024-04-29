@@ -8,7 +8,8 @@
 
 #define MAX_IGRACA 20
 
-typedef struct igrac_st {
+typedef struct igrac_st
+{
     char ime[MAX_IME];
     int poena;
     int skokova;
@@ -24,11 +25,13 @@ void sortiraj_igrace(IGRAC *, int);
 void obradi_imena(IGRAC *, int, int);
 double sracunaj_prosek(IGRAC *, int);
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     IGRAC igraci[MAX_IGRACA];
     int n;
 
-    if(argc != 2) {
+    if(argc != 2)
+    {
         printf("Primer poziva programa: %s 50\n", argv[0]);
         exit(1);
     }
@@ -44,7 +47,8 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void obradi_imena(IGRAC *igraci,int n, int min_broj_utakmica) {
+void obradi_imena(IGRAC *igraci,int n, int min_broj_utakmica)
+{
     int i;
     bool najbolji_dodeljen = false;
     for (i = 0;i < n;i++)
@@ -64,7 +68,8 @@ void obradi_imena(IGRAC *igraci,int n, int min_broj_utakmica) {
     }
 }
 
-void sortiraj_igrace(IGRAC *igraci,int n) {
+void sortiraj_igrace(IGRAC *igraci,int n)
+{
     IGRAC tmp;
     int i, j, min_idx;
     for(i = 0;i < n - 1;i++)
@@ -86,7 +91,8 @@ void sortiraj_igrace(IGRAC *igraci,int n) {
     }
 }
 
-void sracunaj_efikasnosti(IGRAC *igraci,int n) {
+void sracunaj_efikasnosti(IGRAC *igraci,int n)
+{
     int i;
     for (i = 0;i < n;i++)
     {   
@@ -94,7 +100,8 @@ void sracunaj_efikasnosti(IGRAC *igraci,int n) {
     }
 }
 
-double sracunaj_prosek(IGRAC *igraci, int n) {
+double sracunaj_prosek(IGRAC *igraci, int n)
+{
     int i;
     double suma = 0;
     for (i = 0;i < n;i++)
@@ -105,7 +112,8 @@ double sracunaj_prosek(IGRAC *igraci, int n) {
     return suma/n;
 }
 
-void ucitaj_igrace(IGRAC *igraci, int *pn) {
+void ucitaj_igrace(IGRAC *igraci, int *pn)
+{
     int i;
 
     do
@@ -124,9 +132,11 @@ void ucitaj_igrace(IGRAC *igraci, int *pn) {
     }
 }
 
-void ispisi_igrace(IGRAC *igraci, int n, double prosek) {
+void ispisi_igrace(IGRAC *igraci, int n, double prosek)
+{
     int i;
-    for(i = 0;i < n;i++) {
+    for(i = 0;i < n;i++) 
+    {
         printf("%12s %10d %10d %10d %10d %10.2lf",
         igraci[i].ime,
         igraci[i].poena,

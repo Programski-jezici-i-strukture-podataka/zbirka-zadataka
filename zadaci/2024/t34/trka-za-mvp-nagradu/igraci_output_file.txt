@@ -4,5 +4,3 @@
    LeBron(-)       1822        518        589         71      41.25
       Durant       2032        495        378         75      38.73
        Curry       1956        330        379         74      36.01
-
-Prosecna efikasnost igraca je: 44.66
