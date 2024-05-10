@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX_IME 15
+#define MAX_IME 16
 
 #define MAX_IGRACA 20
 
@@ -71,6 +71,7 @@ int main(int argc, char **argv)
     ispisi_igrace(out, igraci, n, prosek_efikasnosti);
     printf("Prosecna efikasnost igraca je: %.2lf\n", prosek_efikasnosti);
     fclose(in);
+    fclose(out);
     return 0;
 }
 
