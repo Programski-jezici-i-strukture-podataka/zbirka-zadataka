@@ -1,0 +1,5 @@
+Argentina 45 2.796
+Brazil 216 8.51
+Urugvaj 3 0.173
+Peru 34 1.285
+Kolumbija 52 1.142

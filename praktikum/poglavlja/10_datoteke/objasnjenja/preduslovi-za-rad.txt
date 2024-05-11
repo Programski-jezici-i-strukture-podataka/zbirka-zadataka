@@ -1,0 +1,4 @@
+Poznavanje funkcija
+Poznavanje struktura
+Poznavanje rada sa standardnim ulazom/izlazom
+Poznavanje argumenata komandne linije
