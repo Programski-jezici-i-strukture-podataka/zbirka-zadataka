@@ -1,0 +1,6 @@
+Niz 52 n
+Binarno_stablo_pretrage 72 log
+Jednostruko_spregnuta_lista 64 n
+Hes_tabela 64 1
+Dvostruko_spregnuta_lista 72 n
+AVL_stablo 80 log

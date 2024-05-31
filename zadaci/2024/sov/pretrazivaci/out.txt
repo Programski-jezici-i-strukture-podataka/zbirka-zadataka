@@ -1,0 +1,6 @@
+Chrome 3.60
+Internet_Explorer 1.30
+Firefox 1.12
+Safari 0.45
+Opera 0.26
+Edge 0.15
