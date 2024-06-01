@@ -90,41 +90,27 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 </pre></div>
 </div>
 <p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">paste-stdinout.txt</span></code>:</p>
-<p>#if PDF
-.. code-block:: txt</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">include</dt>
-<dd class="field-odd"><p>paste-stdinout.txt</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>#elif HTML
-.. literalinclude:: paste-stdinout.txt</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">language</dt>
-<dd class="field-odd"><p>none</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>#endif</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
+Naturokosmetik 199.99 50 da
+Sensodyne 769.99 150 ne
+Paradontax_Ultra_Clean 599.99 150 ne
+Curapox_Enzycal 789.99 75 ne
+Dontodent_Kids 119.00 100 da
+Colgate_Max_Fresh 419.99 125 ne
+</pre></div>
+</div>
 <p>Ispis programa na standardnom izlazu:</p>
-<p>#if PDF
-.. raw:: pdf</p>
-<blockquote>
-<div><p>Spacer 0, 20</p>
-</div></blockquote>
-<p>#elif HTML
-.. literalinclude:: ispis-programa-stdinout.txt</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">language</dt>
-<dd class="field-odd"><p>none</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>#endif</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Prosecna pasta za zube kosta: 483.16 dinara.
+Paste za zube od bar 100ml: Sensodyne Paradontax_Ultra_Clean Colgate_Max_Fresh
+Najjefinija od njih je: Colgate_Max_Fresh!
+NATUROKOSMETIK za decu
+SENSODYNE
+PARADONTAX ULTRA CLEAN
+CURAPOX ENZYCAL
+DONTODENT KIDS za decu
+COLGATE MAX FRESH
+</pre></div>
+</div>
 
 
           </div>
