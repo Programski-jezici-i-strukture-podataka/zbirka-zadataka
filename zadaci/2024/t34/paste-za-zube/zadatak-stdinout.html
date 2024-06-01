@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Dat je niz od maksimalno 20 pasti za zube. Učitati n pasti ako su opisane sledećim podacima:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">naziv</span></code> (jedna reč, do 30 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cena</span></code> (u dinarima, realna vrednost)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">velicina</span></code> (u ml, celobrojna vrednost)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decija</span></code> (jedna reč, do 2 karaktera, &quot;da&quot; ili &quot;ne&quot;)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pun_naziv</span></code> (više reči, određeno opisom u zadatku)</p></li>
+</ul>
+<p>Ispisati prosečnu cenu paste za zube. Ispisati sve nazive pasta za zube veće od veličine zadate argumentom komandne linije, potom ispisati naziv najjeftinije od njih. Polje <code class="docutils literal notranslate"><span class="pre">pun_naziv</span></code> popuniti nazivima pasti takvim da su sva slova izmenjena u velika, znak <code class="docutils literal notranslate"><span class="pre">_</span></code> zamenjen razmakom, a u slučaju da je pasta dečija na kraju naziva dodato <code class="docutils literal notranslate"><span class="pre">za</span> <span class="pre">decu</span></code>.</p>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>Ako nije pronađena pasta za zube veličine veće od unete argumentima komandne linije, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">100</span><span class="w"> </span>&lt;<span class="w"> </span>paste-stdinout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">paste-stdinout.txt</span></code>:</p>
+<p>#if PDF
+.. code-block:: txt</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">include</dt>
+<dd class="field-odd"><p>paste-stdinout.txt</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>#elif HTML
+.. literalinclude:: paste-stdinout.txt</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">language</dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>#endif</p>
+<p>Ispis programa na standardnom izlazu:</p>
+<p>#if PDF
+.. raw:: pdf</p>
+<blockquote>
+<div><p>Spacer 0, 20</p>
+</div></blockquote>
+<p>#elif HTML
+.. literalinclude:: ispis-programa-stdinout.txt</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">language</dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>#endif</p>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../praktikum/index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2024/t34/paste-za-zube/zadatak-stdinout.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
