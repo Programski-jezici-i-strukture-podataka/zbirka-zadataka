@@ -35,4 +35,3 @@ Izlazna datoteka:
 
 .. literalinclude:: sredjeni-nazivi.txt
    :language: none
-

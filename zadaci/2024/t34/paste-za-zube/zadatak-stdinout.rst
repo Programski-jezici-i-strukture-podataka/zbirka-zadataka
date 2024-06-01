@@ -29,4 +29,3 @@ Ispis programa na standardnom izlazu:
 
 .. literalinclude:: ispis-programa-stdinout.txt
    :language: none
-
