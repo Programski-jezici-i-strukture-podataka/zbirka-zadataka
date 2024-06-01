@@ -1,0 +1,7 @@
+6
+Kapricoza 739.99 32 ne
+Madjarica 800.00 32 ne
+Margarita 350.00 24 da
+Mediteran 1529.99 50 ne
+Tuna 1350.00 52 ne
+Vegetarijana 379.99 24 da

@@ -1,0 +1,6 @@
+Niz 50.78kB
+Binarno_stablo_pretrage 70.31kB
+Jednostruko_spregnuta_lista 62.50kB
+Hes_tabela 62.50kB
+Dvostruko_spregnuta_lista 70.31kB
+AVL_stablo 78.12kB

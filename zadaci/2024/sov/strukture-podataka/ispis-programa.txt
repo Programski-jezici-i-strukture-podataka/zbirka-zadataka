@@ -1,0 +1,7 @@
+Prosecno vreme pretrage:
+Niz - 5000 ns
+Binarno_stablo_pretrage - 34.54 ns
+Jednostruko_spregnuta_lista - 5000 ns
+Hes_tabela - 5 ns
+Dvostruko_spregnuta_lista - 5000 ns
+AVL_stablo - 34.54 ns

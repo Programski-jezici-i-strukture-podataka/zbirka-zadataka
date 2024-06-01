@@ -1,0 +1,6 @@
+Chrome 6.04 51.72 68.91
+Internet_Explorer 55.25 21.16 4.45
+Firefox 31.64 18.7 9.25
+Safari 3.76 4.94 8.68
+Opera 3.31 3.48 4.2
+Edge 0 0 4.51
