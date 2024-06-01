@@ -22,26 +22,10 @@ Primer poziva programa:
 
 Primer ulazne datoteke ``paste-stdinout.txt``:
 
-#if PDF
-.. code-block:: txt
-   :include: paste-stdinout.txt
-#elif HTML
 .. literalinclude:: paste-stdinout.txt
    :language: none
-#endif
 
 Ispis programa na standardnom izlazu:
 
-#if PDF
-.. raw:: pdf
-
-  Spacer 0, 20
-
-.. code-block:: txt
-   :include: ispis-programa-stdinout.txt
-
-#elif HTML
 .. literalinclude:: ispis-programa-stdinout.txt
    :language: none
-#endif
-

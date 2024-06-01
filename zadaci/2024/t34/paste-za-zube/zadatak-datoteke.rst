@@ -33,6 +33,5 @@ Ispis programa na standardnom izlazu:
 
 Izlazna datoteka:
 
-.. literalinclude:: sredjeni_nazivi.txt
+.. literalinclude:: sredjeni-nazivi.txt
    :language: none
-
