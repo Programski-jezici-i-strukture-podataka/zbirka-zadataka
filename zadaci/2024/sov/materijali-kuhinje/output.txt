@@ -1,0 +1,8 @@
+        Drvo          Oak        22.20$        77.70$
+        Drvo        Birch        24.00$        84.00$
+       Kvarc        Beige        44.00$       154.00$
+      Mermer        White        55.50$       194.25$
+       Kvarc       Arctic        58.00$       203.00$
+      Mermer        Green        70.00$       245.00$
+
+Materijal kategorije Drvo najblizi zeljenoj vrednosti je Oak
