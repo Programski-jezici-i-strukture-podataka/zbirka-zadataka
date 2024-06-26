@@ -1,0 +1,8 @@
+Unesite duzinu niza: 3
+a[0] = 7
+a[1] = 2
+a[2] = 9
+Uneti niz je:
+a[0] = 7
+a[1] = 2
+a[2] = 9
