@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX_IME 15
+#define MAX_IME 16
 
 #define MAX_IGRACA 20
 
