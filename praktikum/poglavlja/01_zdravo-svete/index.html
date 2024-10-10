@@ -52,6 +52,8 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="../../../_static/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+    <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#FF851B", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "sr"});</script>
     <link rel="index" title="Indeks" href="../../../genindex.html" />
     <link rel="search" title="Pretraga" href="../../../search.html" />
     <link rel="next" title="2. Naredbe selekcije" href="../02_naredbe-selekcije/index.html" />
@@ -240,7 +242,7 @@ Da bi one bile dostupne u programu, potrebno je uključiti zaglavlje gde su one 
 <span class="linenos"> 7</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite prvi broj: &quot;</span><span class="p">);</span>
 <span class="linenos"> 8</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">prvi_broj</span><span class="p">);</span>
 <span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite prvi broj: &quot;</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite drugi broj: &quot;</span><span class="p">);</span>
 <span class="linenos">11</span><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">drugi_broj</span><span class="p">);</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="w">    </span><span class="n">zbir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prvi_broj</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">drugi_broj</span><span class="p">;</span>
@@ -269,7 +271,76 @@ Ukoliko se to ne učini, ponašanje programa će biti nepredvidivo.
 </div>
 <p>Iz svih ovih razloga navedenih u napomeni iznad, prvo deklarišemo promenljive <code class="docutils literal notranslate"><span class="pre">prvi_broj</span></code>, <code class="docutils literal notranslate"><span class="pre">drugi_broj</span></code> i <code class="docutils literal notranslate"><span class="pre">zbir</span></code>.
 Zatim unosimo vrednosti sa tastature u prve dve promenljive i pre ispisa, postavljamo vrednost promenljive zbir.</p>
-</section>
+<div class="quizdown">## Šta će se dogoditi ako ukucamo ```cd pjisp``` u terminalu?
+
+1. [x] Ući ćemo u direktorijum pjisp, ukoliko on postoji u direktorijumu gde se trenutno nalazimo
+1. [ ] Izlistaće se sve datoteke koje sadrže u svom imenu &quot;pjisp&quot;
+   &gt; Za ovakve stvari se koristi komanda ``ls``, na primer ``ls *pjisp*`` će izlistati sve datoteke i direktorijume u trenutnom direktorijumu koje sadrže u sebi &quot;pjisp&quot;
+1. [ ] Napraviće se direktorijum pjisp ako ne postoji i ući će se u njega
+   &gt; Komanda za pravljenje direktorijuma je ``mkdir`` (skraćeno od &quot;make directory), a ``cd`` za promenu direktorijuma (skraćeno od ``change directory``)
+1. [ ] Napraviće se datoteka sa imenom &quot;pjisp&quot;
+   &gt; Za ovo se koristi komanda ``touch pjisp``, odnosno, napraviće praznu datoteku sa tim imenom, ukoliko već ne postoji
+
+## Šta je minimalno potrebno da bi se napisani izvorni kod u programskom jeziku C smatrao izvršnim programom?
+
+1. [x] Postojanje pravilno napisane ``main`` funkcije u izvornom kodu
+1. [ ] Dovoljno je da se napiše bilo kakva naredba koja pripada C programskom jeziku
+   &gt; Izvorni kod bez ``main`` funkcije je biblioteka, koja može biti uključena u druge C programe
+1. [ ] Barem jedna ``#include`` direktiva
+   &gt; Include direktiva nam služi da možemo da koristimo već napisane funkcionalnosti kako mi ne bismo morali da ih pišemo od nule (npr. funkcija za štampanje na ekran terminala, printf)
+1. [ ] Sintaksno tačno napisan izvorni kod
+   &gt; Izvorni kod bez ``main`` funkcije je biblioteka, koja može biti uključena u druge C programe
+
+## Kako računar &quot;razume&quot;, odnosno, može da izvrši kod napisan u programskom jeziku C?
+
+1. [x] Prevođenjem izvornog koda iz tekstualnog oblika u izvršnu datoteku pomoću programa koji se naziva kompajler
+1. [ ] Uz pomoć posebnog programa koji se naziva interpreter, bez dodatnog prevođenja
+   &gt; Za čitavu klasu programskih jezika (npr. Pajton) ovo je tačna izjava, ali C se prevodi u binarni oblik pomoću kompajlera pre izvršavanja
+1. [ ] Računar direktno razume i izvršava komadne iz datoteke sa izvornim kodom
+   &gt; Ovo nije moguće ni za jedan programski jezik, računar razume samo &quot;nule i jedinice&quot;
+1. [ ] Pomoću terminala
+   &gt; Terminal nam samo pomaže da pokrenemo naš program, ništa više
+
+## Poređaj gradivne elemente programa koji ispisuje &quot;Zdravo svete&quot; u redosledu u kom se pišu u datoteci sa izvornim kodom:
+
+1. #include &lt;stdio.h&gt;
+2. int main()
+3. {
+4. printf(&quot;Zdravo, svete!\n&quot;);
+5. return 0;
+6. }
+
+## Da li je sledeći kod sintaksno tačan i šta će se ispisati?
+
+```c
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int prvi_broj, drugi_broj, proizvod;
+
+    proizvod = prvi_broj * drugi_broj;
+
+    printf(&quot;Unesite prvi broj: &quot;);
+    scanf(&quot;%d&quot;, &amp;prvi_broj);
+
+    printf(&quot;Unesite drugi broj: &quot;);
+    scanf(&quot;%d&quot;, &amp;drugi_broj);
+
+    printf(&quot;Proizvod unetih brojeva je: %d\n&quot;, proizvod);
+
+    return 0;
+}
+```
+
+1. [x] Jeste, ali njegovo ponašanje je nedefinisano
+   &gt;  Ponašanje je nedefinisano, jer u artimetičkom izrazu učestvuju promenljive bez prethodno dodeljene vrednosti
+1. [ ] Sintaksno je tačan, program množi dva broja i ispisuje rezultat
+   &gt; Ovo bi bilo tačno, da množenje ide nakon što su ``prvi_broj`` i ``drugi_broj`` dobili vrednost (posle ``scanf`` naredbi)
+1. [ ] Program je sintaksno netačan
+   &gt; Kompajlirati program. Ukoliko ``gcc`` naredba ne pokaže nikakav ispis i napravi datoteku ``./a.out``, program je sintaksno tačan
+1. [ ] Sintaksno je tačan, ali će se preskočiti unos brojeva prilikom izvršavanja
+   &gt; Ovo nije tačno, jer se sve naredbe izvršavaju redom u ``main`` funkciji, ovako kako je program napisan</div></section>
 </section>
 
 
