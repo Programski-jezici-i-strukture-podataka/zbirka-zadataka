@@ -7,7 +7,7 @@ int main()
     printf("Unesite prvi broj: ");
     scanf("%d", &prvi_broj);
 
-    printf("Unesite prvi broj: ");
+    printf("Unesite drugi broj: ");
     scanf("%d", &drugi_broj);
 
     zbir = prvi_broj + drugi_broj;
