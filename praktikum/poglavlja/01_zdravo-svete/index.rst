@@ -168,3 +168,5 @@ Napomena:
 
 Iz svih ovih razloga navedenih u napomeni iznad, prvo deklarišemo promenljive ``prvi_broj``, ``drugi_broj`` i ``zbir``.
 Zatim unosimo vrednosti sa tastature u prve dve promenljive i pre ispisa, postavljamo vrednost promenljive zbir.
+
+.. quizdown:: kviz.md

@@ -32,6 +32,7 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_tabs.tabs",
+    'sphinxcontrib.quizdown',
 ]
 
 # utterances configuration (comments provider)
@@ -40,6 +41,18 @@ comments_config = {
       "repo": "Programski-jezici-i-strukture-podataka/zbirka-zadataka",
       "optional": "config",
    }
+}
+
+# global options passed to the quizdown library
+quizdown_config = {
+    'quizdown_js': 'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js', # quizdown javascript
+    'start_on_load': True,			# detect and convert all divs with class quizdown
+    'shuffle_answers': True,		# shuffle answers for each question
+    'shuffle_questions': False,     # shuffle questsions for each quiz
+    'primary_color': '#FF851B',     # primary CSS color
+    'secondary_color': '#DDDDDD',   # secondary CSS color
+    'text_color': 'black',          # text color of interactive elements
+    'locale': 'sr'                  # language of text in user interface
 }
 
 # Add any paths that contain templates here, relative to this directory.
