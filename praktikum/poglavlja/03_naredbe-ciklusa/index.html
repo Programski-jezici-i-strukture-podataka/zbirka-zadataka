@@ -301,6 +301,86 @@ je vrednost promenljive 7 izlazi se iz petlje. Ispis programa je tada:</p>
 </pre></div>
 </div>
 </section>
+<section id="proveri-svoje-znanje">
+<h2><span class="section-number">3.5. </span>Proveri svoje znanje<a class="headerlink" href="#proveri-svoje-znanje" title="Permalink to this headline">¶</a></h2>
+<div class="quizdown">## Razlika između naredbi selekcije i naredbi ciklusa je?
+
+1. [x] Kod naredbi selekcije će biti izabran deo koda koji će se izvršiti, dok naredbe ciklusa imaju mogućnost izvršavanja određenog koda više puta
+1. [ ] Naredbe selekcije biraju kod koji se izvršava, dok naredbe ciklusa ne utiču na redosled naredbi tokom izvršavanja programa
+1. [ ] Naredbe ciklusa biraju kod koji se izvršava, dok naredbe selekcije izvršavaju određeni kod više puta
+1. [ ] Razlika je isključivo u korišćenim ključnim rečima, u ponašanju nema znatnih razlika
+
+## Kako bi glasila naredba u programskom jeziku C &quot;dok je vrednost a veća od 0 i vrednost suma je manja od 50&quot;?
+
+1. [x] ``while (a &gt; 0 &amp;&amp; suma &lt; 50)``
+    &gt; while -&gt; &quot;dok&quot;, a &gt; 0 -&gt; &quot;vrednost a veća od 0&quot;, &amp;&amp; -&gt; logičko &quot;I&quot;, suma &lt; 50 -&gt; &quot;suma je manja od 50&quot;
+1. [ ] ``if (a &gt; 0 &amp;&amp; suma &lt; 50)``
+    &gt; Iako je sintaksno tačno, ne zadovoljava rečenicu jer ona ukazuje na potrebno ponavljanje u naredbi.
+1. [ ] ``for (a = 0; a &gt; 0 || suma &lt; 50; a++)``
+    &gt; Ova naredba nije dobra iz više razloga. Prvi je zato što a počinje od 0, što znači da odmah ne bi bila tačna i ciklus se ne bi nijednom izvršio, da je ostatak napisan kako treba. Drugi problem je što je napisano logičko &quot;ILI&quot; umesto &quot;I&quot; u izrazu.
+1. [ ] ``switch (a &gt; 0 &amp;&amp; suma &lt; 50)``
+    &gt; Sintaksno nije tačno, izraz u switch naredbi mora biti konstantan. Switch takođe nije naredba ciklusa, nego selekcije.
+
+## Koja će biti vrednost promenljive broj ako je početna 16, odnosno 12?
+
+```c
+#include &lt;stdio.h&gt;
+
+int main()
+{
+   int broj;
+
+   printf(&quot;Unesite broj: &quot;);
+   scanf(&quot;%d&quot;, &amp;broj);
+
+   while(broj / 2 != 0)
+   {
+      if(broj % 3 == 0)
+      {
+         break;
+      }
+
+      broj /= 2;
+   }
+
+   printf(&quot;Broj%d\n&quot;, broj);
+
+   return 0;
+}
+```
+
+1. [x] ``1 i 12``
+    &gt; Za broj 16, ``while`` ciklus će se izvršavati dokle god je deljivo sa 2 (8, 4, 2), a za 12 će odmah ispasti iz ``while`` ciklusa, jer je deljivo sa 3
+1. [ ] ``16 i 12``
+1. [ ] ``1 i 1``
+1. [ ] ``1 i 6``
+
+## Koji izraz je potrebno da do-while naredba sadrži kako bi korisnik morao isključivo da unese neparan broj deljiv sa 7?
+
+```c
+#include &lt;stdio.h&gt;
+
+int main()
+{
+   int broj;
+
+   do
+   {
+      printf(&quot;Unesite broj: &quot;);
+      scanf(&quot;%d&quot;, &amp;broj);
+   } while(&lt;izraz&gt;);
+
+    return 0;
+}
+```
+
+1. [x] ``broj % 2 == 0 || broj % 7 != 0``
+1. [ ] ``broj % 2 == 0 &amp;&amp; broj % 7 != 0``
+    &gt; Ovaj izraz će pustiti korisnika za svaki neparan broj koji nije deljiv sa 7 (3, 5, 9 itd.), što ne bi smelo da se desi.
+1. [ ] ``broj % 2 != 0 &amp;&amp; broj % 7 == 0``
+    &gt; Ovaj izraz će vratiti korisnika za brojeve 14, 28 itd, odnosno parne deljive sa 7, ali će pustiti za 7 i 21 itd, odnosno neparne deljive sa 7, jer će u tom slučaju izraz biti logički netačan.
+1. [ ] ``broj % 2 != 0 || broj % 7 != 0``
+    &gt; Ovaj izraz će pustiti korisnika ukoliko je broj paran i deljiv sa 7, što nije ono što je traženo.</div></section>
 </section>
 
 

@@ -130,3 +130,7 @@ je vrednost promenljive 7 izlazi se iz petlje. Ispis programa je tada:
 .. literalinclude:: primeri/break_continue-ispis.txt
    :language: none
 
+Proveri svoje znanje
+--------------------
+
+.. quizdown:: kviz.md
