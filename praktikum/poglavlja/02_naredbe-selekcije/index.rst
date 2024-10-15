@@ -206,3 +206,8 @@ Ukoliko je vrednost promenljive dan 1, ispisaće se ``Ponedeljak``, ukoliko je 2
 
   .. literalinclude:: primeri/switch-case-ispis.txt
      :language: none
+
+Proveri svoje znanje
+--------------------
+
+.. quizdown:: kviz.md
