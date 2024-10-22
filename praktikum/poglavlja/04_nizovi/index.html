@@ -233,8 +233,72 @@ Srednja vrednost vrednosti iz niza je: 4.40
 </pre></div>
 </div>
 </section>
+<section id="trazenje-minimalnog-maksimalnog-elementa-u-nizu">
+<h2><span class="section-number">4.3. </span>Traženje minimalnog/maksimalnog elementa u nizu<a class="headerlink" href="#trazenje-minimalnog-maksimalnog-elementa-u-nizu" title="Permalink to this headline">¶</a></h2>
+<p>Često je neophodno pronaći vrednost najmanjeg, odnosno, najvećeg člana u nizu.
+Kako je prethodno navedeno, u programskom jeziku C nije moguće odjednom pristupiti svim članovima i pronaći među njima najveći/najmanji element.</p>
+<p>Algoritam je sledeći:</p>
+<ol class="arabic simple">
+<li><p>Pretpostaviti da je neki od članova niza njegov najveći/najmanji element, tako što se njegova vrednost sačuva u posebnu promenljivu (uglavnom se bira vrednost prvog člana niza)</p></li>
+<li><p>Izabrati naredni član niza (uglavnom se ide redom, drugi, treći, četvrti itd.)</p></li>
+<li><p>Uporediti ga sa vrednošću promenljive koja trenutno glasi kao najveća/najmanja</p></li>
+<li><p>Ukoliko je trenutni član niza veći/manji od vrednosti iz prethodnog koraka, postaviti vrednost člana niza kao novu najveću/najmanju vrednost</p></li>
+<li><p>Vratiti se na korak 2. i ponoviti postupak dokle god ima neobrađenih članova niza</p></li>
+</ol>
+<p>Izvršavanje navedenih koraka garantuje da će se nakon prolaska kroz čitav niz, odnosno, obradu svih njegovih članova u promenljivoj koja je namenjena za to naći vrednost najvećeg/najmanjeg elementa.
+Ovaj algoritam primenljiv je na nizove čiji elementi nisu prethodno uređeni po vrednosti (u rastućem ili opadajućem redosledu).</p>
+<p>Primer koji traži maksimalnu vrednost u nizu:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#define MAX_SIZE 30</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">do</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unesite broj elemenata niza: &quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">    </span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;niz[%d]: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos">25</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">26</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maks</span><span class="p">)</span>
+<span class="linenos">27</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">28</span><span class="w">            </span><span class="n">maks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">29</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">30</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Maksimalna vrednost niza je: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">maks</span><span class="p">);</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">35</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ispis programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj elemenata niza: 5
+niz[0]: 4
+niz[1]: 2
+niz[2]: 7
+niz[3]: 1
+niz[4]: 3
+Maksimalna vrednost niza je: 7
+</pre></div>
+</div>
+<p>Za traženje minimalne vrednosti u nizu potrebno je obrnuti samo smer relacionog operatora u <code class="docutils literal notranslate"><span class="pre">if</span></code> naredbi.</p>
+</section>
 <section id="sortiranje-nizova">
-<h2><span class="section-number">4.3. </span>Sortiranje nizova<a class="headerlink" href="#sortiranje-nizova" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Sortiranje nizova<a class="headerlink" href="#sortiranje-nizova" title="Permalink to this headline">¶</a></h2>
 <p>Sortiranje niza predstavlja uređenje njegovih elemenata tako da oni budu u rastućem ili opadajućem redosledu.
 Postoji mnoštvo algoritama za sortiranje niza. Ovde će biti prikazana dva, Bubble Sort i Selection Sort.
 Kod za učitavanje elemenata niza i njihov ispis je izostavljen radi akcenta na samim algoritmima.</p>
