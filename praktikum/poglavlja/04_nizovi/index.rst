@@ -97,6 +97,35 @@ Ispis programa:
 .. literalinclude:: primeri/srednja-vrednost-niza-ispis.txt
    :language: none
 
+Traženje minimalnog/maksimalnog elementa u nizu
+-----------------------------------------------
+
+Često je neophodno pronaći vrednost najmanjeg, odnosno, najvećeg člana u nizu.
+Kako je prethodno navedeno, u programskom jeziku C nije moguće odjednom pristupiti svim članovima i pronaći među njima najveći/najmanji element.
+
+Algoritam je sledeći:
+
+1. Pretpostaviti da je neki od članova niza njegov najveći/najmanji element, tako što se njegova vrednost sačuva u posebnu promenljivu (uglavnom se bira vrednost prvog člana niza)
+2. Izabrati naredni član niza (uglavnom se ide redom, drugi, treći, četvrti itd.)
+3. Uporediti ga sa vrednošću promenljive koja trenutno glasi kao najveća/najmanja
+4. Ukoliko je trenutni član niza veći/manji od vrednosti iz prethodnog koraka, postaviti vrednost člana niza kao novu najveću/najmanju vrednost
+5. Vratiti se na korak 2. i ponoviti postupak dokle god ima neobrađenih članova niza
+
+Izvršavanje navedenih koraka garantuje da će se nakon prolaska kroz čitav niz, odnosno, obradu svih njegovih članova u promenljivoj koja je namenjena za to naći vrednost najvećeg/najmanjeg elementa.
+Ovaj algoritam primenljiv je na nizove čiji elementi nisu prethodno uređeni po vrednosti (u rastućem ili opadajućem redosledu).
+
+Primer koji traži maksimalnu vrednost u nizu:
+
+.. literalinclude:: primeri/maksimalna-vrednost-niza.c
+   :linenos:
+
+Ispis programa:
+
+.. literalinclude:: primeri/maksimalna-vrednost-niza-ispis.txt
+   :language: none
+
+Za traženje minimalne vrednosti u nizu potrebno je obrnuti samo smer relacionog operatora u ``if`` naredbi.
+
 Sortiranje nizova
 -----------------
 
