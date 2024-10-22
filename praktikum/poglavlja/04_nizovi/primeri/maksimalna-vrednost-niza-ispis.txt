@@ -1,0 +1,7 @@
+Unesite broj elemenata niza: 5
+niz[0]: 4
+niz[1]: 2
+niz[2]: 7
+niz[3]: 1
+niz[4]: 3
+Maksimalna vrednost niza je: 7
