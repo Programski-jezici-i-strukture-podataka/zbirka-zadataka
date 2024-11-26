@@ -26,7 +26,7 @@ Funkcija ``malloc`` se koristi za dinamičku alokaciju memorijskog bloka određe
 tipa ``void *``, koji se može pretvoriti u bilo koji pokazivač. Ne inicijalizuje zauzetu memoriju na početnu vrednost.
 Osnovna forma funkcije je::
 
-  void *malloc(``size_t`` size);
+  void *malloc(size_t size);
 
 gde ``size_t size`` predstavlja veličinu memorije koju će ``malloc`` pokušati da zauzme.
 
@@ -72,7 +72,7 @@ pokazivač tipa ``void *``, koji se može pretvoriti u bilo koji pokazivač. Uko
 sve bajtove u dodeljenoj memoriji na nulu. To znači da će svaka pozicija u memoriji biti postavljena na 0 (ili ``NULL`` u slučaju pointera).
 Osnovna forma funkcije je::
 
-  void *calloc(int n, ``size_t`` size);
+  void *calloc(int n, size_t size);
 
 gde ``size_t size`` predstavlja veličinu jednog memorijskog bloka, a n broj blokova koje će ``calloc`` pokušati da zauzme.
 
@@ -101,7 +101,7 @@ Ovaj pokazivač može biti isti kao prethodni ili može biti nova adresa u sluč
 moguće alocirati memoriju, ``realloc`` vraća NULL, a originalni blok memorije ostaje nepromenjen.
 Osnovna forma funkcije je::
 
-  void *realloc(void *ptr, ``size_t`` new_size);
+  void *realloc(void *ptr, size_t new_size);
 
 gde ``size_t new_size`` predstavlja novu veličinu memorije koju je potrebno zauzeti, a ``void *ptr`` pokazivač na prethodno zauzetu
 memoriju koju je potrebno smanjiti ili povećati.
