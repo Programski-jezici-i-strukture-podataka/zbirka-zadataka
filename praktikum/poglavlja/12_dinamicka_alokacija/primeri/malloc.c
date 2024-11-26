@@ -10,7 +10,7 @@ int main()
         printf("Unesite duzinu niza: ");
         scanf("%d", &n);
 
-    }while(n <= 0);
+    } while(n <= 0);
 
     a = (int *) malloc(n * sizeof(int));
 

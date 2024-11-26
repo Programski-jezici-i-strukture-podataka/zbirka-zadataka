@@ -10,7 +10,7 @@ int main()
         printf("Unesite duzinu niza: ");
         scanf("%d", &n);
 
-    }while(n <= 0);
+    } while(n <= 0);
 
     a = (int *) malloc(n * sizeof(int));
 
@@ -33,17 +33,24 @@ int main()
         printf("Unesite novu duzinu niza: ");
         scanf("%d", &m);
 
-    }while(m <= 0);
+    } while(m <= 0);
 
-    a = (int *) realloc(a, m * sizeof(int));
+    // Pokušaj da se poveća veličina niza koristeći realloc
+    void *tmp = (int *) realloc(a, m * sizeof(int));
 
-    if (a == NULL)
+    // Provera da li realloc nije uspeo
+    if (tmp == NULL)
     {
+        // Greška pri alokaciji, originalni blok je i dalje validan
+        free(a); // Oslobađanje prethodno alocirane memorije
         printf("Memorija se ne moze zauzeti.\n");
         exit(EXIT_FAILURE);
     }
 
-    if (m > n) 
+    // Ako realloc uspe, dodeljujemo novi pokazivač
+    a = (int *)tmp;
+
+    if (m > n)
     {
         for(int i = n; i < m; i++)
         {
