@@ -36,7 +36,7 @@ int main()
     } while(m <= 0);
 
     // Pokušaj da se poveća veličina niza koristeći realloc
-    void *tmp = (int *) realloc(a, m * sizeof(int));
+    int *tmp = (int *) realloc(a, m * sizeof(int));
 
     // Provera da li realloc nije uspeo
     if (tmp == NULL)
@@ -48,7 +48,7 @@ int main()
     }
 
     // Ako realloc uspe, dodeljujemo novi pokazivač
-    a = (int *)tmp;
+    a = tmp;
 
     if (m > n)
     {
