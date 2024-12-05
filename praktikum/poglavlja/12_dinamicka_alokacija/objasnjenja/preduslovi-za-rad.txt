@@ -1,0 +1,3 @@
+Poznavanje funkcija
+Poznavanje nizova
+Poznavanje pokazivača
