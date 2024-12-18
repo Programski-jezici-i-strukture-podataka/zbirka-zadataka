@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Napomene &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+    <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#FF851B", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "sr"});</script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Napisati program koji dekodira poruke napisane pomoću Morzeove abecede.
+Podaci su zadati u ulaznoj datoteci u sledećem formatu:</p>
+<ul class="simple">
+<li><p><cite>slovo</cite> (jedan karakter)</p></li>
+<li><p><cite>kod</cite> (jedna reč, do 5 karaktera)</p></li>
+</ul>
+<p>Učitati Morzeove kodove u statički niz, na osnovu kojih će se u izlaznu datoteku ispisati dekodirane reči.
+Ime ulazne i izlazne datoteke se zadaju kao argument komandne linije, dok se reči napisane u Morzeovoj azbuci zadaju preko standardnog ulaza.
+Korisnik programa unosi reči čija su pojedinačni kodovi slova razdvojeni jednim razmakom dokle god ne unese string <code class="docutils literal notranslate"><span class="pre">kraj</span></code>, što označava kraj korisničkog unosa (pogledati primer rada programa).
+Ukoliko je unet Morzeov kod koji nije definisan u ulaznoj datoteci, umesto slova napisati upitnik <code class="docutils literal notranslate"><span class="pre">?</span></code>.
+Pretpostaviti da će korisnik isključivo unositi karaktere <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">.</span></code> i string <code class="docutils literal notranslate"><span class="pre">kraj</span></code>, stoga nije potrebno raditi dodatnu validaciju unosa.
+Izlazna datoteka sadrži originalnu reč napisanu pomoću Morzeove azbuke, strelicu <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> i prevedenu reč.
+Format je <code class="docutils literal notranslate"><span class="pre">%s</span> <span class="pre">-&gt;</span> <span class="pre">%s</span></code>.</p>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+</ul>
+<section id="napomene">
+<h1>Napomene<a class="headerlink" href="#napomene" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Zbog učitavanja jednog karaktera, format string u <code class="docutils literal notranslate"><span class="pre">fscanf</span></code> naredbi mora sadržati znak za novi red <code class="docutils literal notranslate"><span class="pre">&quot;%c</span> <span class="pre">%s\n&quot;</span></code></p></li>
+<li><p>Beskonačna petlja u programskom jeziku C se može napisati kao <code class="docutils literal notranslate"><span class="pre">while(1)</span></code>, dok se iz nje se može izaći sa <code class="docutils literal notranslate"><span class="pre">break</span></code> naredbom</p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>kodovi.txt<span class="w"> </span>poruka.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">kodovi.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A .-
+E .
+I ..
+O ---
+U ..-
+P .--.
+S ...
+T -
+</pre></div>
+</div>
+<p>Primer rada programa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Uneti kodirane reci (za prestanak, ukucati rec kraj):
+... --- ...
+- .- ...
+.--. .- ...
+-- --- ...
+kraj
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">poruka.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>... --- ... -&gt; SOS
+- .- ... -&gt; TAS
+.--. .- ... -&gt; PAS
+-- --- ... -&gt; ?OS
+</pre></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../praktikum/index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t12.html">Zadaci za T12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t34.html">Zadaci za T34</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sov.html">Zadaci za SOV</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2025/t34/sos/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
