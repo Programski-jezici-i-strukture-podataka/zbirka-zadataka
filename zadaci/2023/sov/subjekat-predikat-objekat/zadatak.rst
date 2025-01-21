@@ -22,6 +22,8 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 * Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom ``3``
 * Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom ``4``
 
+Program realizovati tako da sve funkcije koje imaju veze isključivo sa listom (inicijalizacija, dodavanje, brisanje...)  budu odvojene u jedan par datoteka koje predstavljaju zaglavlje i implementaciju.
+
 Primer poziva programa:
 
 .. code-block:: bash

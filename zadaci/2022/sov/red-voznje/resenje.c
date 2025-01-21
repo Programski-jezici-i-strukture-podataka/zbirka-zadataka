@@ -1,26 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "stablo.h"
 
-#define MAX_ODREDISTE 21
-#define MAX_PREVOZNIK 31
-#define MAX_VREME_POLASKA 6
-
-typedef struct polazak_st {
-    char odrediste[MAX_ODREDISTE];
-    char vreme_polaska[MAX_VREME_POLASKA];
-    char prevoznik[MAX_PREVOZNIK];
-    double cena_karte;
-    struct polazak_st *levi;
-    struct polazak_st *desni;
-} POLAZAK;
-
-void inicijalizacija(POLAZAK **);
-POLAZAK *napravi_cvor(char *, char *, char *, double);
-void dodaj_u_stablo(POLAZAK **, POLAZAK *);
 POLAZAK *najjeftiniji_pre_vremena(POLAZAK *, char *, char *);
-void obrisi_stablo(POLAZAK **);
-
 FILE *safe_fopen(char *, char *, int);
 void ucitaj_polaske(FILE *, POLAZAK **);
 void ispisi_polaske(FILE *, POLAZAK *);
@@ -62,40 +45,6 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void inicijalizacija(POLAZAK **pkoren) {
-    *pkoren = NULL;
-}
-
-POLAZAK *napravi_cvor(char *odrediste, char *vreme_polaska, char *prevoznik, double cena_karte) {
-    POLAZAK *novi = (POLAZAK *)malloc(sizeof(POLAZAK));
-
-    if(novi == NULL) {
-        printf("Greska prilikom zauzimanja memorije!\n");
-        exit(5);
-    }
-
-    strcpy(novi->odrediste, odrediste);
-    strcpy(novi->vreme_polaska, vreme_polaska);
-    strcpy(novi->prevoznik, prevoznik);
-    novi->cena_karte = cena_karte;
-    novi->levi = NULL;
-    novi->desni = NULL;
-
-    return novi;
-}
-
-void dodaj_u_stablo(POLAZAK **pkoren, POLAZAK *novi) {
-    if(*pkoren == NULL) {
-        *pkoren = novi;
-    } else {
-        if(strcmp(novi->vreme_polaska, (*pkoren)->vreme_polaska) < 0) {
-            dodaj_u_stablo(&(*pkoren)->levi, novi);
-        } else {
-            dodaj_u_stablo(&(*pkoren)->desni, novi);
-        }
-    }
-}
-
 POLAZAK *najjeftiniji_pre_vremena(POLAZAK *koren, char *odrediste, char *vreme) {
     POLAZAK *najjeftiniji = NULL;
 
@@ -119,15 +68,6 @@ POLAZAK *najjeftiniji_pre_vremena(POLAZAK *koren, char *odrediste, char *vreme) 
     }
 
     return najjeftiniji;
-}
-
-void obrisi_stablo(POLAZAK **pkoren) {
-    if(*pkoren != NULL) {
-        obrisi_stablo(&(*pkoren)->levi);
-        obrisi_stablo(&(*pkoren)->desni);
-        free(*pkoren);
-        *pkoren = NULL;
-    }
 }
 
 FILE *safe_fopen(char *ime, char *rezim, int kod_greske) {
