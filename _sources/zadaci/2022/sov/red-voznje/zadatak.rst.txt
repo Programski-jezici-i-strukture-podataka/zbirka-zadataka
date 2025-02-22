@@ -42,6 +42,7 @@ U slučaju sledećih grešaka prilikom rada programa, izaći sa odgovarajućim k
 * Neuspešno otvaranje izlazne datoteke, kod greške ``4``
 * Nije moguće dinamički zauzeti memoriju, kod greške ``5``
 
+Program realizovati tako da sve funkcije koje imaju veze isključivo sa stablom (inicijalizacija, dodavanje, brisanje...)  budu odvojene u jedan par datoteka koje predstavljaju zaglavlje i implementaciju.
 
 Primer ulazne datoteke ``polasci.txt``:
 

@@ -51,6 +51,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/translations.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
     <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#FF851B", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "sr"});</script>
@@ -99,6 +100,7 @@ Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, iza
 <li><p>Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
 <li><p>Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
 </ul>
+<p>Program realizovati tako da sve funkcije koje imaju veze isključivo sa listom (inicijalizacija, dodavanje, brisanje...)  budu odvojene u jedan par datoteka koje predstavljaju zaglavlje i implementaciju.</p>
 <p>Primer poziva programa:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>reci.txt<span class="w"> </span>recenice.txt
 </pre></div>
@@ -134,209 +136,237 @@ Krava muze mleko.
 </div>
 <section id="primer-resenja">
 <h2>Primer rešenja<a class="headerlink" href="#primer-resenja" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-cmVzZW5qZS5j" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-cmVzZW5qZS5j" name="cmVzZW5qZS5j" role="tab" tabindex="0">resenje.c</button><button aria-controls="panel-0-bGlzdGEuaA==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bGlzdGEuaA==" name="bGlzdGEuaA==" role="tab" tabindex="-1">lista.h</button><button aria-controls="panel-0-bGlzdGEuYw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bGlzdGEuYw==" name="bGlzdGEuYw==" role="tab" tabindex="-1">lista.c</button><button aria-controls="panel-0-TWFrZWZpbGU=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWFrZWZpbGU=" name="TWFrZWZpbGU=" role="tab" tabindex="-1">Makefile</button></div><div aria-labelledby="tab-0-cmVzZW5qZS5j" class="sphinx-tabs-panel group-tab" id="panel-0-cmVzZW5qZS5j" name="cmVzZW5qZS5j" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 <span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
 <span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="linenos">  5</span>
-<span class="linenos">  6</span><span class="cp">#define MAX_REC 21</span>
-<span class="linenos">  7</span><span class="cp">#define MAX_VRSTA 9</span>
+<span class="linenos">  5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lista.h&quot;</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="cp">#define MAX_NAZIV_IZLAZNE 11</span>
 <span class="linenos">  8</span>
-<span class="linenos">  9</span><span class="cp">#define MAX_NAZIV_IZLAZNE 11</span>
-<span class="linenos"> 10</span>
-<span class="linenos"> 11</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">rec_st</span>
-<span class="linenos"> 12</span><span class="p">{</span>
-<span class="linenos"> 13</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">rec</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
-<span class="linenos"> 14</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">vrsta</span><span class="p">[</span><span class="n">MAX_VRSTA</span><span class="p">];</span>
-<span class="linenos"> 15</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">rec_st</span><span class="w"> </span><span class="o">*</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos"> 16</span><span class="p">}</span><span class="w"> </span><span class="n">REC</span><span class="p">;</span>
+<span class="linenos">  9</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="linenos"> 10</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_reci</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">);</span>
+<span class="linenos"> 11</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_recenice</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos"> 12</span><span class="kt">int</span><span class="w"> </span><span class="nf">prebroj_vrstu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="linenos"> 15</span><span class="p">{</span>
+<span class="linenos"> 16</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">glava</span><span class="p">;</span>
 <span class="linenos"> 17</span>
-<span class="linenos"> 18</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
-<span class="linenos"> 19</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_reci</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">);</span>
-<span class="linenos"> 20</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_recenice</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-<span class="linenos"> 21</span>
-<span class="linenos"> 22</span><span class="kt">void</span><span class="w"> </span><span class="nf">inicijalizacija</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">);</span>
-<span class="linenos"> 23</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="nf">napravi_cvor</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-<span class="linenos"> 24</span><span class="kt">void</span><span class="w"> </span><span class="nf">dodaj_na_kraj</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-<span class="linenos"> 25</span><span class="kt">int</span><span class="w"> </span><span class="nf">prebroj_vrstu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-<span class="linenos"> 26</span><span class="kt">void</span><span class="w"> </span><span class="nf">obrisi_listu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">);</span>
-<span class="linenos"> 27</span>
-<span class="linenos"> 28</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="linenos"> 29</span><span class="p">{</span>
-<span class="linenos"> 30</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">glava</span><span class="p">;</span>
-<span class="linenos"> 31</span>
-<span class="linenos"> 32</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<span class="linenos"> 33</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos"> 34</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Primer poziva programa: %s reci.txt recenice.txt</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="linenos"> 35</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-<span class="linenos"> 36</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 18</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 19</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 20</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Primer poziva programa: %s reci.txt recenice.txt</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="linenos"> 21</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<span class="linenos"> 22</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span><span class="w">    </span><span class="n">inicijalizacija</span><span class="p">(</span><span class="o">&amp;</span><span class="n">glava</span><span class="p">);</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">ulazna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="linenos"> 27</span><span class="w">    </span><span class="n">ucitaj_reci</span><span class="p">(</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">glava</span><span class="p">);</span>
+<span class="linenos"> 28</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">ulazna</span><span class="p">);</span>
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">izlazna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="linenos"> 31</span><span class="w">    </span><span class="n">ispisi_recenice</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">glava</span><span class="p">);</span>
+<span class="linenos"> 32</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">izlazna</span><span class="p">);</span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_subjekata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prebroj_vrstu</span><span class="p">(</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;subjekat&quot;</span><span class="p">);</span>
+<span class="linenos"> 35</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_predikata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prebroj_vrstu</span><span class="p">(</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;predikat&quot;</span><span class="p">);</span>
+<span class="linenos"> 36</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_objekata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prebroj_vrstu</span><span class="p">(</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;objekat&quot;</span><span class="p">);</span>
 <span class="linenos"> 37</span>
-<span class="linenos"> 38</span><span class="w">    </span><span class="n">inicijalizacija</span><span class="p">(</span><span class="o">&amp;</span><span class="n">glava</span><span class="p">);</span>
-<span class="linenos"> 39</span>
-<span class="linenos"> 40</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">ulazna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-<span class="linenos"> 41</span><span class="w">    </span><span class="n">ucitaj_reci</span><span class="p">(</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">glava</span><span class="p">);</span>
-<span class="linenos"> 42</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">ulazna</span><span class="p">);</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">izlazna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
-<span class="linenos"> 45</span><span class="w">    </span><span class="n">ispisi_recenice</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">glava</span><span class="p">);</span>
-<span class="linenos"> 46</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">izlazna</span><span class="p">);</span>
-<span class="linenos"> 47</span>
-<span class="linenos"> 48</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_subjekata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prebroj_vrstu</span><span class="p">(</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;subjekat&quot;</span><span class="p">);</span>
-<span class="linenos"> 49</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_predikata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prebroj_vrstu</span><span class="p">(</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;predikat&quot;</span><span class="p">);</span>
-<span class="linenos"> 50</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj_objekata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prebroj_vrstu</span><span class="p">(</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;objekat&quot;</span><span class="p">);</span>
-<span class="linenos"> 51</span>
-<span class="linenos"> 52</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Od %d subjekta, %d predikata i %d objekta moguce je sastaviti %d recenica.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
-<span class="linenos"> 53</span><span class="w">        </span><span class="n">broj_subjekata</span><span class="p">,</span><span class="w"> </span><span class="n">broj_predikata</span><span class="p">,</span><span class="w"> </span><span class="n">broj_objekata</span><span class="p">,</span><span class="w"> </span><span class="n">broj_subjekata</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">broj_predikata</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">broj_objekata</span><span class="p">);</span>
-<span class="linenos"> 54</span>
-<span class="linenos"> 55</span><span class="w">    </span><span class="n">obrisi_listu</span><span class="p">(</span><span class="o">&amp;</span><span class="n">glava</span><span class="p">);</span>
-<span class="linenos"> 56</span>
-<span class="linenos"> 57</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span>
-<span class="linenos"> 58</span><span class="p">}</span>
-<span class="linenos"> 59</span>
-<span class="linenos"> 60</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rezim</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kod_greske</span><span class="p">)</span>
-<span class="linenos"> 61</span><span class="p">{</span>
-<span class="linenos"> 62</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="n">rezim</span><span class="p">);</span>
-<span class="linenos"> 63</span>
-<span class="linenos"> 64</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos"> 65</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos"> 66</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Datoteka %s nije uspesno otvorena!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">naziv</span><span class="p">);</span>
-<span class="linenos"> 67</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">kod_greske</span><span class="p">);</span>
-<span class="linenos"> 68</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos"> 69</span>
-<span class="linenos"> 70</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span>
-<span class="linenos"> 71</span><span class="p">}</span>
-<span class="linenos"> 72</span>
-<span class="linenos"> 73</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_reci</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">)</span>
-<span class="linenos"> 74</span><span class="p">{</span>
-<span class="linenos"> 75</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp_rec</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
-<span class="linenos"> 76</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp_vrsta</span><span class="p">[</span><span class="n">MAX_VRSTA</span><span class="p">];</span>
-<span class="linenos"> 77</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="p">;</span>
-<span class="linenos"> 78</span>
-<span class="linenos"> 79</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_rec</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_vrsta</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span>
-<span class="linenos"> 80</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos"> 81</span><span class="w">        </span><span class="n">novi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">napravi_cvor</span><span class="p">(</span><span class="n">tmp_rec</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_vrsta</span><span class="p">);</span>
-<span class="linenos"> 82</span><span class="w">        </span><span class="n">dodaj_na_kraj</span><span class="p">(</span><span class="n">pglava</span><span class="p">,</span><span class="w"> </span><span class="n">novi</span><span class="p">);</span>
-<span class="linenos"> 83</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos"> 84</span><span class="p">}</span>
-<span class="linenos"> 85</span>
-<span class="linenos"> 86</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_recenice</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">glava</span><span class="p">)</span>
-<span class="linenos"> 87</span><span class="p">{</span>
-<span class="linenos"> 88</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci_subjekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
-<span class="linenos"> 89</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci_predikat</span><span class="p">;</span>
-<span class="linenos"> 90</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci_objekat</span><span class="p">;</span>
-<span class="linenos"> 91</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">subjekat</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
-<span class="linenos"> 92</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">predikat</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
-<span class="linenos"> 93</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">objekat</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
-<span class="linenos"> 94</span>
-<span class="linenos"> 95</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci_subjekat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos"> 96</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos"> 97</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci_subjekat</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;subjekat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos"> 98</span><span class="w">        </span><span class="p">{</span>
-<span class="linenos"> 99</span><span class="w">            </span><span class="n">tekuci_predikat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
-<span class="linenos">100</span><span class="w">            </span>
-<span class="linenos">101</span><span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci_predikat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">102</span><span class="w">            </span><span class="p">{</span>
-<span class="linenos">103</span><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci_predikat</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;predikat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">104</span><span class="w">                </span><span class="p">{</span>
-<span class="linenos">105</span><span class="w">                    </span><span class="n">tekuci_objekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
-<span class="linenos">106</span><span class="w">                    </span>
-<span class="linenos">107</span><span class="w">                    </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci_objekat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">108</span><span class="w">                    </span><span class="p">{</span>
-<span class="linenos">109</span><span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci_objekat</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;objekat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">110</span><span class="w">                        </span><span class="p">{</span>
-<span class="linenos">111</span><span class="w">                            </span><span class="n">strcpy</span><span class="p">(</span><span class="n">subjekat</span><span class="p">,</span><span class="w"> </span><span class="n">tekuci_subjekat</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">);</span>
-<span class="linenos">112</span><span class="w">                            </span><span class="n">strcpy</span><span class="p">(</span><span class="n">predikat</span><span class="p">,</span><span class="w"> </span><span class="n">tekuci_predikat</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">);</span>
-<span class="linenos">113</span><span class="w">                            </span><span class="n">strcpy</span><span class="p">(</span><span class="n">objekat</span><span class="p">,</span><span class="w"> </span><span class="n">tekuci_objekat</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">);</span>
-<span class="linenos">114</span><span class="w">                            </span><span class="n">predikat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
-<span class="linenos">115</span><span class="w">                            </span><span class="n">objekat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
-<span class="linenos">116</span><span class="w">                            </span><span class="n">fprintf</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s %s %s.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">subjekat</span><span class="p">,</span><span class="w"> </span><span class="n">predikat</span><span class="p">,</span><span class="w"> </span><span class="n">objekat</span><span class="p">);</span>
-<span class="linenos">117</span><span class="w">                        </span><span class="p">}</span>
-<span class="linenos">118</span><span class="w">                        </span>
-<span class="linenos">119</span><span class="w">                        </span><span class="n">tekuci_objekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci_objekat</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos">120</span><span class="w">                    </span><span class="p">}</span>
-<span class="linenos">121</span><span class="w">                </span><span class="p">}</span>
+<span class="linenos"> 38</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Od %d subjekta, %d predikata i %d objekta moguce je sastaviti %d recenica.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="linenos"> 39</span><span class="w">        </span><span class="n">broj_subjekata</span><span class="p">,</span><span class="w"> </span><span class="n">broj_predikata</span><span class="p">,</span><span class="w"> </span><span class="n">broj_objekata</span><span class="p">,</span><span class="w"> </span><span class="n">broj_subjekata</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">broj_predikata</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">broj_objekata</span><span class="p">);</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="n">obrisi_listu</span><span class="p">(</span><span class="o">&amp;</span><span class="n">glava</span><span class="p">);</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="linenos"> 44</span><span class="p">}</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">safe_fopen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rezim</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kod_greske</span><span class="p">)</span>
+<span class="linenos"> 47</span><span class="p">{</span>
+<span class="linenos"> 48</span><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">naziv</span><span class="p">,</span><span class="w"> </span><span class="n">rezim</span><span class="p">);</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos"> 51</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 52</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Datoteka %s nije uspesno otvorena!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">naziv</span><span class="p">);</span>
+<span class="linenos"> 53</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="n">kod_greske</span><span class="p">);</span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span>
+<span class="linenos"> 57</span><span class="p">}</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="kt">void</span><span class="w"> </span><span class="nf">ucitaj_reci</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">)</span>
+<span class="linenos"> 60</span><span class="p">{</span>
+<span class="linenos"> 61</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp_rec</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp_vrsta</span><span class="p">[</span><span class="n">MAX_VRSTA</span><span class="p">];</span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="p">;</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">ulazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_rec</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_vrsta</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 67</span><span class="w">        </span><span class="n">novi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">napravi_cvor</span><span class="p">(</span><span class="n">tmp_rec</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_vrsta</span><span class="p">);</span>
+<span class="linenos"> 68</span><span class="w">        </span><span class="n">dodaj_na_kraj</span><span class="p">(</span><span class="n">pglava</span><span class="p">,</span><span class="w"> </span><span class="n">novi</span><span class="p">);</span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 70</span><span class="p">}</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span><span class="kt">void</span><span class="w"> </span><span class="nf">ispisi_recenice</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">glava</span><span class="p">)</span>
+<span class="linenos"> 73</span><span class="p">{</span>
+<span class="linenos"> 74</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci_subjekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
+<span class="linenos"> 75</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci_predikat</span><span class="p">;</span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci_objekat</span><span class="p">;</span>
+<span class="linenos"> 77</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">subjekat</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">predikat</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">objekat</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci_subjekat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos"> 82</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 83</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci_subjekat</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;subjekat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 84</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 85</span><span class="w">            </span><span class="n">tekuci_predikat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
+<span class="linenos"> 86</span><span class="w">            </span>
+<span class="linenos"> 87</span><span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci_predikat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos"> 88</span><span class="w">            </span><span class="p">{</span>
+<span class="linenos"> 89</span><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci_predikat</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;predikat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 90</span><span class="w">                </span><span class="p">{</span>
+<span class="linenos"> 91</span><span class="w">                    </span><span class="n">tekuci_objekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
+<span class="linenos"> 92</span><span class="w">                    </span>
+<span class="linenos"> 93</span><span class="w">                    </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci_objekat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos"> 94</span><span class="w">                    </span><span class="p">{</span>
+<span class="linenos"> 95</span><span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci_objekat</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;objekat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 96</span><span class="w">                        </span><span class="p">{</span>
+<span class="linenos"> 97</span><span class="w">                            </span><span class="n">strcpy</span><span class="p">(</span><span class="n">subjekat</span><span class="p">,</span><span class="w"> </span><span class="n">tekuci_subjekat</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">);</span>
+<span class="linenos"> 98</span><span class="w">                            </span><span class="n">strcpy</span><span class="p">(</span><span class="n">predikat</span><span class="p">,</span><span class="w"> </span><span class="n">tekuci_predikat</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">);</span>
+<span class="linenos"> 99</span><span class="w">                            </span><span class="n">strcpy</span><span class="p">(</span><span class="n">objekat</span><span class="p">,</span><span class="w"> </span><span class="n">tekuci_objekat</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">);</span>
+<span class="linenos">100</span><span class="w">                            </span><span class="n">predikat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<span class="linenos">101</span><span class="w">                            </span><span class="n">objekat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<span class="linenos">102</span><span class="w">                            </span><span class="n">fprintf</span><span class="p">(</span><span class="n">izlazna</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s %s %s.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">subjekat</span><span class="p">,</span><span class="w"> </span><span class="n">predikat</span><span class="p">,</span><span class="w"> </span><span class="n">objekat</span><span class="p">);</span>
+<span class="linenos">103</span><span class="w">                        </span><span class="p">}</span>
+<span class="linenos">104</span><span class="w">                        </span>
+<span class="linenos">105</span><span class="w">                        </span><span class="n">tekuci_objekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci_objekat</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">106</span><span class="w">                    </span><span class="p">}</span>
+<span class="linenos">107</span><span class="w">                </span><span class="p">}</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span><span class="w">                </span><span class="n">tekuci_predikat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci_predikat</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">110</span><span class="w">            </span><span class="p">}</span>
+<span class="linenos">111</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span><span class="w">        </span><span class="n">tekuci_subjekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci_subjekat</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">114</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">115</span><span class="p">}</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span><span class="kt">int</span><span class="w"> </span><span class="nf">prebroj_vrstu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">vrsta</span><span class="p">)</span>
+<span class="linenos">119</span><span class="p">{</span>
+<span class="linenos">120</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
+<span class="linenos">121</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="linenos">122</span>
-<span class="linenos">123</span><span class="w">                </span><span class="n">tekuci_predikat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci_predikat</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos">124</span><span class="w">            </span><span class="p">}</span>
-<span class="linenos">125</span><span class="w">        </span><span class="p">}</span>
-<span class="linenos">126</span>
-<span class="linenos">127</span><span class="w">        </span><span class="n">tekuci_subjekat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci_subjekat</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos">128</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">129</span><span class="p">}</span>
-<span class="linenos">130</span>
-<span class="linenos">131</span><span class="kt">void</span><span class="w"> </span><span class="nf">inicijalizacija</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">)</span>
-<span class="linenos">132</span><span class="p">{</span>
-<span class="linenos">133</span><span class="w">    </span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="linenos">123</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos">124</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">125</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="n">vrsta</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">126</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">127</span><span class="w">            </span><span class="n">broj</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos">128</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">129</span>
+<span class="linenos">130</span><span class="w">        </span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">131</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">broj</span><span class="p">;</span>
 <span class="linenos">134</span><span class="p">}</span>
-<span class="linenos">135</span>
-<span class="linenos">136</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="nf">napravi_cvor</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rec</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">vrsta</span><span class="p">)</span>
-<span class="linenos">137</span><span class="p">{</span>
-<span class="linenos">138</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">REC</span><span class="p">));</span>
-<span class="linenos">139</span>
-<span class="linenos">140</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">novi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">141</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos">142</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Greska prilikom zauzimanja memorije!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="linenos">143</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="linenos">144</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">145</span>
-<span class="linenos">146</span><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">,</span><span class="w"> </span><span class="n">rec</span><span class="p">);</span>
-<span class="linenos">147</span><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="n">vrsta</span><span class="p">);</span>
-<span class="linenos">148</span><span class="w">    </span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="linenos">149</span>
-<span class="linenos">150</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span>
-<span class="linenos">151</span><span class="p">}</span>
-<span class="linenos">152</span>
-<span class="linenos">153</span><span class="kt">void</span><span class="w"> </span><span class="nf">dodaj_na_kraj</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="p">)</span>
-<span class="linenos">154</span><span class="p">{</span>
-<span class="linenos">155</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">156</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos">157</span><span class="w">        </span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span>
-<span class="linenos">158</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">159</span><span class="w">    </span><span class="k">else</span>
-<span class="linenos">160</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos">161</span><span class="w">        </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pglava</span><span class="p">;</span>
-<span class="linenos">162</span>
-<span class="linenos">163</span><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">164</span><span class="w">        </span><span class="p">{</span>
-<span class="linenos">165</span><span class="w">            </span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos">166</span><span class="w">        </span><span class="p">}</span>
-<span class="linenos">167</span>
-<span class="linenos">168</span><span class="w">        </span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span>
-<span class="linenos">169</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">170</span><span class="p">}</span>
-<span class="linenos">171</span>
-<span class="linenos">172</span><span class="kt">int</span><span class="w"> </span><span class="nf">prebroj_vrstu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">glava</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">vrsta</span><span class="p">)</span>
-<span class="linenos">173</span><span class="p">{</span>
-<span class="linenos">174</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glava</span><span class="p">;</span>
-<span class="linenos">175</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">176</span>
-<span class="linenos">177</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">178</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos">179</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="n">vrsta</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">180</span><span class="w">        </span><span class="p">{</span>
-<span class="linenos">181</span><span class="w">            </span><span class="n">broj</span><span class="o">++</span><span class="p">;</span>
-<span class="linenos">182</span><span class="w">        </span><span class="p">}</span>
-<span class="linenos">183</span>
-<span class="linenos">184</span><span class="w">        </span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos">185</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">186</span>
-<span class="linenos">187</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">broj</span><span class="p">;</span>
-<span class="linenos">188</span><span class="p">}</span>
-<span class="linenos">189</span>
-<span class="linenos">190</span><span class="kt">void</span><span class="w"> </span><span class="nf">obrisi_listu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">)</span>
-<span class="linenos">191</span><span class="p">{</span>
-<span class="linenos">192</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
-<span class="linenos">193</span>
-<span class="linenos">194</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="linenos">195</span><span class="w">    </span><span class="p">{</span>
-<span class="linenos">196</span><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pglava</span><span class="p">;</span>
-<span class="linenos">197</span><span class="w">        </span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pglava</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
-<span class="linenos">198</span><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="linenos">199</span><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
-<span class="linenos">200</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">201</span><span class="p">}</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-bGlzdGEuaA==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-bGlzdGEuaA==" name="bGlzdGEuaA==" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#ifndef LISTA_H</span>
+<span class="linenos"> 2</span><span class="cp">#define LISTA_H</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="cp">#define MAX_REC 21</span>
+<span class="linenos"> 5</span><span class="cp">#define MAX_VRSTA 9</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">rec_st</span>
+<span class="linenos"> 8</span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">rec</span><span class="p">[</span><span class="n">MAX_REC</span><span class="p">];</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">vrsta</span><span class="p">[</span><span class="n">MAX_VRSTA</span><span class="p">];</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">rec_st</span><span class="w"> </span><span class="o">*</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">12</span><span class="p">}</span><span class="w"> </span><span class="n">REC</span><span class="p">;</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">void</span><span class="w"> </span><span class="nf">inicijalizacija</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">);</span>
+<span class="linenos">15</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="nf">napravi_cvor</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos">16</span><span class="kt">void</span><span class="w"> </span><span class="nf">dodaj_na_kraj</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="linenos">17</span><span class="kt">void</span><span class="w"> </span><span class="nf">obrisi_listu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="p">);</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="cp">#endif</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-bGlzdGEuYw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-bGlzdGEuYw==" name="bGlzdGEuYw==" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lista.h&quot;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kt">void</span><span class="w"> </span><span class="nf">inicijalizacija</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="linenos">10</span><span class="p">}</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="nf">napravi_cvor</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">rec</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">vrsta</span><span class="p">)</span>
+<span class="linenos">13</span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">REC</span><span class="p">));</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">novi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Greska prilikom zauzimanja memorije!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">rec</span><span class="p">,</span><span class="w"> </span><span class="n">rec</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">vrsta</span><span class="p">,</span><span class="w"> </span><span class="n">vrsta</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">novi</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span>
+<span class="linenos">27</span><span class="p">}</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="kt">void</span><span class="w"> </span><span class="nf">dodaj_na_kraj</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">,</span><span class="w"> </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">novi</span><span class="p">)</span>
+<span class="linenos">30</span><span class="p">{</span>
+<span class="linenos">31</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos">32</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">33</span><span class="w">        </span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span>
+<span class="linenos">34</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">35</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">36</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">37</span><span class="w">        </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pglava</span><span class="p">;</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos">40</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">41</span><span class="w">            </span><span class="n">tekuci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">42</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="w">        </span><span class="n">tekuci</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">novi</span><span class="p">;</span>
+<span class="linenos">45</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">46</span><span class="p">}</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="kt">void</span><span class="w"> </span><span class="nf">obrisi_listu</span><span class="p">(</span><span class="n">REC</span><span class="w"> </span><span class="o">**</span><span class="n">pglava</span><span class="p">)</span>
+<span class="linenos">49</span><span class="p">{</span>
+<span class="linenos">50</span><span class="w">    </span><span class="n">REC</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos">53</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos">54</span><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pglava</span><span class="p">;</span>
+<span class="linenos">55</span><span class="w">        </span><span class="o">*</span><span class="n">pglava</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pglava</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="p">;</span>
+<span class="linenos">56</span><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">sledeci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="linenos">57</span><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+<span class="linenos">58</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">59</span><span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TWFrZWZpbGU=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TWFrZWZpbGU=" name="TWFrZWZpbGU=" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">.</span><span class="n">PHONY</span><span class="o">:</span><span class="w"> </span><span class="n">clean</span>
+<span class="linenos">2</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="o">:</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="n">o</span><span class="w"> </span><span class="n">resenje</span><span class="p">.</span><span class="n">o</span>
+<span class="linenos">3</span><span class="w">	</span><span class="n">gcc</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="n">o</span><span class="w"> </span><span class="n">resenje</span><span class="p">.</span><span class="n">o</span>
+<span class="linenos">4</span><span class="n">resenje</span><span class="p">.</span><span class="n">o</span><span class="o">:</span><span class="w"> </span><span class="n">resenje</span><span class="p">.</span><span class="n">c</span>
+<span class="linenos">5</span><span class="w">	</span><span class="n">gcc</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">resenje</span><span class="p">.</span><span class="n">c</span>
+<span class="linenos">6</span><span class="n">lista</span><span class="p">.</span><span class="n">o</span><span class="o">:</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="n">c</span>
+<span class="linenos">7</span><span class="w">	</span><span class="n">gcc</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="n">c</span>
+<span class="linenos">8</span><span class="nl">clean</span><span class="p">:</span>
+<span class="linenos">9</span><span class="w">	</span><span class="n">rm</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">o</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
+</pre></div>
+</div>
+</div></div>
 <div class="section" /></section>
 </section>
 
@@ -429,7 +459,7 @@ Krava muze mleko.
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2024, Srđan Popov, Rade Radišić.
+      &copy;2025, Srđan Popov, Rade Radišić.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>

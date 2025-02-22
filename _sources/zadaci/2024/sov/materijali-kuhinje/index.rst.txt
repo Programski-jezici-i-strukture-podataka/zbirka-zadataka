@@ -13,8 +13,20 @@ Materijali kuhinje
 Primer rešenja
 --------------
 
-.. literalinclude:: resenje.c 
-   :linenos:
+.. tabs::
+
+  .. group-tab:: resenje.c
+    .. literalinclude:: resenje.c 
+       :linenos:
+  .. group-tab:: lista.h
+    .. literalinclude:: lista.h 
+      :linenos:
+  .. group-tab:: lista.c
+    .. literalinclude:: lista.c 
+      :linenos:
+  .. group-tab:: Makefile
+    .. literalinclude:: Makefile
+      :linenos:
 
 .. raw:: html
 
