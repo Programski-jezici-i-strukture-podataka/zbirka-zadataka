@@ -13,20 +13,8 @@ Red vožnje
 Primer rešenja
 --------------
 
-.. tabs::
-
-  .. group-tab:: resenje.c
-    .. literalinclude:: resenje.c 
-       :linenos:
-  .. group-tab:: stablo.h
-    .. literalinclude:: stablo.h 
-      :linenos:
-  .. group-tab:: stablo.c
-    .. literalinclude:: stablo.c 
-      :linenos:
-  .. group-tab:: Makefile
-    .. literalinclude:: Makefile
-      :linenos:
+.. literalinclude:: resenje.c 
+   :linenos:
 
 .. raw:: html
 
