@@ -1,0 +1,5 @@
+Uneti string: mama ima metlu
+Uneti prvi znak: m
+Uneti drugi znak: a
+Ne postoji odgovarajuci broj parova za znakove m i a!
+String nakon zamene znakova m i a: amam iam metlu
