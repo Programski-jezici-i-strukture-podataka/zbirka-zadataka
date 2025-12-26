@@ -1,0 +1,4 @@
+Uneti string: robotika
+Uneti prvi znak: r
+Uneti drugi znak: o
+String nakon zamene znakova r i o: orbotika

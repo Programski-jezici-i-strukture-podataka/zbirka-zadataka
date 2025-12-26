@@ -1,0 +1,5 @@
+Uneti string: bbbaaa
+Uneti prvi znak: a
+Uneti drugi znak: b
+Ne postoji odgovarajuci broj parova za znakove a i b!
+String nakon zamene znakova a i b: bbbaaa

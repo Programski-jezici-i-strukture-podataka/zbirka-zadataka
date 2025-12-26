@@ -1,0 +1,4 @@
+Uneti string: mama ima macku
+Uneti prvi znak: m
+Uneti drugi znak: a
+String nakon zamene znakova m i a: amam iam amcku
