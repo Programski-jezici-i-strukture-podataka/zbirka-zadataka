@@ -22,9 +22,9 @@ Zadaci su podeljeni u više grupa, u zavisnosti od testa na kom su zadati.
    :maxdepth: 2
    :glob:
 
-   zadaci/t12
-   zadaci/t34
-   zadaci/sov
+   zadaci/t1
+   zadaci/t2
+   zadaci/t3
 
 Indeksi i tabele
 ================
