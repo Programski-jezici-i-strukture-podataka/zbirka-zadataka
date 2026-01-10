@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+    <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#FF851B", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "sr"});</script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Iz zadate ulazne datoteke učitati podatke u binarno stablo, gde struktura <code class="docutils literal notranslate"><span class="pre">skola_jezika_st</span></code> sadrži sledeća polja:</p>
+<ul class="simple">
+<li><p>naziv (jedna reč, maksimalno 30 karaktera),</p></li>
+<li><p>grad (jedna reč, maksimalno 2 karaktera),</p></li>
+<li><p>prvi strani jezik (jedna reč, maksimalno 15 karaktera),</p></li>
+<li><p>drugi strani jezik (jedna reč, maksimalno 15 karaktera),</p></li>
+<li><p>najviši nivo koji se može postići (jedna reč, maksimalno 8 karaktera),</p></li>
+<li><p>osnovna cena kursa (realan broj),</p></li>
+<li><p>broj polaznika po grupi (pozitivan ceo broj) i</p></li>
+<li><p>cena sa popustom (realan broj).</p></li>
+</ul>
+<p>Struktura skola_jezika dodatno sadrži i polja potrebna za pravilno formiranje binarnog stabla.
+Binarno stablo urediti po ključu <code class="docutils literal notranslate"><span class="pre">osnovna</span> <span class="pre">cena</span> <span class="pre">kurs</span></code> u opadajućem redosledu.
+Iz formiranog binarnog stabla upisati podatke u zadatu izlaznu datoteku, u sledećem rasporedu polja strukture <code class="docutils literal notranslate"><span class="pre">skola_jezika_st</span></code>:</p>
+<ul class="simple">
+<li><p>naziv,</p></li>
+<li><p>grad,</p></li>
+<li><p>broj polaznika po grupi,</p></li>
+<li><p>cena sa popustom (zaokružena na 3 decimale),</p></li>
+<li><p>prvi strani jezik i</p></li>
+<li><p>drugi strani jezik.</p></li>
+</ul>
+<p>Cena sa popustom se izračunava na sledeći način:</p>
+<ul class="simple">
+<li><p>ako je broj polaznika veći od 3 a manji od 7, popust iznosi 5%</p></li>
+<li><p>Ukoliko ima 7 i/ili više od 7 a manje od 10 polaznika, cena se umanjuje za 10%</p></li>
+<li><p>U slučaju da je broj polaznika 10 i/ili viši od 10, tada se osnovna cena kursa smanjuje za popust od 15%</p></li>
+</ul>
+<p>U izlaznu datoteku potrebno je ispisati još i sledeće informacije:</p>
+<ol class="loweralpha simple">
+<li><p>školu stranih jezika u kojoj se nemački uči kao drugi strani jezik a čija je cena sa popustom najniža i</p></li>
+<li><p>za odabranu školu stranih jezika (bira se na osnovu parametra <code class="docutils literal notranslate"><span class="pre">odabranaSkola</span></code> koji se prosleđuje kao argument komandne linije) ispisati koliko ima polaznika koji kao prvi strani jezik uče francuski a čija je cena kursa najviša</p></li>
+</ol>
+<p>Primer poziva programa:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./zad<span class="w"> </span>Academy<span class="w"> </span>skole.txt<span class="w"> </span>izvestaj.txt
+</pre></div>
+</div>
+<p>sa zadatim parametrima <code class="docutils literal notranslate"><span class="pre">odabranaSkola</span> <span class="pre">=</span> <span class="pre">&quot;Academy&quot;</span></code> i zadatim ulazom u datoteci <code class="docutils literal notranslate"><span class="pre">skole.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Academy NS engleski nemacki srednji 14800.0 7
+Lingua BG nemacki francuski napredni 21099.0 10
+Skill KG francuski engleski osnovni 8050.0 3
+Berlitz NI engleski francuski napredni 19999.0 9
+Lingua KG francuski nemacki osnovni 9020.0 2
+Manhattan NS nemacki engleski napredni 20650.0 4
+Academy NI francuski engleski srednji 13450.0 8
+Skill BG engleski nemacki napredni 20199.0 6
+Manhattan KG francuski nemacki osnovni 8345.0 12
+Berlitz NS engleski francuski srednji 14200.0 5
+</pre></div>
+</div>
+<p>očekivanim izlazom u datoteci <code class="docutils literal notranslate"><span class="pre">izvestaj.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Lingua BG 10 17934.150 nemacki francuski
+Manhattan NS 4 19617.500 nemacki engleski
+Skill BG 6 19189.051 engleski nemacki
+Berlitz NI 9 17999.100 engleski francuski
+Academy NS 7 13320.000 engleski nemacki
+Berlitz NS 5 13490.000 engleski francuski
+Academy NI 8 12105.000 francuski engleski
+Lingua KG 2 9020.000 francuski nemacki
+Manhattan KG 12 7093.250 francuski nemacki
+Skill KG 3 8050.000 francuski engleski
+
+
+Skola jezika u kojoj se nemacki uci kao drugi strani jezik a cija je cena sa popustom najniza: Manhattan KG 7093.250
+
+Broj polaznika skole Academy koji kao prvi strani jezik uci francuski a cija je osnovna cena kursa (13450.000): 8.
+</pre></div>
+</div>
+<p>U slučaju da se program pozove sa prosleđenim parametrom <code class="docutils literal notranslate"><span class="pre">odabranaSkola</span> <span class="pre">=</span> <span class="pre">&quot;Akademija&quot;</span></code>, očekivani izlaz u datoteci je:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Lingua BG 10 17934.150 nemacki francuski
+Manhattan NS 4 19617.500 nemacki engleski
+Skill BG 6 19189.051 engleski nemacki
+Berlitz NI 9 17999.100 engleski francuski
+Academy NS 7 13320.000 engleski nemacki
+Berlitz NS 5 13490.000 engleski francuski
+Academy NI 8 12105.000 francuski engleski
+Lingua KG 2 9020.000 francuski nemacki
+Manhattan KG 12 7093.250 francuski nemacki
+Skill KG 3 8050.000 francuski engleski
+
+Skola jezika u kojoj se nemacki uci kao drugi strani jezik a cija je cena sa popustom najniza:
+Manhattan KG 7093.250
+
+Nema trazene skole!
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../praktikum/index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1.html">Zadaci za T1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t2.html">Zadaci za T2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t3.html">Zadaci za T3</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2026, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2021/t3/skola-jezika/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

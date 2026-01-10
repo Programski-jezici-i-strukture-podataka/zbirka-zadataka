@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html lang="sr@latin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Zbirka zadataka  dokumentacija</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Programski-jezici-i-strukture-podataka/zbirka-zadataka");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/tabs.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+    <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#FF851B", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "sr"});</script>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Pretraga" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Napisati program koji pomaže selektoru reprezentacije da sastavi tim za predstojeću utakmicu.
+Raspoloživi igrači su zadati u ulaznoj datoteci u sledećem formatu:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ime</span></code> (jedna reč, do 20 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prezime</span></code> (jedna reč, do 30 karaktera)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">broj_dresa</span></code> (celobrojna vrednost)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pozicija</span></code> (jedna reč, do 10 karaktera)</p></li>
+</ul>
+<p>Učitati fudbalere u statički niz, zatim na osnovu zadate formacije odabrati igrače na osnovu zadatih brojeva unutar formacije.
+Fudbalere je potrebno ispisati u izlaznu datoteku u sledećem formatu <code class="docutils literal notranslate"><span class="pre">&quot;%2d</span> <span class="pre">%s</span> <span class="pre">%c.&quot;</span></code>, gde celobrojna vrednost broj dresa koji igrač nosi, string predstavlja prezime igrača, a karakter početno slovo imena igrača.
+Imena ulazne i izlazne datoteke zadaju se kao argumenti komandne linije.
+Pored njih, kao argument komandne linije zadaje se i željena formacija.</p>
+<p>U slučaju uspešnog izvršavanja programa, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_SUCCESS</span></code>).
+Ukoliko program ne može da se izvrši do kraja usled sledećih nedostataka, izaći iz programa sa sledećim status kodovima:</p>
+<ul class="simple">
+<li><p>U slučaju nedovoljnog ili suvišnog broj argumenata komandne linije, izaći iz programa sa status kodom <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">EXIT_FAILURE</span></code>)</p></li>
+<li><p>Ako formacija nije napisana u traženom formatu (cifra, crta, cifra, crta, cifra), izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>Ako je broj igrača na određenoj poziciji veći od 5, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>Ako program ne može da otvori ulaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>Ako program ne može da otvori izlaznu datoteku, izaći sa status kodom <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+</ul>
+<p>Primer poziva programa:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-RGF0b3Rla2U=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tab" tabindex="0">Datoteke</button><button aria-controls="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tab" tabindex="-1">Standardni ulaz/izlaz</button></div><div aria-labelledby="tab-0-RGF0b3Rla2U=" class="sphinx-tabs-panel group-tab" id="panel-0-RGF0b3Rla2U=" name="RGF0b3Rla2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span>fudbaleri.txt<span class="w"> </span>postava.txt<span class="w"> </span><span class="m">4</span>-3-3
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">fudbaleri.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Nikola Milenkovic 4 odbrana
+Stefan Mitrovic 13 odbrana
+Strahinja Pavlovic 2 odbrana
+Milos Veljkovic 5 odbrana
+Strahinja Erakovic 3 odbrana
+Sergej Milinkovic-Savic 20 sredina
+Filip Kostic 17 sredina
+Nemanja Gudelj 8 sredina
+Andrija Zivkovic 14 sredina
+Marko Grujic 26 sredina
+Aleksandar Mitrovic 9 napad
+Dusan Vlahovic 18 napad
+Luka Jovic 11 napad
+Nemanja Radonjic 7 napad
+Filip Djuricic 21 napad
+</pre></div>
+</div>
+<p>Primer izlazne datoteke <code class="docutils literal notranslate"><span class="pre">postava.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 4 Milenkovic N.
+13 Mitrovic S.
+ 2 Pavlovic S.
+ 5 Veljkovic M.
+20 Milinkovic-Savic S.
+17 Kostic F.
+ 8 Gudelj N.
+ 9 Mitrovic A.
+18 Vlahovic D.
+11 Jovic L.
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-U3RhbmRhcmRuaSB1bGF6L2l6bGF6" name="U3RhbmRhcmRuaSB1bGF6L2l6bGF6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out<span class="w"> </span><span class="m">4</span>-3-3<span class="w"> </span>&lt;<span class="w"> </span>fudbaleri-stdinout.txt
+</pre></div>
+</div>
+<p>Primer ulazne datoteke <code class="docutils literal notranslate"><span class="pre">fudbaleri-stdinout.txt</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>15
+Nikola Milenkovic 4 odbrana
+Stefan Mitrovic 13 odbrana
+Strahinja Pavlovic 2 odbrana
+Milos Veljkovic 5 odbrana
+Strahinja Erakovic 3 odbrana
+Sergej Milinkovic-Savic 20 sredina
+Filip Kostic 17 sredina
+Nemanja Gudelj 8 sredina
+Andrija Zivkovic 14 sredina
+Marko Grujic 26 sredina
+Aleksandar Mitrovic 9 napad
+Dusan Vlahovic 18 napad
+Luka Jovic 11 napad
+Nemanja Radonjic 7 napad
+Filip Djuricic 21 napad
+</pre></div>
+</div>
+<p>Ispis programa na standardnom izlazu:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unesite broj fudbalera: 1. fudbaler: 2. fudbaler: 3. fudbaler: 4. fudbaler: 5. fudbaler: 6. fudbaler: 7. fudbaler: 8. fudbaler: 9. fudbaler: 10. fudbaler: 11. fudbaler: 12. fudbaler: 13. fudbaler: 14. fudbaler: 15. fudbaler: 
+
+ 4 Milenkovic N.
+13 Mitrovic S.
+ 2 Pavlovic S.
+ 5 Veljkovic M.
+20 Milinkovic-Savic S.
+17 Kostic F.
+ 8 Gudelj N.
+ 9 Mitrovic A.
+18 Vlahovic D.
+11 Jovic L.
+</pre></div>
+</div>
+</div></div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Zbirka zadataka</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../praktikum/index.html">Praktikum</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../t1.html">Zadaci za T1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t2.html">Zadaci za T2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../t3.html">Zadaci za T3</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Brza pretraga</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Traži" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2026, Srđan Popov, Rade Radišić.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/zadaci/2022/t2/pomozi-selektoru/zadatak.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
