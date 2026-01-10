@@ -23,6 +23,8 @@ Ispis materijala formatirati na sledeći način:
 * U slučaju neuspešnog otvaranja fajla, izaći iz programa sa status kodom ``2``.
 * U slučaju neuspešnog zauzeća memorije prilikom kreiranja čvora liste, izaći iz programa sa status kodom ``3``.
 
+Program realizovati tako da sve funkcije koje imaju veze isključivo sa listom (inicijalizacija, dodavanje, brisanje...)  budu odvojene u jedan par datoteka koje predstavljaju zaglavlje i implementaciju.
+
 Primer poziva programa:
 
 .. code-block:: bash
