@@ -67,7 +67,7 @@ master_doc = 'index'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'venv-zbirka', 'README.rst']
 
 # Show author name and email provided in `codeauthor` and `sectionauthor` directives
-show_authors = True
+show_authors = False
 
 # -- Options for HTML output -------------------------------------------------
 
