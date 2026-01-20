@@ -1,0 +1,3 @@
+Iako je moguće uključiti i datoteku sa ekstenzijom .c pomoću #include direktive, uvek će se za to koristiti .h datoteka.
+Razlog leži u tome što zaglavlje sadrži samo prototip funkcije, odnosno, njenu definiciju.
+To će automatski značiti manje sadržaja u .c datoteci koja uključuje zaglavlje.
