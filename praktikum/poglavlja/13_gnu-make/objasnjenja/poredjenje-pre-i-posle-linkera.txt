@@ -1,0 +1,7 @@
+Uporediti izgled disasemblovanog koda test.o objektne i a.out izvršne datoteke.
+Glavna razlika bi trebalo da bude u call naredbama, gde će se u slučaju izvršne datoteke konkretizovati poziv funkciji printf.
+
+Za poređenje, koristiti alat objdump na sledeći način:
+
+objdump -d ./test.o
+objdump -d ./a.out
