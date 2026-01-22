@@ -1,0 +1,6 @@
+Kompanija_B 203.00 rast
+Kompanija_A 99.00 pad
+Kompanija_D 120.60 rast
+Kompanija_B 196.91 pad
+Kompanija_C 80.04 stagnacija
+Kompanija_A 101.47 rast
