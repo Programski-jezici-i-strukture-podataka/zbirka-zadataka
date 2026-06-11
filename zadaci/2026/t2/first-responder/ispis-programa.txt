@@ -1,0 +1,16 @@
+Unesite broj vatrogasnih drustava: 
+1. vatrogasno drustvo: 
+2. vatrogasno drustvo: 
+3. vatrogasno drustvo: 
+4. vatrogasno drustvo: 
+5. vatrogasno drustvo: 
+6. vatrogasno drustvo: 
+7. vatrogasno drustvo: 
+8. vatrogasno drustvo: 
+9. vatrogasno drustvo: 
+10. vatrogasno drustvo: 
+
+NoviSad 1.01km
+NoviSad(FR) 0.96km
+Petrovaradin 1.38km
+SrKamenica 3.42km
